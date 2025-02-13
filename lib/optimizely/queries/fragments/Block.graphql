@@ -1,0 +1,65 @@
+fragment HeroBlockFragment on HeroBlock {
+  title
+  subtitle
+  decorationColorsPrimary
+  decorationColorsSecondary
+  showDecoration
+}
+
+fragment ContactBlockFragment on ContactBlock {
+  title
+  description
+}
+
+fragment LogosBlockFragment on LogosBlock {
+  logos {
+    ... on LogoItemBlock {
+      src
+      alt
+    }
+  }
+}
+
+fragment PortfolioGridBlockFragment on PortfolioGridBlock {
+  title
+  items {
+    ... on PortfolioItemBlock {
+      title
+      description
+      imageUrl
+      link
+    }
+  }
+}
+
+fragment ServicesBlockFragment on ServicesBlock {
+  services {
+  	... on ServiceItem {
+      title
+      description
+      icon
+    }
+  }
+}
+
+fragment TestimonialsBlockFragment on TestimonialsBlock {
+  title
+  testimonials {
+    ... on TestimonialItem {
+      title
+      position
+      content
+      avatarSrc
+    }
+  }
+}
+
+fragment ItemsInContentArea on _IContent {
+  __typename
+  ...HeroBlockFragment
+  ...ContactBlockFragment
+  ...LogosBlockFragment
+  ...PortfolioGridBlockFragment
+  ...ServicesBlockFragment
+  ...TestimonialsBlockFragment
+}
