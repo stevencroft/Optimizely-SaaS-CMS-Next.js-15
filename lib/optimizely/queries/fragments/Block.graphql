@@ -13,6 +13,7 @@ fragment ContactBlockFragment on ContactBlock {
 
 fragment LogosBlockFragment on LogosBlock {
   logos {
+    __typename
     ... on LogoItemBlock {
       src
       alt
@@ -23,6 +24,7 @@ fragment LogosBlockFragment on LogosBlock {
 fragment PortfolioGridBlockFragment on PortfolioGridBlock {
   title
   items {
+    __typename
     ... on PortfolioItemBlock {
       title
       description
@@ -34,6 +36,7 @@ fragment PortfolioGridBlockFragment on PortfolioGridBlock {
 
 fragment ServicesBlockFragment on ServicesBlock {
   services {
+    __typename
   	... on ServiceItem {
       title
       description
@@ -45,8 +48,9 @@ fragment ServicesBlockFragment on ServicesBlock {
 fragment TestimonialsBlockFragment on TestimonialsBlock {
   title
   testimonials {
-    ... on TestimonialItem {
-      title
+    __typename
+    ... on TestimonialItemBlock {
+      fullName
       position
       content
       avatarSrc

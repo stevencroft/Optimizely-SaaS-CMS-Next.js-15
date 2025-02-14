@@ -5,6 +5,7 @@ query getHeader($locale: [Locales]) {
       ctaText
       ctaHref
       navItems {
+        __typename
         ... on NavItem {
           label
           href

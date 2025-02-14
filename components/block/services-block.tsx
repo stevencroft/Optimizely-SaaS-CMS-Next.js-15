@@ -1,33 +1,28 @@
-import { cn } from "@/lib/utils"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import type React from "react" // Import React
+import Image from 'next/image'
+import { ServicesBlock as ServicesBlockProps, ServiceItem } from "@/lib/optimizely/types/generated"
+import { castContent } from "@/lib/optimizely/types/typeUtils"
 
-interface Service {
-  title: string
-  description: string
-  icon?: React.ReactNode
-}
-
-interface ServicesBlockProps {
-  services: Service[]
-  className?: string
-}
-
-export default function ServicesBlock({ services, className }: ServicesBlockProps) {
+export default function ServicesBlock({ services }: ServicesBlockProps) {
   return (
-    <section className={cn("container mx-auto px-4 py-16", className)}>
+    <section className="container mx-auto px-4 py-16">
       <div className="grid md:grid-cols-3 gap-8">
-        {services.map((service, index) => (
+        {services?.map((serviceItem, index) => {
+          const service = castContent<ServiceItem>(serviceItem, "ServiceItem")
+          if (!service) return null
+                    
+          return (
           <Card key={index}>
             <CardHeader>
-              {service.icon && <div className="mb-4">{service.icon}</div>}
-              <CardTitle>{service.title}</CardTitle>
+              <div className="mb-4"><Image src={service.icon ?? './placeholder.svg'} alt={service?.title ?? ''} width={50} height={50} /></div>
+              <CardTitle>{service?.title}</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground">{service.description}</p>
+              <p className="text-muted-foreground">{service?.description}</p>
             </CardContent>
           </Card>
-        ))}
+        )})}
       </div>
     </section>
   )

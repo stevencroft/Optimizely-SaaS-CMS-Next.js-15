@@ -3,15 +3,18 @@ query getFooter($locales: [Locales]) {
     items {
       copyrightText
       socialLinks {
+        __typename
         ... on SocialLink {
           platform
           href
         }
       }
       columns {
+        __typename
         ... on FooterColumn {
           title
           links {
+            __typename
             ... on NavItem {
               label
               href
