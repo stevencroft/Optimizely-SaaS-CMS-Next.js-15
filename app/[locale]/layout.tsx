@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import '../globals.css'
-import { LOCALES } from '@/lib/optimizely/utils/language';
-import { Header } from '@/components/layout/header';
-import { Footer } from '@/components/layout/footer';
+import { LOCALES } from '@/lib/optimizely/utils/language'
+import { Header } from '@/components/layout/header'
+import { Footer } from '@/components/layout/footer'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -22,10 +22,10 @@ export const metadata: Metadata = {
 
 export async function generateStaticParams() {
   try {
-    return LOCALES.map((locale) => ({ locale }));
+    return LOCALES.map((locale) => ({ locale }))
   } catch (e) {
-    console.error(e);
-    return [];
+    console.error(e)
+    return []
   }
 }
 
@@ -43,9 +43,7 @@ export default async function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Header locale={locale} />
-        <main className="container mx-auto px-4 min-h-screen">
-          {children}
-        </main>
+        <main className="container mx-auto min-h-screen px-4">{children}</main>
         <Footer locale={locale} />
       </body>
     </html>

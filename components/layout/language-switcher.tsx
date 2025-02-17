@@ -1,15 +1,20 @@
-'use client';
+'use client'
 
-import { usePathname, useRouter } from "next/navigation"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { Globe } from "lucide-react"
-import { LOCALES } from "@/lib/optimizely/utils/language"
-import { Button } from "../ui/button"
+import { usePathname, useRouter } from 'next/navigation'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu'
+import { Globe } from 'lucide-react'
+import { LOCALES } from '@/lib/optimizely/utils/language'
+import { Button } from '../ui/button'
 
 const LOCALE_NAMES: Record<string, string> = {
-  en: "English",
-  pl: "Polski",
-  sv: "Svenska",
+  en: 'English',
+  pl: 'Polski',
+  sv: 'Svenska',
 }
 
 export function LanguageSwitcher({ currentLocale }: { currentLocale: string }) {
@@ -18,8 +23,8 @@ export function LanguageSwitcher({ currentLocale }: { currentLocale: string }) {
 
   const handleLocaleChange = (newLocale: string) => {
     const currentPath = pathname
-    
-    const newPath = currentPath.includes(`/${currentLocale}`) 
+
+    const newPath = currentPath.includes(`/${currentLocale}`)
       ? currentPath.replace(`/${currentLocale}`, `/${newLocale}`)
       : `/${newLocale}/${currentPath}`
     router.push(newPath)
@@ -37,7 +42,7 @@ export function LanguageSwitcher({ currentLocale }: { currentLocale: string }) {
         {LOCALES.map((loc) => (
           <DropdownMenuItem
             key={loc}
-            className={loc === currentLocale ? "bg-accent" : ""}
+            className={loc === currentLocale ? 'bg-accent' : ''}
             onClick={() => handleLocaleChange(loc)}
           >
             {LOCALE_NAMES[loc]}

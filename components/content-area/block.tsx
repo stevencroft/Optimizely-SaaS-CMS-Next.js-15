@@ -1,13 +1,15 @@
-import dynamic from 'next/dynamic';
-import blocksMapperFactory from '@/lib/utils/block-factory';
+import dynamic from 'next/dynamic'
+import blocksMapperFactory from '@/lib/utils/block-factory'
 
 // Dynamically import each block
-const ContactBlock = dynamic(() => import('../block/contact-block'));
-const HeroBlock = dynamic(() => import('../block/hero-block'));
-const LogosBlock = dynamic(() => import('../block/logos-block'));
-const PortfolioGridBlock = dynamic(() => import('../block/portfolio-grid-block'));
-const ServicesBlock = dynamic(() => import('../block/services-block'));
-const TestimonialsBlock = dynamic(() => import('../block/testimonials-block'));
+const ContactBlock = dynamic(() => import('../block/contact-block'))
+const HeroBlock = dynamic(() => import('../block/hero-block'))
+const LogosBlock = dynamic(() => import('../block/logos-block'))
+const PortfolioGridBlock = dynamic(
+  () => import('../block/portfolio-grid-block')
+)
+const ServicesBlock = dynamic(() => import('../block/services-block'))
+const TestimonialsBlock = dynamic(() => import('../block/testimonials-block'))
 
 // Map the dynamically imported blocks
 export const blocks = {
@@ -16,13 +18,13 @@ export const blocks = {
   LogosBlock,
   PortfolioGridBlock,
   ServicesBlock,
-  TestimonialsBlock
-} as const;
+  TestimonialsBlock,
+} as const
 
-export type BlockTypeName = keyof typeof blocks;
+export type BlockTypeName = keyof typeof blocks
 
 export type ContentAreaBlock = {
-  __typename: BlockTypeName;
-} & React.ComponentProps<(typeof blocks)[BlockTypeName]>;
+  __typename: BlockTypeName
+} & React.ComponentProps<(typeof blocks)[BlockTypeName]>
 
-export default blocksMapperFactory(blocks);
+export default blocksMapperFactory(blocks)

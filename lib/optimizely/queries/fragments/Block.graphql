@@ -37,7 +37,7 @@ fragment PortfolioGridBlockFragment on PortfolioGridBlock {
 fragment ServicesBlockFragment on ServicesBlock {
   services {
     __typename
-  	... on ServiceItem {
+    ... on ServiceItem {
       title
       description
       icon

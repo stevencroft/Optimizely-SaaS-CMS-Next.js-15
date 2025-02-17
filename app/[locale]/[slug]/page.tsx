@@ -1,22 +1,29 @@
 // app/[locale]/[slug]/page.tsx
-import ContentAreaMapper from '@/components/content-area/mapper';
-import { optimizely } from '@/lib/optimizely/fetch';
-import { getValidLocale } from '@/lib/optimizely/utils/language';
-import { notFound } from 'next/navigation';
-import { Suspense } from 'react';
+import ContentAreaMapper from '@/components/content-area/mapper'
+import { optimizely } from '@/lib/optimizely/fetch'
+import { getValidLocale } from '@/lib/optimizely/utils/language'
+import { notFound } from 'next/navigation'
+import { Suspense } from 'react'
 
-export default async function CmsPage(props: { params: Promise<{ locale: string; slug?: string }> }) {
-  const { locale, slug = '' } = await props.params;
-  const locales = getValidLocale(locale);
+export default async function CmsPage(props: {
+  params: Promise<{ locale: string; slug?: string }>
+}) {
+  const { locale, slug = '' } = await props.params
+  const locales = getValidLocale(locale)
 
-  const { data, errors } = await optimizely.getPageByURL({ locales: [locales], slug: `/${slug}` });
+  const { data, errors } = await optimizely.getPageByURL({
+    locales: [locales],
+    slug: `/${slug}`,
+  })
 
   if (errors || !data?.CMSPage?.items?.[0]) {
-    notFound();
+    notFound()
   }
 
-  const page = data.CMSPage.items[0];
-  const blocks = (page?.blocks ?? []).filter((block) => block !== null && block !== undefined);
+  const page = data.CMSPage.items[0]
+  const blocks = (page?.blocks ?? []).filter(
+    (block) => block !== null && block !== undefined
+  )
 
   return (
     <>
@@ -24,5 +31,5 @@ export default async function CmsPage(props: { params: Promise<{ locale: string;
         <ContentAreaMapper blocks={blocks} />
       </Suspense>
     </>
-  );
+  )
 }
