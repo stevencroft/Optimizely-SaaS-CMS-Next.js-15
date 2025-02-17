@@ -1,0 +1,36 @@
+query VisualBuilder($locales: [Locales], $key: String, $version: String) {
+  _Experience(
+    locale: $locales
+    where: {
+      _metadata: { key: { eq: $key } }
+      _or: { _metadata: { version: { eq: $version } } }
+    }
+  ) {
+    items {
+      composition {
+        grids: nodes {
+          ... on CompositionStructureNode {
+            key
+            rows: nodes {
+              ... on CompositionStructureNode {
+                key
+                columns: nodes {
+                  ... on CompositionStructureNode {
+                    key
+                    elements: nodes {
+                      type
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      _metadata {
+        key
+        version
+      }
+    }
+  }
+}

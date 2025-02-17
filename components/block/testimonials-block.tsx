@@ -12,7 +12,9 @@ export default function TestimonialsBlock({
 }: TestimonialsBlockProps) {
   return (
     <section className="container mx-auto px-4 py-16">
-      <h2 className="mb-12 text-3xl font-bold">{title}</h2>
+      <h2 className="mb-12 text-3xl font-bold" data-epi-edit="title">
+        {title}
+      </h2>
       <div className="grid gap-8 md:grid-cols-3">
         {testimonials?.map((testimonialItem, index) => {
           const testimonial = castContent<TestimonialItemBlock>(
@@ -30,22 +32,30 @@ export default function TestimonialsBlock({
                       src={testimonial?.avatarSrc ?? './placeholder.svg'}
                       alt={testimonial?.fullName ?? ''}
                     />
-                    <AvatarFallback>
+                    <AvatarFallback data-epi-edit="fullName">
                       {testimonial?.fullName?.charAt(0)}
                     </AvatarFallback>
                   </Avatar>
                   <div>
-                    <CardTitle className="text-sm font-medium">
+                    <CardTitle
+                      className="text-sm font-medium"
+                      data-epi-edit="fullName"
+                    >
                       {testimonial?.fullName}
                     </CardTitle>
-                    <p className="text-sm text-muted-foreground">
+                    <p
+                      className="text-sm text-muted-foreground"
+                      data-epi-edit="position"
+                    >
                       {testimonial?.position}
                     </p>
                   </div>
                 </div>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground">{testimonial?.content}</p>
+                <p className="text-muted-foreground" data-epi-edit="content">
+                  {testimonial?.content}
+                </p>
               </CardContent>
             </Card>
           )

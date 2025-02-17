@@ -11,6 +11,12 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
+        hostname: '*.optimizely.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
         hostname: 'res.cloudinary.com',
       },
     ],
@@ -31,8 +37,20 @@ const nextConfig: NextConfig = {
         source: '/:path*',
         headers: [
           { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
-          { key: 'Content-Security-Policy', value: "frame-ancestors 'self'" },
+          {
+            key: 'Content-Security-Policy',
+            value: "frame-ancestors 'self' *.optimizely.com",
+          },
         ],
+      },
+    ]
+  },
+  async redirects() {
+    return [
+      {
+        source: '/preview/:path*',
+        destination: '/api/draft:path*',
+        permanent: true,
       },
     ]
   },

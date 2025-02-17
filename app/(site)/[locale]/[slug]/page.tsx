@@ -1,7 +1,10 @@
 // app/[locale]/[slug]/page.tsx
 import ContentAreaMapper from '@/components/content-area/mapper'
 import { optimizely } from '@/lib/optimizely/fetch'
-import { getValidLocale } from '@/lib/optimizely/utils/language'
+import {
+  getValidLocale,
+  mapPathWithoutLocale,
+} from '@/lib/optimizely/utils/language'
 import { generateAlternates } from '@/lib/utils/metadata'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
@@ -31,6 +34,31 @@ export async function generateMetadata(props: {
     description: page.shortDescription || '',
     keywords: page.keywords ?? '',
     alternates: generateAlternates(locale, '/'),
+  }
+}
+
+export async function generateStaticParams() {
+  try {
+    const pageType = 'CMSPage'
+    const pathsResp = await optimizely.AllPages({ pageType })
+    const paths = pathsResp.data?._Content?.items ?? []
+    const filterPaths = paths.filter(
+      (path) => path && path._metadata?.url?.default !== null
+    )
+    const uniquePaths = new Set<string>()
+    filterPaths.forEach((path) => {
+      const cleanPath = mapPathWithoutLocale(
+        path?._metadata?.url?.default ?? ''
+      )
+      uniquePaths.add(cleanPath)
+    })
+
+    return Array.from(uniquePaths).map((slug) => ({
+      slug,
+    }))
+  } catch (e) {
+    console.error(e)
+    return []
   }
 }
 

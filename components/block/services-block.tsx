@@ -26,10 +26,15 @@ export default function ServicesBlock({ services }: ServicesBlockProps) {
                     height={50}
                   />
                 </div>
-                <CardTitle>{service?.title}</CardTitle>
+                <CardTitle data-epi-edit="title">{service?.title}</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground">{service?.description}</p>
+                <p
+                  className="text-muted-foreground"
+                  data-epi-edit="description"
+                >
+                  {service?.description}
+                </p>
               </CardContent>
             </Card>
           )
