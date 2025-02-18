@@ -9,7 +9,10 @@ import { LanguageSwitcher } from './language-switcher'
 
 export async function Header({ locale }: { locale: string }) {
   const locales = getValidLocale(locale)
-  const { data } = await optimizely.getHeader({ locale: locales })
+  const { data } = await optimizely.getHeader(
+    { locale: locales },
+    { cacheTag: 'optimizely-header' }
+  )
   const header = data?.Header?.items?.[0]
   if (!header) {
     return null

@@ -11,7 +11,10 @@ import {
 
 export async function Footer({ locale }: { locale: string }) {
   const locales = getValidLocale(locale)
-  const { data } = await optimizely.getFooter({ locales: locales })
+  const { data } = await optimizely.getFooter(
+    { locales: locales },
+    { cacheTag: 'optimizely-footer' }
+  )
   const footer = data?.Footer?.items?.[0]
   if (!footer) {
     return null

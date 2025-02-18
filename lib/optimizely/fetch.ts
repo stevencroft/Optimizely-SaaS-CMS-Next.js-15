@@ -7,6 +7,7 @@ interface OptimizelyFetchOptions {
   headers?: Record<string, string>
   cache?: RequestCache
   preview?: boolean
+  cacheTag?: string
 }
 
 interface OptimizelyFetch<Variables> extends OptimizelyFetchOptions {
@@ -25,6 +26,7 @@ const optimizelyFetch = async <Response, Variables = object>({
   headers,
   cache = 'force-cache',
   preview,
+  cacheTag,
 }: OptimizelyFetch<Variables>): Promise<
   GraphqlResponse<Response> & { headers: Headers }
 > => {
@@ -33,6 +35,10 @@ const optimizelyFetch = async <Response, Variables = object>({
   if (preview) {
     configHeaders.Authorization = `Basic ${process.env.OPTIMIZELY_PREVIEW_SECRET}`
     cache = 'no-store'
+  }
+  const cacheTags = ['optimizely-content']
+  if (cacheTag) {
+    cacheTags.push(cacheTag)
   }
 
   try {
@@ -49,6 +55,7 @@ const optimizelyFetch = async <Response, Variables = object>({
         ...(variables && { variables }),
       }),
       cache,
+      next: { tags: cacheTags },
     })
 
     const result = await response.json()
