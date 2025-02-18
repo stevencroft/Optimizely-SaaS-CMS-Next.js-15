@@ -1,5 +1,7 @@
 import OnPageEdit from '@/components/draft/on-page-edit'
+import VisualBuilderExperienceWrapper from '@/components/visual-builder/wrapper'
 import { optimizely } from '@/lib/optimizely/fetch'
+import { SafeVisualBuilderExperience } from '@/lib/optimizely/types/experience'
 import { getValidLocale } from '@/lib/optimizely/utils/language'
 import { draftMode } from 'next/headers'
 import { notFound } from 'next/navigation'
@@ -23,7 +25,9 @@ export default async function Page(props: {
     { key, version, locales },
     { preview: true }
   )
-  const experience = experienceData.data?._Experience?.items?.[0]
+  const experience = experienceData.data?.SEOExperience?.items?.[0] as
+    | SafeVisualBuilderExperience
+    | undefined
 
   if (!experience) {
     return notFound()
@@ -35,7 +39,7 @@ export default async function Page(props: {
         version={version}
         currentRoute={`/${locale}/draft/${version}/experience/${key}`}
       />
-      {JSON.stringify(experience)}
+      <VisualBuilderExperienceWrapper experience={experience} />
     </Suspense>
   )
 }

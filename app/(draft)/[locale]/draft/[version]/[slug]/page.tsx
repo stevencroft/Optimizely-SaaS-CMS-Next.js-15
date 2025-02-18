@@ -19,9 +19,10 @@ export default async function CmsPage(props: {
 
   const { locale, slug = '', version } = await props.params
   const locales = getValidLocale(locale)
+  const formattedSlug = `/${slug}`
 
   const pageResponse = await optimizely.getPreviewPageByURL(
-    { locales, slug: `/${slug}`, version },
+    { locales, slug: formattedSlug, version },
     { preview: true }
   )
   const page = pageResponse.data?.CMSPage?.items?.[0]

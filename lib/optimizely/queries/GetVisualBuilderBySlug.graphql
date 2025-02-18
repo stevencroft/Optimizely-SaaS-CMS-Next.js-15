@@ -1,12 +1,12 @@
-query VisualBuilder($locales: [Locales], $key: String, $version: String) {
+query GetVisualBuilderBySlug($locales: [Locales], $slug: String) {
   SEOExperience(
     locale: $locales
-    where: {
-      _metadata: { key: { eq: $key } }
-      _or: { _metadata: { version: { eq: $version } } }
-    }
+    where: { _metadata: { url: { default: { eq: $slug } } } }
   ) {
     items {
+      title
+      shortDescription
+      keywords
       composition {
         grids: nodes {
           ... on CompositionStructureNode {
@@ -35,10 +35,6 @@ query VisualBuilder($locales: [Locales], $key: String, $version: String) {
             }
           }
         }
-      }
-      _metadata {
-        key
-        version
       }
     }
   }
