@@ -17,13 +17,13 @@ export default function VisualBuilderExperienceWrapper({
         {experience?.composition?.grids?.map((grid: Grid) => (
           <div
             key={grid.key}
-            className="vb:grid relative flex w-full flex-col flex-nowrap justify-start"
+            className="vb:grid relative flex w-full flex-col flex-wrap"
             data-epi-block-id={grid.key}
           >
             {grid.rows?.map((row: Row) => (
               <div
                 key={row.key}
-                className="vb:row flex flex-1 flex-row flex-nowrap justify-start"
+                className="vb:row flex flex-1 flex-col flex-nowrap md:flex-row"
               >
                 {row.columns?.map((column: Column) => (
                   <div
