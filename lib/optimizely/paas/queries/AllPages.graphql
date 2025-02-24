@@ -1,0 +1,10 @@
+query AllPages($pageType: [String]) {
+  Content(where: { ContentType: { in: $pageType } }) {
+    items {
+      Name
+      RelativePath
+      RouteSegment
+      ContentType
+    }
+  }
+}

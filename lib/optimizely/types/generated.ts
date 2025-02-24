@@ -16,22 +16,53 @@ export type Scalars = {
   Float: { input: number; output: number; }
   Bool: { input: any; output: any; }
   Date: { input: any; output: any; }
-  DateTime: { input: any; output: any; }
 };
 
-export type AvailabilityBlock = IData & _IComponent & _IContent & {
+export type AvailabilityBlock = IContent & IData & {
   __typename?: 'AvailabilityBlock';
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Availability: Maybe<Scalars['String']['output']>;
+  Category: Maybe<Array<Maybe<CategoryModel>>>;
+  Changed: Maybe<Scalars['Date']['output']>;
+  ContentLink: Maybe<ContentModelReference>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Created: Maybe<Scalars['Date']['output']>;
+  ExistingLanguages: Maybe<Array<Maybe<ContentLanguageModel>>>;
+  IsCommonDraft: Maybe<Scalars['Bool']['output']>;
+  Language: Maybe<ContentLanguageModel>;
+  MasterLanguage: Maybe<ContentLanguageModel>;
+  Name: Maybe<Scalars['String']['output']>;
+  ParentLink: Maybe<ContentModelReference>;
+  ProjectTypes: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  RelativePath: Maybe<Scalars['String']['output']>;
+  RouteSegment: Maybe<Scalars['String']['output']>;
+  Saved: Maybe<Scalars['Date']['output']>;
+  Shortcut: Maybe<Scalars['String']['output']>;
+  SiteId: Maybe<Scalars['String']['output']>;
+  StartPublish: Maybe<Scalars['Date']['output']>;
+  Status: Maybe<Scalars['String']['output']>;
+  StopPublish: Maybe<Scalars['Date']['output']>;
+  Url: Maybe<Scalars['String']['output']>;
   /** @deprecated Use `_link` field instead */
   _children: Maybe<QueryRef>;
+  _concreteType: Maybe<Scalars['String']['output']>;
   _deleted: Maybe<Scalars['Bool']['output']>;
   _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id: Maybe<Scalars['String']['output']>;
   _link: Maybe<QueryRef>;
-  _metadata: Maybe<IContentMetadata>;
   _modified: Maybe<Scalars['Date']['output']>;
   _score: Maybe<Scalars['Float']['output']>;
-  availability: Maybe<Scalars['String']['output']>;
-  projectTypes: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _sortOrder: Maybe<Scalars['Int']['output']>;
+};
+
+
+export type AvailabilityBlockAvailabilityArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type AvailabilityBlockNameArgs = {
+  highlight: InputMaybe<HighlightOptions>;
 };
 
 
@@ -46,21 +77,287 @@ export type AvailabilityBlock_LinkArgs = {
 
 export type AvailabilityBlockAutocomplete = {
   __typename?: 'AvailabilityBlockAutocomplete';
-  _metadata: Maybe<IContentMetadataAutocomplete>;
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Category: Maybe<CategoryModelAutocomplete>;
+  ContentLink: Maybe<ContentModelReferenceAutocomplete>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelAutocomplete>;
+  Language: Maybe<ContentLanguageModelAutocomplete>;
+  MasterLanguage: Maybe<ContentLanguageModelAutocomplete>;
+  ParentLink: Maybe<ContentModelReferenceAutocomplete>;
+  ProjectTypes: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  RelativePath: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  RouteSegment: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Shortcut: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  SiteId: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Status: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Url: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _concreteType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+};
+
+
+export type AvailabilityBlockAutocompleteAncestorsArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type AvailabilityBlockAutocompleteContentTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type AvailabilityBlockAutocompleteProjectTypesArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type AvailabilityBlockAutocompleteRelativePathArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type AvailabilityBlockAutocompleteRouteSegmentArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type AvailabilityBlockAutocompleteShortcutArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type AvailabilityBlockAutocompleteSiteIdArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type AvailabilityBlockAutocompleteStatusArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type AvailabilityBlockAutocompleteUrlArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type AvailabilityBlockAutocomplete_ConcreteTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
 };
 
 export type AvailabilityBlockFacet = {
   __typename?: 'AvailabilityBlockFacet';
-  _metadata: Maybe<IContentMetadataFacet>;
+  Ancestors: Maybe<Array<Maybe<StringFacet>>>;
+  Availability: Maybe<Array<Maybe<StringFacet>>>;
+  Category: Maybe<CategoryModelFacet>;
+  Changed: Maybe<Array<Maybe<DateFacet>>>;
+  ContentLink: Maybe<ContentModelReferenceFacet>;
+  ContentType: Maybe<Array<Maybe<StringFacet>>>;
+  Created: Maybe<Array<Maybe<DateFacet>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelFacet>;
+  IsCommonDraft: Maybe<Array<Maybe<StringFacet>>>;
+  Language: Maybe<ContentLanguageModelFacet>;
+  MasterLanguage: Maybe<ContentLanguageModelFacet>;
+  Name: Maybe<Array<Maybe<StringFacet>>>;
+  ParentLink: Maybe<ContentModelReferenceFacet>;
+  ProjectTypes: Maybe<Array<Maybe<StringFacet>>>;
+  RelativePath: Maybe<Array<Maybe<StringFacet>>>;
+  RouteSegment: Maybe<Array<Maybe<StringFacet>>>;
+  Saved: Maybe<Array<Maybe<DateFacet>>>;
+  Shortcut: Maybe<Array<Maybe<StringFacet>>>;
+  SiteId: Maybe<Array<Maybe<StringFacet>>>;
+  StartPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Status: Maybe<Array<Maybe<StringFacet>>>;
+  StopPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Url: Maybe<Array<Maybe<StringFacet>>>;
+  _concreteType: Maybe<Array<Maybe<StringFacet>>>;
+  _sortOrder: Maybe<Array<Maybe<NumberFacet>>>;
+};
+
+
+export type AvailabilityBlockFacetAncestorsArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type AvailabilityBlockFacetAvailabilityArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type AvailabilityBlockFacetChangedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type AvailabilityBlockFacetContentTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type AvailabilityBlockFacetCreatedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type AvailabilityBlockFacetIsCommonDraftArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type AvailabilityBlockFacetNameArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type AvailabilityBlockFacetProjectTypesArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type AvailabilityBlockFacetRelativePathArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type AvailabilityBlockFacetRouteSegmentArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type AvailabilityBlockFacetSavedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type AvailabilityBlockFacetShortcutArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type AvailabilityBlockFacetSiteIdArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type AvailabilityBlockFacetStartPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type AvailabilityBlockFacetStatusArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type AvailabilityBlockFacetStopPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type AvailabilityBlockFacetUrlArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type AvailabilityBlockFacet_ConcreteTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type AvailabilityBlockFacet_SortOrderArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<OrderBy>;
+  orderType: InputMaybe<OrderByFacetType>;
+  ranges: InputMaybe<Array<InputMaybe<RangeFacetsInput>>>;
 };
 
 export type AvailabilityBlockOrderByInput = {
-  _metadata: InputMaybe<IContentMetadataOrderByInput>;
+  Ancestors: InputMaybe<OrderBy>;
+  Availability: InputMaybe<OrderBy>;
+  Category: InputMaybe<CategoryModelOrderByInput>;
+  Changed: InputMaybe<OrderBy>;
+  ContentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  ContentType: InputMaybe<OrderBy>;
+  Created: InputMaybe<OrderBy>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelOrderByInput>;
+  IsCommonDraft: InputMaybe<OrderBy>;
+  Language: InputMaybe<ContentLanguageModelOrderByInput>;
+  MasterLanguage: InputMaybe<ContentLanguageModelOrderByInput>;
+  Name: InputMaybe<OrderBy>;
+  ParentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  ProjectTypes: InputMaybe<OrderBy>;
+  RelativePath: InputMaybe<OrderBy>;
+  RouteSegment: InputMaybe<OrderBy>;
+  Saved: InputMaybe<OrderBy>;
+  Shortcut: InputMaybe<OrderBy>;
+  SiteId: InputMaybe<OrderBy>;
+  StartPublish: InputMaybe<OrderBy>;
+  Status: InputMaybe<OrderBy>;
+  StopPublish: InputMaybe<OrderBy>;
+  Url: InputMaybe<OrderBy>;
+  _concreteType: InputMaybe<OrderBy>;
   _minimumScore: InputMaybe<Scalars['Float']['input']>;
   _modified: InputMaybe<OrderBy>;
   _ranking: InputMaybe<Ranking>;
   /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
   _semanticWeight: InputMaybe<Scalars['Float']['input']>;
+  _sortOrder: InputMaybe<OrderBy>;
 };
 
 export type AvailabilityBlockOutput = {
@@ -78,169 +375,167 @@ export type AvailabilityBlockOutputTotalArgs = {
 };
 
 export type AvailabilityBlockWhereInput = {
+  Ancestors: InputMaybe<StringFilterInput>;
+  Availability: InputMaybe<SearchableStringFilterInput>;
+  Category: InputMaybe<CategoryModelWhereInput>;
+  Changed: InputMaybe<DateFilterInput>;
+  ContentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  ContentType: InputMaybe<StringFilterInput>;
+  Created: InputMaybe<DateFilterInput>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelWhereInput>;
+  IsCommonDraft: InputMaybe<BoolFilterInput>;
+  Language: InputMaybe<ContentLanguageModelWhereInput>;
+  MasterLanguage: InputMaybe<ContentLanguageModelWhereInput>;
+  Name: InputMaybe<SearchableStringFilterInput>;
+  ParentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  ProjectTypes: InputMaybe<StringFilterInput>;
+  RelativePath: InputMaybe<StringFilterInput>;
+  RouteSegment: InputMaybe<StringFilterInput>;
+  Saved: InputMaybe<DateFilterInput>;
+  Shortcut: InputMaybe<StringFilterInput>;
+  SiteId: InputMaybe<StringFilterInput>;
+  StartPublish: InputMaybe<DateFilterInput>;
+  Status: InputMaybe<StringFilterInput>;
+  StopPublish: InputMaybe<DateFilterInput>;
+  Url: InputMaybe<StringFilterInput>;
   _and: InputMaybe<Array<InputMaybe<AvailabilityBlockWhereInput>>>;
+  _concreteType: InputMaybe<StringFilterInput>;
   _fulltext: InputMaybe<SearchableStringFilterInput>;
-  _metadata: InputMaybe<IContentMetadataWhereInput>;
   _modified: InputMaybe<DateFilterInput>;
   _not: InputMaybe<Array<InputMaybe<AvailabilityBlockWhereInput>>>;
   _or: InputMaybe<Array<InputMaybe<AvailabilityBlockWhereInput>>>;
+  _sortOrder: InputMaybe<IntFilterInput>;
 };
 
-export type BlankExperience = IData & _IContent & _IExperience & _IPage & {
-  __typename?: 'BlankExperience';
-  /** @deprecated Use `_link` field instead */
-  _children: Maybe<QueryRef>;
-  _deleted: Maybe<Scalars['Bool']['output']>;
-  _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  _id: Maybe<Scalars['String']['output']>;
-  _link: Maybe<QueryRef>;
-  _metadata: Maybe<IContentMetadata>;
-  _modified: Maybe<Scalars['Date']['output']>;
-  _score: Maybe<Scalars['Float']['output']>;
-  composition: Maybe<CompositionStructureNode>;
+export type BlobModel = {
+  __typename?: 'BlobModel';
+  Id: Maybe<Scalars['String']['output']>;
+  Url: Maybe<Scalars['String']['output']>;
 };
 
-
-export type BlankExperience_FulltextArgs = {
-  highlight: InputMaybe<HighlightOptions>;
+export type BlobModelAutocomplete = {
+  __typename?: 'BlobModelAutocomplete';
+  Id: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Url: Maybe<Array<Maybe<Scalars['String']['output']>>>;
 };
 
 
-export type BlankExperience_LinkArgs = {
-  type: InputMaybe<LinkTypes>;
-};
-
-export type BlankExperienceAutocomplete = {
-  __typename?: 'BlankExperienceAutocomplete';
-  _metadata: Maybe<IContentMetadataAutocomplete>;
-  composition: Maybe<CompositionStructureNodeAutocomplete>;
-};
-
-export type BlankExperienceFacet = {
-  __typename?: 'BlankExperienceFacet';
-  _metadata: Maybe<IContentMetadataFacet>;
-  composition: Maybe<CompositionStructureNodeFacet>;
-};
-
-export type BlankExperienceOrderByInput = {
-  _metadata: InputMaybe<IContentMetadataOrderByInput>;
-  _minimumScore: InputMaybe<Scalars['Float']['input']>;
-  _modified: InputMaybe<OrderBy>;
-  _ranking: InputMaybe<Ranking>;
-  /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
-  _semanticWeight: InputMaybe<Scalars['Float']['input']>;
-  composition: InputMaybe<CompositionStructureNodeOrderByInput>;
-};
-
-export type BlankExperienceOutput = {
-  __typename?: 'BlankExperienceOutput';
-  autocomplete: Maybe<BlankExperienceAutocomplete>;
-  cursor: Maybe<Scalars['String']['output']>;
-  facets: Maybe<BlankExperienceFacet>;
-  items: Maybe<Array<Maybe<BlankExperience>>>;
-  total: Maybe<Scalars['Int']['output']>;
+export type BlobModelAutocompleteIdArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
 };
 
 
-export type BlankExperienceOutputTotalArgs = {
-  all: InputMaybe<Scalars['Boolean']['input']>;
+export type BlobModelAutocompleteUrlArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
 };
 
-export type BlankExperienceWhereInput = {
-  _and: InputMaybe<Array<InputMaybe<BlankExperienceWhereInput>>>;
-  _fulltext: InputMaybe<SearchableStringFilterInput>;
-  _metadata: InputMaybe<IContentMetadataWhereInput>;
-  _modified: InputMaybe<DateFilterInput>;
-  _not: InputMaybe<Array<InputMaybe<BlankExperienceWhereInput>>>;
-  _or: InputMaybe<Array<InputMaybe<BlankExperienceWhereInput>>>;
-  composition: InputMaybe<CompositionStructureNodeWhereInput>;
-};
-
-export type BlankSection = IData & _IComponent & _IContent & _ISection & {
-  __typename?: 'BlankSection';
-  /** @deprecated Use `_link` field instead */
-  _children: Maybe<QueryRef>;
-  _deleted: Maybe<Scalars['Bool']['output']>;
-  _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  _id: Maybe<Scalars['String']['output']>;
-  _link: Maybe<QueryRef>;
-  _metadata: Maybe<IContentMetadata>;
-  _modified: Maybe<Scalars['Date']['output']>;
-  _score: Maybe<Scalars['Float']['output']>;
-  composition: Maybe<CompositionStructureNode>;
+export type BlobModelFacet = {
+  __typename?: 'BlobModelFacet';
+  Id: Maybe<Array<Maybe<StringFacet>>>;
+  Url: Maybe<Array<Maybe<StringFacet>>>;
 };
 
 
-export type BlankSection_FulltextArgs = {
-  highlight: InputMaybe<HighlightOptions>;
+export type BlobModelFacetIdArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
 };
 
 
-export type BlankSection_LinkArgs = {
-  type: InputMaybe<LinkTypes>;
+export type BlobModelFacetUrlArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
 };
 
-export type BlankSectionAutocomplete = {
-  __typename?: 'BlankSectionAutocomplete';
-  _metadata: Maybe<IContentMetadataAutocomplete>;
-  composition: Maybe<CompositionStructureNodeAutocomplete>;
+export type BlobModelOrderByInput = {
+  Id: InputMaybe<OrderBy>;
+  Url: InputMaybe<OrderBy>;
 };
 
-export type BlankSectionFacet = {
-  __typename?: 'BlankSectionFacet';
-  _metadata: Maybe<IContentMetadataFacet>;
-  composition: Maybe<CompositionStructureNodeFacet>;
+export type BlobModelWhereInput = {
+  Id: InputMaybe<StringFilterInput>;
+  Url: InputMaybe<StringFilterInput>;
 };
 
-export type BlankSectionOrderByInput = {
-  _metadata: InputMaybe<IContentMetadataOrderByInput>;
-  _minimumScore: InputMaybe<Scalars['Float']['input']>;
-  _modified: InputMaybe<OrderBy>;
-  _ranking: InputMaybe<Ranking>;
-  /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
-  _semanticWeight: InputMaybe<Scalars['Float']['input']>;
-  composition: InputMaybe<CompositionStructureNodeOrderByInput>;
+export type BoolFilterInput = {
+  /** `boost` influences the weight of a field by boosting a match with a number (default: 1) — counts more towards the eventual relevance score which can be projected with `_score` — at query time. Note that `boost` cannot be a negative number. */
+  boost: InputMaybe<Scalars['Int']['input']>;
+  /** `eq` matches on an exact value, but the value is case-insensitive. */
+  eq: InputMaybe<Scalars['Boolean']['input']>;
+  /** `exist` matches results that have this field. */
+  exist: InputMaybe<Scalars['Boolean']['input']>;
+  /** `not_eq` retrieves results not matching with an exact (but case-insensitive) value. */
+  notEq: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type BlankSectionOutput = {
-  __typename?: 'BlankSectionOutput';
-  autocomplete: Maybe<BlankSectionAutocomplete>;
-  cursor: Maybe<Scalars['String']['output']>;
-  facets: Maybe<BlankSectionFacet>;
-  items: Maybe<Array<Maybe<BlankSection>>>;
-  total: Maybe<Scalars['Int']['output']>;
-};
-
-
-export type BlankSectionOutputTotalArgs = {
-  all: InputMaybe<Scalars['Boolean']['input']>;
-};
-
-export type BlankSectionWhereInput = {
-  _and: InputMaybe<Array<InputMaybe<BlankSectionWhereInput>>>;
-  _fulltext: InputMaybe<SearchableStringFilterInput>;
-  _metadata: InputMaybe<IContentMetadataWhereInput>;
-  _modified: InputMaybe<DateFilterInput>;
-  _not: InputMaybe<Array<InputMaybe<BlankSectionWhereInput>>>;
-  _or: InputMaybe<Array<InputMaybe<BlankSectionWhereInput>>>;
-  composition: InputMaybe<CompositionStructureNodeWhereInput>;
-};
-
-export type CmsPage = IData & _IContent & _IPage & {
+export type CmsPage = IContent & IData & {
   __typename?: 'CMSPage';
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Blocks: Maybe<Array<Maybe<ContentAreaItemModelSearch>>>;
+  Category: Maybe<Array<Maybe<CategoryModel>>>;
+  Changed: Maybe<Scalars['Date']['output']>;
+  ContentLink: Maybe<ContentModelReference>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Created: Maybe<Scalars['Date']['output']>;
+  ExistingLanguages: Maybe<Array<Maybe<ContentLanguageModel>>>;
+  IsCommonDraft: Maybe<Scalars['Bool']['output']>;
+  Keywords: Maybe<Scalars['String']['output']>;
+  Language: Maybe<ContentLanguageModel>;
+  MasterLanguage: Maybe<ContentLanguageModel>;
+  Name: Maybe<Scalars['String']['output']>;
+  ParentLink: Maybe<ContentModelReference>;
+  RelativePath: Maybe<Scalars['String']['output']>;
+  RouteSegment: Maybe<Scalars['String']['output']>;
+  Saved: Maybe<Scalars['Date']['output']>;
+  ShortDescription: Maybe<Scalars['String']['output']>;
+  Shortcut: Maybe<Scalars['String']['output']>;
+  SiteId: Maybe<Scalars['String']['output']>;
+  StartPublish: Maybe<Scalars['Date']['output']>;
+  Status: Maybe<Scalars['String']['output']>;
+  StopPublish: Maybe<Scalars['Date']['output']>;
+  Title: Maybe<Scalars['String']['output']>;
+  Url: Maybe<Scalars['String']['output']>;
   /** @deprecated Use `_link` field instead */
   _children: Maybe<QueryRef>;
+  _concreteType: Maybe<Scalars['String']['output']>;
   _deleted: Maybe<Scalars['Bool']['output']>;
   _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id: Maybe<Scalars['String']['output']>;
   _link: Maybe<QueryRef>;
-  _metadata: Maybe<IContentMetadata>;
   _modified: Maybe<Scalars['Date']['output']>;
   _score: Maybe<Scalars['Float']['output']>;
-  blocks: Maybe<Array<Maybe<_IContent>>>;
-  keywords: Maybe<Scalars['String']['output']>;
-  shortDescription: Maybe<Scalars['String']['output']>;
-  title: Maybe<Scalars['String']['output']>;
+  _sortOrder: Maybe<Scalars['Int']['output']>;
+};
+
+
+export type CmsPageBlocksArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type CmsPageKeywordsArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type CmsPageNameArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type CmsPageShortDescriptionArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type CmsPageTitleArgs = {
+  highlight: InputMaybe<HighlightOptions>;
 };
 
 
@@ -255,24 +550,292 @@ export type CmsPage_LinkArgs = {
 
 export type CmsPageAutocomplete = {
   __typename?: 'CMSPageAutocomplete';
-  _metadata: Maybe<IContentMetadataAutocomplete>;
-  blocks: Maybe<_IContentAutocomplete>;
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Category: Maybe<CategoryModelAutocomplete>;
+  ContentLink: Maybe<ContentModelReferenceAutocomplete>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelAutocomplete>;
+  Language: Maybe<ContentLanguageModelAutocomplete>;
+  MasterLanguage: Maybe<ContentLanguageModelAutocomplete>;
+  ParentLink: Maybe<ContentModelReferenceAutocomplete>;
+  RelativePath: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  RouteSegment: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Shortcut: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  SiteId: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Status: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Url: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _concreteType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+};
+
+
+export type CmsPageAutocompleteAncestorsArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type CmsPageAutocompleteContentTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type CmsPageAutocompleteRelativePathArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type CmsPageAutocompleteRouteSegmentArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type CmsPageAutocompleteShortcutArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type CmsPageAutocompleteSiteIdArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type CmsPageAutocompleteStatusArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type CmsPageAutocompleteUrlArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type CmsPageAutocomplete_ConcreteTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
 };
 
 export type CmsPageFacet = {
   __typename?: 'CMSPageFacet';
-  _metadata: Maybe<IContentMetadataFacet>;
-  blocks: Maybe<_IContentFacet>;
+  Ancestors: Maybe<Array<Maybe<StringFacet>>>;
+  Blocks: Maybe<ContentAreaItemModelSearchFacet>;
+  Category: Maybe<CategoryModelFacet>;
+  Changed: Maybe<Array<Maybe<DateFacet>>>;
+  ContentLink: Maybe<ContentModelReferenceFacet>;
+  ContentType: Maybe<Array<Maybe<StringFacet>>>;
+  Created: Maybe<Array<Maybe<DateFacet>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelFacet>;
+  IsCommonDraft: Maybe<Array<Maybe<StringFacet>>>;
+  Keywords: Maybe<Array<Maybe<StringFacet>>>;
+  Language: Maybe<ContentLanguageModelFacet>;
+  MasterLanguage: Maybe<ContentLanguageModelFacet>;
+  Name: Maybe<Array<Maybe<StringFacet>>>;
+  ParentLink: Maybe<ContentModelReferenceFacet>;
+  RelativePath: Maybe<Array<Maybe<StringFacet>>>;
+  RouteSegment: Maybe<Array<Maybe<StringFacet>>>;
+  Saved: Maybe<Array<Maybe<DateFacet>>>;
+  ShortDescription: Maybe<Array<Maybe<StringFacet>>>;
+  Shortcut: Maybe<Array<Maybe<StringFacet>>>;
+  SiteId: Maybe<Array<Maybe<StringFacet>>>;
+  StartPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Status: Maybe<Array<Maybe<StringFacet>>>;
+  StopPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Title: Maybe<Array<Maybe<StringFacet>>>;
+  Url: Maybe<Array<Maybe<StringFacet>>>;
+  _concreteType: Maybe<Array<Maybe<StringFacet>>>;
+  _sortOrder: Maybe<Array<Maybe<NumberFacet>>>;
+};
+
+
+export type CmsPageFacetAncestorsArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type CmsPageFacetChangedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type CmsPageFacetContentTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type CmsPageFacetCreatedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type CmsPageFacetIsCommonDraftArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type CmsPageFacetKeywordsArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type CmsPageFacetNameArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type CmsPageFacetRelativePathArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type CmsPageFacetRouteSegmentArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type CmsPageFacetSavedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type CmsPageFacetShortDescriptionArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type CmsPageFacetShortcutArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type CmsPageFacetSiteIdArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type CmsPageFacetStartPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type CmsPageFacetStatusArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type CmsPageFacetStopPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type CmsPageFacetTitleArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type CmsPageFacetUrlArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type CmsPageFacet_ConcreteTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type CmsPageFacet_SortOrderArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<OrderBy>;
+  orderType: InputMaybe<OrderByFacetType>;
+  ranges: InputMaybe<Array<InputMaybe<RangeFacetsInput>>>;
 };
 
 export type CmsPageOrderByInput = {
-  _metadata: InputMaybe<IContentMetadataOrderByInput>;
+  Ancestors: InputMaybe<OrderBy>;
+  Blocks: InputMaybe<ContentAreaItemModelSearchOrderByInput>;
+  Category: InputMaybe<CategoryModelOrderByInput>;
+  Changed: InputMaybe<OrderBy>;
+  ContentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  ContentType: InputMaybe<OrderBy>;
+  Created: InputMaybe<OrderBy>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelOrderByInput>;
+  IsCommonDraft: InputMaybe<OrderBy>;
+  Keywords: InputMaybe<OrderBy>;
+  Language: InputMaybe<ContentLanguageModelOrderByInput>;
+  MasterLanguage: InputMaybe<ContentLanguageModelOrderByInput>;
+  Name: InputMaybe<OrderBy>;
+  ParentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  RelativePath: InputMaybe<OrderBy>;
+  RouteSegment: InputMaybe<OrderBy>;
+  Saved: InputMaybe<OrderBy>;
+  ShortDescription: InputMaybe<OrderBy>;
+  Shortcut: InputMaybe<OrderBy>;
+  SiteId: InputMaybe<OrderBy>;
+  StartPublish: InputMaybe<OrderBy>;
+  Status: InputMaybe<OrderBy>;
+  StopPublish: InputMaybe<OrderBy>;
+  Title: InputMaybe<OrderBy>;
+  Url: InputMaybe<OrderBy>;
+  _concreteType: InputMaybe<OrderBy>;
   _minimumScore: InputMaybe<Scalars['Float']['input']>;
   _modified: InputMaybe<OrderBy>;
   _ranking: InputMaybe<Ranking>;
   /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
   _semanticWeight: InputMaybe<Scalars['Float']['input']>;
-  blocks: InputMaybe<_IContentOrderByInput>;
+  _sortOrder: InputMaybe<OrderBy>;
 };
 
 export type CmsPageOutput = {
@@ -290,58 +853,74 @@ export type CmsPageOutputTotalArgs = {
 };
 
 export type CmsPageWhereInput = {
+  Ancestors: InputMaybe<StringFilterInput>;
+  Blocks: InputMaybe<ContentAreaItemModelSearchWhereInput>;
+  Category: InputMaybe<CategoryModelWhereInput>;
+  Changed: InputMaybe<DateFilterInput>;
+  ContentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  ContentType: InputMaybe<StringFilterInput>;
+  Created: InputMaybe<DateFilterInput>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelWhereInput>;
+  IsCommonDraft: InputMaybe<BoolFilterInput>;
+  Keywords: InputMaybe<SearchableStringFilterInput>;
+  Language: InputMaybe<ContentLanguageModelWhereInput>;
+  MasterLanguage: InputMaybe<ContentLanguageModelWhereInput>;
+  Name: InputMaybe<SearchableStringFilterInput>;
+  ParentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  RelativePath: InputMaybe<StringFilterInput>;
+  RouteSegment: InputMaybe<StringFilterInput>;
+  Saved: InputMaybe<DateFilterInput>;
+  ShortDescription: InputMaybe<SearchableStringFilterInput>;
+  Shortcut: InputMaybe<StringFilterInput>;
+  SiteId: InputMaybe<StringFilterInput>;
+  StartPublish: InputMaybe<DateFilterInput>;
+  Status: InputMaybe<StringFilterInput>;
+  StopPublish: InputMaybe<DateFilterInput>;
+  Title: InputMaybe<SearchableStringFilterInput>;
+  Url: InputMaybe<StringFilterInput>;
   _and: InputMaybe<Array<InputMaybe<CmsPageWhereInput>>>;
+  _concreteType: InputMaybe<StringFilterInput>;
   _fulltext: InputMaybe<SearchableStringFilterInput>;
-  _metadata: InputMaybe<IContentMetadataWhereInput>;
   _modified: InputMaybe<DateFilterInput>;
   _not: InputMaybe<Array<InputMaybe<CmsPageWhereInput>>>;
   _or: InputMaybe<Array<InputMaybe<CmsPageWhereInput>>>;
-  blocks: InputMaybe<_IContentWhereInput>;
+  _sortOrder: InputMaybe<IntFilterInput>;
 };
 
-export type CompositionComponentNode = ICompositionComponentNode & ICompositionNode & {
-  __typename?: 'CompositionComponentNode';
-  component: Maybe<_IComponent>;
-  displayName: Maybe<Scalars['String']['output']>;
-  displaySettings: Maybe<Array<Maybe<CompositionDisplaySetting>>>;
-  displayTemplateKey: Maybe<Scalars['String']['output']>;
-  key: Maybe<Scalars['String']['output']>;
-  nodeType: Maybe<Scalars['String']['output']>;
-  type: Maybe<Scalars['String']['output']>;
+export type CategoryModel = {
+  __typename?: 'CategoryModel';
+  Description: Maybe<Scalars['String']['output']>;
+  Id: Maybe<Scalars['Int']['output']>;
+  Name: Maybe<Scalars['String']['output']>;
 };
 
-export type CompositionDisplaySetting = {
-  __typename?: 'CompositionDisplaySetting';
-  key: Maybe<Scalars['String']['output']>;
-  value: Maybe<Scalars['String']['output']>;
-};
-
-export type CompositionDisplaySettingAutocomplete = {
-  __typename?: 'CompositionDisplaySettingAutocomplete';
-  key: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  value: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+export type CategoryModelAutocomplete = {
+  __typename?: 'CategoryModelAutocomplete';
+  Description: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Name: Maybe<Array<Maybe<Scalars['String']['output']>>>;
 };
 
 
-export type CompositionDisplaySettingAutocompleteKeyArgs = {
+export type CategoryModelAutocompleteDescriptionArgs = {
   limit?: Scalars['Int']['input'];
   value: Scalars['String']['input'];
 };
 
 
-export type CompositionDisplaySettingAutocompleteValueArgs = {
+export type CategoryModelAutocompleteNameArgs = {
   limit?: Scalars['Int']['input'];
   value: Scalars['String']['input'];
 };
 
-export type CompositionDisplaySettingFacet = {
-  __typename?: 'CompositionDisplaySettingFacet';
-  key: Maybe<Array<Maybe<StringFacet>>>;
-  value: Maybe<Array<Maybe<StringFacet>>>;
+export type CategoryModelFacet = {
+  __typename?: 'CategoryModelFacet';
+  Description: Maybe<Array<Maybe<StringFacet>>>;
+  Id: Maybe<Array<Maybe<NumberFacet>>>;
+  Name: Maybe<Array<Maybe<StringFacet>>>;
 };
 
 
-export type CompositionDisplaySettingFacetKeyArgs = {
+export type CategoryModelFacetDescriptionArgs = {
   filters: InputMaybe<Array<Scalars['String']['input']>>;
   limit?: Scalars['Int']['input'];
   orderBy?: InputMaybe<OrderBy>;
@@ -349,169 +928,84 @@ export type CompositionDisplaySettingFacetKeyArgs = {
 };
 
 
-export type CompositionDisplaySettingFacetValueArgs = {
+export type CategoryModelFacetIdArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<OrderBy>;
+  orderType: InputMaybe<OrderByFacetType>;
+  ranges: InputMaybe<Array<InputMaybe<RangeFacetsInput>>>;
+};
+
+
+export type CategoryModelFacetNameArgs = {
   filters: InputMaybe<Array<Scalars['String']['input']>>;
   limit?: Scalars['Int']['input'];
   orderBy?: InputMaybe<OrderBy>;
   orderType?: InputMaybe<OrderByFacetType>;
 };
 
-export type CompositionDisplaySettingOrderByInput = {
-  key: InputMaybe<OrderBy>;
-  value: InputMaybe<OrderBy>;
+export type CategoryModelOrderByInput = {
+  Description: InputMaybe<OrderBy>;
+  Id: InputMaybe<OrderBy>;
+  Name: InputMaybe<OrderBy>;
 };
 
-export type CompositionDisplaySettingWhereInput = {
-  key: InputMaybe<StringFilterInput>;
-  value: InputMaybe<StringFilterInput>;
+export type CategoryModelWhereInput = {
+  Description: InputMaybe<StringFilterInput>;
+  Id: InputMaybe<IntFilterInput>;
+  Name: InputMaybe<StringFilterInput>;
 };
 
-export type CompositionNode = ICompositionNode & {
-  __typename?: 'CompositionNode';
-  displayName: Maybe<Scalars['String']['output']>;
-  displaySettings: Maybe<Array<Maybe<CompositionDisplaySetting>>>;
-  displayTemplateKey: Maybe<Scalars['String']['output']>;
-  key: Maybe<Scalars['String']['output']>;
-  nodeType: Maybe<Scalars['String']['output']>;
-  type: Maybe<Scalars['String']['output']>;
-};
-
-export type CompositionStructureNode = ICompositionNode & ICompositionStructureNode & {
-  __typename?: 'CompositionStructureNode';
-  displayName: Maybe<Scalars['String']['output']>;
-  displaySettings: Maybe<Array<Maybe<CompositionDisplaySetting>>>;
-  displayTemplateKey: Maybe<Scalars['String']['output']>;
-  key: Maybe<Scalars['String']['output']>;
-  nodeType: Maybe<Scalars['String']['output']>;
-  nodes: Maybe<Array<Maybe<ICompositionNode>>>;
-  type: Maybe<Scalars['String']['output']>;
-};
-
-export type CompositionStructureNodeAutocomplete = {
-  __typename?: 'CompositionStructureNodeAutocomplete';
-  displayName: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  displaySettings: Maybe<CompositionDisplaySettingAutocomplete>;
-  displayTemplateKey: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  key: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  nodeType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  nodes: Maybe<ICompositionNodeAutocomplete>;
-  type: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-};
-
-
-export type CompositionStructureNodeAutocompleteDisplayNameArgs = {
-  limit?: Scalars['Int']['input'];
-  value: Scalars['String']['input'];
-};
-
-
-export type CompositionStructureNodeAutocompleteDisplayTemplateKeyArgs = {
-  limit?: Scalars['Int']['input'];
-  value: Scalars['String']['input'];
-};
-
-
-export type CompositionStructureNodeAutocompleteKeyArgs = {
-  limit?: Scalars['Int']['input'];
-  value: Scalars['String']['input'];
-};
-
-
-export type CompositionStructureNodeAutocompleteNodeTypeArgs = {
-  limit?: Scalars['Int']['input'];
-  value: Scalars['String']['input'];
-};
-
-
-export type CompositionStructureNodeAutocompleteTypeArgs = {
-  limit?: Scalars['Int']['input'];
-  value: Scalars['String']['input'];
-};
-
-export type CompositionStructureNodeFacet = {
-  __typename?: 'CompositionStructureNodeFacet';
-  displayName: Maybe<Array<Maybe<StringFacet>>>;
-  displaySettings: Maybe<CompositionDisplaySettingFacet>;
-  displayTemplateKey: Maybe<Array<Maybe<StringFacet>>>;
-  key: Maybe<Array<Maybe<StringFacet>>>;
-  nodeType: Maybe<Array<Maybe<StringFacet>>>;
-  nodes: Maybe<ICompositionNodeFacet>;
-  type: Maybe<Array<Maybe<StringFacet>>>;
-};
-
-
-export type CompositionStructureNodeFacetDisplayNameArgs = {
-  filters: InputMaybe<Array<Scalars['String']['input']>>;
-  limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<OrderBy>;
-  orderType?: InputMaybe<OrderByFacetType>;
-};
-
-
-export type CompositionStructureNodeFacetDisplayTemplateKeyArgs = {
-  filters: InputMaybe<Array<Scalars['String']['input']>>;
-  limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<OrderBy>;
-  orderType?: InputMaybe<OrderByFacetType>;
-};
-
-
-export type CompositionStructureNodeFacetKeyArgs = {
-  filters: InputMaybe<Array<Scalars['String']['input']>>;
-  limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<OrderBy>;
-  orderType?: InputMaybe<OrderByFacetType>;
-};
-
-
-export type CompositionStructureNodeFacetNodeTypeArgs = {
-  filters: InputMaybe<Array<Scalars['String']['input']>>;
-  limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<OrderBy>;
-  orderType?: InputMaybe<OrderByFacetType>;
-};
-
-
-export type CompositionStructureNodeFacetTypeArgs = {
-  filters: InputMaybe<Array<Scalars['String']['input']>>;
-  limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<OrderBy>;
-  orderType?: InputMaybe<OrderByFacetType>;
-};
-
-export type CompositionStructureNodeOrderByInput = {
-  displayName: InputMaybe<OrderBy>;
-  displaySettings: InputMaybe<CompositionDisplaySettingOrderByInput>;
-  displayTemplateKey: InputMaybe<OrderBy>;
-  key: InputMaybe<OrderBy>;
-  nodeType: InputMaybe<OrderBy>;
-  nodes: InputMaybe<ICompositionNodeOrderByInput>;
-  type: InputMaybe<OrderBy>;
-};
-
-export type CompositionStructureNodeWhereInput = {
-  displayName: InputMaybe<StringFilterInput>;
-  displaySettings: InputMaybe<CompositionDisplaySettingWhereInput>;
-  displayTemplateKey: InputMaybe<StringFilterInput>;
-  key: InputMaybe<StringFilterInput>;
-  nodeType: InputMaybe<StringFilterInput>;
-  nodes: InputMaybe<ICompositionNodeWhereInput>;
-  type: InputMaybe<StringFilterInput>;
-};
-
-export type ContactBlock = IData & _IComponent & _IContent & {
+export type ContactBlock = IContent & IData & {
   __typename?: 'ContactBlock';
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Category: Maybe<Array<Maybe<CategoryModel>>>;
+  Changed: Maybe<Scalars['Date']['output']>;
+  ContentLink: Maybe<ContentModelReference>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Created: Maybe<Scalars['Date']['output']>;
+  Description: Maybe<Scalars['String']['output']>;
+  ExistingLanguages: Maybe<Array<Maybe<ContentLanguageModel>>>;
+  IsCommonDraft: Maybe<Scalars['Bool']['output']>;
+  Language: Maybe<ContentLanguageModel>;
+  MasterLanguage: Maybe<ContentLanguageModel>;
+  Name: Maybe<Scalars['String']['output']>;
+  ParentLink: Maybe<ContentModelReference>;
+  RelativePath: Maybe<Scalars['String']['output']>;
+  RouteSegment: Maybe<Scalars['String']['output']>;
+  Saved: Maybe<Scalars['Date']['output']>;
+  Shortcut: Maybe<Scalars['String']['output']>;
+  SiteId: Maybe<Scalars['String']['output']>;
+  StartPublish: Maybe<Scalars['Date']['output']>;
+  Status: Maybe<Scalars['String']['output']>;
+  StopPublish: Maybe<Scalars['Date']['output']>;
+  Title: Maybe<Scalars['String']['output']>;
+  Url: Maybe<Scalars['String']['output']>;
   /** @deprecated Use `_link` field instead */
   _children: Maybe<QueryRef>;
+  _concreteType: Maybe<Scalars['String']['output']>;
   _deleted: Maybe<Scalars['Bool']['output']>;
   _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id: Maybe<Scalars['String']['output']>;
   _link: Maybe<QueryRef>;
-  _metadata: Maybe<IContentMetadata>;
   _modified: Maybe<Scalars['Date']['output']>;
   _score: Maybe<Scalars['Float']['output']>;
-  description: Maybe<Scalars['String']['output']>;
-  title: Maybe<Scalars['String']['output']>;
+  _sortOrder: Maybe<Scalars['Int']['output']>;
+};
+
+
+export type ContactBlockDescriptionArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type ContactBlockNameArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type ContactBlockTitleArgs = {
+  highlight: InputMaybe<HighlightOptions>;
 };
 
 
@@ -526,21 +1020,280 @@ export type ContactBlock_LinkArgs = {
 
 export type ContactBlockAutocomplete = {
   __typename?: 'ContactBlockAutocomplete';
-  _metadata: Maybe<IContentMetadataAutocomplete>;
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Category: Maybe<CategoryModelAutocomplete>;
+  ContentLink: Maybe<ContentModelReferenceAutocomplete>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelAutocomplete>;
+  Language: Maybe<ContentLanguageModelAutocomplete>;
+  MasterLanguage: Maybe<ContentLanguageModelAutocomplete>;
+  ParentLink: Maybe<ContentModelReferenceAutocomplete>;
+  RelativePath: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  RouteSegment: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Shortcut: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  SiteId: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Status: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Url: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _concreteType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+};
+
+
+export type ContactBlockAutocompleteAncestorsArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ContactBlockAutocompleteContentTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ContactBlockAutocompleteRelativePathArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ContactBlockAutocompleteRouteSegmentArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ContactBlockAutocompleteShortcutArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ContactBlockAutocompleteSiteIdArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ContactBlockAutocompleteStatusArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ContactBlockAutocompleteUrlArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ContactBlockAutocomplete_ConcreteTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
 };
 
 export type ContactBlockFacet = {
   __typename?: 'ContactBlockFacet';
-  _metadata: Maybe<IContentMetadataFacet>;
+  Ancestors: Maybe<Array<Maybe<StringFacet>>>;
+  Category: Maybe<CategoryModelFacet>;
+  Changed: Maybe<Array<Maybe<DateFacet>>>;
+  ContentLink: Maybe<ContentModelReferenceFacet>;
+  ContentType: Maybe<Array<Maybe<StringFacet>>>;
+  Created: Maybe<Array<Maybe<DateFacet>>>;
+  Description: Maybe<Array<Maybe<StringFacet>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelFacet>;
+  IsCommonDraft: Maybe<Array<Maybe<StringFacet>>>;
+  Language: Maybe<ContentLanguageModelFacet>;
+  MasterLanguage: Maybe<ContentLanguageModelFacet>;
+  Name: Maybe<Array<Maybe<StringFacet>>>;
+  ParentLink: Maybe<ContentModelReferenceFacet>;
+  RelativePath: Maybe<Array<Maybe<StringFacet>>>;
+  RouteSegment: Maybe<Array<Maybe<StringFacet>>>;
+  Saved: Maybe<Array<Maybe<DateFacet>>>;
+  Shortcut: Maybe<Array<Maybe<StringFacet>>>;
+  SiteId: Maybe<Array<Maybe<StringFacet>>>;
+  StartPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Status: Maybe<Array<Maybe<StringFacet>>>;
+  StopPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Title: Maybe<Array<Maybe<StringFacet>>>;
+  Url: Maybe<Array<Maybe<StringFacet>>>;
+  _concreteType: Maybe<Array<Maybe<StringFacet>>>;
+  _sortOrder: Maybe<Array<Maybe<NumberFacet>>>;
+};
+
+
+export type ContactBlockFacetAncestorsArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ContactBlockFacetChangedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type ContactBlockFacetContentTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ContactBlockFacetCreatedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type ContactBlockFacetDescriptionArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ContactBlockFacetIsCommonDraftArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ContactBlockFacetNameArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ContactBlockFacetRelativePathArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ContactBlockFacetRouteSegmentArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ContactBlockFacetSavedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type ContactBlockFacetShortcutArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ContactBlockFacetSiteIdArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ContactBlockFacetStartPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type ContactBlockFacetStatusArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ContactBlockFacetStopPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type ContactBlockFacetTitleArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ContactBlockFacetUrlArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ContactBlockFacet_ConcreteTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ContactBlockFacet_SortOrderArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<OrderBy>;
+  orderType: InputMaybe<OrderByFacetType>;
+  ranges: InputMaybe<Array<InputMaybe<RangeFacetsInput>>>;
 };
 
 export type ContactBlockOrderByInput = {
-  _metadata: InputMaybe<IContentMetadataOrderByInput>;
+  Ancestors: InputMaybe<OrderBy>;
+  Category: InputMaybe<CategoryModelOrderByInput>;
+  Changed: InputMaybe<OrderBy>;
+  ContentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  ContentType: InputMaybe<OrderBy>;
+  Created: InputMaybe<OrderBy>;
+  Description: InputMaybe<OrderBy>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelOrderByInput>;
+  IsCommonDraft: InputMaybe<OrderBy>;
+  Language: InputMaybe<ContentLanguageModelOrderByInput>;
+  MasterLanguage: InputMaybe<ContentLanguageModelOrderByInput>;
+  Name: InputMaybe<OrderBy>;
+  ParentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  RelativePath: InputMaybe<OrderBy>;
+  RouteSegment: InputMaybe<OrderBy>;
+  Saved: InputMaybe<OrderBy>;
+  Shortcut: InputMaybe<OrderBy>;
+  SiteId: InputMaybe<OrderBy>;
+  StartPublish: InputMaybe<OrderBy>;
+  Status: InputMaybe<OrderBy>;
+  StopPublish: InputMaybe<OrderBy>;
+  Title: InputMaybe<OrderBy>;
+  Url: InputMaybe<OrderBy>;
+  _concreteType: InputMaybe<OrderBy>;
   _minimumScore: InputMaybe<Scalars['Float']['input']>;
   _modified: InputMaybe<OrderBy>;
   _ranking: InputMaybe<Ranking>;
   /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
   _semanticWeight: InputMaybe<Scalars['Float']['input']>;
+  _sortOrder: InputMaybe<OrderBy>;
 };
 
 export type ContactBlockOutput = {
@@ -558,103 +1311,125 @@ export type ContactBlockOutputTotalArgs = {
 };
 
 export type ContactBlockWhereInput = {
+  Ancestors: InputMaybe<StringFilterInput>;
+  Category: InputMaybe<CategoryModelWhereInput>;
+  Changed: InputMaybe<DateFilterInput>;
+  ContentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  ContentType: InputMaybe<StringFilterInput>;
+  Created: InputMaybe<DateFilterInput>;
+  Description: InputMaybe<SearchableStringFilterInput>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelWhereInput>;
+  IsCommonDraft: InputMaybe<BoolFilterInput>;
+  Language: InputMaybe<ContentLanguageModelWhereInput>;
+  MasterLanguage: InputMaybe<ContentLanguageModelWhereInput>;
+  Name: InputMaybe<SearchableStringFilterInput>;
+  ParentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  RelativePath: InputMaybe<StringFilterInput>;
+  RouteSegment: InputMaybe<StringFilterInput>;
+  Saved: InputMaybe<DateFilterInput>;
+  Shortcut: InputMaybe<StringFilterInput>;
+  SiteId: InputMaybe<StringFilterInput>;
+  StartPublish: InputMaybe<DateFilterInput>;
+  Status: InputMaybe<StringFilterInput>;
+  StopPublish: InputMaybe<DateFilterInput>;
+  Title: InputMaybe<SearchableStringFilterInput>;
+  Url: InputMaybe<StringFilterInput>;
   _and: InputMaybe<Array<InputMaybe<ContactBlockWhereInput>>>;
+  _concreteType: InputMaybe<StringFilterInput>;
   _fulltext: InputMaybe<SearchableStringFilterInput>;
-  _metadata: InputMaybe<IContentMetadataWhereInput>;
   _modified: InputMaybe<DateFilterInput>;
   _not: InputMaybe<Array<InputMaybe<ContactBlockWhereInput>>>;
   _or: InputMaybe<Array<InputMaybe<ContactBlockWhereInput>>>;
+  _sortOrder: InputMaybe<IntFilterInput>;
 };
 
-export type ContentMetadata = IContentMetadata & {
-  __typename?: 'ContentMetadata';
-  changeset: Maybe<Scalars['String']['output']>;
-  created: Maybe<Scalars['DateTime']['output']>;
-  displayName: Maybe<Scalars['String']['output']>;
-  fallbackForLocale: Maybe<Scalars['String']['output']>;
-  key: Maybe<Scalars['String']['output']>;
-  lastModified: Maybe<Scalars['DateTime']['output']>;
-  locale: Maybe<Scalars['String']['output']>;
-  published: Maybe<Scalars['DateTime']['output']>;
-  status: Maybe<Scalars['String']['output']>;
-  types: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  url: Maybe<ContentUrl>;
-  version: Maybe<Scalars['String']['output']>;
+export type Content = IContent & IData & {
+  __typename?: 'Content';
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Changed: Maybe<Scalars['Date']['output']>;
+  ContentLink: Maybe<ContentModelReference>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Created: Maybe<Scalars['Date']['output']>;
+  ExistingLanguages: Maybe<Array<Maybe<ContentLanguageModel>>>;
+  IsCommonDraft: Maybe<Scalars['Bool']['output']>;
+  Language: Maybe<ContentLanguageModel>;
+  MasterLanguage: Maybe<ContentLanguageModel>;
+  Name: Maybe<Scalars['String']['output']>;
+  ParentLink: Maybe<ContentModelReference>;
+  RelativePath: Maybe<Scalars['String']['output']>;
+  RouteSegment: Maybe<Scalars['String']['output']>;
+  Saved: Maybe<Scalars['Date']['output']>;
+  Shortcut: Maybe<Scalars['String']['output']>;
+  SiteId: Maybe<Scalars['String']['output']>;
+  StartPublish: Maybe<Scalars['Date']['output']>;
+  Status: Maybe<Scalars['String']['output']>;
+  StopPublish: Maybe<Scalars['Date']['output']>;
+  Url: Maybe<Scalars['String']['output']>;
+  /** @deprecated Use `_link` field instead */
+  _children: Maybe<QueryRef>;
+  _concreteType: Maybe<Scalars['String']['output']>;
+  _deleted: Maybe<Scalars['Bool']['output']>;
+  _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _id: Maybe<Scalars['String']['output']>;
+  _link: Maybe<QueryRef>;
+  _modified: Maybe<Scalars['Date']['output']>;
+  _score: Maybe<Scalars['Float']['output']>;
+  _sortOrder: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type ContentMetadataDisplayNameArgs = {
+export type ContentNameArgs = {
   highlight: InputMaybe<HighlightOptions>;
 };
 
-export type ContentUrl = {
-  __typename?: 'ContentUrl';
-  base: Maybe<Scalars['String']['output']>;
-  default: Maybe<Scalars['String']['output']>;
-  graph: Maybe<Scalars['String']['output']>;
-  hierarchical: Maybe<Scalars['String']['output']>;
-  internal: Maybe<Scalars['String']['output']>;
-  type: Maybe<Scalars['String']['output']>;
-};
 
-export type ContentUrlAutocomplete = {
-  __typename?: 'ContentUrlAutocomplete';
-  base: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  default: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  graph: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  hierarchical: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  internal: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  type: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+export type Content_FulltextArgs = {
+  highlight: InputMaybe<HighlightOptions>;
 };
 
 
-export type ContentUrlAutocompleteBaseArgs = {
-  limit?: Scalars['Int']['input'];
-  value: Scalars['String']['input'];
+export type Content_LinkArgs = {
+  type: InputMaybe<LinkTypes>;
+};
+
+export type ContentAreaItemModelSearch = {
+  __typename?: 'ContentAreaItemModelSearch';
+  ContentLink: Maybe<ContentModelReferenceSearch>;
+  DisplayOption: Maybe<Scalars['String']['output']>;
+  InlineBlock: Maybe<InlineBlockPropertyModelSearch>;
+  Tag: Maybe<Scalars['String']['output']>;
 };
 
 
-export type ContentUrlAutocompleteDefaultArgs = {
-  limit?: Scalars['Int']['input'];
-  value: Scalars['String']['input'];
+export type ContentAreaItemModelSearchContentLinkArgs = {
+  highlight: InputMaybe<HighlightOptions>;
 };
 
 
-export type ContentUrlAutocompleteGraphArgs = {
-  limit?: Scalars['Int']['input'];
-  value: Scalars['String']['input'];
+export type ContentAreaItemModelSearchDisplayOptionArgs = {
+  highlight: InputMaybe<HighlightOptions>;
 };
 
 
-export type ContentUrlAutocompleteHierarchicalArgs = {
-  limit?: Scalars['Int']['input'];
-  value: Scalars['String']['input'];
+export type ContentAreaItemModelSearchInlineBlockArgs = {
+  highlight: InputMaybe<HighlightOptions>;
 };
 
 
-export type ContentUrlAutocompleteInternalArgs = {
-  limit?: Scalars['Int']['input'];
-  value: Scalars['String']['input'];
+export type ContentAreaItemModelSearchTagArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+export type ContentAreaItemModelSearchFacet = {
+  __typename?: 'ContentAreaItemModelSearchFacet';
+  ContentLink: Maybe<ContentModelReferenceSearchFacet>;
+  DisplayOption: Maybe<Array<Maybe<StringFacet>>>;
+  InlineBlock: Maybe<InlineBlockPropertyModelSearchFacet>;
+  Tag: Maybe<Array<Maybe<StringFacet>>>;
 };
 
 
-export type ContentUrlAutocompleteTypeArgs = {
-  limit?: Scalars['Int']['input'];
-  value: Scalars['String']['input'];
-};
-
-export type ContentUrlFacet = {
-  __typename?: 'ContentUrlFacet';
-  base: Maybe<Array<Maybe<StringFacet>>>;
-  default: Maybe<Array<Maybe<StringFacet>>>;
-  graph: Maybe<Array<Maybe<StringFacet>>>;
-  hierarchical: Maybe<Array<Maybe<StringFacet>>>;
-  internal: Maybe<Array<Maybe<StringFacet>>>;
-  type: Maybe<Array<Maybe<StringFacet>>>;
-};
-
-
-export type ContentUrlFacetBaseArgs = {
+export type ContentAreaItemModelSearchFacetDisplayOptionArgs = {
   filters: InputMaybe<Array<Scalars['String']['input']>>;
   limit?: Scalars['Int']['input'];
   orderBy?: InputMaybe<OrderBy>;
@@ -662,7 +1437,127 @@ export type ContentUrlFacetBaseArgs = {
 };
 
 
-export type ContentUrlFacetDefaultArgs = {
+export type ContentAreaItemModelSearchFacetTagArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+export type ContentAreaItemModelSearchOrderByInput = {
+  ContentLink: InputMaybe<ContentModelReferenceSearchOrderByInput>;
+  DisplayOption: InputMaybe<OrderBy>;
+  InlineBlock: InputMaybe<InlineBlockPropertyModelSearchOrderByInput>;
+  Tag: InputMaybe<OrderBy>;
+};
+
+export type ContentAreaItemModelSearchWhereInput = {
+  ContentLink: InputMaybe<ContentModelReferenceSearchWhereInput>;
+  DisplayOption: InputMaybe<SearchableStringFilterInput>;
+  InlineBlock: InputMaybe<InlineBlockPropertyModelSearchWhereInput>;
+  Tag: InputMaybe<SearchableStringFilterInput>;
+};
+
+export type ContentAutocomplete = {
+  __typename?: 'ContentAutocomplete';
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  ContentLink: Maybe<ContentModelReferenceAutocomplete>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelAutocomplete>;
+  Language: Maybe<ContentLanguageModelAutocomplete>;
+  MasterLanguage: Maybe<ContentLanguageModelAutocomplete>;
+  ParentLink: Maybe<ContentModelReferenceAutocomplete>;
+  RelativePath: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  RouteSegment: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Shortcut: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  SiteId: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Status: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Url: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _concreteType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+};
+
+
+export type ContentAutocompleteAncestorsArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ContentAutocompleteContentTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ContentAutocompleteRelativePathArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ContentAutocompleteRouteSegmentArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ContentAutocompleteShortcutArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ContentAutocompleteSiteIdArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ContentAutocompleteStatusArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ContentAutocompleteUrlArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ContentAutocomplete_ConcreteTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+export type ContentFacet = {
+  __typename?: 'ContentFacet';
+  Ancestors: Maybe<Array<Maybe<StringFacet>>>;
+  Changed: Maybe<Array<Maybe<DateFacet>>>;
+  ContentLink: Maybe<ContentModelReferenceFacet>;
+  ContentType: Maybe<Array<Maybe<StringFacet>>>;
+  Created: Maybe<Array<Maybe<DateFacet>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelFacet>;
+  IsCommonDraft: Maybe<Array<Maybe<StringFacet>>>;
+  Language: Maybe<ContentLanguageModelFacet>;
+  MasterLanguage: Maybe<ContentLanguageModelFacet>;
+  Name: Maybe<Array<Maybe<StringFacet>>>;
+  ParentLink: Maybe<ContentModelReferenceFacet>;
+  RelativePath: Maybe<Array<Maybe<StringFacet>>>;
+  RouteSegment: Maybe<Array<Maybe<StringFacet>>>;
+  Saved: Maybe<Array<Maybe<DateFacet>>>;
+  Shortcut: Maybe<Array<Maybe<StringFacet>>>;
+  SiteId: Maybe<Array<Maybe<StringFacet>>>;
+  StartPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Status: Maybe<Array<Maybe<StringFacet>>>;
+  StopPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Url: Maybe<Array<Maybe<StringFacet>>>;
+  _concreteType: Maybe<Array<Maybe<StringFacet>>>;
+  _sortOrder: Maybe<Array<Maybe<NumberFacet>>>;
+};
+
+
+export type ContentFacetAncestorsArgs = {
   filters: InputMaybe<Array<Scalars['String']['input']>>;
   limit?: Scalars['Int']['input'];
   orderBy?: InputMaybe<OrderBy>;
@@ -670,7 +1565,13 @@ export type ContentUrlFacetDefaultArgs = {
 };
 
 
-export type ContentUrlFacetGraphArgs = {
+export type ContentFacetChangedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type ContentFacetContentTypeArgs = {
   filters: InputMaybe<Array<Scalars['String']['input']>>;
   limit?: Scalars['Int']['input'];
   orderBy?: InputMaybe<OrderBy>;
@@ -678,7 +1579,13 @@ export type ContentUrlFacetGraphArgs = {
 };
 
 
-export type ContentUrlFacetHierarchicalArgs = {
+export type ContentFacetCreatedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type ContentFacetIsCommonDraftArgs = {
   filters: InputMaybe<Array<Scalars['String']['input']>>;
   limit?: Scalars['Int']['input'];
   orderBy?: InputMaybe<OrderBy>;
@@ -686,7 +1593,7 @@ export type ContentUrlFacetHierarchicalArgs = {
 };
 
 
-export type ContentUrlFacetInternalArgs = {
+export type ContentFacetNameArgs = {
   filters: InputMaybe<Array<Scalars['String']['input']>>;
   limit?: Scalars['Int']['input'];
   orderBy?: InputMaybe<OrderBy>;
@@ -694,29 +1601,556 @@ export type ContentUrlFacetInternalArgs = {
 };
 
 
-export type ContentUrlFacetTypeArgs = {
+export type ContentFacetRelativePathArgs = {
   filters: InputMaybe<Array<Scalars['String']['input']>>;
   limit?: Scalars['Int']['input'];
   orderBy?: InputMaybe<OrderBy>;
   orderType?: InputMaybe<OrderByFacetType>;
 };
 
-export type ContentUrlOrderByInput = {
-  base: InputMaybe<OrderBy>;
-  default: InputMaybe<OrderBy>;
-  graph: InputMaybe<OrderBy>;
-  hierarchical: InputMaybe<OrderBy>;
-  internal: InputMaybe<OrderBy>;
-  type: InputMaybe<OrderBy>;
+
+export type ContentFacetRouteSegmentArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
 };
 
-export type ContentUrlWhereInput = {
-  base: InputMaybe<StringFilterInput>;
-  default: InputMaybe<StringFilterInput>;
-  graph: InputMaybe<StringFilterInput>;
-  hierarchical: InputMaybe<StringFilterInput>;
-  internal: InputMaybe<StringFilterInput>;
-  type: InputMaybe<StringFilterInput>;
+
+export type ContentFacetSavedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type ContentFacetShortcutArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ContentFacetSiteIdArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ContentFacetStartPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type ContentFacetStatusArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ContentFacetStopPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type ContentFacetUrlArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ContentFacet_ConcreteTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ContentFacet_SortOrderArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<OrderBy>;
+  orderType: InputMaybe<OrderByFacetType>;
+  ranges: InputMaybe<Array<InputMaybe<RangeFacetsInput>>>;
+};
+
+export type ContentLanguageModel = {
+  __typename?: 'ContentLanguageModel';
+  DisplayName: Maybe<Scalars['String']['output']>;
+  Link: Maybe<Scalars['String']['output']>;
+  Name: Maybe<Scalars['String']['output']>;
+};
+
+export type ContentLanguageModelAutocomplete = {
+  __typename?: 'ContentLanguageModelAutocomplete';
+  DisplayName: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Link: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Name: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+};
+
+
+export type ContentLanguageModelAutocompleteDisplayNameArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ContentLanguageModelAutocompleteLinkArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ContentLanguageModelAutocompleteNameArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+export type ContentLanguageModelFacet = {
+  __typename?: 'ContentLanguageModelFacet';
+  DisplayName: Maybe<Array<Maybe<StringFacet>>>;
+  Link: Maybe<Array<Maybe<StringFacet>>>;
+  Name: Maybe<Array<Maybe<StringFacet>>>;
+};
+
+
+export type ContentLanguageModelFacetDisplayNameArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ContentLanguageModelFacetLinkArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ContentLanguageModelFacetNameArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+export type ContentLanguageModelOrderByInput = {
+  DisplayName: InputMaybe<OrderBy>;
+  Link: InputMaybe<OrderBy>;
+  Name: InputMaybe<OrderBy>;
+};
+
+export type ContentLanguageModelSearch = {
+  __typename?: 'ContentLanguageModelSearch';
+  DisplayName: Maybe<Scalars['String']['output']>;
+  Link: Maybe<Scalars['String']['output']>;
+  Name: Maybe<Scalars['String']['output']>;
+};
+
+
+export type ContentLanguageModelSearchDisplayNameArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type ContentLanguageModelSearchLinkArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type ContentLanguageModelSearchNameArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+export type ContentLanguageModelSearchFacet = {
+  __typename?: 'ContentLanguageModelSearchFacet';
+  DisplayName: Maybe<Array<Maybe<StringFacet>>>;
+  Link: Maybe<Array<Maybe<StringFacet>>>;
+  Name: Maybe<Array<Maybe<StringFacet>>>;
+};
+
+
+export type ContentLanguageModelSearchFacetDisplayNameArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ContentLanguageModelSearchFacetLinkArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ContentLanguageModelSearchFacetNameArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+export type ContentLanguageModelSearchOrderByInput = {
+  DisplayName: InputMaybe<OrderBy>;
+  Link: InputMaybe<OrderBy>;
+  Name: InputMaybe<OrderBy>;
+};
+
+export type ContentLanguageModelSearchWhereInput = {
+  DisplayName: InputMaybe<SearchableStringFilterInput>;
+  Link: InputMaybe<SearchableStringFilterInput>;
+  Name: InputMaybe<SearchableStringFilterInput>;
+};
+
+export type ContentLanguageModelWhereInput = {
+  DisplayName: InputMaybe<StringFilterInput>;
+  Link: InputMaybe<StringFilterInput>;
+  Name: InputMaybe<StringFilterInput>;
+};
+
+export type ContentModelReference = {
+  __typename?: 'ContentModelReference';
+  Expanded: Maybe<IContent>;
+  GuidValue: Maybe<Scalars['String']['output']>;
+  Id: Maybe<Scalars['Int']['output']>;
+  Language: Maybe<ContentLanguageModel>;
+  ProviderName: Maybe<Scalars['String']['output']>;
+  Url: Maybe<Scalars['String']['output']>;
+  WorkId: Maybe<Scalars['Int']['output']>;
+};
+
+export type ContentModelReferenceAutocomplete = {
+  __typename?: 'ContentModelReferenceAutocomplete';
+  GuidValue: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Language: Maybe<ContentLanguageModelAutocomplete>;
+  ProviderName: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Url: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+};
+
+
+export type ContentModelReferenceAutocompleteGuidValueArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ContentModelReferenceAutocompleteProviderNameArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ContentModelReferenceAutocompleteUrlArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+export type ContentModelReferenceFacet = {
+  __typename?: 'ContentModelReferenceFacet';
+  GuidValue: Maybe<Array<Maybe<StringFacet>>>;
+  Id: Maybe<Array<Maybe<NumberFacet>>>;
+  Language: Maybe<ContentLanguageModelFacet>;
+  ProviderName: Maybe<Array<Maybe<StringFacet>>>;
+  Url: Maybe<Array<Maybe<StringFacet>>>;
+  WorkId: Maybe<Array<Maybe<NumberFacet>>>;
+};
+
+
+export type ContentModelReferenceFacetGuidValueArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ContentModelReferenceFacetIdArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<OrderBy>;
+  orderType: InputMaybe<OrderByFacetType>;
+  ranges: InputMaybe<Array<InputMaybe<RangeFacetsInput>>>;
+};
+
+
+export type ContentModelReferenceFacetProviderNameArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ContentModelReferenceFacetUrlArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ContentModelReferenceFacetWorkIdArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<OrderBy>;
+  orderType: InputMaybe<OrderByFacetType>;
+  ranges: InputMaybe<Array<InputMaybe<RangeFacetsInput>>>;
+};
+
+export type ContentModelReferenceOrderByInput = {
+  GuidValue: InputMaybe<OrderBy>;
+  Id: InputMaybe<OrderBy>;
+  Language: InputMaybe<ContentLanguageModelOrderByInput>;
+  ProviderName: InputMaybe<OrderBy>;
+  Url: InputMaybe<OrderBy>;
+  WorkId: InputMaybe<OrderBy>;
+};
+
+export type ContentModelReferenceSearch = {
+  __typename?: 'ContentModelReferenceSearch';
+  Expanded: Maybe<IContent>;
+  GuidValue: Maybe<Scalars['String']['output']>;
+  Id: Maybe<Scalars['Int']['output']>;
+  Language: Maybe<ContentLanguageModelSearch>;
+  ProviderName: Maybe<Scalars['String']['output']>;
+  Url: Maybe<Scalars['String']['output']>;
+  WorkId: Maybe<Scalars['Int']['output']>;
+};
+
+
+export type ContentModelReferenceSearchExpandedArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type ContentModelReferenceSearchLanguageArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type ContentModelReferenceSearchProviderNameArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type ContentModelReferenceSearchUrlArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+export type ContentModelReferenceSearchFacet = {
+  __typename?: 'ContentModelReferenceSearchFacet';
+  GuidValue: Maybe<Array<Maybe<StringFacet>>>;
+  Id: Maybe<Array<Maybe<NumberFacet>>>;
+  Language: Maybe<ContentLanguageModelSearchFacet>;
+  ProviderName: Maybe<Array<Maybe<StringFacet>>>;
+  Url: Maybe<Array<Maybe<StringFacet>>>;
+  WorkId: Maybe<Array<Maybe<NumberFacet>>>;
+};
+
+
+export type ContentModelReferenceSearchFacetGuidValueArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ContentModelReferenceSearchFacetIdArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<OrderBy>;
+  orderType: InputMaybe<OrderByFacetType>;
+  ranges: InputMaybe<Array<InputMaybe<RangeFacetsInput>>>;
+};
+
+
+export type ContentModelReferenceSearchFacetProviderNameArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ContentModelReferenceSearchFacetUrlArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ContentModelReferenceSearchFacetWorkIdArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<OrderBy>;
+  orderType: InputMaybe<OrderByFacetType>;
+  ranges: InputMaybe<Array<InputMaybe<RangeFacetsInput>>>;
+};
+
+export type ContentModelReferenceSearchOrderByInput = {
+  GuidValue: InputMaybe<OrderBy>;
+  Id: InputMaybe<OrderBy>;
+  Language: InputMaybe<ContentLanguageModelSearchOrderByInput>;
+  ProviderName: InputMaybe<OrderBy>;
+  Url: InputMaybe<OrderBy>;
+  WorkId: InputMaybe<OrderBy>;
+};
+
+export type ContentModelReferenceSearchWhereInput = {
+  GuidValue: InputMaybe<StringFilterInput>;
+  Id: InputMaybe<IntFilterInput>;
+  Language: InputMaybe<ContentLanguageModelSearchWhereInput>;
+  ProviderName: InputMaybe<SearchableStringFilterInput>;
+  Url: InputMaybe<SearchableStringFilterInput>;
+  WorkId: InputMaybe<IntFilterInput>;
+};
+
+export type ContentModelReferenceWhereInput = {
+  GuidValue: InputMaybe<StringFilterInput>;
+  Id: InputMaybe<IntFilterInput>;
+  Language: InputMaybe<ContentLanguageModelWhereInput>;
+  ProviderName: InputMaybe<StringFilterInput>;
+  Url: InputMaybe<StringFilterInput>;
+  WorkId: InputMaybe<IntFilterInput>;
+};
+
+export type ContentOrderByInput = {
+  Ancestors: InputMaybe<OrderBy>;
+  Changed: InputMaybe<OrderBy>;
+  ContentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  ContentType: InputMaybe<OrderBy>;
+  Created: InputMaybe<OrderBy>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelOrderByInput>;
+  IsCommonDraft: InputMaybe<OrderBy>;
+  Language: InputMaybe<ContentLanguageModelOrderByInput>;
+  MasterLanguage: InputMaybe<ContentLanguageModelOrderByInput>;
+  Name: InputMaybe<OrderBy>;
+  ParentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  RelativePath: InputMaybe<OrderBy>;
+  RouteSegment: InputMaybe<OrderBy>;
+  Saved: InputMaybe<OrderBy>;
+  Shortcut: InputMaybe<OrderBy>;
+  SiteId: InputMaybe<OrderBy>;
+  StartPublish: InputMaybe<OrderBy>;
+  Status: InputMaybe<OrderBy>;
+  StopPublish: InputMaybe<OrderBy>;
+  Url: InputMaybe<OrderBy>;
+  _concreteType: InputMaybe<OrderBy>;
+  _minimumScore: InputMaybe<Scalars['Float']['input']>;
+  _modified: InputMaybe<OrderBy>;
+  _ranking: InputMaybe<Ranking>;
+  /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
+  _semanticWeight: InputMaybe<Scalars['Float']['input']>;
+  _sortOrder: InputMaybe<OrderBy>;
+};
+
+export type ContentOutput = {
+  __typename?: 'ContentOutput';
+  autocomplete: Maybe<ContentAutocomplete>;
+  cursor: Maybe<Scalars['String']['output']>;
+  facets: Maybe<ContentFacet>;
+  items: Maybe<Array<Maybe<IContent>>>;
+  total: Maybe<Scalars['Int']['output']>;
+};
+
+
+export type ContentOutputTotalArgs = {
+  all: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type ContentRootsModel = {
+  __typename?: 'ContentRootsModel';
+  ContentAssetsRoot: Maybe<ContentModelReference>;
+  GlobalAssetsRoot: Maybe<ContentModelReference>;
+  RootPage: Maybe<ContentModelReference>;
+  SiteAssetsRoot: Maybe<ContentModelReference>;
+  StartPage: Maybe<ContentModelReference>;
+  WasteBasket: Maybe<ContentModelReference>;
+};
+
+export type ContentRootsModelAutocomplete = {
+  __typename?: 'ContentRootsModelAutocomplete';
+  ContentAssetsRoot: Maybe<ContentModelReferenceAutocomplete>;
+  GlobalAssetsRoot: Maybe<ContentModelReferenceAutocomplete>;
+  RootPage: Maybe<ContentModelReferenceAutocomplete>;
+  SiteAssetsRoot: Maybe<ContentModelReferenceAutocomplete>;
+  StartPage: Maybe<ContentModelReferenceAutocomplete>;
+  WasteBasket: Maybe<ContentModelReferenceAutocomplete>;
+};
+
+export type ContentRootsModelFacet = {
+  __typename?: 'ContentRootsModelFacet';
+  ContentAssetsRoot: Maybe<ContentModelReferenceFacet>;
+  GlobalAssetsRoot: Maybe<ContentModelReferenceFacet>;
+  RootPage: Maybe<ContentModelReferenceFacet>;
+  SiteAssetsRoot: Maybe<ContentModelReferenceFacet>;
+  StartPage: Maybe<ContentModelReferenceFacet>;
+  WasteBasket: Maybe<ContentModelReferenceFacet>;
+};
+
+export type ContentRootsModelOrderByInput = {
+  ContentAssetsRoot: InputMaybe<ContentModelReferenceOrderByInput>;
+  GlobalAssetsRoot: InputMaybe<ContentModelReferenceOrderByInput>;
+  RootPage: InputMaybe<ContentModelReferenceOrderByInput>;
+  SiteAssetsRoot: InputMaybe<ContentModelReferenceOrderByInput>;
+  StartPage: InputMaybe<ContentModelReferenceOrderByInput>;
+  WasteBasket: InputMaybe<ContentModelReferenceOrderByInput>;
+};
+
+export type ContentRootsModelWhereInput = {
+  ContentAssetsRoot: InputMaybe<ContentModelReferenceWhereInput>;
+  GlobalAssetsRoot: InputMaybe<ContentModelReferenceWhereInput>;
+  RootPage: InputMaybe<ContentModelReferenceWhereInput>;
+  SiteAssetsRoot: InputMaybe<ContentModelReferenceWhereInput>;
+  StartPage: InputMaybe<ContentModelReferenceWhereInput>;
+  WasteBasket: InputMaybe<ContentModelReferenceWhereInput>;
+};
+
+export type ContentWhereInput = {
+  Ancestors: InputMaybe<StringFilterInput>;
+  Changed: InputMaybe<DateFilterInput>;
+  ContentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  ContentType: InputMaybe<StringFilterInput>;
+  Created: InputMaybe<DateFilterInput>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelWhereInput>;
+  IsCommonDraft: InputMaybe<BoolFilterInput>;
+  Language: InputMaybe<ContentLanguageModelWhereInput>;
+  MasterLanguage: InputMaybe<ContentLanguageModelWhereInput>;
+  Name: InputMaybe<SearchableStringFilterInput>;
+  ParentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  RelativePath: InputMaybe<StringFilterInput>;
+  RouteSegment: InputMaybe<StringFilterInput>;
+  Saved: InputMaybe<DateFilterInput>;
+  Shortcut: InputMaybe<StringFilterInput>;
+  SiteId: InputMaybe<StringFilterInput>;
+  StartPublish: InputMaybe<DateFilterInput>;
+  Status: InputMaybe<StringFilterInput>;
+  StopPublish: InputMaybe<DateFilterInput>;
+  Url: InputMaybe<StringFilterInput>;
+  _and: InputMaybe<Array<InputMaybe<ContentWhereInput>>>;
+  _concreteType: InputMaybe<StringFilterInput>;
+  _fulltext: InputMaybe<SearchableStringFilterInput>;
+  _modified: InputMaybe<DateFilterInput>;
+  _not: InputMaybe<Array<InputMaybe<ContentWhereInput>>>;
+  _or: InputMaybe<Array<InputMaybe<ContentWhereInput>>>;
+  _sortOrder: InputMaybe<IntFilterInput>;
 };
 
 export type Data = IData & {
@@ -812,52 +2246,69 @@ export type Decay = {
   scale: InputMaybe<Scalars['Int']['input']>;
 };
 
-export type Footer = IData & _IContent & _IPage & {
-  __typename?: 'Footer';
+export enum FactorModifier {
+  /** Add 1 to the field value and take the natural logarithm */
+  Log = 'LOG',
+  /** Do not apply any multiplier to the field value */
+  None = 'NONE',
+  /** Reciprocate the field value, same as 1/x where x is the field's value */
+  Reciprocal = 'RECIPROCAL',
+  /** Take the square root of the field value */
+  Sqrt = 'SQRT',
+  /** Square the field value (multiply it by itself) */
+  Square = 'SQUARE'
+}
+
+export type FooterColumn = IContent & IData & {
+  __typename?: 'FooterColumn';
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Category: Maybe<Array<Maybe<CategoryModel>>>;
+  Changed: Maybe<Scalars['Date']['output']>;
+  ContentLink: Maybe<ContentModelReference>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Created: Maybe<Scalars['Date']['output']>;
+  ExistingLanguages: Maybe<Array<Maybe<ContentLanguageModel>>>;
+  IsCommonDraft: Maybe<Scalars['Bool']['output']>;
+  Language: Maybe<ContentLanguageModel>;
+  Links: Maybe<Array<Maybe<ContentAreaItemModelSearch>>>;
+  MasterLanguage: Maybe<ContentLanguageModel>;
+  Name: Maybe<Scalars['String']['output']>;
+  ParentLink: Maybe<ContentModelReference>;
+  RelativePath: Maybe<Scalars['String']['output']>;
+  RouteSegment: Maybe<Scalars['String']['output']>;
+  Saved: Maybe<Scalars['Date']['output']>;
+  Shortcut: Maybe<Scalars['String']['output']>;
+  SiteId: Maybe<Scalars['String']['output']>;
+  StartPublish: Maybe<Scalars['Date']['output']>;
+  Status: Maybe<Scalars['String']['output']>;
+  StopPublish: Maybe<Scalars['Date']['output']>;
+  Title: Maybe<Scalars['String']['output']>;
+  Url: Maybe<Scalars['String']['output']>;
   /** @deprecated Use `_link` field instead */
   _children: Maybe<QueryRef>;
+  _concreteType: Maybe<Scalars['String']['output']>;
   _deleted: Maybe<Scalars['Bool']['output']>;
   _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id: Maybe<Scalars['String']['output']>;
   _link: Maybe<QueryRef>;
-  _metadata: Maybe<IContentMetadata>;
   _modified: Maybe<Scalars['Date']['output']>;
   _score: Maybe<Scalars['Float']['output']>;
-  columns: Maybe<Array<Maybe<_IContent>>>;
-  copyrightText: Maybe<Scalars['String']['output']>;
-  socialLinks: Maybe<Array<Maybe<_IContent>>>;
+  _sortOrder: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type Footer_FulltextArgs = {
+export type FooterColumnLinksArgs = {
   highlight: InputMaybe<HighlightOptions>;
 };
 
 
-export type Footer_LinkArgs = {
-  type: InputMaybe<LinkTypes>;
+export type FooterColumnNameArgs = {
+  highlight: InputMaybe<HighlightOptions>;
 };
 
-export type FooterAutocomplete = {
-  __typename?: 'FooterAutocomplete';
-  _metadata: Maybe<IContentMetadataAutocomplete>;
-  columns: Maybe<_IContentAutocomplete>;
-  socialLinks: Maybe<_IContentAutocomplete>;
-};
 
-export type FooterColumn = IData & _IComponent & _IContent & {
-  __typename?: 'FooterColumn';
-  /** @deprecated Use `_link` field instead */
-  _children: Maybe<QueryRef>;
-  _deleted: Maybe<Scalars['Bool']['output']>;
-  _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  _id: Maybe<Scalars['String']['output']>;
-  _link: Maybe<QueryRef>;
-  _metadata: Maybe<IContentMetadata>;
-  _modified: Maybe<Scalars['Date']['output']>;
-  _score: Maybe<Scalars['Float']['output']>;
-  links: Maybe<Array<Maybe<_IContent>>>;
-  title: Maybe<Scalars['String']['output']>;
+export type FooterColumnTitleArgs = {
+  highlight: InputMaybe<HighlightOptions>;
 };
 
 
@@ -872,24 +2323,272 @@ export type FooterColumn_LinkArgs = {
 
 export type FooterColumnAutocomplete = {
   __typename?: 'FooterColumnAutocomplete';
-  _metadata: Maybe<IContentMetadataAutocomplete>;
-  links: Maybe<_IContentAutocomplete>;
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Category: Maybe<CategoryModelAutocomplete>;
+  ContentLink: Maybe<ContentModelReferenceAutocomplete>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelAutocomplete>;
+  Language: Maybe<ContentLanguageModelAutocomplete>;
+  MasterLanguage: Maybe<ContentLanguageModelAutocomplete>;
+  ParentLink: Maybe<ContentModelReferenceAutocomplete>;
+  RelativePath: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  RouteSegment: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Shortcut: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  SiteId: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Status: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Url: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _concreteType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+};
+
+
+export type FooterColumnAutocompleteAncestorsArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type FooterColumnAutocompleteContentTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type FooterColumnAutocompleteRelativePathArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type FooterColumnAutocompleteRouteSegmentArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type FooterColumnAutocompleteShortcutArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type FooterColumnAutocompleteSiteIdArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type FooterColumnAutocompleteStatusArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type FooterColumnAutocompleteUrlArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type FooterColumnAutocomplete_ConcreteTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
 };
 
 export type FooterColumnFacet = {
   __typename?: 'FooterColumnFacet';
-  _metadata: Maybe<IContentMetadataFacet>;
-  links: Maybe<_IContentFacet>;
+  Ancestors: Maybe<Array<Maybe<StringFacet>>>;
+  Category: Maybe<CategoryModelFacet>;
+  Changed: Maybe<Array<Maybe<DateFacet>>>;
+  ContentLink: Maybe<ContentModelReferenceFacet>;
+  ContentType: Maybe<Array<Maybe<StringFacet>>>;
+  Created: Maybe<Array<Maybe<DateFacet>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelFacet>;
+  IsCommonDraft: Maybe<Array<Maybe<StringFacet>>>;
+  Language: Maybe<ContentLanguageModelFacet>;
+  Links: Maybe<ContentAreaItemModelSearchFacet>;
+  MasterLanguage: Maybe<ContentLanguageModelFacet>;
+  Name: Maybe<Array<Maybe<StringFacet>>>;
+  ParentLink: Maybe<ContentModelReferenceFacet>;
+  RelativePath: Maybe<Array<Maybe<StringFacet>>>;
+  RouteSegment: Maybe<Array<Maybe<StringFacet>>>;
+  Saved: Maybe<Array<Maybe<DateFacet>>>;
+  Shortcut: Maybe<Array<Maybe<StringFacet>>>;
+  SiteId: Maybe<Array<Maybe<StringFacet>>>;
+  StartPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Status: Maybe<Array<Maybe<StringFacet>>>;
+  StopPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Title: Maybe<Array<Maybe<StringFacet>>>;
+  Url: Maybe<Array<Maybe<StringFacet>>>;
+  _concreteType: Maybe<Array<Maybe<StringFacet>>>;
+  _sortOrder: Maybe<Array<Maybe<NumberFacet>>>;
+};
+
+
+export type FooterColumnFacetAncestorsArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type FooterColumnFacetChangedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type FooterColumnFacetContentTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type FooterColumnFacetCreatedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type FooterColumnFacetIsCommonDraftArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type FooterColumnFacetNameArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type FooterColumnFacetRelativePathArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type FooterColumnFacetRouteSegmentArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type FooterColumnFacetSavedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type FooterColumnFacetShortcutArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type FooterColumnFacetSiteIdArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type FooterColumnFacetStartPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type FooterColumnFacetStatusArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type FooterColumnFacetStopPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type FooterColumnFacetTitleArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type FooterColumnFacetUrlArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type FooterColumnFacet_ConcreteTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type FooterColumnFacet_SortOrderArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<OrderBy>;
+  orderType: InputMaybe<OrderByFacetType>;
+  ranges: InputMaybe<Array<InputMaybe<RangeFacetsInput>>>;
 };
 
 export type FooterColumnOrderByInput = {
-  _metadata: InputMaybe<IContentMetadataOrderByInput>;
+  Ancestors: InputMaybe<OrderBy>;
+  Category: InputMaybe<CategoryModelOrderByInput>;
+  Changed: InputMaybe<OrderBy>;
+  ContentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  ContentType: InputMaybe<OrderBy>;
+  Created: InputMaybe<OrderBy>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelOrderByInput>;
+  IsCommonDraft: InputMaybe<OrderBy>;
+  Language: InputMaybe<ContentLanguageModelOrderByInput>;
+  Links: InputMaybe<ContentAreaItemModelSearchOrderByInput>;
+  MasterLanguage: InputMaybe<ContentLanguageModelOrderByInput>;
+  Name: InputMaybe<OrderBy>;
+  ParentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  RelativePath: InputMaybe<OrderBy>;
+  RouteSegment: InputMaybe<OrderBy>;
+  Saved: InputMaybe<OrderBy>;
+  Shortcut: InputMaybe<OrderBy>;
+  SiteId: InputMaybe<OrderBy>;
+  StartPublish: InputMaybe<OrderBy>;
+  Status: InputMaybe<OrderBy>;
+  StopPublish: InputMaybe<OrderBy>;
+  Title: InputMaybe<OrderBy>;
+  Url: InputMaybe<OrderBy>;
+  _concreteType: InputMaybe<OrderBy>;
   _minimumScore: InputMaybe<Scalars['Float']['input']>;
   _modified: InputMaybe<OrderBy>;
   _ranking: InputMaybe<Ranking>;
   /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
   _semanticWeight: InputMaybe<Scalars['Float']['input']>;
-  links: InputMaybe<_IContentOrderByInput>;
+  _sortOrder: InputMaybe<OrderBy>;
 };
 
 export type FooterColumnOutput = {
@@ -907,212 +2606,1313 @@ export type FooterColumnOutputTotalArgs = {
 };
 
 export type FooterColumnWhereInput = {
+  Ancestors: InputMaybe<StringFilterInput>;
+  Category: InputMaybe<CategoryModelWhereInput>;
+  Changed: InputMaybe<DateFilterInput>;
+  ContentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  ContentType: InputMaybe<StringFilterInput>;
+  Created: InputMaybe<DateFilterInput>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelWhereInput>;
+  IsCommonDraft: InputMaybe<BoolFilterInput>;
+  Language: InputMaybe<ContentLanguageModelWhereInput>;
+  Links: InputMaybe<ContentAreaItemModelSearchWhereInput>;
+  MasterLanguage: InputMaybe<ContentLanguageModelWhereInput>;
+  Name: InputMaybe<SearchableStringFilterInput>;
+  ParentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  RelativePath: InputMaybe<StringFilterInput>;
+  RouteSegment: InputMaybe<StringFilterInput>;
+  Saved: InputMaybe<DateFilterInput>;
+  Shortcut: InputMaybe<StringFilterInput>;
+  SiteId: InputMaybe<StringFilterInput>;
+  StartPublish: InputMaybe<DateFilterInput>;
+  Status: InputMaybe<StringFilterInput>;
+  StopPublish: InputMaybe<DateFilterInput>;
+  Title: InputMaybe<SearchableStringFilterInput>;
+  Url: InputMaybe<StringFilterInput>;
   _and: InputMaybe<Array<InputMaybe<FooterColumnWhereInput>>>;
+  _concreteType: InputMaybe<StringFilterInput>;
   _fulltext: InputMaybe<SearchableStringFilterInput>;
-  _metadata: InputMaybe<IContentMetadataWhereInput>;
   _modified: InputMaybe<DateFilterInput>;
   _not: InputMaybe<Array<InputMaybe<FooterColumnWhereInput>>>;
   _or: InputMaybe<Array<InputMaybe<FooterColumnWhereInput>>>;
-  links: InputMaybe<_IContentWhereInput>;
+  _sortOrder: InputMaybe<IntFilterInput>;
 };
 
-export type FooterFacet = {
-  __typename?: 'FooterFacet';
-  _metadata: Maybe<IContentMetadataFacet>;
-  columns: Maybe<_IContentFacet>;
-  socialLinks: Maybe<_IContentFacet>;
-};
-
-export type FooterOrderByInput = {
-  _metadata: InputMaybe<IContentMetadataOrderByInput>;
-  _minimumScore: InputMaybe<Scalars['Float']['input']>;
-  _modified: InputMaybe<OrderBy>;
-  _ranking: InputMaybe<Ranking>;
-  /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
-  _semanticWeight: InputMaybe<Scalars['Float']['input']>;
-  columns: InputMaybe<_IContentOrderByInput>;
-  socialLinks: InputMaybe<_IContentOrderByInput>;
-};
-
-export type FooterOutput = {
-  __typename?: 'FooterOutput';
-  autocomplete: Maybe<FooterAutocomplete>;
-  cursor: Maybe<Scalars['String']['output']>;
-  facets: Maybe<FooterFacet>;
-  items: Maybe<Array<Maybe<Footer>>>;
-  total: Maybe<Scalars['Int']['output']>;
-};
-
-
-export type FooterOutputTotalArgs = {
-  all: InputMaybe<Scalars['Boolean']['input']>;
-};
-
-export type FooterWhereInput = {
-  _and: InputMaybe<Array<InputMaybe<FooterWhereInput>>>;
-  _fulltext: InputMaybe<SearchableStringFilterInput>;
-  _metadata: InputMaybe<IContentMetadataWhereInput>;
-  _modified: InputMaybe<DateFilterInput>;
-  _not: InputMaybe<Array<InputMaybe<FooterWhereInput>>>;
-  _or: InputMaybe<Array<InputMaybe<FooterWhereInput>>>;
-  columns: InputMaybe<_IContentWhereInput>;
-  socialLinks: InputMaybe<_IContentWhereInput>;
-};
-
-export type GenericMedia123 = IData & _IContent & _IMedia & {
-  __typename?: 'GenericMedia123';
+export type FooterPage = IContent & IData & {
+  __typename?: 'FooterPage';
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Category: Maybe<Array<Maybe<CategoryModel>>>;
+  Changed: Maybe<Scalars['Date']['output']>;
+  Columns: Maybe<Array<Maybe<ContentAreaItemModelSearch>>>;
+  ContentLink: Maybe<ContentModelReference>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  CopyrightText: Maybe<Scalars['String']['output']>;
+  Created: Maybe<Scalars['Date']['output']>;
+  ExistingLanguages: Maybe<Array<Maybe<ContentLanguageModel>>>;
+  IsCommonDraft: Maybe<Scalars['Bool']['output']>;
+  Language: Maybe<ContentLanguageModel>;
+  MasterLanguage: Maybe<ContentLanguageModel>;
+  Name: Maybe<Scalars['String']['output']>;
+  ParentLink: Maybe<ContentModelReference>;
+  RelativePath: Maybe<Scalars['String']['output']>;
+  RouteSegment: Maybe<Scalars['String']['output']>;
+  Saved: Maybe<Scalars['Date']['output']>;
+  Shortcut: Maybe<Scalars['String']['output']>;
+  SiteId: Maybe<Scalars['String']['output']>;
+  SocialLinks: Maybe<Array<Maybe<ContentAreaItemModelSearch>>>;
+  StartPublish: Maybe<Scalars['Date']['output']>;
+  Status: Maybe<Scalars['String']['output']>;
+  StopPublish: Maybe<Scalars['Date']['output']>;
+  Url: Maybe<Scalars['String']['output']>;
   /** @deprecated Use `_link` field instead */
   _children: Maybe<QueryRef>;
+  _concreteType: Maybe<Scalars['String']['output']>;
   _deleted: Maybe<Scalars['Bool']['output']>;
   _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id: Maybe<Scalars['String']['output']>;
   _link: Maybe<QueryRef>;
-  _metadata: Maybe<IContentMetadata>;
   _modified: Maybe<Scalars['Date']['output']>;
   _score: Maybe<Scalars['Float']['output']>;
+  _sortOrder: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type GenericMedia123_FulltextArgs = {
+export type FooterPageColumnsArgs = {
   highlight: InputMaybe<HighlightOptions>;
 };
 
 
-export type GenericMedia123_LinkArgs = {
+export type FooterPageCopyrightTextArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type FooterPageNameArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type FooterPageSocialLinksArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type FooterPage_FulltextArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type FooterPage_LinkArgs = {
   type: InputMaybe<LinkTypes>;
 };
 
-export type GenericMedia123Autocomplete = {
-  __typename?: 'GenericMedia123Autocomplete';
-  _metadata: Maybe<IContentMetadataAutocomplete>;
+export type FooterPageAutocomplete = {
+  __typename?: 'FooterPageAutocomplete';
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Category: Maybe<CategoryModelAutocomplete>;
+  ContentLink: Maybe<ContentModelReferenceAutocomplete>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelAutocomplete>;
+  Language: Maybe<ContentLanguageModelAutocomplete>;
+  MasterLanguage: Maybe<ContentLanguageModelAutocomplete>;
+  ParentLink: Maybe<ContentModelReferenceAutocomplete>;
+  RelativePath: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  RouteSegment: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Shortcut: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  SiteId: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Status: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Url: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _concreteType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
 };
 
-export type GenericMedia123Facet = {
-  __typename?: 'GenericMedia123Facet';
-  _metadata: Maybe<IContentMetadataFacet>;
+
+export type FooterPageAutocompleteAncestorsArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
 };
 
-export type GenericMedia123OrderByInput = {
-  _metadata: InputMaybe<IContentMetadataOrderByInput>;
+
+export type FooterPageAutocompleteContentTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type FooterPageAutocompleteRelativePathArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type FooterPageAutocompleteRouteSegmentArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type FooterPageAutocompleteShortcutArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type FooterPageAutocompleteSiteIdArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type FooterPageAutocompleteStatusArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type FooterPageAutocompleteUrlArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type FooterPageAutocomplete_ConcreteTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+export type FooterPageFacet = {
+  __typename?: 'FooterPageFacet';
+  Ancestors: Maybe<Array<Maybe<StringFacet>>>;
+  Category: Maybe<CategoryModelFacet>;
+  Changed: Maybe<Array<Maybe<DateFacet>>>;
+  Columns: Maybe<ContentAreaItemModelSearchFacet>;
+  ContentLink: Maybe<ContentModelReferenceFacet>;
+  ContentType: Maybe<Array<Maybe<StringFacet>>>;
+  CopyrightText: Maybe<Array<Maybe<StringFacet>>>;
+  Created: Maybe<Array<Maybe<DateFacet>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelFacet>;
+  IsCommonDraft: Maybe<Array<Maybe<StringFacet>>>;
+  Language: Maybe<ContentLanguageModelFacet>;
+  MasterLanguage: Maybe<ContentLanguageModelFacet>;
+  Name: Maybe<Array<Maybe<StringFacet>>>;
+  ParentLink: Maybe<ContentModelReferenceFacet>;
+  RelativePath: Maybe<Array<Maybe<StringFacet>>>;
+  RouteSegment: Maybe<Array<Maybe<StringFacet>>>;
+  Saved: Maybe<Array<Maybe<DateFacet>>>;
+  Shortcut: Maybe<Array<Maybe<StringFacet>>>;
+  SiteId: Maybe<Array<Maybe<StringFacet>>>;
+  SocialLinks: Maybe<ContentAreaItemModelSearchFacet>;
+  StartPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Status: Maybe<Array<Maybe<StringFacet>>>;
+  StopPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Url: Maybe<Array<Maybe<StringFacet>>>;
+  _concreteType: Maybe<Array<Maybe<StringFacet>>>;
+  _sortOrder: Maybe<Array<Maybe<NumberFacet>>>;
+};
+
+
+export type FooterPageFacetAncestorsArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type FooterPageFacetChangedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type FooterPageFacetContentTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type FooterPageFacetCopyrightTextArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type FooterPageFacetCreatedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type FooterPageFacetIsCommonDraftArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type FooterPageFacetNameArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type FooterPageFacetRelativePathArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type FooterPageFacetRouteSegmentArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type FooterPageFacetSavedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type FooterPageFacetShortcutArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type FooterPageFacetSiteIdArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type FooterPageFacetStartPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type FooterPageFacetStatusArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type FooterPageFacetStopPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type FooterPageFacetUrlArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type FooterPageFacet_ConcreteTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type FooterPageFacet_SortOrderArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<OrderBy>;
+  orderType: InputMaybe<OrderByFacetType>;
+  ranges: InputMaybe<Array<InputMaybe<RangeFacetsInput>>>;
+};
+
+export type FooterPageOrderByInput = {
+  Ancestors: InputMaybe<OrderBy>;
+  Category: InputMaybe<CategoryModelOrderByInput>;
+  Changed: InputMaybe<OrderBy>;
+  Columns: InputMaybe<ContentAreaItemModelSearchOrderByInput>;
+  ContentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  ContentType: InputMaybe<OrderBy>;
+  CopyrightText: InputMaybe<OrderBy>;
+  Created: InputMaybe<OrderBy>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelOrderByInput>;
+  IsCommonDraft: InputMaybe<OrderBy>;
+  Language: InputMaybe<ContentLanguageModelOrderByInput>;
+  MasterLanguage: InputMaybe<ContentLanguageModelOrderByInput>;
+  Name: InputMaybe<OrderBy>;
+  ParentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  RelativePath: InputMaybe<OrderBy>;
+  RouteSegment: InputMaybe<OrderBy>;
+  Saved: InputMaybe<OrderBy>;
+  Shortcut: InputMaybe<OrderBy>;
+  SiteId: InputMaybe<OrderBy>;
+  SocialLinks: InputMaybe<ContentAreaItemModelSearchOrderByInput>;
+  StartPublish: InputMaybe<OrderBy>;
+  Status: InputMaybe<OrderBy>;
+  StopPublish: InputMaybe<OrderBy>;
+  Url: InputMaybe<OrderBy>;
+  _concreteType: InputMaybe<OrderBy>;
   _minimumScore: InputMaybe<Scalars['Float']['input']>;
   _modified: InputMaybe<OrderBy>;
   _ranking: InputMaybe<Ranking>;
   /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
   _semanticWeight: InputMaybe<Scalars['Float']['input']>;
+  _sortOrder: InputMaybe<OrderBy>;
 };
 
-export type GenericMedia123Output = {
-  __typename?: 'GenericMedia123Output';
-  autocomplete: Maybe<GenericMedia123Autocomplete>;
+export type FooterPageOutput = {
+  __typename?: 'FooterPageOutput';
+  autocomplete: Maybe<FooterPageAutocomplete>;
   cursor: Maybe<Scalars['String']['output']>;
-  facets: Maybe<GenericMedia123Facet>;
-  items: Maybe<Array<Maybe<GenericMedia123>>>;
+  facets: Maybe<FooterPageFacet>;
+  items: Maybe<Array<Maybe<FooterPage>>>;
   total: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type GenericMedia123OutputTotalArgs = {
+export type FooterPageOutputTotalArgs = {
   all: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type GenericMedia123WhereInput = {
-  _and: InputMaybe<Array<InputMaybe<GenericMedia123WhereInput>>>;
+export type FooterPageWhereInput = {
+  Ancestors: InputMaybe<StringFilterInput>;
+  Category: InputMaybe<CategoryModelWhereInput>;
+  Changed: InputMaybe<DateFilterInput>;
+  Columns: InputMaybe<ContentAreaItemModelSearchWhereInput>;
+  ContentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  ContentType: InputMaybe<StringFilterInput>;
+  CopyrightText: InputMaybe<SearchableStringFilterInput>;
+  Created: InputMaybe<DateFilterInput>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelWhereInput>;
+  IsCommonDraft: InputMaybe<BoolFilterInput>;
+  Language: InputMaybe<ContentLanguageModelWhereInput>;
+  MasterLanguage: InputMaybe<ContentLanguageModelWhereInput>;
+  Name: InputMaybe<SearchableStringFilterInput>;
+  ParentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  RelativePath: InputMaybe<StringFilterInput>;
+  RouteSegment: InputMaybe<StringFilterInput>;
+  Saved: InputMaybe<DateFilterInput>;
+  Shortcut: InputMaybe<StringFilterInput>;
+  SiteId: InputMaybe<StringFilterInput>;
+  SocialLinks: InputMaybe<ContentAreaItemModelSearchWhereInput>;
+  StartPublish: InputMaybe<DateFilterInput>;
+  Status: InputMaybe<StringFilterInput>;
+  StopPublish: InputMaybe<DateFilterInput>;
+  Url: InputMaybe<StringFilterInput>;
+  _and: InputMaybe<Array<InputMaybe<FooterPageWhereInput>>>;
+  _concreteType: InputMaybe<StringFilterInput>;
   _fulltext: InputMaybe<SearchableStringFilterInput>;
-  _metadata: InputMaybe<IContentMetadataWhereInput>;
   _modified: InputMaybe<DateFilterInput>;
-  _not: InputMaybe<Array<InputMaybe<GenericMedia123WhereInput>>>;
-  _or: InputMaybe<Array<InputMaybe<GenericMedia123WhereInput>>>;
+  _not: InputMaybe<Array<InputMaybe<FooterPageWhereInput>>>;
+  _or: InputMaybe<Array<InputMaybe<FooterPageWhereInput>>>;
+  _sortOrder: InputMaybe<IntFilterInput>;
 };
 
-export type Header = IData & _IContent & _IPage & {
-  __typename?: 'Header';
+export type GenericMedia = IContent & IData & {
+  __typename?: 'GenericMedia';
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Category: Maybe<Array<Maybe<CategoryModel>>>;
+  Changed: Maybe<Scalars['Date']['output']>;
+  Content: Maybe<Scalars['String']['output']>;
+  ContentLink: Maybe<ContentModelReference>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Created: Maybe<Scalars['Date']['output']>;
+  Description: Maybe<Scalars['String']['output']>;
+  ExistingLanguages: Maybe<Array<Maybe<ContentLanguageModel>>>;
+  IsCommonDraft: Maybe<Scalars['Bool']['output']>;
+  Language: Maybe<ContentLanguageModel>;
+  MasterLanguage: Maybe<ContentLanguageModel>;
+  MimeType: Maybe<Scalars['String']['output']>;
+  Name: Maybe<Scalars['String']['output']>;
+  ParentLink: Maybe<ContentModelReference>;
+  RelativePath: Maybe<Scalars['String']['output']>;
+  RouteSegment: Maybe<Scalars['String']['output']>;
+  Saved: Maybe<Scalars['Date']['output']>;
+  Shortcut: Maybe<Scalars['String']['output']>;
+  SiteId: Maybe<Scalars['String']['output']>;
+  StartPublish: Maybe<Scalars['Date']['output']>;
+  Status: Maybe<Scalars['String']['output']>;
+  StopPublish: Maybe<Scalars['Date']['output']>;
+  Thumbnail: Maybe<BlobModel>;
+  Url: Maybe<Scalars['String']['output']>;
   /** @deprecated Use `_link` field instead */
   _children: Maybe<QueryRef>;
+  _concreteType: Maybe<Scalars['String']['output']>;
   _deleted: Maybe<Scalars['Bool']['output']>;
   _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id: Maybe<Scalars['String']['output']>;
   _link: Maybe<QueryRef>;
-  _metadata: Maybe<IContentMetadata>;
   _modified: Maybe<Scalars['Date']['output']>;
   _score: Maybe<Scalars['Float']['output']>;
-  ctaHref: Maybe<Scalars['String']['output']>;
-  ctaText: Maybe<Scalars['String']['output']>;
-  logo: Maybe<Scalars['String']['output']>;
-  navItems: Maybe<Array<Maybe<_IContent>>>;
+  _sortOrder: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type Header_FulltextArgs = {
+export type GenericMediaContentArgs = {
   highlight: InputMaybe<HighlightOptions>;
 };
 
 
-export type Header_LinkArgs = {
+export type GenericMediaDescriptionArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type GenericMediaNameArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type GenericMedia_FulltextArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type GenericMedia_LinkArgs = {
   type: InputMaybe<LinkTypes>;
 };
 
-export type HeaderAutocomplete = {
-  __typename?: 'HeaderAutocomplete';
-  _metadata: Maybe<IContentMetadataAutocomplete>;
-  navItems: Maybe<_IContentAutocomplete>;
+export type GenericMediaAutocomplete = {
+  __typename?: 'GenericMediaAutocomplete';
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Category: Maybe<CategoryModelAutocomplete>;
+  ContentLink: Maybe<ContentModelReferenceAutocomplete>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelAutocomplete>;
+  Language: Maybe<ContentLanguageModelAutocomplete>;
+  MasterLanguage: Maybe<ContentLanguageModelAutocomplete>;
+  MimeType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  ParentLink: Maybe<ContentModelReferenceAutocomplete>;
+  RelativePath: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  RouteSegment: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Shortcut: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  SiteId: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Status: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Thumbnail: Maybe<BlobModelAutocomplete>;
+  Url: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _concreteType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
 };
 
-export type HeaderFacet = {
-  __typename?: 'HeaderFacet';
-  _metadata: Maybe<IContentMetadataFacet>;
-  navItems: Maybe<_IContentFacet>;
+
+export type GenericMediaAutocompleteAncestorsArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
 };
 
-export type HeaderOrderByInput = {
-  _metadata: InputMaybe<IContentMetadataOrderByInput>;
+
+export type GenericMediaAutocompleteContentTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type GenericMediaAutocompleteMimeTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type GenericMediaAutocompleteRelativePathArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type GenericMediaAutocompleteRouteSegmentArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type GenericMediaAutocompleteShortcutArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type GenericMediaAutocompleteSiteIdArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type GenericMediaAutocompleteStatusArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type GenericMediaAutocompleteUrlArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type GenericMediaAutocomplete_ConcreteTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+export type GenericMediaFacet = {
+  __typename?: 'GenericMediaFacet';
+  Ancestors: Maybe<Array<Maybe<StringFacet>>>;
+  Category: Maybe<CategoryModelFacet>;
+  Changed: Maybe<Array<Maybe<DateFacet>>>;
+  Content: Maybe<Array<Maybe<StringFacet>>>;
+  ContentLink: Maybe<ContentModelReferenceFacet>;
+  ContentType: Maybe<Array<Maybe<StringFacet>>>;
+  Created: Maybe<Array<Maybe<DateFacet>>>;
+  Description: Maybe<Array<Maybe<StringFacet>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelFacet>;
+  IsCommonDraft: Maybe<Array<Maybe<StringFacet>>>;
+  Language: Maybe<ContentLanguageModelFacet>;
+  MasterLanguage: Maybe<ContentLanguageModelFacet>;
+  MimeType: Maybe<Array<Maybe<StringFacet>>>;
+  Name: Maybe<Array<Maybe<StringFacet>>>;
+  ParentLink: Maybe<ContentModelReferenceFacet>;
+  RelativePath: Maybe<Array<Maybe<StringFacet>>>;
+  RouteSegment: Maybe<Array<Maybe<StringFacet>>>;
+  Saved: Maybe<Array<Maybe<DateFacet>>>;
+  Shortcut: Maybe<Array<Maybe<StringFacet>>>;
+  SiteId: Maybe<Array<Maybe<StringFacet>>>;
+  StartPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Status: Maybe<Array<Maybe<StringFacet>>>;
+  StopPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Thumbnail: Maybe<BlobModelFacet>;
+  Url: Maybe<Array<Maybe<StringFacet>>>;
+  _concreteType: Maybe<Array<Maybe<StringFacet>>>;
+  _sortOrder: Maybe<Array<Maybe<NumberFacet>>>;
+};
+
+
+export type GenericMediaFacetAncestorsArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type GenericMediaFacetChangedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type GenericMediaFacetContentArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type GenericMediaFacetContentTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type GenericMediaFacetCreatedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type GenericMediaFacetDescriptionArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type GenericMediaFacetIsCommonDraftArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type GenericMediaFacetMimeTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type GenericMediaFacetNameArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type GenericMediaFacetRelativePathArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type GenericMediaFacetRouteSegmentArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type GenericMediaFacetSavedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type GenericMediaFacetShortcutArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type GenericMediaFacetSiteIdArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type GenericMediaFacetStartPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type GenericMediaFacetStatusArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type GenericMediaFacetStopPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type GenericMediaFacetUrlArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type GenericMediaFacet_ConcreteTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type GenericMediaFacet_SortOrderArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<OrderBy>;
+  orderType: InputMaybe<OrderByFacetType>;
+  ranges: InputMaybe<Array<InputMaybe<RangeFacetsInput>>>;
+};
+
+export type GenericMediaOrderByInput = {
+  Ancestors: InputMaybe<OrderBy>;
+  Category: InputMaybe<CategoryModelOrderByInput>;
+  Changed: InputMaybe<OrderBy>;
+  Content: InputMaybe<OrderBy>;
+  ContentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  ContentType: InputMaybe<OrderBy>;
+  Created: InputMaybe<OrderBy>;
+  Description: InputMaybe<OrderBy>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelOrderByInput>;
+  IsCommonDraft: InputMaybe<OrderBy>;
+  Language: InputMaybe<ContentLanguageModelOrderByInput>;
+  MasterLanguage: InputMaybe<ContentLanguageModelOrderByInput>;
+  MimeType: InputMaybe<OrderBy>;
+  Name: InputMaybe<OrderBy>;
+  ParentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  RelativePath: InputMaybe<OrderBy>;
+  RouteSegment: InputMaybe<OrderBy>;
+  Saved: InputMaybe<OrderBy>;
+  Shortcut: InputMaybe<OrderBy>;
+  SiteId: InputMaybe<OrderBy>;
+  StartPublish: InputMaybe<OrderBy>;
+  Status: InputMaybe<OrderBy>;
+  StopPublish: InputMaybe<OrderBy>;
+  Thumbnail: InputMaybe<BlobModelOrderByInput>;
+  Url: InputMaybe<OrderBy>;
+  _concreteType: InputMaybe<OrderBy>;
   _minimumScore: InputMaybe<Scalars['Float']['input']>;
   _modified: InputMaybe<OrderBy>;
   _ranking: InputMaybe<Ranking>;
   /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
   _semanticWeight: InputMaybe<Scalars['Float']['input']>;
-  navItems: InputMaybe<_IContentOrderByInput>;
+  _sortOrder: InputMaybe<OrderBy>;
 };
 
-export type HeaderOutput = {
-  __typename?: 'HeaderOutput';
-  autocomplete: Maybe<HeaderAutocomplete>;
+export type GenericMediaOutput = {
+  __typename?: 'GenericMediaOutput';
+  autocomplete: Maybe<GenericMediaAutocomplete>;
   cursor: Maybe<Scalars['String']['output']>;
-  facets: Maybe<HeaderFacet>;
-  items: Maybe<Array<Maybe<Header>>>;
+  facets: Maybe<GenericMediaFacet>;
+  items: Maybe<Array<Maybe<GenericMedia>>>;
   total: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type HeaderOutputTotalArgs = {
+export type GenericMediaOutputTotalArgs = {
   all: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type HeaderWhereInput = {
-  _and: InputMaybe<Array<InputMaybe<HeaderWhereInput>>>;
+export type GenericMediaWhereInput = {
+  Ancestors: InputMaybe<StringFilterInput>;
+  Category: InputMaybe<CategoryModelWhereInput>;
+  Changed: InputMaybe<DateFilterInput>;
+  Content: InputMaybe<SearchableStringFilterInput>;
+  ContentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  ContentType: InputMaybe<StringFilterInput>;
+  Created: InputMaybe<DateFilterInput>;
+  Description: InputMaybe<SearchableStringFilterInput>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelWhereInput>;
+  IsCommonDraft: InputMaybe<BoolFilterInput>;
+  Language: InputMaybe<ContentLanguageModelWhereInput>;
+  MasterLanguage: InputMaybe<ContentLanguageModelWhereInput>;
+  MimeType: InputMaybe<StringFilterInput>;
+  Name: InputMaybe<SearchableStringFilterInput>;
+  ParentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  RelativePath: InputMaybe<StringFilterInput>;
+  RouteSegment: InputMaybe<StringFilterInput>;
+  Saved: InputMaybe<DateFilterInput>;
+  Shortcut: InputMaybe<StringFilterInput>;
+  SiteId: InputMaybe<StringFilterInput>;
+  StartPublish: InputMaybe<DateFilterInput>;
+  Status: InputMaybe<StringFilterInput>;
+  StopPublish: InputMaybe<DateFilterInput>;
+  Thumbnail: InputMaybe<BlobModelWhereInput>;
+  Url: InputMaybe<StringFilterInput>;
+  _and: InputMaybe<Array<InputMaybe<GenericMediaWhereInput>>>;
+  _concreteType: InputMaybe<StringFilterInput>;
   _fulltext: InputMaybe<SearchableStringFilterInput>;
-  _metadata: InputMaybe<IContentMetadataWhereInput>;
   _modified: InputMaybe<DateFilterInput>;
-  _not: InputMaybe<Array<InputMaybe<HeaderWhereInput>>>;
-  _or: InputMaybe<Array<InputMaybe<HeaderWhereInput>>>;
-  navItems: InputMaybe<_IContentWhereInput>;
+  _not: InputMaybe<Array<InputMaybe<GenericMediaWhereInput>>>;
+  _or: InputMaybe<Array<InputMaybe<GenericMediaWhereInput>>>;
+  _sortOrder: InputMaybe<IntFilterInput>;
 };
 
-export type HeroBlock = IData & _IComponent & _IContent & {
+export type HeaderPage = IContent & IData & {
+  __typename?: 'HeaderPage';
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Category: Maybe<Array<Maybe<CategoryModel>>>;
+  Changed: Maybe<Scalars['Date']['output']>;
+  ContentLink: Maybe<ContentModelReference>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Created: Maybe<Scalars['Date']['output']>;
+  CtaHref: Maybe<Scalars['String']['output']>;
+  CtaText: Maybe<Scalars['String']['output']>;
+  ExistingLanguages: Maybe<Array<Maybe<ContentLanguageModel>>>;
+  IsCommonDraft: Maybe<Scalars['Bool']['output']>;
+  Language: Maybe<ContentLanguageModel>;
+  Logo: Maybe<Scalars['String']['output']>;
+  MasterLanguage: Maybe<ContentLanguageModel>;
+  Name: Maybe<Scalars['String']['output']>;
+  NavItems: Maybe<Array<Maybe<ContentAreaItemModelSearch>>>;
+  ParentLink: Maybe<ContentModelReference>;
+  RelativePath: Maybe<Scalars['String']['output']>;
+  RouteSegment: Maybe<Scalars['String']['output']>;
+  Saved: Maybe<Scalars['Date']['output']>;
+  Shortcut: Maybe<Scalars['String']['output']>;
+  SiteId: Maybe<Scalars['String']['output']>;
+  StartPublish: Maybe<Scalars['Date']['output']>;
+  Status: Maybe<Scalars['String']['output']>;
+  StopPublish: Maybe<Scalars['Date']['output']>;
+  Url: Maybe<Scalars['String']['output']>;
+  /** @deprecated Use `_link` field instead */
+  _children: Maybe<QueryRef>;
+  _concreteType: Maybe<Scalars['String']['output']>;
+  _deleted: Maybe<Scalars['Bool']['output']>;
+  _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _id: Maybe<Scalars['String']['output']>;
+  _link: Maybe<QueryRef>;
+  _modified: Maybe<Scalars['Date']['output']>;
+  _score: Maybe<Scalars['Float']['output']>;
+  _sortOrder: Maybe<Scalars['Int']['output']>;
+};
+
+
+export type HeaderPageCtaHrefArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type HeaderPageCtaTextArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type HeaderPageLogoArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type HeaderPageNameArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type HeaderPageNavItemsArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type HeaderPage_FulltextArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type HeaderPage_LinkArgs = {
+  type: InputMaybe<LinkTypes>;
+};
+
+export type HeaderPageAutocomplete = {
+  __typename?: 'HeaderPageAutocomplete';
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Category: Maybe<CategoryModelAutocomplete>;
+  ContentLink: Maybe<ContentModelReferenceAutocomplete>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelAutocomplete>;
+  Language: Maybe<ContentLanguageModelAutocomplete>;
+  MasterLanguage: Maybe<ContentLanguageModelAutocomplete>;
+  ParentLink: Maybe<ContentModelReferenceAutocomplete>;
+  RelativePath: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  RouteSegment: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Shortcut: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  SiteId: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Status: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Url: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _concreteType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+};
+
+
+export type HeaderPageAutocompleteAncestorsArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type HeaderPageAutocompleteContentTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type HeaderPageAutocompleteRelativePathArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type HeaderPageAutocompleteRouteSegmentArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type HeaderPageAutocompleteShortcutArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type HeaderPageAutocompleteSiteIdArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type HeaderPageAutocompleteStatusArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type HeaderPageAutocompleteUrlArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type HeaderPageAutocomplete_ConcreteTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+export type HeaderPageFacet = {
+  __typename?: 'HeaderPageFacet';
+  Ancestors: Maybe<Array<Maybe<StringFacet>>>;
+  Category: Maybe<CategoryModelFacet>;
+  Changed: Maybe<Array<Maybe<DateFacet>>>;
+  ContentLink: Maybe<ContentModelReferenceFacet>;
+  ContentType: Maybe<Array<Maybe<StringFacet>>>;
+  Created: Maybe<Array<Maybe<DateFacet>>>;
+  CtaHref: Maybe<Array<Maybe<StringFacet>>>;
+  CtaText: Maybe<Array<Maybe<StringFacet>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelFacet>;
+  IsCommonDraft: Maybe<Array<Maybe<StringFacet>>>;
+  Language: Maybe<ContentLanguageModelFacet>;
+  Logo: Maybe<Array<Maybe<StringFacet>>>;
+  MasterLanguage: Maybe<ContentLanguageModelFacet>;
+  Name: Maybe<Array<Maybe<StringFacet>>>;
+  NavItems: Maybe<ContentAreaItemModelSearchFacet>;
+  ParentLink: Maybe<ContentModelReferenceFacet>;
+  RelativePath: Maybe<Array<Maybe<StringFacet>>>;
+  RouteSegment: Maybe<Array<Maybe<StringFacet>>>;
+  Saved: Maybe<Array<Maybe<DateFacet>>>;
+  Shortcut: Maybe<Array<Maybe<StringFacet>>>;
+  SiteId: Maybe<Array<Maybe<StringFacet>>>;
+  StartPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Status: Maybe<Array<Maybe<StringFacet>>>;
+  StopPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Url: Maybe<Array<Maybe<StringFacet>>>;
+  _concreteType: Maybe<Array<Maybe<StringFacet>>>;
+  _sortOrder: Maybe<Array<Maybe<NumberFacet>>>;
+};
+
+
+export type HeaderPageFacetAncestorsArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type HeaderPageFacetChangedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type HeaderPageFacetContentTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type HeaderPageFacetCreatedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type HeaderPageFacetCtaHrefArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type HeaderPageFacetCtaTextArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type HeaderPageFacetIsCommonDraftArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type HeaderPageFacetLogoArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type HeaderPageFacetNameArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type HeaderPageFacetRelativePathArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type HeaderPageFacetRouteSegmentArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type HeaderPageFacetSavedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type HeaderPageFacetShortcutArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type HeaderPageFacetSiteIdArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type HeaderPageFacetStartPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type HeaderPageFacetStatusArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type HeaderPageFacetStopPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type HeaderPageFacetUrlArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type HeaderPageFacet_ConcreteTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type HeaderPageFacet_SortOrderArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<OrderBy>;
+  orderType: InputMaybe<OrderByFacetType>;
+  ranges: InputMaybe<Array<InputMaybe<RangeFacetsInput>>>;
+};
+
+export type HeaderPageOrderByInput = {
+  Ancestors: InputMaybe<OrderBy>;
+  Category: InputMaybe<CategoryModelOrderByInput>;
+  Changed: InputMaybe<OrderBy>;
+  ContentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  ContentType: InputMaybe<OrderBy>;
+  Created: InputMaybe<OrderBy>;
+  CtaHref: InputMaybe<OrderBy>;
+  CtaText: InputMaybe<OrderBy>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelOrderByInput>;
+  IsCommonDraft: InputMaybe<OrderBy>;
+  Language: InputMaybe<ContentLanguageModelOrderByInput>;
+  Logo: InputMaybe<OrderBy>;
+  MasterLanguage: InputMaybe<ContentLanguageModelOrderByInput>;
+  Name: InputMaybe<OrderBy>;
+  NavItems: InputMaybe<ContentAreaItemModelSearchOrderByInput>;
+  ParentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  RelativePath: InputMaybe<OrderBy>;
+  RouteSegment: InputMaybe<OrderBy>;
+  Saved: InputMaybe<OrderBy>;
+  Shortcut: InputMaybe<OrderBy>;
+  SiteId: InputMaybe<OrderBy>;
+  StartPublish: InputMaybe<OrderBy>;
+  Status: InputMaybe<OrderBy>;
+  StopPublish: InputMaybe<OrderBy>;
+  Url: InputMaybe<OrderBy>;
+  _concreteType: InputMaybe<OrderBy>;
+  _minimumScore: InputMaybe<Scalars['Float']['input']>;
+  _modified: InputMaybe<OrderBy>;
+  _ranking: InputMaybe<Ranking>;
+  /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
+  _semanticWeight: InputMaybe<Scalars['Float']['input']>;
+  _sortOrder: InputMaybe<OrderBy>;
+};
+
+export type HeaderPageOutput = {
+  __typename?: 'HeaderPageOutput';
+  autocomplete: Maybe<HeaderPageAutocomplete>;
+  cursor: Maybe<Scalars['String']['output']>;
+  facets: Maybe<HeaderPageFacet>;
+  items: Maybe<Array<Maybe<HeaderPage>>>;
+  total: Maybe<Scalars['Int']['output']>;
+};
+
+
+export type HeaderPageOutputTotalArgs = {
+  all: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type HeaderPageWhereInput = {
+  Ancestors: InputMaybe<StringFilterInput>;
+  Category: InputMaybe<CategoryModelWhereInput>;
+  Changed: InputMaybe<DateFilterInput>;
+  ContentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  ContentType: InputMaybe<StringFilterInput>;
+  Created: InputMaybe<DateFilterInput>;
+  CtaHref: InputMaybe<SearchableStringFilterInput>;
+  CtaText: InputMaybe<SearchableStringFilterInput>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelWhereInput>;
+  IsCommonDraft: InputMaybe<BoolFilterInput>;
+  Language: InputMaybe<ContentLanguageModelWhereInput>;
+  Logo: InputMaybe<SearchableStringFilterInput>;
+  MasterLanguage: InputMaybe<ContentLanguageModelWhereInput>;
+  Name: InputMaybe<SearchableStringFilterInput>;
+  NavItems: InputMaybe<ContentAreaItemModelSearchWhereInput>;
+  ParentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  RelativePath: InputMaybe<StringFilterInput>;
+  RouteSegment: InputMaybe<StringFilterInput>;
+  Saved: InputMaybe<DateFilterInput>;
+  Shortcut: InputMaybe<StringFilterInput>;
+  SiteId: InputMaybe<StringFilterInput>;
+  StartPublish: InputMaybe<DateFilterInput>;
+  Status: InputMaybe<StringFilterInput>;
+  StopPublish: InputMaybe<DateFilterInput>;
+  Url: InputMaybe<StringFilterInput>;
+  _and: InputMaybe<Array<InputMaybe<HeaderPageWhereInput>>>;
+  _concreteType: InputMaybe<StringFilterInput>;
+  _fulltext: InputMaybe<SearchableStringFilterInput>;
+  _modified: InputMaybe<DateFilterInput>;
+  _not: InputMaybe<Array<InputMaybe<HeaderPageWhereInput>>>;
+  _or: InputMaybe<Array<InputMaybe<HeaderPageWhereInput>>>;
+  _sortOrder: InputMaybe<IntFilterInput>;
+};
+
+export type HeroBlock = IContent & IData & {
   __typename?: 'HeroBlock';
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Category: Maybe<Array<Maybe<CategoryModel>>>;
+  Changed: Maybe<Scalars['Date']['output']>;
+  ContentLink: Maybe<ContentModelReference>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Created: Maybe<Scalars['Date']['output']>;
+  DecorationColorsPrimary: Maybe<Scalars['String']['output']>;
+  DecorationColorsSecondary: Maybe<Scalars['String']['output']>;
+  ExistingLanguages: Maybe<Array<Maybe<ContentLanguageModel>>>;
+  IsCommonDraft: Maybe<Scalars['Bool']['output']>;
+  Language: Maybe<ContentLanguageModel>;
+  MasterLanguage: Maybe<ContentLanguageModel>;
+  Name: Maybe<Scalars['String']['output']>;
+  ParentLink: Maybe<ContentModelReference>;
+  RelativePath: Maybe<Scalars['String']['output']>;
+  RouteSegment: Maybe<Scalars['String']['output']>;
+  Saved: Maybe<Scalars['Date']['output']>;
+  Shortcut: Maybe<Scalars['String']['output']>;
+  ShowDecoration: Maybe<Scalars['Bool']['output']>;
+  SiteId: Maybe<Scalars['String']['output']>;
+  StartPublish: Maybe<Scalars['Date']['output']>;
+  Status: Maybe<Scalars['String']['output']>;
+  StopPublish: Maybe<Scalars['Date']['output']>;
+  Subtitle: Maybe<Scalars['String']['output']>;
+  Title: Maybe<Scalars['String']['output']>;
+  Url: Maybe<Scalars['String']['output']>;
   /** @deprecated Use `_link` field instead */
   _children: Maybe<QueryRef>;
+  _concreteType: Maybe<Scalars['String']['output']>;
   _deleted: Maybe<Scalars['Bool']['output']>;
   _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id: Maybe<Scalars['String']['output']>;
   _link: Maybe<QueryRef>;
-  _metadata: Maybe<IContentMetadata>;
   _modified: Maybe<Scalars['Date']['output']>;
   _score: Maybe<Scalars['Float']['output']>;
-  decorationColorsPrimary: Maybe<Scalars['String']['output']>;
-  decorationColorsSecondary: Maybe<Scalars['String']['output']>;
-  showDecoration: Maybe<Scalars['Boolean']['output']>;
-  subtitle: Maybe<Scalars['String']['output']>;
-  title: Maybe<Scalars['String']['output']>;
+  _sortOrder: Maybe<Scalars['Int']['output']>;
+};
+
+
+export type HeroBlockDecorationColorsPrimaryArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type HeroBlockDecorationColorsSecondaryArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type HeroBlockNameArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type HeroBlockSubtitleArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type HeroBlockTitleArgs = {
+  highlight: InputMaybe<HighlightOptions>;
 };
 
 
@@ -1127,21 +3927,310 @@ export type HeroBlock_LinkArgs = {
 
 export type HeroBlockAutocomplete = {
   __typename?: 'HeroBlockAutocomplete';
-  _metadata: Maybe<IContentMetadataAutocomplete>;
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Category: Maybe<CategoryModelAutocomplete>;
+  ContentLink: Maybe<ContentModelReferenceAutocomplete>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelAutocomplete>;
+  Language: Maybe<ContentLanguageModelAutocomplete>;
+  MasterLanguage: Maybe<ContentLanguageModelAutocomplete>;
+  ParentLink: Maybe<ContentModelReferenceAutocomplete>;
+  RelativePath: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  RouteSegment: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Shortcut: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  SiteId: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Status: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Url: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _concreteType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+};
+
+
+export type HeroBlockAutocompleteAncestorsArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type HeroBlockAutocompleteContentTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type HeroBlockAutocompleteRelativePathArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type HeroBlockAutocompleteRouteSegmentArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type HeroBlockAutocompleteShortcutArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type HeroBlockAutocompleteSiteIdArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type HeroBlockAutocompleteStatusArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type HeroBlockAutocompleteUrlArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type HeroBlockAutocomplete_ConcreteTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
 };
 
 export type HeroBlockFacet = {
   __typename?: 'HeroBlockFacet';
-  _metadata: Maybe<IContentMetadataFacet>;
+  Ancestors: Maybe<Array<Maybe<StringFacet>>>;
+  Category: Maybe<CategoryModelFacet>;
+  Changed: Maybe<Array<Maybe<DateFacet>>>;
+  ContentLink: Maybe<ContentModelReferenceFacet>;
+  ContentType: Maybe<Array<Maybe<StringFacet>>>;
+  Created: Maybe<Array<Maybe<DateFacet>>>;
+  DecorationColorsPrimary: Maybe<Array<Maybe<StringFacet>>>;
+  DecorationColorsSecondary: Maybe<Array<Maybe<StringFacet>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelFacet>;
+  IsCommonDraft: Maybe<Array<Maybe<StringFacet>>>;
+  Language: Maybe<ContentLanguageModelFacet>;
+  MasterLanguage: Maybe<ContentLanguageModelFacet>;
+  Name: Maybe<Array<Maybe<StringFacet>>>;
+  ParentLink: Maybe<ContentModelReferenceFacet>;
+  RelativePath: Maybe<Array<Maybe<StringFacet>>>;
+  RouteSegment: Maybe<Array<Maybe<StringFacet>>>;
+  Saved: Maybe<Array<Maybe<DateFacet>>>;
+  Shortcut: Maybe<Array<Maybe<StringFacet>>>;
+  ShowDecoration: Maybe<Array<Maybe<StringFacet>>>;
+  SiteId: Maybe<Array<Maybe<StringFacet>>>;
+  StartPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Status: Maybe<Array<Maybe<StringFacet>>>;
+  StopPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Subtitle: Maybe<Array<Maybe<StringFacet>>>;
+  Title: Maybe<Array<Maybe<StringFacet>>>;
+  Url: Maybe<Array<Maybe<StringFacet>>>;
+  _concreteType: Maybe<Array<Maybe<StringFacet>>>;
+  _sortOrder: Maybe<Array<Maybe<NumberFacet>>>;
+};
+
+
+export type HeroBlockFacetAncestorsArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type HeroBlockFacetChangedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type HeroBlockFacetContentTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type HeroBlockFacetCreatedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type HeroBlockFacetDecorationColorsPrimaryArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type HeroBlockFacetDecorationColorsSecondaryArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type HeroBlockFacetIsCommonDraftArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type HeroBlockFacetNameArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type HeroBlockFacetRelativePathArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type HeroBlockFacetRouteSegmentArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type HeroBlockFacetSavedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type HeroBlockFacetShortcutArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type HeroBlockFacetShowDecorationArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type HeroBlockFacetSiteIdArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type HeroBlockFacetStartPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type HeroBlockFacetStatusArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type HeroBlockFacetStopPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type HeroBlockFacetSubtitleArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type HeroBlockFacetTitleArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type HeroBlockFacetUrlArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type HeroBlockFacet_ConcreteTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type HeroBlockFacet_SortOrderArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<OrderBy>;
+  orderType: InputMaybe<OrderByFacetType>;
+  ranges: InputMaybe<Array<InputMaybe<RangeFacetsInput>>>;
 };
 
 export type HeroBlockOrderByInput = {
-  _metadata: InputMaybe<IContentMetadataOrderByInput>;
+  Ancestors: InputMaybe<OrderBy>;
+  Category: InputMaybe<CategoryModelOrderByInput>;
+  Changed: InputMaybe<OrderBy>;
+  ContentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  ContentType: InputMaybe<OrderBy>;
+  Created: InputMaybe<OrderBy>;
+  DecorationColorsPrimary: InputMaybe<OrderBy>;
+  DecorationColorsSecondary: InputMaybe<OrderBy>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelOrderByInput>;
+  IsCommonDraft: InputMaybe<OrderBy>;
+  Language: InputMaybe<ContentLanguageModelOrderByInput>;
+  MasterLanguage: InputMaybe<ContentLanguageModelOrderByInput>;
+  Name: InputMaybe<OrderBy>;
+  ParentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  RelativePath: InputMaybe<OrderBy>;
+  RouteSegment: InputMaybe<OrderBy>;
+  Saved: InputMaybe<OrderBy>;
+  Shortcut: InputMaybe<OrderBy>;
+  ShowDecoration: InputMaybe<OrderBy>;
+  SiteId: InputMaybe<OrderBy>;
+  StartPublish: InputMaybe<OrderBy>;
+  Status: InputMaybe<OrderBy>;
+  StopPublish: InputMaybe<OrderBy>;
+  Subtitle: InputMaybe<OrderBy>;
+  Title: InputMaybe<OrderBy>;
+  Url: InputMaybe<OrderBy>;
+  _concreteType: InputMaybe<OrderBy>;
   _minimumScore: InputMaybe<Scalars['Float']['input']>;
   _modified: InputMaybe<OrderBy>;
   _ranking: InputMaybe<Ranking>;
   /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
   _semanticWeight: InputMaybe<Scalars['Float']['input']>;
+  _sortOrder: InputMaybe<OrderBy>;
 };
 
 export type HeroBlockOutput = {
@@ -1159,12 +4248,39 @@ export type HeroBlockOutputTotalArgs = {
 };
 
 export type HeroBlockWhereInput = {
+  Ancestors: InputMaybe<StringFilterInput>;
+  Category: InputMaybe<CategoryModelWhereInput>;
+  Changed: InputMaybe<DateFilterInput>;
+  ContentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  ContentType: InputMaybe<StringFilterInput>;
+  Created: InputMaybe<DateFilterInput>;
+  DecorationColorsPrimary: InputMaybe<SearchableStringFilterInput>;
+  DecorationColorsSecondary: InputMaybe<SearchableStringFilterInput>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelWhereInput>;
+  IsCommonDraft: InputMaybe<BoolFilterInput>;
+  Language: InputMaybe<ContentLanguageModelWhereInput>;
+  MasterLanguage: InputMaybe<ContentLanguageModelWhereInput>;
+  Name: InputMaybe<SearchableStringFilterInput>;
+  ParentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  RelativePath: InputMaybe<StringFilterInput>;
+  RouteSegment: InputMaybe<StringFilterInput>;
+  Saved: InputMaybe<DateFilterInput>;
+  Shortcut: InputMaybe<StringFilterInput>;
+  ShowDecoration: InputMaybe<BoolFilterInput>;
+  SiteId: InputMaybe<StringFilterInput>;
+  StartPublish: InputMaybe<DateFilterInput>;
+  Status: InputMaybe<StringFilterInput>;
+  StopPublish: InputMaybe<DateFilterInput>;
+  Subtitle: InputMaybe<SearchableStringFilterInput>;
+  Title: InputMaybe<SearchableStringFilterInput>;
+  Url: InputMaybe<StringFilterInput>;
   _and: InputMaybe<Array<InputMaybe<HeroBlockWhereInput>>>;
+  _concreteType: InputMaybe<StringFilterInput>;
   _fulltext: InputMaybe<SearchableStringFilterInput>;
-  _metadata: InputMaybe<IContentMetadataWhereInput>;
   _modified: InputMaybe<DateFilterInput>;
   _not: InputMaybe<Array<InputMaybe<HeroBlockWhereInput>>>;
   _or: InputMaybe<Array<InputMaybe<HeroBlockWhereInput>>>;
+  _sortOrder: InputMaybe<IntFilterInput>;
 };
 
 /** Options for highlighting */
@@ -1174,77 +4290,41 @@ export type HighlightOptions = {
   startToken: InputMaybe<Scalars['String']['input']>;
 };
 
-export type ICompositionComponentNode = {
-  component: Maybe<_IComponent>;
-  displayName: Maybe<Scalars['String']['output']>;
-  displaySettings: Maybe<Array<Maybe<CompositionDisplaySetting>>>;
-  displayTemplateKey: Maybe<Scalars['String']['output']>;
-  key: Maybe<Scalars['String']['output']>;
-  nodeType: Maybe<Scalars['String']['output']>;
-  type: Maybe<Scalars['String']['output']>;
+export type HostDefinitionModel = {
+  __typename?: 'HostDefinitionModel';
+  Language: Maybe<ContentLanguageModel>;
+  Name: Maybe<Scalars['String']['output']>;
+  Type: Maybe<Scalars['String']['output']>;
 };
 
-export type ICompositionNode = {
-  displayName: Maybe<Scalars['String']['output']>;
-  displaySettings: Maybe<Array<Maybe<CompositionDisplaySetting>>>;
-  displayTemplateKey: Maybe<Scalars['String']['output']>;
-  key: Maybe<Scalars['String']['output']>;
-  nodeType: Maybe<Scalars['String']['output']>;
-  type: Maybe<Scalars['String']['output']>;
-};
-
-export type ICompositionNodeAutocomplete = {
-  __typename?: 'ICompositionNodeAutocomplete';
-  displayName: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  displaySettings: Maybe<CompositionDisplaySettingAutocomplete>;
-  displayTemplateKey: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  key: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  nodeType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  type: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+export type HostDefinitionModelAutocomplete = {
+  __typename?: 'HostDefinitionModelAutocomplete';
+  Language: Maybe<ContentLanguageModelAutocomplete>;
+  Name: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Type: Maybe<Array<Maybe<Scalars['String']['output']>>>;
 };
 
 
-export type ICompositionNodeAutocompleteDisplayNameArgs = {
+export type HostDefinitionModelAutocompleteNameArgs = {
   limit?: Scalars['Int']['input'];
   value: Scalars['String']['input'];
 };
 
 
-export type ICompositionNodeAutocompleteDisplayTemplateKeyArgs = {
+export type HostDefinitionModelAutocompleteTypeArgs = {
   limit?: Scalars['Int']['input'];
   value: Scalars['String']['input'];
 };
 
-
-export type ICompositionNodeAutocompleteKeyArgs = {
-  limit?: Scalars['Int']['input'];
-  value: Scalars['String']['input'];
+export type HostDefinitionModelFacet = {
+  __typename?: 'HostDefinitionModelFacet';
+  Language: Maybe<ContentLanguageModelFacet>;
+  Name: Maybe<Array<Maybe<StringFacet>>>;
+  Type: Maybe<Array<Maybe<StringFacet>>>;
 };
 
 
-export type ICompositionNodeAutocompleteNodeTypeArgs = {
-  limit?: Scalars['Int']['input'];
-  value: Scalars['String']['input'];
-};
-
-
-export type ICompositionNodeAutocompleteTypeArgs = {
-  limit?: Scalars['Int']['input'];
-  value: Scalars['String']['input'];
-};
-
-export type ICompositionNodeFacet = {
-  __typename?: 'ICompositionNodeFacet';
-  displayName: Maybe<Array<Maybe<StringFacet>>>;
-  displaySettings: Maybe<CompositionDisplaySettingFacet>;
-  displayTemplateKey: Maybe<Array<Maybe<StringFacet>>>;
-  key: Maybe<Array<Maybe<StringFacet>>>;
-  nodeType: Maybe<Array<Maybe<StringFacet>>>;
-  type: Maybe<Array<Maybe<StringFacet>>>;
-};
-
-
-export type ICompositionNodeFacetDisplayNameArgs = {
+export type HostDefinitionModelFacetNameArgs = {
   filters: InputMaybe<Array<Scalars['String']['input']>>;
   limit?: Scalars['Int']['input'];
   orderBy?: InputMaybe<OrderBy>;
@@ -1252,265 +4332,71 @@ export type ICompositionNodeFacetDisplayNameArgs = {
 };
 
 
-export type ICompositionNodeFacetDisplayTemplateKeyArgs = {
+export type HostDefinitionModelFacetTypeArgs = {
   filters: InputMaybe<Array<Scalars['String']['input']>>;
   limit?: Scalars['Int']['input'];
   orderBy?: InputMaybe<OrderBy>;
   orderType?: InputMaybe<OrderByFacetType>;
 };
 
+export type HostDefinitionModelOrderByInput = {
+  Language: InputMaybe<ContentLanguageModelOrderByInput>;
+  Name: InputMaybe<OrderBy>;
+  Type: InputMaybe<OrderBy>;
+};
 
-export type ICompositionNodeFacetKeyArgs = {
-  filters: InputMaybe<Array<Scalars['String']['input']>>;
-  limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<OrderBy>;
-  orderType?: InputMaybe<OrderByFacetType>;
+export type HostDefinitionModelWhereInput = {
+  Language: InputMaybe<ContentLanguageModelWhereInput>;
+  Name: InputMaybe<StringFilterInput>;
+  Type: InputMaybe<StringFilterInput>;
+};
+
+export type IContent = {
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Changed: Maybe<Scalars['Date']['output']>;
+  ContentLink: Maybe<ContentModelReference>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Created: Maybe<Scalars['Date']['output']>;
+  ExistingLanguages: Maybe<Array<Maybe<ContentLanguageModel>>>;
+  IsCommonDraft: Maybe<Scalars['Bool']['output']>;
+  Language: Maybe<ContentLanguageModel>;
+  MasterLanguage: Maybe<ContentLanguageModel>;
+  Name: Maybe<Scalars['String']['output']>;
+  ParentLink: Maybe<ContentModelReference>;
+  RelativePath: Maybe<Scalars['String']['output']>;
+  RouteSegment: Maybe<Scalars['String']['output']>;
+  Saved: Maybe<Scalars['Date']['output']>;
+  Shortcut: Maybe<Scalars['String']['output']>;
+  SiteId: Maybe<Scalars['String']['output']>;
+  StartPublish: Maybe<Scalars['Date']['output']>;
+  Status: Maybe<Scalars['String']['output']>;
+  StopPublish: Maybe<Scalars['Date']['output']>;
+  Url: Maybe<Scalars['String']['output']>;
+  /** @deprecated Use `_link` field instead */
+  _children: Maybe<QueryRef>;
+  _concreteType: Maybe<Scalars['String']['output']>;
+  _deleted: Maybe<Scalars['Bool']['output']>;
+  _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _id: Maybe<Scalars['String']['output']>;
+  _link: Maybe<QueryRef>;
+  _modified: Maybe<Scalars['Date']['output']>;
+  _score: Maybe<Scalars['Float']['output']>;
+  _sortOrder: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type ICompositionNodeFacetNodeTypeArgs = {
-  filters: InputMaybe<Array<Scalars['String']['input']>>;
-  limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<OrderBy>;
-  orderType?: InputMaybe<OrderByFacetType>;
-};
-
-
-export type ICompositionNodeFacetTypeArgs = {
-  filters: InputMaybe<Array<Scalars['String']['input']>>;
-  limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<OrderBy>;
-  orderType?: InputMaybe<OrderByFacetType>;
-};
-
-export type ICompositionNodeOrderByInput = {
-  displayName: InputMaybe<OrderBy>;
-  displaySettings: InputMaybe<CompositionDisplaySettingOrderByInput>;
-  displayTemplateKey: InputMaybe<OrderBy>;
-  key: InputMaybe<OrderBy>;
-  nodeType: InputMaybe<OrderBy>;
-  type: InputMaybe<OrderBy>;
-};
-
-export type ICompositionNodeWhereInput = {
-  displayName: InputMaybe<StringFilterInput>;
-  displaySettings: InputMaybe<CompositionDisplaySettingWhereInput>;
-  displayTemplateKey: InputMaybe<StringFilterInput>;
-  key: InputMaybe<StringFilterInput>;
-  nodeType: InputMaybe<StringFilterInput>;
-  type: InputMaybe<StringFilterInput>;
-};
-
-export type ICompositionStructureNode = {
-  displayName: Maybe<Scalars['String']['output']>;
-  displaySettings: Maybe<Array<Maybe<CompositionDisplaySetting>>>;
-  displayTemplateKey: Maybe<Scalars['String']['output']>;
-  key: Maybe<Scalars['String']['output']>;
-  nodeType: Maybe<Scalars['String']['output']>;
-  nodes: Maybe<Array<Maybe<ICompositionNode>>>;
-  type: Maybe<Scalars['String']['output']>;
-};
-
-export type IContentMetadata = {
-  changeset: Maybe<Scalars['String']['output']>;
-  created: Maybe<Scalars['DateTime']['output']>;
-  displayName: Maybe<Scalars['String']['output']>;
-  fallbackForLocale: Maybe<Scalars['String']['output']>;
-  key: Maybe<Scalars['String']['output']>;
-  lastModified: Maybe<Scalars['DateTime']['output']>;
-  locale: Maybe<Scalars['String']['output']>;
-  published: Maybe<Scalars['DateTime']['output']>;
-  status: Maybe<Scalars['String']['output']>;
-  types: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  url: Maybe<ContentUrl>;
-  version: Maybe<Scalars['String']['output']>;
-};
-
-
-export type IContentMetadataDisplayNameArgs = {
+export type IContentNameArgs = {
   highlight: InputMaybe<HighlightOptions>;
 };
 
-export type IContentMetadataAutocomplete = {
-  __typename?: 'IContentMetadataAutocomplete';
-  changeset: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  fallbackForLocale: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  key: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  locale: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  status: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  types: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  url: Maybe<ContentUrlAutocomplete>;
-  version: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+
+export type IContent_FulltextArgs = {
+  highlight: InputMaybe<HighlightOptions>;
 };
 
 
-export type IContentMetadataAutocompleteChangesetArgs = {
-  limit?: Scalars['Int']['input'];
-  value: Scalars['String']['input'];
-};
-
-
-export type IContentMetadataAutocompleteFallbackForLocaleArgs = {
-  limit?: Scalars['Int']['input'];
-  value: Scalars['String']['input'];
-};
-
-
-export type IContentMetadataAutocompleteKeyArgs = {
-  limit?: Scalars['Int']['input'];
-  value: Scalars['String']['input'];
-};
-
-
-export type IContentMetadataAutocompleteLocaleArgs = {
-  limit?: Scalars['Int']['input'];
-  value: Scalars['String']['input'];
-};
-
-
-export type IContentMetadataAutocompleteStatusArgs = {
-  limit?: Scalars['Int']['input'];
-  value: Scalars['String']['input'];
-};
-
-
-export type IContentMetadataAutocompleteTypesArgs = {
-  limit?: Scalars['Int']['input'];
-  value: Scalars['String']['input'];
-};
-
-
-export type IContentMetadataAutocompleteVersionArgs = {
-  limit?: Scalars['Int']['input'];
-  value: Scalars['String']['input'];
-};
-
-export type IContentMetadataFacet = {
-  __typename?: 'IContentMetadataFacet';
-  changeset: Maybe<Array<Maybe<StringFacet>>>;
-  created: Maybe<Array<Maybe<DateFacet>>>;
-  displayName: Maybe<Array<Maybe<StringFacet>>>;
-  fallbackForLocale: Maybe<Array<Maybe<StringFacet>>>;
-  key: Maybe<Array<Maybe<StringFacet>>>;
-  lastModified: Maybe<Array<Maybe<DateFacet>>>;
-  locale: Maybe<Array<Maybe<StringFacet>>>;
-  published: Maybe<Array<Maybe<DateFacet>>>;
-  status: Maybe<Array<Maybe<StringFacet>>>;
-  types: Maybe<Array<Maybe<StringFacet>>>;
-  url: Maybe<ContentUrlFacet>;
-  version: Maybe<Array<Maybe<StringFacet>>>;
-};
-
-
-export type IContentMetadataFacetChangesetArgs = {
-  filters: InputMaybe<Array<Scalars['String']['input']>>;
-  limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<OrderBy>;
-  orderType?: InputMaybe<OrderByFacetType>;
-};
-
-
-export type IContentMetadataFacetCreatedArgs = {
-  unit?: InputMaybe<DateFacetUnit>;
-  value?: InputMaybe<Scalars['Int']['input']>;
-};
-
-
-export type IContentMetadataFacetDisplayNameArgs = {
-  filters: InputMaybe<Array<Scalars['String']['input']>>;
-  limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<OrderBy>;
-  orderType?: InputMaybe<OrderByFacetType>;
-};
-
-
-export type IContentMetadataFacetFallbackForLocaleArgs = {
-  filters: InputMaybe<Array<Scalars['String']['input']>>;
-  limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<OrderBy>;
-  orderType?: InputMaybe<OrderByFacetType>;
-};
-
-
-export type IContentMetadataFacetKeyArgs = {
-  filters: InputMaybe<Array<Scalars['String']['input']>>;
-  limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<OrderBy>;
-  orderType?: InputMaybe<OrderByFacetType>;
-};
-
-
-export type IContentMetadataFacetLastModifiedArgs = {
-  unit?: InputMaybe<DateFacetUnit>;
-  value?: InputMaybe<Scalars['Int']['input']>;
-};
-
-
-export type IContentMetadataFacetLocaleArgs = {
-  filters: InputMaybe<Array<Scalars['String']['input']>>;
-  limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<OrderBy>;
-  orderType?: InputMaybe<OrderByFacetType>;
-};
-
-
-export type IContentMetadataFacetPublishedArgs = {
-  unit?: InputMaybe<DateFacetUnit>;
-  value?: InputMaybe<Scalars['Int']['input']>;
-};
-
-
-export type IContentMetadataFacetStatusArgs = {
-  filters: InputMaybe<Array<Scalars['String']['input']>>;
-  limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<OrderBy>;
-  orderType?: InputMaybe<OrderByFacetType>;
-};
-
-
-export type IContentMetadataFacetTypesArgs = {
-  filters: InputMaybe<Array<Scalars['String']['input']>>;
-  limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<OrderBy>;
-  orderType?: InputMaybe<OrderByFacetType>;
-};
-
-
-export type IContentMetadataFacetVersionArgs = {
-  filters: InputMaybe<Array<Scalars['String']['input']>>;
-  limit?: Scalars['Int']['input'];
-  orderBy?: InputMaybe<OrderBy>;
-  orderType?: InputMaybe<OrderByFacetType>;
-};
-
-export type IContentMetadataOrderByInput = {
-  changeset: InputMaybe<OrderBy>;
-  created: InputMaybe<OrderBy>;
-  displayName: InputMaybe<OrderBy>;
-  fallbackForLocale: InputMaybe<OrderBy>;
-  key: InputMaybe<OrderBy>;
-  lastModified: InputMaybe<OrderBy>;
-  locale: InputMaybe<OrderBy>;
-  published: InputMaybe<OrderBy>;
-  status: InputMaybe<OrderBy>;
-  types: InputMaybe<OrderBy>;
-  url: InputMaybe<ContentUrlOrderByInput>;
-  version: InputMaybe<OrderBy>;
-};
-
-export type IContentMetadataWhereInput = {
-  changeset: InputMaybe<StringFilterInput>;
-  created: InputMaybe<DateFilterInput>;
-  displayName: InputMaybe<SearchableStringFilterInput>;
-  fallbackForLocale: InputMaybe<StringFilterInput>;
-  key: InputMaybe<StringFilterInput>;
-  lastModified: InputMaybe<DateFilterInput>;
-  locale: InputMaybe<StringFilterInput>;
-  published: InputMaybe<DateFilterInput>;
-  status: InputMaybe<StringFilterInput>;
-  types: InputMaybe<StringFilterInput>;
-  url: InputMaybe<ContentUrlWhereInput>;
-  version: InputMaybe<StringFilterInput>;
+export type IContent_LinkArgs = {
+  type: InputMaybe<LinkTypes>;
 };
 
 export type IData = {
@@ -1534,205 +4420,471 @@ export type IData_LinkArgs = {
   type: InputMaybe<LinkTypes>;
 };
 
-export type IInstanceMetadata = {
-  changeset: Maybe<Scalars['String']['output']>;
-  container: Maybe<Scalars['String']['output']>;
-  created: Maybe<Scalars['DateTime']['output']>;
-  createdBy: Maybe<Scalars['String']['output']>;
-  displayName: Maybe<Scalars['String']['output']>;
-  expired: Maybe<Scalars['DateTime']['output']>;
-  fallbackForLocale: Maybe<Scalars['String']['output']>;
-  key: Maybe<Scalars['String']['output']>;
-  lastModified: Maybe<Scalars['DateTime']['output']>;
-  lastModifiedBy: Maybe<Scalars['String']['output']>;
-  locale: Maybe<Scalars['String']['output']>;
-  locales: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  owner: Maybe<Scalars['String']['output']>;
-  path: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  published: Maybe<Scalars['DateTime']['output']>;
-  routeSegment: Maybe<Scalars['String']['output']>;
-  status: Maybe<Scalars['String']['output']>;
-  types: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  url: Maybe<ContentUrl>;
-  version: Maybe<Scalars['String']['output']>;
-};
-
-
-export type IInstanceMetadataDisplayNameArgs = {
-  highlight: InputMaybe<HighlightOptions>;
-};
-
-export type IItemMetadata = {
-  changeset: Maybe<Scalars['String']['output']>;
-  created: Maybe<Scalars['DateTime']['output']>;
-  displayName: Maybe<Scalars['String']['output']>;
-  displayOption: Maybe<Scalars['String']['output']>;
-  fallbackForLocale: Maybe<Scalars['String']['output']>;
-  key: Maybe<Scalars['String']['output']>;
-  lastModified: Maybe<Scalars['DateTime']['output']>;
-  locale: Maybe<Scalars['String']['output']>;
-  published: Maybe<Scalars['DateTime']['output']>;
-  status: Maybe<Scalars['String']['output']>;
-  types: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  url: Maybe<ContentUrl>;
-  version: Maybe<Scalars['String']['output']>;
-};
-
-
-export type IItemMetadataDisplayNameArgs = {
-  highlight: InputMaybe<HighlightOptions>;
-};
-
-export type IMediaMetadata = {
-  changeset: Maybe<Scalars['String']['output']>;
-  container: Maybe<Scalars['String']['output']>;
-  content: Maybe<Scalars['String']['output']>;
-  created: Maybe<Scalars['DateTime']['output']>;
-  createdBy: Maybe<Scalars['String']['output']>;
-  displayName: Maybe<Scalars['String']['output']>;
-  expired: Maybe<Scalars['DateTime']['output']>;
-  fallbackForLocale: Maybe<Scalars['String']['output']>;
-  key: Maybe<Scalars['String']['output']>;
-  lastModified: Maybe<Scalars['DateTime']['output']>;
-  lastModifiedBy: Maybe<Scalars['String']['output']>;
-  locale: Maybe<Scalars['String']['output']>;
-  locales: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  mimeType: Maybe<Scalars['String']['output']>;
-  owner: Maybe<Scalars['String']['output']>;
-  path: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  published: Maybe<Scalars['DateTime']['output']>;
-  routeSegment: Maybe<Scalars['String']['output']>;
-  status: Maybe<Scalars['String']['output']>;
-  thumbnail: Maybe<Scalars['String']['output']>;
-  types: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  url: Maybe<ContentUrl>;
-  version: Maybe<Scalars['String']['output']>;
-};
-
-
-export type IMediaMetadataContentArgs = {
-  highlight: InputMaybe<HighlightOptions>;
-};
-
-
-export type IMediaMetadataDisplayNameArgs = {
-  highlight: InputMaybe<HighlightOptions>;
-};
-
-export type ImageMedia = IData & _IContent & _IImage & _IMedia & {
-  __typename?: 'ImageMedia';
+export type ImageFile = IContent & IData & {
+  __typename?: 'ImageFile';
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Category: Maybe<Array<Maybe<CategoryModel>>>;
+  Changed: Maybe<Scalars['Date']['output']>;
+  Content: Maybe<Scalars['String']['output']>;
+  ContentLink: Maybe<ContentModelReference>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Copyright: Maybe<Scalars['String']['output']>;
+  Created: Maybe<Scalars['Date']['output']>;
+  ExistingLanguages: Maybe<Array<Maybe<ContentLanguageModel>>>;
+  IsCommonDraft: Maybe<Scalars['Bool']['output']>;
+  Language: Maybe<ContentLanguageModel>;
+  MasterLanguage: Maybe<ContentLanguageModel>;
+  MimeType: Maybe<Scalars['String']['output']>;
+  Name: Maybe<Scalars['String']['output']>;
+  ParentLink: Maybe<ContentModelReference>;
+  RelativePath: Maybe<Scalars['String']['output']>;
+  RouteSegment: Maybe<Scalars['String']['output']>;
+  Saved: Maybe<Scalars['Date']['output']>;
+  Shortcut: Maybe<Scalars['String']['output']>;
+  SiteId: Maybe<Scalars['String']['output']>;
+  StartPublish: Maybe<Scalars['Date']['output']>;
+  Status: Maybe<Scalars['String']['output']>;
+  StopPublish: Maybe<Scalars['Date']['output']>;
+  Thumbnail: Maybe<BlobModel>;
+  Url: Maybe<Scalars['String']['output']>;
   /** @deprecated Use `_link` field instead */
   _children: Maybe<QueryRef>;
+  _concreteType: Maybe<Scalars['String']['output']>;
   _deleted: Maybe<Scalars['Bool']['output']>;
   _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id: Maybe<Scalars['String']['output']>;
   _link: Maybe<QueryRef>;
-  _metadata: Maybe<IContentMetadata>;
   _modified: Maybe<Scalars['Date']['output']>;
   _score: Maybe<Scalars['Float']['output']>;
+  _sortOrder: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type ImageMedia_FulltextArgs = {
+export type ImageFileContentArgs = {
   highlight: InputMaybe<HighlightOptions>;
 };
 
 
-export type ImageMedia_LinkArgs = {
+export type ImageFileCopyrightArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type ImageFileNameArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type ImageFile_FulltextArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type ImageFile_LinkArgs = {
   type: InputMaybe<LinkTypes>;
 };
 
-export type ImageMediaAutocomplete = {
-  __typename?: 'ImageMediaAutocomplete';
-  _metadata: Maybe<IContentMetadataAutocomplete>;
+export type ImageFileAutocomplete = {
+  __typename?: 'ImageFileAutocomplete';
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Category: Maybe<CategoryModelAutocomplete>;
+  ContentLink: Maybe<ContentModelReferenceAutocomplete>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelAutocomplete>;
+  Language: Maybe<ContentLanguageModelAutocomplete>;
+  MasterLanguage: Maybe<ContentLanguageModelAutocomplete>;
+  MimeType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  ParentLink: Maybe<ContentModelReferenceAutocomplete>;
+  RelativePath: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  RouteSegment: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Shortcut: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  SiteId: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Status: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Thumbnail: Maybe<BlobModelAutocomplete>;
+  Url: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _concreteType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
 };
 
-export type ImageMediaFacet = {
-  __typename?: 'ImageMediaFacet';
-  _metadata: Maybe<IContentMetadataFacet>;
+
+export type ImageFileAutocompleteAncestorsArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
 };
 
-export type ImageMediaOrderByInput = {
-  _metadata: InputMaybe<IContentMetadataOrderByInput>;
+
+export type ImageFileAutocompleteContentTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ImageFileAutocompleteMimeTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ImageFileAutocompleteRelativePathArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ImageFileAutocompleteRouteSegmentArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ImageFileAutocompleteShortcutArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ImageFileAutocompleteSiteIdArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ImageFileAutocompleteStatusArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ImageFileAutocompleteUrlArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ImageFileAutocomplete_ConcreteTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+export type ImageFileFacet = {
+  __typename?: 'ImageFileFacet';
+  Ancestors: Maybe<Array<Maybe<StringFacet>>>;
+  Category: Maybe<CategoryModelFacet>;
+  Changed: Maybe<Array<Maybe<DateFacet>>>;
+  Content: Maybe<Array<Maybe<StringFacet>>>;
+  ContentLink: Maybe<ContentModelReferenceFacet>;
+  ContentType: Maybe<Array<Maybe<StringFacet>>>;
+  Copyright: Maybe<Array<Maybe<StringFacet>>>;
+  Created: Maybe<Array<Maybe<DateFacet>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelFacet>;
+  IsCommonDraft: Maybe<Array<Maybe<StringFacet>>>;
+  Language: Maybe<ContentLanguageModelFacet>;
+  MasterLanguage: Maybe<ContentLanguageModelFacet>;
+  MimeType: Maybe<Array<Maybe<StringFacet>>>;
+  Name: Maybe<Array<Maybe<StringFacet>>>;
+  ParentLink: Maybe<ContentModelReferenceFacet>;
+  RelativePath: Maybe<Array<Maybe<StringFacet>>>;
+  RouteSegment: Maybe<Array<Maybe<StringFacet>>>;
+  Saved: Maybe<Array<Maybe<DateFacet>>>;
+  Shortcut: Maybe<Array<Maybe<StringFacet>>>;
+  SiteId: Maybe<Array<Maybe<StringFacet>>>;
+  StartPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Status: Maybe<Array<Maybe<StringFacet>>>;
+  StopPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Thumbnail: Maybe<BlobModelFacet>;
+  Url: Maybe<Array<Maybe<StringFacet>>>;
+  _concreteType: Maybe<Array<Maybe<StringFacet>>>;
+  _sortOrder: Maybe<Array<Maybe<NumberFacet>>>;
+};
+
+
+export type ImageFileFacetAncestorsArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ImageFileFacetChangedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type ImageFileFacetContentArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ImageFileFacetContentTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ImageFileFacetCopyrightArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ImageFileFacetCreatedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type ImageFileFacetIsCommonDraftArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ImageFileFacetMimeTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ImageFileFacetNameArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ImageFileFacetRelativePathArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ImageFileFacetRouteSegmentArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ImageFileFacetSavedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type ImageFileFacetShortcutArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ImageFileFacetSiteIdArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ImageFileFacetStartPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type ImageFileFacetStatusArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ImageFileFacetStopPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type ImageFileFacetUrlArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ImageFileFacet_ConcreteTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ImageFileFacet_SortOrderArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<OrderBy>;
+  orderType: InputMaybe<OrderByFacetType>;
+  ranges: InputMaybe<Array<InputMaybe<RangeFacetsInput>>>;
+};
+
+export type ImageFileOrderByInput = {
+  Ancestors: InputMaybe<OrderBy>;
+  Category: InputMaybe<CategoryModelOrderByInput>;
+  Changed: InputMaybe<OrderBy>;
+  Content: InputMaybe<OrderBy>;
+  ContentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  ContentType: InputMaybe<OrderBy>;
+  Copyright: InputMaybe<OrderBy>;
+  Created: InputMaybe<OrderBy>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelOrderByInput>;
+  IsCommonDraft: InputMaybe<OrderBy>;
+  Language: InputMaybe<ContentLanguageModelOrderByInput>;
+  MasterLanguage: InputMaybe<ContentLanguageModelOrderByInput>;
+  MimeType: InputMaybe<OrderBy>;
+  Name: InputMaybe<OrderBy>;
+  ParentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  RelativePath: InputMaybe<OrderBy>;
+  RouteSegment: InputMaybe<OrderBy>;
+  Saved: InputMaybe<OrderBy>;
+  Shortcut: InputMaybe<OrderBy>;
+  SiteId: InputMaybe<OrderBy>;
+  StartPublish: InputMaybe<OrderBy>;
+  Status: InputMaybe<OrderBy>;
+  StopPublish: InputMaybe<OrderBy>;
+  Thumbnail: InputMaybe<BlobModelOrderByInput>;
+  Url: InputMaybe<OrderBy>;
+  _concreteType: InputMaybe<OrderBy>;
   _minimumScore: InputMaybe<Scalars['Float']['input']>;
   _modified: InputMaybe<OrderBy>;
   _ranking: InputMaybe<Ranking>;
   /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
   _semanticWeight: InputMaybe<Scalars['Float']['input']>;
+  _sortOrder: InputMaybe<OrderBy>;
 };
 
-export type ImageMediaOutput = {
-  __typename?: 'ImageMediaOutput';
-  autocomplete: Maybe<ImageMediaAutocomplete>;
+export type ImageFileOutput = {
+  __typename?: 'ImageFileOutput';
+  autocomplete: Maybe<ImageFileAutocomplete>;
   cursor: Maybe<Scalars['String']['output']>;
-  facets: Maybe<ImageMediaFacet>;
-  items: Maybe<Array<Maybe<ImageMedia>>>;
+  facets: Maybe<ImageFileFacet>;
+  items: Maybe<Array<Maybe<ImageFile>>>;
   total: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type ImageMediaOutputTotalArgs = {
+export type ImageFileOutputTotalArgs = {
   all: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type ImageMediaWhereInput = {
-  _and: InputMaybe<Array<InputMaybe<ImageMediaWhereInput>>>;
+export type ImageFileWhereInput = {
+  Ancestors: InputMaybe<StringFilterInput>;
+  Category: InputMaybe<CategoryModelWhereInput>;
+  Changed: InputMaybe<DateFilterInput>;
+  Content: InputMaybe<SearchableStringFilterInput>;
+  ContentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  ContentType: InputMaybe<StringFilterInput>;
+  Copyright: InputMaybe<SearchableStringFilterInput>;
+  Created: InputMaybe<DateFilterInput>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelWhereInput>;
+  IsCommonDraft: InputMaybe<BoolFilterInput>;
+  Language: InputMaybe<ContentLanguageModelWhereInput>;
+  MasterLanguage: InputMaybe<ContentLanguageModelWhereInput>;
+  MimeType: InputMaybe<StringFilterInput>;
+  Name: InputMaybe<SearchableStringFilterInput>;
+  ParentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  RelativePath: InputMaybe<StringFilterInput>;
+  RouteSegment: InputMaybe<StringFilterInput>;
+  Saved: InputMaybe<DateFilterInput>;
+  Shortcut: InputMaybe<StringFilterInput>;
+  SiteId: InputMaybe<StringFilterInput>;
+  StartPublish: InputMaybe<DateFilterInput>;
+  Status: InputMaybe<StringFilterInput>;
+  StopPublish: InputMaybe<DateFilterInput>;
+  Thumbnail: InputMaybe<BlobModelWhereInput>;
+  Url: InputMaybe<StringFilterInput>;
+  _and: InputMaybe<Array<InputMaybe<ImageFileWhereInput>>>;
+  _concreteType: InputMaybe<StringFilterInput>;
   _fulltext: InputMaybe<SearchableStringFilterInput>;
-  _metadata: InputMaybe<IContentMetadataWhereInput>;
   _modified: InputMaybe<DateFilterInput>;
-  _not: InputMaybe<Array<InputMaybe<ImageMediaWhereInput>>>;
-  _or: InputMaybe<Array<InputMaybe<ImageMediaWhereInput>>>;
+  _not: InputMaybe<Array<InputMaybe<ImageFileWhereInput>>>;
+  _or: InputMaybe<Array<InputMaybe<ImageFileWhereInput>>>;
+  _sortOrder: InputMaybe<IntFilterInput>;
 };
 
-export type InstanceMetadata = IContentMetadata & IInstanceMetadata & {
-  __typename?: 'InstanceMetadata';
-  changeset: Maybe<Scalars['String']['output']>;
-  container: Maybe<Scalars['String']['output']>;
-  created: Maybe<Scalars['DateTime']['output']>;
-  createdBy: Maybe<Scalars['String']['output']>;
-  displayName: Maybe<Scalars['String']['output']>;
-  expired: Maybe<Scalars['DateTime']['output']>;
-  fallbackForLocale: Maybe<Scalars['String']['output']>;
-  key: Maybe<Scalars['String']['output']>;
-  lastModified: Maybe<Scalars['DateTime']['output']>;
-  lastModifiedBy: Maybe<Scalars['String']['output']>;
-  locale: Maybe<Scalars['String']['output']>;
-  locales: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  owner: Maybe<Scalars['String']['output']>;
-  path: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  published: Maybe<Scalars['DateTime']['output']>;
-  routeSegment: Maybe<Scalars['String']['output']>;
-  status: Maybe<Scalars['String']['output']>;
-  types: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  url: Maybe<ContentUrl>;
-  version: Maybe<Scalars['String']['output']>;
+export type InlineBlockPropertyModelSearch = {
+  __typename?: 'InlineBlockPropertyModelSearch';
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
 };
 
 
-export type InstanceMetadataDisplayNameArgs = {
+export type InlineBlockPropertyModelSearchContentTypeArgs = {
   highlight: InputMaybe<HighlightOptions>;
 };
 
-export type ItemMetadata = IContentMetadata & IItemMetadata & {
-  __typename?: 'ItemMetadata';
-  changeset: Maybe<Scalars['String']['output']>;
-  created: Maybe<Scalars['DateTime']['output']>;
-  displayName: Maybe<Scalars['String']['output']>;
-  displayOption: Maybe<Scalars['String']['output']>;
-  fallbackForLocale: Maybe<Scalars['String']['output']>;
-  key: Maybe<Scalars['String']['output']>;
-  lastModified: Maybe<Scalars['DateTime']['output']>;
-  locale: Maybe<Scalars['String']['output']>;
-  published: Maybe<Scalars['DateTime']['output']>;
-  status: Maybe<Scalars['String']['output']>;
-  types: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  url: Maybe<ContentUrl>;
-  version: Maybe<Scalars['String']['output']>;
+export type InlineBlockPropertyModelSearchFacet = {
+  __typename?: 'InlineBlockPropertyModelSearchFacet';
+  ContentType: Maybe<Array<Maybe<StringFacet>>>;
 };
 
 
-export type ItemMetadataDisplayNameArgs = {
-  highlight: InputMaybe<HighlightOptions>;
+export type InlineBlockPropertyModelSearchFacetContentTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+export type InlineBlockPropertyModelSearchOrderByInput = {
+  ContentType: InputMaybe<OrderBy>;
+};
+
+export type InlineBlockPropertyModelSearchWhereInput = {
+  ContentType: InputMaybe<SearchableStringFilterInput>;
+};
+
+export type IntFilterInput = {
+  /** `boost` influences the weight of a field by boosting a match with a number (default: 1) — counts more towards the eventual relevance score which can be projected with `_score` — at query time. Note that `boost` cannot be a negative number. */
+  boost: InputMaybe<Scalars['Int']['input']>;
+  /** `eq` matches on an exact value, but the value is case-insensitive. */
+  eq: InputMaybe<Scalars['Int']['input']>;
+  /** `exist` matches results that have this field. */
+  exist: InputMaybe<Scalars['Boolean']['input']>;
+  /** `Factor` allows you to use a number value in a field to influence the `_score` directly. If used on a multi-valued field, then only the lowest value of the field is used in calculations. Default for `value` is `1`. Default for `modifier` is `NONE`. */
+  factor: InputMaybe<NumberFactor>;
+  /** `gt` retrieves results with matches that have a value which is `greater than` it. */
+  gt: InputMaybe<Scalars['Int']['input']>;
+  /** `gte` retrieves results with matches that have a value which is `greater than or equal to` it. */
+  gte: InputMaybe<Scalars['Int']['input']>;
+  /** `in` matches with 1 or more exact values in a list. Example: `in: ["word1", "word2", "this is a phrase"]` */
+  in: InputMaybe<Array<InputMaybe<Scalars['Int']['input']>>>;
+  /** `lt` retrieves results with matches that have a value which is `lower than` it. */
+  lt: InputMaybe<Scalars['Int']['input']>;
+  /** `lte` retrieves results with matches that have a value which is `lower than or equal to` it. */
+  lte: InputMaybe<Scalars['Int']['input']>;
+  /** `not_eq` retrieves results not matching with an exact (but case-insensitive) value. */
+  notEq: InputMaybe<Scalars['Int']['input']>;
+  /** `not_in` returns results that do not match with 1 or more exact values in a list. Example: `not_in: ["word1", "word2", "this is a phrase"]` */
+  notIn: InputMaybe<Array<InputMaybe<Scalars['Int']['input']>>>;
 };
 
 export type LinkConfig = {
@@ -1745,57 +4897,84 @@ export enum LinkTypes {
    *
    * | *Direction* | &nbsp; | *Field*     |
    * | ----------: | ------ | :---------- |
-   * | *from*      |        | `_metadata.key` |
-   * | *to*        |        | `_metadata.owner`   |
+   * | *from*      |        | `Ancestors` |
+   * | *to*        |        | `ContentLink.GuidValue`   |
    */
-  Assets = 'ASSETS',
+  Ancestors = 'ANCESTORS',
   /**
    *
    * | *Direction* | &nbsp; | *Field*     |
    * | ----------: | ------ | :---------- |
-   * | *from*      |        | `_metadata.key` |
-   * | *to*        |        | `_metadata.container`   |
+   * | *from*      |        | `ContentLink.GuidValue` |
+   * | *to*        |        | `ParentLink.GuidValue`   |
    */
-  Default = 'DEFAULT',
+  Children = 'CHILDREN',
   /**
    *
    * | *Direction* | &nbsp; | *Field*     |
    * | ----------: | ------ | :---------- |
-   * | *from*      |        | `_metadata.key` |
-   * | *to*        |        | `_metadata.container`   |
+   * | *from*      |        | `ContentLink.GuidValue` |
+   * | *to*        |        | `ParentLink.GuidValue`   |
    */
-  Items = 'ITEMS',
-  /**
-   *
-   * | *Direction* | &nbsp; | *Field*     |
-   * | ----------: | ------ | :---------- |
-   * | *from*      |        | `_metadata.path` |
-   * | *to*        |        | `_metadata.key`   |
-   */
-  Path = 'PATH'
+  Default = 'DEFAULT'
 }
 
 export enum Locales {
   All = 'ALL',
   Neutral = 'NEUTRAL',
-  En = 'en',
-  Pl = 'pl',
-  Sv = 'sv'
+  En = 'en'
 }
 
-export type LogoItemBlock = IData & _IComponent & _IContent & {
+export type LogoItemBlock = IContent & IData & {
   __typename?: 'LogoItemBlock';
+  Alt: Maybe<Scalars['String']['output']>;
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Category: Maybe<Array<Maybe<CategoryModel>>>;
+  Changed: Maybe<Scalars['Date']['output']>;
+  ContentLink: Maybe<ContentModelReference>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Created: Maybe<Scalars['Date']['output']>;
+  ExistingLanguages: Maybe<Array<Maybe<ContentLanguageModel>>>;
+  IsCommonDraft: Maybe<Scalars['Bool']['output']>;
+  Language: Maybe<ContentLanguageModel>;
+  MasterLanguage: Maybe<ContentLanguageModel>;
+  Name: Maybe<Scalars['String']['output']>;
+  ParentLink: Maybe<ContentModelReference>;
+  RelativePath: Maybe<Scalars['String']['output']>;
+  RouteSegment: Maybe<Scalars['String']['output']>;
+  Saved: Maybe<Scalars['Date']['output']>;
+  Shortcut: Maybe<Scalars['String']['output']>;
+  SiteId: Maybe<Scalars['String']['output']>;
+  Src: Maybe<Scalars['String']['output']>;
+  StartPublish: Maybe<Scalars['Date']['output']>;
+  Status: Maybe<Scalars['String']['output']>;
+  StopPublish: Maybe<Scalars['Date']['output']>;
+  Url: Maybe<Scalars['String']['output']>;
   /** @deprecated Use `_link` field instead */
   _children: Maybe<QueryRef>;
+  _concreteType: Maybe<Scalars['String']['output']>;
   _deleted: Maybe<Scalars['Bool']['output']>;
   _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id: Maybe<Scalars['String']['output']>;
   _link: Maybe<QueryRef>;
-  _metadata: Maybe<IContentMetadata>;
   _modified: Maybe<Scalars['Date']['output']>;
   _score: Maybe<Scalars['Float']['output']>;
-  alt: Maybe<Scalars['String']['output']>;
-  src: Maybe<Scalars['String']['output']>;
+  _sortOrder: Maybe<Scalars['Int']['output']>;
+};
+
+
+export type LogoItemBlockAltArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type LogoItemBlockNameArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type LogoItemBlockSrcArgs = {
+  highlight: InputMaybe<HighlightOptions>;
 };
 
 
@@ -1810,21 +4989,280 @@ export type LogoItemBlock_LinkArgs = {
 
 export type LogoItemBlockAutocomplete = {
   __typename?: 'LogoItemBlockAutocomplete';
-  _metadata: Maybe<IContentMetadataAutocomplete>;
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Category: Maybe<CategoryModelAutocomplete>;
+  ContentLink: Maybe<ContentModelReferenceAutocomplete>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelAutocomplete>;
+  Language: Maybe<ContentLanguageModelAutocomplete>;
+  MasterLanguage: Maybe<ContentLanguageModelAutocomplete>;
+  ParentLink: Maybe<ContentModelReferenceAutocomplete>;
+  RelativePath: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  RouteSegment: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Shortcut: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  SiteId: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Status: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Url: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _concreteType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+};
+
+
+export type LogoItemBlockAutocompleteAncestorsArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type LogoItemBlockAutocompleteContentTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type LogoItemBlockAutocompleteRelativePathArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type LogoItemBlockAutocompleteRouteSegmentArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type LogoItemBlockAutocompleteShortcutArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type LogoItemBlockAutocompleteSiteIdArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type LogoItemBlockAutocompleteStatusArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type LogoItemBlockAutocompleteUrlArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type LogoItemBlockAutocomplete_ConcreteTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
 };
 
 export type LogoItemBlockFacet = {
   __typename?: 'LogoItemBlockFacet';
-  _metadata: Maybe<IContentMetadataFacet>;
+  Alt: Maybe<Array<Maybe<StringFacet>>>;
+  Ancestors: Maybe<Array<Maybe<StringFacet>>>;
+  Category: Maybe<CategoryModelFacet>;
+  Changed: Maybe<Array<Maybe<DateFacet>>>;
+  ContentLink: Maybe<ContentModelReferenceFacet>;
+  ContentType: Maybe<Array<Maybe<StringFacet>>>;
+  Created: Maybe<Array<Maybe<DateFacet>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelFacet>;
+  IsCommonDraft: Maybe<Array<Maybe<StringFacet>>>;
+  Language: Maybe<ContentLanguageModelFacet>;
+  MasterLanguage: Maybe<ContentLanguageModelFacet>;
+  Name: Maybe<Array<Maybe<StringFacet>>>;
+  ParentLink: Maybe<ContentModelReferenceFacet>;
+  RelativePath: Maybe<Array<Maybe<StringFacet>>>;
+  RouteSegment: Maybe<Array<Maybe<StringFacet>>>;
+  Saved: Maybe<Array<Maybe<DateFacet>>>;
+  Shortcut: Maybe<Array<Maybe<StringFacet>>>;
+  SiteId: Maybe<Array<Maybe<StringFacet>>>;
+  Src: Maybe<Array<Maybe<StringFacet>>>;
+  StartPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Status: Maybe<Array<Maybe<StringFacet>>>;
+  StopPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Url: Maybe<Array<Maybe<StringFacet>>>;
+  _concreteType: Maybe<Array<Maybe<StringFacet>>>;
+  _sortOrder: Maybe<Array<Maybe<NumberFacet>>>;
+};
+
+
+export type LogoItemBlockFacetAltArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type LogoItemBlockFacetAncestorsArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type LogoItemBlockFacetChangedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type LogoItemBlockFacetContentTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type LogoItemBlockFacetCreatedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type LogoItemBlockFacetIsCommonDraftArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type LogoItemBlockFacetNameArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type LogoItemBlockFacetRelativePathArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type LogoItemBlockFacetRouteSegmentArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type LogoItemBlockFacetSavedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type LogoItemBlockFacetShortcutArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type LogoItemBlockFacetSiteIdArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type LogoItemBlockFacetSrcArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type LogoItemBlockFacetStartPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type LogoItemBlockFacetStatusArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type LogoItemBlockFacetStopPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type LogoItemBlockFacetUrlArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type LogoItemBlockFacet_ConcreteTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type LogoItemBlockFacet_SortOrderArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<OrderBy>;
+  orderType: InputMaybe<OrderByFacetType>;
+  ranges: InputMaybe<Array<InputMaybe<RangeFacetsInput>>>;
 };
 
 export type LogoItemBlockOrderByInput = {
-  _metadata: InputMaybe<IContentMetadataOrderByInput>;
+  Alt: InputMaybe<OrderBy>;
+  Ancestors: InputMaybe<OrderBy>;
+  Category: InputMaybe<CategoryModelOrderByInput>;
+  Changed: InputMaybe<OrderBy>;
+  ContentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  ContentType: InputMaybe<OrderBy>;
+  Created: InputMaybe<OrderBy>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelOrderByInput>;
+  IsCommonDraft: InputMaybe<OrderBy>;
+  Language: InputMaybe<ContentLanguageModelOrderByInput>;
+  MasterLanguage: InputMaybe<ContentLanguageModelOrderByInput>;
+  Name: InputMaybe<OrderBy>;
+  ParentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  RelativePath: InputMaybe<OrderBy>;
+  RouteSegment: InputMaybe<OrderBy>;
+  Saved: InputMaybe<OrderBy>;
+  Shortcut: InputMaybe<OrderBy>;
+  SiteId: InputMaybe<OrderBy>;
+  Src: InputMaybe<OrderBy>;
+  StartPublish: InputMaybe<OrderBy>;
+  Status: InputMaybe<OrderBy>;
+  StopPublish: InputMaybe<OrderBy>;
+  Url: InputMaybe<OrderBy>;
+  _concreteType: InputMaybe<OrderBy>;
   _minimumScore: InputMaybe<Scalars['Float']['input']>;
   _modified: InputMaybe<OrderBy>;
   _ranking: InputMaybe<Ranking>;
   /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
   _semanticWeight: InputMaybe<Scalars['Float']['input']>;
+  _sortOrder: InputMaybe<OrderBy>;
 };
 
 export type LogoItemBlockOutput = {
@@ -1842,26 +5280,82 @@ export type LogoItemBlockOutputTotalArgs = {
 };
 
 export type LogoItemBlockWhereInput = {
+  Alt: InputMaybe<SearchableStringFilterInput>;
+  Ancestors: InputMaybe<StringFilterInput>;
+  Category: InputMaybe<CategoryModelWhereInput>;
+  Changed: InputMaybe<DateFilterInput>;
+  ContentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  ContentType: InputMaybe<StringFilterInput>;
+  Created: InputMaybe<DateFilterInput>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelWhereInput>;
+  IsCommonDraft: InputMaybe<BoolFilterInput>;
+  Language: InputMaybe<ContentLanguageModelWhereInput>;
+  MasterLanguage: InputMaybe<ContentLanguageModelWhereInput>;
+  Name: InputMaybe<SearchableStringFilterInput>;
+  ParentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  RelativePath: InputMaybe<StringFilterInput>;
+  RouteSegment: InputMaybe<StringFilterInput>;
+  Saved: InputMaybe<DateFilterInput>;
+  Shortcut: InputMaybe<StringFilterInput>;
+  SiteId: InputMaybe<StringFilterInput>;
+  Src: InputMaybe<SearchableStringFilterInput>;
+  StartPublish: InputMaybe<DateFilterInput>;
+  Status: InputMaybe<StringFilterInput>;
+  StopPublish: InputMaybe<DateFilterInput>;
+  Url: InputMaybe<StringFilterInput>;
   _and: InputMaybe<Array<InputMaybe<LogoItemBlockWhereInput>>>;
+  _concreteType: InputMaybe<StringFilterInput>;
   _fulltext: InputMaybe<SearchableStringFilterInput>;
-  _metadata: InputMaybe<IContentMetadataWhereInput>;
   _modified: InputMaybe<DateFilterInput>;
   _not: InputMaybe<Array<InputMaybe<LogoItemBlockWhereInput>>>;
   _or: InputMaybe<Array<InputMaybe<LogoItemBlockWhereInput>>>;
+  _sortOrder: InputMaybe<IntFilterInput>;
 };
 
-export type LogosBlock = IData & _IComponent & _IContent & {
+export type LogosBlock = IContent & IData & {
   __typename?: 'LogosBlock';
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Category: Maybe<Array<Maybe<CategoryModel>>>;
+  Changed: Maybe<Scalars['Date']['output']>;
+  ContentLink: Maybe<ContentModelReference>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Created: Maybe<Scalars['Date']['output']>;
+  ExistingLanguages: Maybe<Array<Maybe<ContentLanguageModel>>>;
+  IsCommonDraft: Maybe<Scalars['Bool']['output']>;
+  Language: Maybe<ContentLanguageModel>;
+  Links: Maybe<Array<Maybe<ContentAreaItemModelSearch>>>;
+  MasterLanguage: Maybe<ContentLanguageModel>;
+  Name: Maybe<Scalars['String']['output']>;
+  ParentLink: Maybe<ContentModelReference>;
+  RelativePath: Maybe<Scalars['String']['output']>;
+  RouteSegment: Maybe<Scalars['String']['output']>;
+  Saved: Maybe<Scalars['Date']['output']>;
+  Shortcut: Maybe<Scalars['String']['output']>;
+  SiteId: Maybe<Scalars['String']['output']>;
+  StartPublish: Maybe<Scalars['Date']['output']>;
+  Status: Maybe<Scalars['String']['output']>;
+  StopPublish: Maybe<Scalars['Date']['output']>;
+  Url: Maybe<Scalars['String']['output']>;
   /** @deprecated Use `_link` field instead */
   _children: Maybe<QueryRef>;
+  _concreteType: Maybe<Scalars['String']['output']>;
   _deleted: Maybe<Scalars['Bool']['output']>;
   _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id: Maybe<Scalars['String']['output']>;
   _link: Maybe<QueryRef>;
-  _metadata: Maybe<IContentMetadata>;
   _modified: Maybe<Scalars['Date']['output']>;
   _score: Maybe<Scalars['Float']['output']>;
-  logos: Maybe<Array<Maybe<_IContent>>>;
+  _sortOrder: Maybe<Scalars['Int']['output']>;
+};
+
+
+export type LogosBlockLinksArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type LogosBlockNameArgs = {
+  highlight: InputMaybe<HighlightOptions>;
 };
 
 
@@ -1876,24 +5370,262 @@ export type LogosBlock_LinkArgs = {
 
 export type LogosBlockAutocomplete = {
   __typename?: 'LogosBlockAutocomplete';
-  _metadata: Maybe<IContentMetadataAutocomplete>;
-  logos: Maybe<_IContentAutocomplete>;
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Category: Maybe<CategoryModelAutocomplete>;
+  ContentLink: Maybe<ContentModelReferenceAutocomplete>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelAutocomplete>;
+  Language: Maybe<ContentLanguageModelAutocomplete>;
+  MasterLanguage: Maybe<ContentLanguageModelAutocomplete>;
+  ParentLink: Maybe<ContentModelReferenceAutocomplete>;
+  RelativePath: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  RouteSegment: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Shortcut: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  SiteId: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Status: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Url: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _concreteType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+};
+
+
+export type LogosBlockAutocompleteAncestorsArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type LogosBlockAutocompleteContentTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type LogosBlockAutocompleteRelativePathArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type LogosBlockAutocompleteRouteSegmentArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type LogosBlockAutocompleteShortcutArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type LogosBlockAutocompleteSiteIdArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type LogosBlockAutocompleteStatusArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type LogosBlockAutocompleteUrlArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type LogosBlockAutocomplete_ConcreteTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
 };
 
 export type LogosBlockFacet = {
   __typename?: 'LogosBlockFacet';
-  _metadata: Maybe<IContentMetadataFacet>;
-  logos: Maybe<_IContentFacet>;
+  Ancestors: Maybe<Array<Maybe<StringFacet>>>;
+  Category: Maybe<CategoryModelFacet>;
+  Changed: Maybe<Array<Maybe<DateFacet>>>;
+  ContentLink: Maybe<ContentModelReferenceFacet>;
+  ContentType: Maybe<Array<Maybe<StringFacet>>>;
+  Created: Maybe<Array<Maybe<DateFacet>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelFacet>;
+  IsCommonDraft: Maybe<Array<Maybe<StringFacet>>>;
+  Language: Maybe<ContentLanguageModelFacet>;
+  Links: Maybe<ContentAreaItemModelSearchFacet>;
+  MasterLanguage: Maybe<ContentLanguageModelFacet>;
+  Name: Maybe<Array<Maybe<StringFacet>>>;
+  ParentLink: Maybe<ContentModelReferenceFacet>;
+  RelativePath: Maybe<Array<Maybe<StringFacet>>>;
+  RouteSegment: Maybe<Array<Maybe<StringFacet>>>;
+  Saved: Maybe<Array<Maybe<DateFacet>>>;
+  Shortcut: Maybe<Array<Maybe<StringFacet>>>;
+  SiteId: Maybe<Array<Maybe<StringFacet>>>;
+  StartPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Status: Maybe<Array<Maybe<StringFacet>>>;
+  StopPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Url: Maybe<Array<Maybe<StringFacet>>>;
+  _concreteType: Maybe<Array<Maybe<StringFacet>>>;
+  _sortOrder: Maybe<Array<Maybe<NumberFacet>>>;
+};
+
+
+export type LogosBlockFacetAncestorsArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type LogosBlockFacetChangedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type LogosBlockFacetContentTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type LogosBlockFacetCreatedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type LogosBlockFacetIsCommonDraftArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type LogosBlockFacetNameArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type LogosBlockFacetRelativePathArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type LogosBlockFacetRouteSegmentArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type LogosBlockFacetSavedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type LogosBlockFacetShortcutArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type LogosBlockFacetSiteIdArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type LogosBlockFacetStartPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type LogosBlockFacetStatusArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type LogosBlockFacetStopPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type LogosBlockFacetUrlArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type LogosBlockFacet_ConcreteTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type LogosBlockFacet_SortOrderArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<OrderBy>;
+  orderType: InputMaybe<OrderByFacetType>;
+  ranges: InputMaybe<Array<InputMaybe<RangeFacetsInput>>>;
 };
 
 export type LogosBlockOrderByInput = {
-  _metadata: InputMaybe<IContentMetadataOrderByInput>;
+  Ancestors: InputMaybe<OrderBy>;
+  Category: InputMaybe<CategoryModelOrderByInput>;
+  Changed: InputMaybe<OrderBy>;
+  ContentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  ContentType: InputMaybe<OrderBy>;
+  Created: InputMaybe<OrderBy>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelOrderByInput>;
+  IsCommonDraft: InputMaybe<OrderBy>;
+  Language: InputMaybe<ContentLanguageModelOrderByInput>;
+  Links: InputMaybe<ContentAreaItemModelSearchOrderByInput>;
+  MasterLanguage: InputMaybe<ContentLanguageModelOrderByInput>;
+  Name: InputMaybe<OrderBy>;
+  ParentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  RelativePath: InputMaybe<OrderBy>;
+  RouteSegment: InputMaybe<OrderBy>;
+  Saved: InputMaybe<OrderBy>;
+  Shortcut: InputMaybe<OrderBy>;
+  SiteId: InputMaybe<OrderBy>;
+  StartPublish: InputMaybe<OrderBy>;
+  Status: InputMaybe<OrderBy>;
+  StopPublish: InputMaybe<OrderBy>;
+  Url: InputMaybe<OrderBy>;
+  _concreteType: InputMaybe<OrderBy>;
   _minimumScore: InputMaybe<Scalars['Float']['input']>;
   _modified: InputMaybe<OrderBy>;
   _ranking: InputMaybe<Ranking>;
   /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
   _semanticWeight: InputMaybe<Scalars['Float']['input']>;
-  logos: InputMaybe<_IContentOrderByInput>;
+  _sortOrder: InputMaybe<OrderBy>;
 };
 
 export type LogosBlockOutput = {
@@ -1911,65 +5643,87 @@ export type LogosBlockOutputTotalArgs = {
 };
 
 export type LogosBlockWhereInput = {
+  Ancestors: InputMaybe<StringFilterInput>;
+  Category: InputMaybe<CategoryModelWhereInput>;
+  Changed: InputMaybe<DateFilterInput>;
+  ContentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  ContentType: InputMaybe<StringFilterInput>;
+  Created: InputMaybe<DateFilterInput>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelWhereInput>;
+  IsCommonDraft: InputMaybe<BoolFilterInput>;
+  Language: InputMaybe<ContentLanguageModelWhereInput>;
+  Links: InputMaybe<ContentAreaItemModelSearchWhereInput>;
+  MasterLanguage: InputMaybe<ContentLanguageModelWhereInput>;
+  Name: InputMaybe<SearchableStringFilterInput>;
+  ParentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  RelativePath: InputMaybe<StringFilterInput>;
+  RouteSegment: InputMaybe<StringFilterInput>;
+  Saved: InputMaybe<DateFilterInput>;
+  Shortcut: InputMaybe<StringFilterInput>;
+  SiteId: InputMaybe<StringFilterInput>;
+  StartPublish: InputMaybe<DateFilterInput>;
+  Status: InputMaybe<StringFilterInput>;
+  StopPublish: InputMaybe<DateFilterInput>;
+  Url: InputMaybe<StringFilterInput>;
   _and: InputMaybe<Array<InputMaybe<LogosBlockWhereInput>>>;
+  _concreteType: InputMaybe<StringFilterInput>;
   _fulltext: InputMaybe<SearchableStringFilterInput>;
-  _metadata: InputMaybe<IContentMetadataWhereInput>;
   _modified: InputMaybe<DateFilterInput>;
   _not: InputMaybe<Array<InputMaybe<LogosBlockWhereInput>>>;
   _or: InputMaybe<Array<InputMaybe<LogosBlockWhereInput>>>;
-  logos: InputMaybe<_IContentWhereInput>;
+  _sortOrder: InputMaybe<IntFilterInput>;
 };
 
-export type MediaMetadata = IContentMetadata & IInstanceMetadata & IMediaMetadata & {
-  __typename?: 'MediaMetadata';
-  changeset: Maybe<Scalars['String']['output']>;
-  container: Maybe<Scalars['String']['output']>;
-  content: Maybe<Scalars['String']['output']>;
-  created: Maybe<Scalars['DateTime']['output']>;
-  createdBy: Maybe<Scalars['String']['output']>;
-  displayName: Maybe<Scalars['String']['output']>;
-  expired: Maybe<Scalars['DateTime']['output']>;
-  fallbackForLocale: Maybe<Scalars['String']['output']>;
-  key: Maybe<Scalars['String']['output']>;
-  lastModified: Maybe<Scalars['DateTime']['output']>;
-  lastModifiedBy: Maybe<Scalars['String']['output']>;
-  locale: Maybe<Scalars['String']['output']>;
-  locales: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  mimeType: Maybe<Scalars['String']['output']>;
-  owner: Maybe<Scalars['String']['output']>;
-  path: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  published: Maybe<Scalars['DateTime']['output']>;
-  routeSegment: Maybe<Scalars['String']['output']>;
-  status: Maybe<Scalars['String']['output']>;
-  thumbnail: Maybe<Scalars['String']['output']>;
-  types: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  url: Maybe<ContentUrl>;
-  version: Maybe<Scalars['String']['output']>;
-};
-
-
-export type MediaMetadataContentArgs = {
-  highlight: InputMaybe<HighlightOptions>;
-};
-
-
-export type MediaMetadataDisplayNameArgs = {
-  highlight: InputMaybe<HighlightOptions>;
-};
-
-export type NavItem = IData & _IComponent & _IContent & {
+export type NavItem = IContent & IData & {
   __typename?: 'NavItem';
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Category: Maybe<Array<Maybe<CategoryModel>>>;
+  Changed: Maybe<Scalars['Date']['output']>;
+  ContentLink: Maybe<ContentModelReference>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Created: Maybe<Scalars['Date']['output']>;
+  ExistingLanguages: Maybe<Array<Maybe<ContentLanguageModel>>>;
+  Href: Maybe<Scalars['String']['output']>;
+  IsCommonDraft: Maybe<Scalars['Bool']['output']>;
+  Label: Maybe<Scalars['String']['output']>;
+  Language: Maybe<ContentLanguageModel>;
+  MasterLanguage: Maybe<ContentLanguageModel>;
+  Name: Maybe<Scalars['String']['output']>;
+  ParentLink: Maybe<ContentModelReference>;
+  RelativePath: Maybe<Scalars['String']['output']>;
+  RouteSegment: Maybe<Scalars['String']['output']>;
+  Saved: Maybe<Scalars['Date']['output']>;
+  Shortcut: Maybe<Scalars['String']['output']>;
+  SiteId: Maybe<Scalars['String']['output']>;
+  StartPublish: Maybe<Scalars['Date']['output']>;
+  Status: Maybe<Scalars['String']['output']>;
+  StopPublish: Maybe<Scalars['Date']['output']>;
+  Url: Maybe<Scalars['String']['output']>;
   /** @deprecated Use `_link` field instead */
   _children: Maybe<QueryRef>;
+  _concreteType: Maybe<Scalars['String']['output']>;
   _deleted: Maybe<Scalars['Bool']['output']>;
   _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id: Maybe<Scalars['String']['output']>;
   _link: Maybe<QueryRef>;
-  _metadata: Maybe<IContentMetadata>;
   _modified: Maybe<Scalars['Date']['output']>;
   _score: Maybe<Scalars['Float']['output']>;
-  href: Maybe<Scalars['String']['output']>;
-  label: Maybe<Scalars['String']['output']>;
+  _sortOrder: Maybe<Scalars['Int']['output']>;
+};
+
+
+export type NavItemHrefArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type NavItemLabelArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type NavItemNameArgs = {
+  highlight: InputMaybe<HighlightOptions>;
 };
 
 
@@ -1984,21 +5738,280 @@ export type NavItem_LinkArgs = {
 
 export type NavItemAutocomplete = {
   __typename?: 'NavItemAutocomplete';
-  _metadata: Maybe<IContentMetadataAutocomplete>;
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Category: Maybe<CategoryModelAutocomplete>;
+  ContentLink: Maybe<ContentModelReferenceAutocomplete>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelAutocomplete>;
+  Language: Maybe<ContentLanguageModelAutocomplete>;
+  MasterLanguage: Maybe<ContentLanguageModelAutocomplete>;
+  ParentLink: Maybe<ContentModelReferenceAutocomplete>;
+  RelativePath: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  RouteSegment: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Shortcut: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  SiteId: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Status: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Url: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _concreteType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+};
+
+
+export type NavItemAutocompleteAncestorsArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type NavItemAutocompleteContentTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type NavItemAutocompleteRelativePathArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type NavItemAutocompleteRouteSegmentArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type NavItemAutocompleteShortcutArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type NavItemAutocompleteSiteIdArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type NavItemAutocompleteStatusArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type NavItemAutocompleteUrlArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type NavItemAutocomplete_ConcreteTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
 };
 
 export type NavItemFacet = {
   __typename?: 'NavItemFacet';
-  _metadata: Maybe<IContentMetadataFacet>;
+  Ancestors: Maybe<Array<Maybe<StringFacet>>>;
+  Category: Maybe<CategoryModelFacet>;
+  Changed: Maybe<Array<Maybe<DateFacet>>>;
+  ContentLink: Maybe<ContentModelReferenceFacet>;
+  ContentType: Maybe<Array<Maybe<StringFacet>>>;
+  Created: Maybe<Array<Maybe<DateFacet>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelFacet>;
+  Href: Maybe<Array<Maybe<StringFacet>>>;
+  IsCommonDraft: Maybe<Array<Maybe<StringFacet>>>;
+  Label: Maybe<Array<Maybe<StringFacet>>>;
+  Language: Maybe<ContentLanguageModelFacet>;
+  MasterLanguage: Maybe<ContentLanguageModelFacet>;
+  Name: Maybe<Array<Maybe<StringFacet>>>;
+  ParentLink: Maybe<ContentModelReferenceFacet>;
+  RelativePath: Maybe<Array<Maybe<StringFacet>>>;
+  RouteSegment: Maybe<Array<Maybe<StringFacet>>>;
+  Saved: Maybe<Array<Maybe<DateFacet>>>;
+  Shortcut: Maybe<Array<Maybe<StringFacet>>>;
+  SiteId: Maybe<Array<Maybe<StringFacet>>>;
+  StartPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Status: Maybe<Array<Maybe<StringFacet>>>;
+  StopPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Url: Maybe<Array<Maybe<StringFacet>>>;
+  _concreteType: Maybe<Array<Maybe<StringFacet>>>;
+  _sortOrder: Maybe<Array<Maybe<NumberFacet>>>;
+};
+
+
+export type NavItemFacetAncestorsArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type NavItemFacetChangedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type NavItemFacetContentTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type NavItemFacetCreatedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type NavItemFacetHrefArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type NavItemFacetIsCommonDraftArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type NavItemFacetLabelArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type NavItemFacetNameArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type NavItemFacetRelativePathArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type NavItemFacetRouteSegmentArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type NavItemFacetSavedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type NavItemFacetShortcutArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type NavItemFacetSiteIdArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type NavItemFacetStartPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type NavItemFacetStatusArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type NavItemFacetStopPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type NavItemFacetUrlArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type NavItemFacet_ConcreteTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type NavItemFacet_SortOrderArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<OrderBy>;
+  orderType: InputMaybe<OrderByFacetType>;
+  ranges: InputMaybe<Array<InputMaybe<RangeFacetsInput>>>;
 };
 
 export type NavItemOrderByInput = {
-  _metadata: InputMaybe<IContentMetadataOrderByInput>;
+  Ancestors: InputMaybe<OrderBy>;
+  Category: InputMaybe<CategoryModelOrderByInput>;
+  Changed: InputMaybe<OrderBy>;
+  ContentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  ContentType: InputMaybe<OrderBy>;
+  Created: InputMaybe<OrderBy>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelOrderByInput>;
+  Href: InputMaybe<OrderBy>;
+  IsCommonDraft: InputMaybe<OrderBy>;
+  Label: InputMaybe<OrderBy>;
+  Language: InputMaybe<ContentLanguageModelOrderByInput>;
+  MasterLanguage: InputMaybe<ContentLanguageModelOrderByInput>;
+  Name: InputMaybe<OrderBy>;
+  ParentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  RelativePath: InputMaybe<OrderBy>;
+  RouteSegment: InputMaybe<OrderBy>;
+  Saved: InputMaybe<OrderBy>;
+  Shortcut: InputMaybe<OrderBy>;
+  SiteId: InputMaybe<OrderBy>;
+  StartPublish: InputMaybe<OrderBy>;
+  Status: InputMaybe<OrderBy>;
+  StopPublish: InputMaybe<OrderBy>;
+  Url: InputMaybe<OrderBy>;
+  _concreteType: InputMaybe<OrderBy>;
   _minimumScore: InputMaybe<Scalars['Float']['input']>;
   _modified: InputMaybe<OrderBy>;
   _ranking: InputMaybe<Ranking>;
   /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
   _semanticWeight: InputMaybe<Scalars['Float']['input']>;
+  _sortOrder: InputMaybe<OrderBy>;
 };
 
 export type NavItemOutput = {
@@ -2016,12 +6029,48 @@ export type NavItemOutputTotalArgs = {
 };
 
 export type NavItemWhereInput = {
+  Ancestors: InputMaybe<StringFilterInput>;
+  Category: InputMaybe<CategoryModelWhereInput>;
+  Changed: InputMaybe<DateFilterInput>;
+  ContentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  ContentType: InputMaybe<StringFilterInput>;
+  Created: InputMaybe<DateFilterInput>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelWhereInput>;
+  Href: InputMaybe<SearchableStringFilterInput>;
+  IsCommonDraft: InputMaybe<BoolFilterInput>;
+  Label: InputMaybe<SearchableStringFilterInput>;
+  Language: InputMaybe<ContentLanguageModelWhereInput>;
+  MasterLanguage: InputMaybe<ContentLanguageModelWhereInput>;
+  Name: InputMaybe<SearchableStringFilterInput>;
+  ParentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  RelativePath: InputMaybe<StringFilterInput>;
+  RouteSegment: InputMaybe<StringFilterInput>;
+  Saved: InputMaybe<DateFilterInput>;
+  Shortcut: InputMaybe<StringFilterInput>;
+  SiteId: InputMaybe<StringFilterInput>;
+  StartPublish: InputMaybe<DateFilterInput>;
+  Status: InputMaybe<StringFilterInput>;
+  StopPublish: InputMaybe<DateFilterInput>;
+  Url: InputMaybe<StringFilterInput>;
   _and: InputMaybe<Array<InputMaybe<NavItemWhereInput>>>;
+  _concreteType: InputMaybe<StringFilterInput>;
   _fulltext: InputMaybe<SearchableStringFilterInput>;
-  _metadata: InputMaybe<IContentMetadataWhereInput>;
   _modified: InputMaybe<DateFilterInput>;
   _not: InputMaybe<Array<InputMaybe<NavItemWhereInput>>>;
   _or: InputMaybe<Array<InputMaybe<NavItemWhereInput>>>;
+  _sortOrder: InputMaybe<IntFilterInput>;
+};
+
+export type NumberFacet = {
+  __typename?: 'NumberFacet';
+  count: Maybe<Scalars['Int']['output']>;
+  name: Maybe<Scalars['String']['output']>;
+};
+
+/** Factor influences the score based of number values with a factor function */
+export type NumberFactor = {
+  modifier: InputMaybe<FactorModifier>;
+  value: InputMaybe<Scalars['Float']['input']>;
 };
 
 export enum OrderBy {
@@ -2034,19 +6083,56 @@ export enum OrderByFacetType {
   Value = 'VALUE'
 }
 
-export type PortfolioGridBlock = IData & _IComponent & _IContent & {
+export type PortfolioGridBlock = IContent & IData & {
   __typename?: 'PortfolioGridBlock';
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Category: Maybe<Array<Maybe<CategoryModel>>>;
+  Changed: Maybe<Scalars['Date']['output']>;
+  ContentLink: Maybe<ContentModelReference>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Created: Maybe<Scalars['Date']['output']>;
+  ExistingLanguages: Maybe<Array<Maybe<ContentLanguageModel>>>;
+  IsCommonDraft: Maybe<Scalars['Bool']['output']>;
+  Items: Maybe<Array<Maybe<ContentAreaItemModelSearch>>>;
+  Language: Maybe<ContentLanguageModel>;
+  MasterLanguage: Maybe<ContentLanguageModel>;
+  Name: Maybe<Scalars['String']['output']>;
+  ParentLink: Maybe<ContentModelReference>;
+  RelativePath: Maybe<Scalars['String']['output']>;
+  RouteSegment: Maybe<Scalars['String']['output']>;
+  Saved: Maybe<Scalars['Date']['output']>;
+  Shortcut: Maybe<Scalars['String']['output']>;
+  SiteId: Maybe<Scalars['String']['output']>;
+  StartPublish: Maybe<Scalars['Date']['output']>;
+  Status: Maybe<Scalars['String']['output']>;
+  StopPublish: Maybe<Scalars['Date']['output']>;
+  Title: Maybe<Scalars['String']['output']>;
+  Url: Maybe<Scalars['String']['output']>;
   /** @deprecated Use `_link` field instead */
   _children: Maybe<QueryRef>;
+  _concreteType: Maybe<Scalars['String']['output']>;
   _deleted: Maybe<Scalars['Bool']['output']>;
   _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id: Maybe<Scalars['String']['output']>;
   _link: Maybe<QueryRef>;
-  _metadata: Maybe<IContentMetadata>;
   _modified: Maybe<Scalars['Date']['output']>;
   _score: Maybe<Scalars['Float']['output']>;
-  items: Maybe<Array<Maybe<_IContent>>>;
-  title: Maybe<Scalars['String']['output']>;
+  _sortOrder: Maybe<Scalars['Int']['output']>;
+};
+
+
+export type PortfolioGridBlockItemsArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type PortfolioGridBlockNameArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type PortfolioGridBlockTitleArgs = {
+  highlight: InputMaybe<HighlightOptions>;
 };
 
 
@@ -2061,24 +6147,272 @@ export type PortfolioGridBlock_LinkArgs = {
 
 export type PortfolioGridBlockAutocomplete = {
   __typename?: 'PortfolioGridBlockAutocomplete';
-  _metadata: Maybe<IContentMetadataAutocomplete>;
-  items: Maybe<_IContentAutocomplete>;
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Category: Maybe<CategoryModelAutocomplete>;
+  ContentLink: Maybe<ContentModelReferenceAutocomplete>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelAutocomplete>;
+  Language: Maybe<ContentLanguageModelAutocomplete>;
+  MasterLanguage: Maybe<ContentLanguageModelAutocomplete>;
+  ParentLink: Maybe<ContentModelReferenceAutocomplete>;
+  RelativePath: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  RouteSegment: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Shortcut: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  SiteId: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Status: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Url: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _concreteType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+};
+
+
+export type PortfolioGridBlockAutocompleteAncestorsArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type PortfolioGridBlockAutocompleteContentTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type PortfolioGridBlockAutocompleteRelativePathArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type PortfolioGridBlockAutocompleteRouteSegmentArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type PortfolioGridBlockAutocompleteShortcutArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type PortfolioGridBlockAutocompleteSiteIdArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type PortfolioGridBlockAutocompleteStatusArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type PortfolioGridBlockAutocompleteUrlArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type PortfolioGridBlockAutocomplete_ConcreteTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
 };
 
 export type PortfolioGridBlockFacet = {
   __typename?: 'PortfolioGridBlockFacet';
-  _metadata: Maybe<IContentMetadataFacet>;
-  items: Maybe<_IContentFacet>;
+  Ancestors: Maybe<Array<Maybe<StringFacet>>>;
+  Category: Maybe<CategoryModelFacet>;
+  Changed: Maybe<Array<Maybe<DateFacet>>>;
+  ContentLink: Maybe<ContentModelReferenceFacet>;
+  ContentType: Maybe<Array<Maybe<StringFacet>>>;
+  Created: Maybe<Array<Maybe<DateFacet>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelFacet>;
+  IsCommonDraft: Maybe<Array<Maybe<StringFacet>>>;
+  Items: Maybe<ContentAreaItemModelSearchFacet>;
+  Language: Maybe<ContentLanguageModelFacet>;
+  MasterLanguage: Maybe<ContentLanguageModelFacet>;
+  Name: Maybe<Array<Maybe<StringFacet>>>;
+  ParentLink: Maybe<ContentModelReferenceFacet>;
+  RelativePath: Maybe<Array<Maybe<StringFacet>>>;
+  RouteSegment: Maybe<Array<Maybe<StringFacet>>>;
+  Saved: Maybe<Array<Maybe<DateFacet>>>;
+  Shortcut: Maybe<Array<Maybe<StringFacet>>>;
+  SiteId: Maybe<Array<Maybe<StringFacet>>>;
+  StartPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Status: Maybe<Array<Maybe<StringFacet>>>;
+  StopPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Title: Maybe<Array<Maybe<StringFacet>>>;
+  Url: Maybe<Array<Maybe<StringFacet>>>;
+  _concreteType: Maybe<Array<Maybe<StringFacet>>>;
+  _sortOrder: Maybe<Array<Maybe<NumberFacet>>>;
+};
+
+
+export type PortfolioGridBlockFacetAncestorsArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type PortfolioGridBlockFacetChangedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type PortfolioGridBlockFacetContentTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type PortfolioGridBlockFacetCreatedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type PortfolioGridBlockFacetIsCommonDraftArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type PortfolioGridBlockFacetNameArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type PortfolioGridBlockFacetRelativePathArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type PortfolioGridBlockFacetRouteSegmentArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type PortfolioGridBlockFacetSavedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type PortfolioGridBlockFacetShortcutArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type PortfolioGridBlockFacetSiteIdArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type PortfolioGridBlockFacetStartPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type PortfolioGridBlockFacetStatusArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type PortfolioGridBlockFacetStopPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type PortfolioGridBlockFacetTitleArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type PortfolioGridBlockFacetUrlArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type PortfolioGridBlockFacet_ConcreteTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type PortfolioGridBlockFacet_SortOrderArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<OrderBy>;
+  orderType: InputMaybe<OrderByFacetType>;
+  ranges: InputMaybe<Array<InputMaybe<RangeFacetsInput>>>;
 };
 
 export type PortfolioGridBlockOrderByInput = {
-  _metadata: InputMaybe<IContentMetadataOrderByInput>;
+  Ancestors: InputMaybe<OrderBy>;
+  Category: InputMaybe<CategoryModelOrderByInput>;
+  Changed: InputMaybe<OrderBy>;
+  ContentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  ContentType: InputMaybe<OrderBy>;
+  Created: InputMaybe<OrderBy>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelOrderByInput>;
+  IsCommonDraft: InputMaybe<OrderBy>;
+  Items: InputMaybe<ContentAreaItemModelSearchOrderByInput>;
+  Language: InputMaybe<ContentLanguageModelOrderByInput>;
+  MasterLanguage: InputMaybe<ContentLanguageModelOrderByInput>;
+  Name: InputMaybe<OrderBy>;
+  ParentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  RelativePath: InputMaybe<OrderBy>;
+  RouteSegment: InputMaybe<OrderBy>;
+  Saved: InputMaybe<OrderBy>;
+  Shortcut: InputMaybe<OrderBy>;
+  SiteId: InputMaybe<OrderBy>;
+  StartPublish: InputMaybe<OrderBy>;
+  Status: InputMaybe<OrderBy>;
+  StopPublish: InputMaybe<OrderBy>;
+  Title: InputMaybe<OrderBy>;
+  Url: InputMaybe<OrderBy>;
+  _concreteType: InputMaybe<OrderBy>;
   _minimumScore: InputMaybe<Scalars['Float']['input']>;
   _modified: InputMaybe<OrderBy>;
   _ranking: InputMaybe<Ranking>;
   /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
   _semanticWeight: InputMaybe<Scalars['Float']['input']>;
-  items: InputMaybe<_IContentOrderByInput>;
+  _sortOrder: InputMaybe<OrderBy>;
 };
 
 export type PortfolioGridBlockOutput = {
@@ -2096,30 +6430,100 @@ export type PortfolioGridBlockOutputTotalArgs = {
 };
 
 export type PortfolioGridBlockWhereInput = {
+  Ancestors: InputMaybe<StringFilterInput>;
+  Category: InputMaybe<CategoryModelWhereInput>;
+  Changed: InputMaybe<DateFilterInput>;
+  ContentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  ContentType: InputMaybe<StringFilterInput>;
+  Created: InputMaybe<DateFilterInput>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelWhereInput>;
+  IsCommonDraft: InputMaybe<BoolFilterInput>;
+  Items: InputMaybe<ContentAreaItemModelSearchWhereInput>;
+  Language: InputMaybe<ContentLanguageModelWhereInput>;
+  MasterLanguage: InputMaybe<ContentLanguageModelWhereInput>;
+  Name: InputMaybe<SearchableStringFilterInput>;
+  ParentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  RelativePath: InputMaybe<StringFilterInput>;
+  RouteSegment: InputMaybe<StringFilterInput>;
+  Saved: InputMaybe<DateFilterInput>;
+  Shortcut: InputMaybe<StringFilterInput>;
+  SiteId: InputMaybe<StringFilterInput>;
+  StartPublish: InputMaybe<DateFilterInput>;
+  Status: InputMaybe<StringFilterInput>;
+  StopPublish: InputMaybe<DateFilterInput>;
+  Title: InputMaybe<SearchableStringFilterInput>;
+  Url: InputMaybe<StringFilterInput>;
   _and: InputMaybe<Array<InputMaybe<PortfolioGridBlockWhereInput>>>;
+  _concreteType: InputMaybe<StringFilterInput>;
   _fulltext: InputMaybe<SearchableStringFilterInput>;
-  _metadata: InputMaybe<IContentMetadataWhereInput>;
   _modified: InputMaybe<DateFilterInput>;
   _not: InputMaybe<Array<InputMaybe<PortfolioGridBlockWhereInput>>>;
   _or: InputMaybe<Array<InputMaybe<PortfolioGridBlockWhereInput>>>;
-  items: InputMaybe<_IContentWhereInput>;
+  _sortOrder: InputMaybe<IntFilterInput>;
 };
 
-export type PortfolioItemBlock = IData & _IComponent & _IContent & {
+export type PortfolioItemBlock = IContent & IData & {
   __typename?: 'PortfolioItemBlock';
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Category: Maybe<Array<Maybe<CategoryModel>>>;
+  Changed: Maybe<Scalars['Date']['output']>;
+  ContentLink: Maybe<ContentModelReference>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Created: Maybe<Scalars['Date']['output']>;
+  Description: Maybe<Scalars['String']['output']>;
+  ExistingLanguages: Maybe<Array<Maybe<ContentLanguageModel>>>;
+  ImageUrl: Maybe<Scalars['String']['output']>;
+  IsCommonDraft: Maybe<Scalars['Bool']['output']>;
+  Language: Maybe<ContentLanguageModel>;
+  Link: Maybe<Scalars['String']['output']>;
+  MasterLanguage: Maybe<ContentLanguageModel>;
+  Name: Maybe<Scalars['String']['output']>;
+  ParentLink: Maybe<ContentModelReference>;
+  RelativePath: Maybe<Scalars['String']['output']>;
+  RouteSegment: Maybe<Scalars['String']['output']>;
+  Saved: Maybe<Scalars['Date']['output']>;
+  Shortcut: Maybe<Scalars['String']['output']>;
+  SiteId: Maybe<Scalars['String']['output']>;
+  StartPublish: Maybe<Scalars['Date']['output']>;
+  Status: Maybe<Scalars['String']['output']>;
+  StopPublish: Maybe<Scalars['Date']['output']>;
+  Title: Maybe<Scalars['String']['output']>;
+  Url: Maybe<Scalars['String']['output']>;
   /** @deprecated Use `_link` field instead */
   _children: Maybe<QueryRef>;
+  _concreteType: Maybe<Scalars['String']['output']>;
   _deleted: Maybe<Scalars['Bool']['output']>;
   _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id: Maybe<Scalars['String']['output']>;
   _link: Maybe<QueryRef>;
-  _metadata: Maybe<IContentMetadata>;
   _modified: Maybe<Scalars['Date']['output']>;
   _score: Maybe<Scalars['Float']['output']>;
-  description: Maybe<Scalars['String']['output']>;
-  imageUrl: Maybe<Scalars['String']['output']>;
-  link: Maybe<Scalars['String']['output']>;
-  title: Maybe<Scalars['String']['output']>;
+  _sortOrder: Maybe<Scalars['Int']['output']>;
+};
+
+
+export type PortfolioItemBlockDescriptionArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type PortfolioItemBlockImageUrlArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type PortfolioItemBlockLinkArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type PortfolioItemBlockNameArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type PortfolioItemBlockTitleArgs = {
+  highlight: InputMaybe<HighlightOptions>;
 };
 
 
@@ -2134,21 +6538,300 @@ export type PortfolioItemBlock_LinkArgs = {
 
 export type PortfolioItemBlockAutocomplete = {
   __typename?: 'PortfolioItemBlockAutocomplete';
-  _metadata: Maybe<IContentMetadataAutocomplete>;
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Category: Maybe<CategoryModelAutocomplete>;
+  ContentLink: Maybe<ContentModelReferenceAutocomplete>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelAutocomplete>;
+  Language: Maybe<ContentLanguageModelAutocomplete>;
+  MasterLanguage: Maybe<ContentLanguageModelAutocomplete>;
+  ParentLink: Maybe<ContentModelReferenceAutocomplete>;
+  RelativePath: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  RouteSegment: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Shortcut: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  SiteId: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Status: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Url: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _concreteType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+};
+
+
+export type PortfolioItemBlockAutocompleteAncestorsArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type PortfolioItemBlockAutocompleteContentTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type PortfolioItemBlockAutocompleteRelativePathArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type PortfolioItemBlockAutocompleteRouteSegmentArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type PortfolioItemBlockAutocompleteShortcutArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type PortfolioItemBlockAutocompleteSiteIdArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type PortfolioItemBlockAutocompleteStatusArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type PortfolioItemBlockAutocompleteUrlArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type PortfolioItemBlockAutocomplete_ConcreteTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
 };
 
 export type PortfolioItemBlockFacet = {
   __typename?: 'PortfolioItemBlockFacet';
-  _metadata: Maybe<IContentMetadataFacet>;
+  Ancestors: Maybe<Array<Maybe<StringFacet>>>;
+  Category: Maybe<CategoryModelFacet>;
+  Changed: Maybe<Array<Maybe<DateFacet>>>;
+  ContentLink: Maybe<ContentModelReferenceFacet>;
+  ContentType: Maybe<Array<Maybe<StringFacet>>>;
+  Created: Maybe<Array<Maybe<DateFacet>>>;
+  Description: Maybe<Array<Maybe<StringFacet>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelFacet>;
+  ImageUrl: Maybe<Array<Maybe<StringFacet>>>;
+  IsCommonDraft: Maybe<Array<Maybe<StringFacet>>>;
+  Language: Maybe<ContentLanguageModelFacet>;
+  Link: Maybe<Array<Maybe<StringFacet>>>;
+  MasterLanguage: Maybe<ContentLanguageModelFacet>;
+  Name: Maybe<Array<Maybe<StringFacet>>>;
+  ParentLink: Maybe<ContentModelReferenceFacet>;
+  RelativePath: Maybe<Array<Maybe<StringFacet>>>;
+  RouteSegment: Maybe<Array<Maybe<StringFacet>>>;
+  Saved: Maybe<Array<Maybe<DateFacet>>>;
+  Shortcut: Maybe<Array<Maybe<StringFacet>>>;
+  SiteId: Maybe<Array<Maybe<StringFacet>>>;
+  StartPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Status: Maybe<Array<Maybe<StringFacet>>>;
+  StopPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Title: Maybe<Array<Maybe<StringFacet>>>;
+  Url: Maybe<Array<Maybe<StringFacet>>>;
+  _concreteType: Maybe<Array<Maybe<StringFacet>>>;
+  _sortOrder: Maybe<Array<Maybe<NumberFacet>>>;
+};
+
+
+export type PortfolioItemBlockFacetAncestorsArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type PortfolioItemBlockFacetChangedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type PortfolioItemBlockFacetContentTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type PortfolioItemBlockFacetCreatedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type PortfolioItemBlockFacetDescriptionArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type PortfolioItemBlockFacetImageUrlArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type PortfolioItemBlockFacetIsCommonDraftArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type PortfolioItemBlockFacetLinkArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type PortfolioItemBlockFacetNameArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type PortfolioItemBlockFacetRelativePathArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type PortfolioItemBlockFacetRouteSegmentArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type PortfolioItemBlockFacetSavedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type PortfolioItemBlockFacetShortcutArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type PortfolioItemBlockFacetSiteIdArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type PortfolioItemBlockFacetStartPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type PortfolioItemBlockFacetStatusArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type PortfolioItemBlockFacetStopPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type PortfolioItemBlockFacetTitleArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type PortfolioItemBlockFacetUrlArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type PortfolioItemBlockFacet_ConcreteTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type PortfolioItemBlockFacet_SortOrderArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<OrderBy>;
+  orderType: InputMaybe<OrderByFacetType>;
+  ranges: InputMaybe<Array<InputMaybe<RangeFacetsInput>>>;
 };
 
 export type PortfolioItemBlockOrderByInput = {
-  _metadata: InputMaybe<IContentMetadataOrderByInput>;
+  Ancestors: InputMaybe<OrderBy>;
+  Category: InputMaybe<CategoryModelOrderByInput>;
+  Changed: InputMaybe<OrderBy>;
+  ContentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  ContentType: InputMaybe<OrderBy>;
+  Created: InputMaybe<OrderBy>;
+  Description: InputMaybe<OrderBy>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelOrderByInput>;
+  ImageUrl: InputMaybe<OrderBy>;
+  IsCommonDraft: InputMaybe<OrderBy>;
+  Language: InputMaybe<ContentLanguageModelOrderByInput>;
+  Link: InputMaybe<OrderBy>;
+  MasterLanguage: InputMaybe<ContentLanguageModelOrderByInput>;
+  Name: InputMaybe<OrderBy>;
+  ParentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  RelativePath: InputMaybe<OrderBy>;
+  RouteSegment: InputMaybe<OrderBy>;
+  Saved: InputMaybe<OrderBy>;
+  Shortcut: InputMaybe<OrderBy>;
+  SiteId: InputMaybe<OrderBy>;
+  StartPublish: InputMaybe<OrderBy>;
+  Status: InputMaybe<OrderBy>;
+  StopPublish: InputMaybe<OrderBy>;
+  Title: InputMaybe<OrderBy>;
+  Url: InputMaybe<OrderBy>;
+  _concreteType: InputMaybe<OrderBy>;
   _minimumScore: InputMaybe<Scalars['Float']['input']>;
   _modified: InputMaybe<OrderBy>;
   _ranking: InputMaybe<Ranking>;
   /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
   _semanticWeight: InputMaybe<Scalars['Float']['input']>;
+  _sortOrder: InputMaybe<OrderBy>;
 };
 
 export type PortfolioItemBlockOutput = {
@@ -2166,29 +6849,96 @@ export type PortfolioItemBlockOutputTotalArgs = {
 };
 
 export type PortfolioItemBlockWhereInput = {
+  Ancestors: InputMaybe<StringFilterInput>;
+  Category: InputMaybe<CategoryModelWhereInput>;
+  Changed: InputMaybe<DateFilterInput>;
+  ContentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  ContentType: InputMaybe<StringFilterInput>;
+  Created: InputMaybe<DateFilterInput>;
+  Description: InputMaybe<SearchableStringFilterInput>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelWhereInput>;
+  ImageUrl: InputMaybe<SearchableStringFilterInput>;
+  IsCommonDraft: InputMaybe<BoolFilterInput>;
+  Language: InputMaybe<ContentLanguageModelWhereInput>;
+  Link: InputMaybe<SearchableStringFilterInput>;
+  MasterLanguage: InputMaybe<ContentLanguageModelWhereInput>;
+  Name: InputMaybe<SearchableStringFilterInput>;
+  ParentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  RelativePath: InputMaybe<StringFilterInput>;
+  RouteSegment: InputMaybe<StringFilterInput>;
+  Saved: InputMaybe<DateFilterInput>;
+  Shortcut: InputMaybe<StringFilterInput>;
+  SiteId: InputMaybe<StringFilterInput>;
+  StartPublish: InputMaybe<DateFilterInput>;
+  Status: InputMaybe<StringFilterInput>;
+  StopPublish: InputMaybe<DateFilterInput>;
+  Title: InputMaybe<SearchableStringFilterInput>;
+  Url: InputMaybe<StringFilterInput>;
   _and: InputMaybe<Array<InputMaybe<PortfolioItemBlockWhereInput>>>;
+  _concreteType: InputMaybe<StringFilterInput>;
   _fulltext: InputMaybe<SearchableStringFilterInput>;
-  _metadata: InputMaybe<IContentMetadataWhereInput>;
   _modified: InputMaybe<DateFilterInput>;
   _not: InputMaybe<Array<InputMaybe<PortfolioItemBlockWhereInput>>>;
   _or: InputMaybe<Array<InputMaybe<PortfolioItemBlockWhereInput>>>;
+  _sortOrder: InputMaybe<IntFilterInput>;
 };
 
-export type ProfileBlock = IData & _IComponent & _IContent & {
+export type ProfileBlock = IContent & IData & {
   __typename?: 'ProfileBlock';
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Bio: Maybe<Scalars['String']['output']>;
+  Category: Maybe<Array<Maybe<CategoryModel>>>;
+  Changed: Maybe<Scalars['Date']['output']>;
+  ContentLink: Maybe<ContentModelReference>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Created: Maybe<Scalars['Date']['output']>;
+  ExistingLanguages: Maybe<Array<Maybe<ContentLanguageModel>>>;
+  ImageSrc: Maybe<Scalars['String']['output']>;
+  IsCommonDraft: Maybe<Scalars['Bool']['output']>;
+  Language: Maybe<ContentLanguageModel>;
+  MasterLanguage: Maybe<ContentLanguageModel>;
+  Name: Maybe<Scalars['String']['output']>;
+  ParentLink: Maybe<ContentModelReference>;
+  RelativePath: Maybe<Scalars['String']['output']>;
+  RouteSegment: Maybe<Scalars['String']['output']>;
+  Saved: Maybe<Scalars['Date']['output']>;
+  Shortcut: Maybe<Scalars['String']['output']>;
+  SiteId: Maybe<Scalars['String']['output']>;
+  StartPublish: Maybe<Scalars['Date']['output']>;
+  Status: Maybe<Scalars['String']['output']>;
+  StopPublish: Maybe<Scalars['Date']['output']>;
+  Title: Maybe<Scalars['String']['output']>;
+  Url: Maybe<Scalars['String']['output']>;
   /** @deprecated Use `_link` field instead */
   _children: Maybe<QueryRef>;
+  _concreteType: Maybe<Scalars['String']['output']>;
   _deleted: Maybe<Scalars['Bool']['output']>;
   _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id: Maybe<Scalars['String']['output']>;
   _link: Maybe<QueryRef>;
-  _metadata: Maybe<IContentMetadata>;
   _modified: Maybe<Scalars['Date']['output']>;
   _score: Maybe<Scalars['Float']['output']>;
-  bio: Maybe<Scalars['String']['output']>;
-  imageSrc: Maybe<Scalars['String']['output']>;
-  name: Maybe<Scalars['String']['output']>;
-  title: Maybe<Scalars['String']['output']>;
+  _sortOrder: Maybe<Scalars['Int']['output']>;
+};
+
+
+export type ProfileBlockBioArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type ProfileBlockImageSrcArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type ProfileBlockNameArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type ProfileBlockTitleArgs = {
+  highlight: InputMaybe<HighlightOptions>;
 };
 
 
@@ -2203,21 +6953,290 @@ export type ProfileBlock_LinkArgs = {
 
 export type ProfileBlockAutocomplete = {
   __typename?: 'ProfileBlockAutocomplete';
-  _metadata: Maybe<IContentMetadataAutocomplete>;
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Category: Maybe<CategoryModelAutocomplete>;
+  ContentLink: Maybe<ContentModelReferenceAutocomplete>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelAutocomplete>;
+  Language: Maybe<ContentLanguageModelAutocomplete>;
+  MasterLanguage: Maybe<ContentLanguageModelAutocomplete>;
+  ParentLink: Maybe<ContentModelReferenceAutocomplete>;
+  RelativePath: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  RouteSegment: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Shortcut: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  SiteId: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Status: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Url: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _concreteType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+};
+
+
+export type ProfileBlockAutocompleteAncestorsArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ProfileBlockAutocompleteContentTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ProfileBlockAutocompleteRelativePathArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ProfileBlockAutocompleteRouteSegmentArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ProfileBlockAutocompleteShortcutArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ProfileBlockAutocompleteSiteIdArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ProfileBlockAutocompleteStatusArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ProfileBlockAutocompleteUrlArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ProfileBlockAutocomplete_ConcreteTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
 };
 
 export type ProfileBlockFacet = {
   __typename?: 'ProfileBlockFacet';
-  _metadata: Maybe<IContentMetadataFacet>;
+  Ancestors: Maybe<Array<Maybe<StringFacet>>>;
+  Bio: Maybe<Array<Maybe<StringFacet>>>;
+  Category: Maybe<CategoryModelFacet>;
+  Changed: Maybe<Array<Maybe<DateFacet>>>;
+  ContentLink: Maybe<ContentModelReferenceFacet>;
+  ContentType: Maybe<Array<Maybe<StringFacet>>>;
+  Created: Maybe<Array<Maybe<DateFacet>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelFacet>;
+  ImageSrc: Maybe<Array<Maybe<StringFacet>>>;
+  IsCommonDraft: Maybe<Array<Maybe<StringFacet>>>;
+  Language: Maybe<ContentLanguageModelFacet>;
+  MasterLanguage: Maybe<ContentLanguageModelFacet>;
+  Name: Maybe<Array<Maybe<StringFacet>>>;
+  ParentLink: Maybe<ContentModelReferenceFacet>;
+  RelativePath: Maybe<Array<Maybe<StringFacet>>>;
+  RouteSegment: Maybe<Array<Maybe<StringFacet>>>;
+  Saved: Maybe<Array<Maybe<DateFacet>>>;
+  Shortcut: Maybe<Array<Maybe<StringFacet>>>;
+  SiteId: Maybe<Array<Maybe<StringFacet>>>;
+  StartPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Status: Maybe<Array<Maybe<StringFacet>>>;
+  StopPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Title: Maybe<Array<Maybe<StringFacet>>>;
+  Url: Maybe<Array<Maybe<StringFacet>>>;
+  _concreteType: Maybe<Array<Maybe<StringFacet>>>;
+  _sortOrder: Maybe<Array<Maybe<NumberFacet>>>;
+};
+
+
+export type ProfileBlockFacetAncestorsArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ProfileBlockFacetBioArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ProfileBlockFacetChangedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type ProfileBlockFacetContentTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ProfileBlockFacetCreatedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type ProfileBlockFacetImageSrcArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ProfileBlockFacetIsCommonDraftArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ProfileBlockFacetNameArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ProfileBlockFacetRelativePathArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ProfileBlockFacetRouteSegmentArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ProfileBlockFacetSavedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type ProfileBlockFacetShortcutArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ProfileBlockFacetSiteIdArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ProfileBlockFacetStartPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type ProfileBlockFacetStatusArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ProfileBlockFacetStopPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type ProfileBlockFacetTitleArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ProfileBlockFacetUrlArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ProfileBlockFacet_ConcreteTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ProfileBlockFacet_SortOrderArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<OrderBy>;
+  orderType: InputMaybe<OrderByFacetType>;
+  ranges: InputMaybe<Array<InputMaybe<RangeFacetsInput>>>;
 };
 
 export type ProfileBlockOrderByInput = {
-  _metadata: InputMaybe<IContentMetadataOrderByInput>;
+  Ancestors: InputMaybe<OrderBy>;
+  Bio: InputMaybe<OrderBy>;
+  Category: InputMaybe<CategoryModelOrderByInput>;
+  Changed: InputMaybe<OrderBy>;
+  ContentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  ContentType: InputMaybe<OrderBy>;
+  Created: InputMaybe<OrderBy>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelOrderByInput>;
+  ImageSrc: InputMaybe<OrderBy>;
+  IsCommonDraft: InputMaybe<OrderBy>;
+  Language: InputMaybe<ContentLanguageModelOrderByInput>;
+  MasterLanguage: InputMaybe<ContentLanguageModelOrderByInput>;
+  Name: InputMaybe<OrderBy>;
+  ParentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  RelativePath: InputMaybe<OrderBy>;
+  RouteSegment: InputMaybe<OrderBy>;
+  Saved: InputMaybe<OrderBy>;
+  Shortcut: InputMaybe<OrderBy>;
+  SiteId: InputMaybe<OrderBy>;
+  StartPublish: InputMaybe<OrderBy>;
+  Status: InputMaybe<OrderBy>;
+  StopPublish: InputMaybe<OrderBy>;
+  Title: InputMaybe<OrderBy>;
+  Url: InputMaybe<OrderBy>;
+  _concreteType: InputMaybe<OrderBy>;
   _minimumScore: InputMaybe<Scalars['Float']['input']>;
   _modified: InputMaybe<OrderBy>;
   _ranking: InputMaybe<Ranking>;
   /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
   _semanticWeight: InputMaybe<Scalars['Float']['input']>;
+  _sortOrder: InputMaybe<OrderBy>;
 };
 
 export type ProfileBlockOutput = {
@@ -2235,54 +7254,68 @@ export type ProfileBlockOutputTotalArgs = {
 };
 
 export type ProfileBlockWhereInput = {
+  Ancestors: InputMaybe<StringFilterInput>;
+  Bio: InputMaybe<SearchableStringFilterInput>;
+  Category: InputMaybe<CategoryModelWhereInput>;
+  Changed: InputMaybe<DateFilterInput>;
+  ContentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  ContentType: InputMaybe<StringFilterInput>;
+  Created: InputMaybe<DateFilterInput>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelWhereInput>;
+  ImageSrc: InputMaybe<SearchableStringFilterInput>;
+  IsCommonDraft: InputMaybe<BoolFilterInput>;
+  Language: InputMaybe<ContentLanguageModelWhereInput>;
+  MasterLanguage: InputMaybe<ContentLanguageModelWhereInput>;
+  Name: InputMaybe<SearchableStringFilterInput>;
+  ParentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  RelativePath: InputMaybe<StringFilterInput>;
+  RouteSegment: InputMaybe<StringFilterInput>;
+  Saved: InputMaybe<DateFilterInput>;
+  Shortcut: InputMaybe<StringFilterInput>;
+  SiteId: InputMaybe<StringFilterInput>;
+  StartPublish: InputMaybe<DateFilterInput>;
+  Status: InputMaybe<StringFilterInput>;
+  StopPublish: InputMaybe<DateFilterInput>;
+  Title: InputMaybe<SearchableStringFilterInput>;
+  Url: InputMaybe<StringFilterInput>;
   _and: InputMaybe<Array<InputMaybe<ProfileBlockWhereInput>>>;
+  _concreteType: InputMaybe<StringFilterInput>;
   _fulltext: InputMaybe<SearchableStringFilterInput>;
-  _metadata: InputMaybe<IContentMetadataWhereInput>;
   _modified: InputMaybe<DateFilterInput>;
   _not: InputMaybe<Array<InputMaybe<ProfileBlockWhereInput>>>;
   _or: InputMaybe<Array<InputMaybe<ProfileBlockWhereInput>>>;
+  _sortOrder: InputMaybe<IntFilterInput>;
 };
 
 export type Query = {
   __typename?: 'Query';
   AvailabilityBlock: Maybe<AvailabilityBlockOutput>;
-  BlankExperience: Maybe<BlankExperienceOutput>;
-  BlankSection: Maybe<BlankSectionOutput>;
   CMSPage: Maybe<CmsPageOutput>;
   ContactBlock: Maybe<ContactBlockOutput>;
+  Content: Maybe<ContentOutput>;
   Data: Maybe<DataOutput>;
-  Footer: Maybe<FooterOutput>;
   FooterColumn: Maybe<FooterColumnOutput>;
-  GenericMedia123: Maybe<GenericMedia123Output>;
-  Header: Maybe<HeaderOutput>;
+  FooterPage: Maybe<FooterPageOutput>;
+  GenericMedia: Maybe<GenericMediaOutput>;
+  HeaderPage: Maybe<HeaderPageOutput>;
   HeroBlock: Maybe<HeroBlockOutput>;
-  ImageMedia: Maybe<ImageMediaOutput>;
+  ImageFile: Maybe<ImageFileOutput>;
   LogoItemBlock: Maybe<LogoItemBlockOutput>;
   LogosBlock: Maybe<LogosBlockOutput>;
   NavItem: Maybe<NavItemOutput>;
   PortfolioGridBlock: Maybe<PortfolioGridBlockOutput>;
   PortfolioItemBlock: Maybe<PortfolioItemBlockOutput>;
   ProfileBlock: Maybe<ProfileBlockOutput>;
-  SEOExperience: Maybe<SeoExperienceOutput>;
   ServiceItem: Maybe<ServiceItemOutput>;
   ServicesBlock: Maybe<ServicesBlockOutput>;
+  SiteDefinition: Maybe<SiteDefinitionOutput>;
   SocialLink: Maybe<SocialLinkOutput>;
   StartPage: Maybe<StartPageOutput>;
   StoryBlock: Maybe<StoryBlockOutput>;
-  SysContentFolder: Maybe<SysContentFolderOutput>;
-  TestimonialItem: Maybe<TestimonialItemOutput>;
   TestimonialItemBlock: Maybe<TestimonialItemBlockOutput>;
   TestimonialsBlock: Maybe<TestimonialsBlockOutput>;
-  VideoMedia: Maybe<VideoMediaOutput>;
-  _Component: Maybe<_ComponentOutput>;
-  _Content: Maybe<_ContentOutput>;
-  _Experience: Maybe<_ExperienceOutput>;
-  _Folder: Maybe<_FolderOutput>;
-  _Image: Maybe<_ImageOutput>;
-  _Media: Maybe<_MediaOutput>;
-  _Page: Maybe<_PageOutput>;
-  _Section: Maybe<_SectionOutput>;
-  _Video: Maybe<_VideoOutput>;
+  VectorImageFile: Maybe<VectorImageFileOutput>;
+  VideoFile: Maybe<VideoFileOutput>;
 };
 
 
@@ -2294,28 +7327,6 @@ export type QueryAvailabilityBlockArgs = {
   orderBy: InputMaybe<AvailabilityBlockOrderByInput>;
   skip?: Scalars['Int']['input'];
   where: InputMaybe<AvailabilityBlockWhereInput>;
-};
-
-
-export type QueryBlankExperienceArgs = {
-  cursor: InputMaybe<Scalars['String']['input']>;
-  ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  limit?: Scalars['Int']['input'];
-  locale: InputMaybe<Array<InputMaybe<Locales>>>;
-  orderBy: InputMaybe<BlankExperienceOrderByInput>;
-  skip?: Scalars['Int']['input'];
-  where: InputMaybe<BlankExperienceWhereInput>;
-};
-
-
-export type QueryBlankSectionArgs = {
-  cursor: InputMaybe<Scalars['String']['input']>;
-  ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  limit?: Scalars['Int']['input'];
-  locale: InputMaybe<Array<InputMaybe<Locales>>>;
-  orderBy: InputMaybe<BlankSectionOrderByInput>;
-  skip?: Scalars['Int']['input'];
-  where: InputMaybe<BlankSectionWhereInput>;
 };
 
 
@@ -2341,6 +7352,17 @@ export type QueryContactBlockArgs = {
 };
 
 
+export type QueryContentArgs = {
+  cursor: InputMaybe<Scalars['String']['input']>;
+  ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: Scalars['Int']['input'];
+  locale: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy: InputMaybe<ContentOrderByInput>;
+  skip?: Scalars['Int']['input'];
+  where: InputMaybe<ContentWhereInput>;
+};
+
+
 export type QueryDataArgs = {
   cursor: InputMaybe<Scalars['String']['input']>;
   ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -2349,17 +7371,6 @@ export type QueryDataArgs = {
   orderBy: InputMaybe<DataOrderByInput>;
   skip?: Scalars['Int']['input'];
   where: InputMaybe<DataWhereInput>;
-};
-
-
-export type QueryFooterArgs = {
-  cursor: InputMaybe<Scalars['String']['input']>;
-  ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  limit?: Scalars['Int']['input'];
-  locale: InputMaybe<Array<InputMaybe<Locales>>>;
-  orderBy: InputMaybe<FooterOrderByInput>;
-  skip?: Scalars['Int']['input'];
-  where: InputMaybe<FooterWhereInput>;
 };
 
 
@@ -2374,25 +7385,36 @@ export type QueryFooterColumnArgs = {
 };
 
 
-export type QueryGenericMedia123Args = {
+export type QueryFooterPageArgs = {
   cursor: InputMaybe<Scalars['String']['input']>;
   ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
   locale: InputMaybe<Array<InputMaybe<Locales>>>;
-  orderBy: InputMaybe<GenericMedia123OrderByInput>;
+  orderBy: InputMaybe<FooterPageOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where: InputMaybe<GenericMedia123WhereInput>;
+  where: InputMaybe<FooterPageWhereInput>;
 };
 
 
-export type QueryHeaderArgs = {
+export type QueryGenericMediaArgs = {
   cursor: InputMaybe<Scalars['String']['input']>;
   ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
   locale: InputMaybe<Array<InputMaybe<Locales>>>;
-  orderBy: InputMaybe<HeaderOrderByInput>;
+  orderBy: InputMaybe<GenericMediaOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where: InputMaybe<HeaderWhereInput>;
+  where: InputMaybe<GenericMediaWhereInput>;
+};
+
+
+export type QueryHeaderPageArgs = {
+  cursor: InputMaybe<Scalars['String']['input']>;
+  ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: Scalars['Int']['input'];
+  locale: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy: InputMaybe<HeaderPageOrderByInput>;
+  skip?: Scalars['Int']['input'];
+  where: InputMaybe<HeaderPageWhereInput>;
 };
 
 
@@ -2407,14 +7429,14 @@ export type QueryHeroBlockArgs = {
 };
 
 
-export type QueryImageMediaArgs = {
+export type QueryImageFileArgs = {
   cursor: InputMaybe<Scalars['String']['input']>;
   ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
   locale: InputMaybe<Array<InputMaybe<Locales>>>;
-  orderBy: InputMaybe<ImageMediaOrderByInput>;
+  orderBy: InputMaybe<ImageFileOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where: InputMaybe<ImageMediaWhereInput>;
+  where: InputMaybe<ImageFileWhereInput>;
 };
 
 
@@ -2484,17 +7506,6 @@ export type QueryProfileBlockArgs = {
 };
 
 
-export type QuerySeoExperienceArgs = {
-  cursor: InputMaybe<Scalars['String']['input']>;
-  ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  limit?: Scalars['Int']['input'];
-  locale: InputMaybe<Array<InputMaybe<Locales>>>;
-  orderBy: InputMaybe<SeoExperienceOrderByInput>;
-  skip?: Scalars['Int']['input'];
-  where: InputMaybe<SeoExperienceWhereInput>;
-};
-
-
 export type QueryServiceItemArgs = {
   cursor: InputMaybe<Scalars['String']['input']>;
   ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -2514,6 +7525,17 @@ export type QueryServicesBlockArgs = {
   orderBy: InputMaybe<ServicesBlockOrderByInput>;
   skip?: Scalars['Int']['input'];
   where: InputMaybe<ServicesBlockWhereInput>;
+};
+
+
+export type QuerySiteDefinitionArgs = {
+  cursor: InputMaybe<Scalars['String']['input']>;
+  ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: Scalars['Int']['input'];
+  locale: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy: InputMaybe<SiteDefinitionOrderByInput>;
+  skip?: Scalars['Int']['input'];
+  where: InputMaybe<SiteDefinitionWhereInput>;
 };
 
 
@@ -2550,28 +7572,6 @@ export type QueryStoryBlockArgs = {
 };
 
 
-export type QuerySysContentFolderArgs = {
-  cursor: InputMaybe<Scalars['String']['input']>;
-  ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  limit?: Scalars['Int']['input'];
-  locale: InputMaybe<Array<InputMaybe<Locales>>>;
-  orderBy: InputMaybe<SysContentFolderOrderByInput>;
-  skip?: Scalars['Int']['input'];
-  where: InputMaybe<SysContentFolderWhereInput>;
-};
-
-
-export type QueryTestimonialItemArgs = {
-  cursor: InputMaybe<Scalars['String']['input']>;
-  ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  limit?: Scalars['Int']['input'];
-  locale: InputMaybe<Array<InputMaybe<Locales>>>;
-  orderBy: InputMaybe<TestimonialItemOrderByInput>;
-  skip?: Scalars['Int']['input'];
-  where: InputMaybe<TestimonialItemWhereInput>;
-};
-
-
 export type QueryTestimonialItemBlockArgs = {
   cursor: InputMaybe<Scalars['String']['input']>;
   ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -2594,155 +7594,56 @@ export type QueryTestimonialsBlockArgs = {
 };
 
 
-export type QueryVideoMediaArgs = {
+export type QueryVectorImageFileArgs = {
   cursor: InputMaybe<Scalars['String']['input']>;
   ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
   locale: InputMaybe<Array<InputMaybe<Locales>>>;
-  orderBy: InputMaybe<VideoMediaOrderByInput>;
+  orderBy: InputMaybe<VectorImageFileOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where: InputMaybe<VideoMediaWhereInput>;
+  where: InputMaybe<VectorImageFileWhereInput>;
 };
 
 
-export type Query_ComponentArgs = {
+export type QueryVideoFileArgs = {
   cursor: InputMaybe<Scalars['String']['input']>;
   ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
   locale: InputMaybe<Array<InputMaybe<Locales>>>;
-  orderBy: InputMaybe<_ComponentOrderByInput>;
+  orderBy: InputMaybe<VideoFileOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where: InputMaybe<_ComponentWhereInput>;
-};
-
-
-export type Query_ContentArgs = {
-  cursor: InputMaybe<Scalars['String']['input']>;
-  ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  limit?: Scalars['Int']['input'];
-  locale: InputMaybe<Array<InputMaybe<Locales>>>;
-  orderBy: InputMaybe<_ContentOrderByInput>;
-  skip?: Scalars['Int']['input'];
-  where: InputMaybe<_ContentWhereInput>;
-};
-
-
-export type Query_ExperienceArgs = {
-  cursor: InputMaybe<Scalars['String']['input']>;
-  ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  limit?: Scalars['Int']['input'];
-  locale: InputMaybe<Array<InputMaybe<Locales>>>;
-  orderBy: InputMaybe<_ExperienceOrderByInput>;
-  skip?: Scalars['Int']['input'];
-  where: InputMaybe<_ExperienceWhereInput>;
-};
-
-
-export type Query_FolderArgs = {
-  cursor: InputMaybe<Scalars['String']['input']>;
-  ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  limit?: Scalars['Int']['input'];
-  locale: InputMaybe<Array<InputMaybe<Locales>>>;
-  orderBy: InputMaybe<_FolderOrderByInput>;
-  skip?: Scalars['Int']['input'];
-  where: InputMaybe<_FolderWhereInput>;
-};
-
-
-export type Query_ImageArgs = {
-  cursor: InputMaybe<Scalars['String']['input']>;
-  ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  limit?: Scalars['Int']['input'];
-  locale: InputMaybe<Array<InputMaybe<Locales>>>;
-  orderBy: InputMaybe<_ImageOrderByInput>;
-  skip?: Scalars['Int']['input'];
-  where: InputMaybe<_ImageWhereInput>;
-};
-
-
-export type Query_MediaArgs = {
-  cursor: InputMaybe<Scalars['String']['input']>;
-  ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  limit?: Scalars['Int']['input'];
-  locale: InputMaybe<Array<InputMaybe<Locales>>>;
-  orderBy: InputMaybe<_MediaOrderByInput>;
-  skip?: Scalars['Int']['input'];
-  where: InputMaybe<_MediaWhereInput>;
-};
-
-
-export type Query_PageArgs = {
-  cursor: InputMaybe<Scalars['String']['input']>;
-  ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  limit?: Scalars['Int']['input'];
-  locale: InputMaybe<Array<InputMaybe<Locales>>>;
-  orderBy: InputMaybe<_PageOrderByInput>;
-  skip?: Scalars['Int']['input'];
-  where: InputMaybe<_PageWhereInput>;
-};
-
-
-export type Query_SectionArgs = {
-  cursor: InputMaybe<Scalars['String']['input']>;
-  ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  limit?: Scalars['Int']['input'];
-  locale: InputMaybe<Array<InputMaybe<Locales>>>;
-  orderBy: InputMaybe<_SectionOrderByInput>;
-  skip?: Scalars['Int']['input'];
-  where: InputMaybe<_SectionWhereInput>;
-};
-
-
-export type Query_VideoArgs = {
-  cursor: InputMaybe<Scalars['String']['input']>;
-  ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  limit?: Scalars['Int']['input'];
-  locale: InputMaybe<Array<InputMaybe<Locales>>>;
-  orderBy: InputMaybe<_VideoOrderByInput>;
-  skip?: Scalars['Int']['input'];
-  where: InputMaybe<_VideoWhereInput>;
+  where: InputMaybe<VideoFileWhereInput>;
 };
 
 export type QueryRef = {
   __typename?: 'QueryRef';
   AvailabilityBlock: Maybe<AvailabilityBlockOutput>;
-  BlankExperience: Maybe<BlankExperienceOutput>;
-  BlankSection: Maybe<BlankSectionOutput>;
   CMSPage: Maybe<CmsPageOutput>;
   ContactBlock: Maybe<ContactBlockOutput>;
+  Content: Maybe<ContentOutput>;
   Data: Maybe<DataOutput>;
-  Footer: Maybe<FooterOutput>;
   FooterColumn: Maybe<FooterColumnOutput>;
-  GenericMedia123: Maybe<GenericMedia123Output>;
-  Header: Maybe<HeaderOutput>;
+  FooterPage: Maybe<FooterPageOutput>;
+  GenericMedia: Maybe<GenericMediaOutput>;
+  HeaderPage: Maybe<HeaderPageOutput>;
   HeroBlock: Maybe<HeroBlockOutput>;
-  ImageMedia: Maybe<ImageMediaOutput>;
+  ImageFile: Maybe<ImageFileOutput>;
   LogoItemBlock: Maybe<LogoItemBlockOutput>;
   LogosBlock: Maybe<LogosBlockOutput>;
   NavItem: Maybe<NavItemOutput>;
   PortfolioGridBlock: Maybe<PortfolioGridBlockOutput>;
   PortfolioItemBlock: Maybe<PortfolioItemBlockOutput>;
   ProfileBlock: Maybe<ProfileBlockOutput>;
-  SEOExperience: Maybe<SeoExperienceOutput>;
   ServiceItem: Maybe<ServiceItemOutput>;
   ServicesBlock: Maybe<ServicesBlockOutput>;
+  SiteDefinition: Maybe<SiteDefinitionOutput>;
   SocialLink: Maybe<SocialLinkOutput>;
   StartPage: Maybe<StartPageOutput>;
   StoryBlock: Maybe<StoryBlockOutput>;
-  SysContentFolder: Maybe<SysContentFolderOutput>;
-  TestimonialItem: Maybe<TestimonialItemOutput>;
   TestimonialItemBlock: Maybe<TestimonialItemBlockOutput>;
   TestimonialsBlock: Maybe<TestimonialsBlockOutput>;
-  VideoMedia: Maybe<VideoMediaOutput>;
-  _Component: Maybe<_ComponentOutput>;
-  _Content: Maybe<_ContentOutput>;
-  _Experience: Maybe<_ExperienceOutput>;
-  _Folder: Maybe<_FolderOutput>;
-  _Image: Maybe<_ImageOutput>;
-  _Media: Maybe<_MediaOutput>;
-  _Page: Maybe<_PageOutput>;
-  _Section: Maybe<_SectionOutput>;
-  _Video: Maybe<_VideoOutput>;
+  VectorImageFile: Maybe<VectorImageFileOutput>;
+  VideoFile: Maybe<VideoFileOutput>;
 };
 
 
@@ -2754,28 +7655,6 @@ export type QueryRefAvailabilityBlockArgs = {
   orderBy: InputMaybe<AvailabilityBlockOrderByInput>;
   skip?: Scalars['Int']['input'];
   where: InputMaybe<AvailabilityBlockWhereInput>;
-};
-
-
-export type QueryRefBlankExperienceArgs = {
-  cursor: InputMaybe<Scalars['String']['input']>;
-  ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  limit?: Scalars['Int']['input'];
-  locale: InputMaybe<Array<InputMaybe<Locales>>>;
-  orderBy: InputMaybe<BlankExperienceOrderByInput>;
-  skip?: Scalars['Int']['input'];
-  where: InputMaybe<BlankExperienceWhereInput>;
-};
-
-
-export type QueryRefBlankSectionArgs = {
-  cursor: InputMaybe<Scalars['String']['input']>;
-  ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  limit?: Scalars['Int']['input'];
-  locale: InputMaybe<Array<InputMaybe<Locales>>>;
-  orderBy: InputMaybe<BlankSectionOrderByInput>;
-  skip?: Scalars['Int']['input'];
-  where: InputMaybe<BlankSectionWhereInput>;
 };
 
 
@@ -2801,6 +7680,17 @@ export type QueryRefContactBlockArgs = {
 };
 
 
+export type QueryRefContentArgs = {
+  cursor: InputMaybe<Scalars['String']['input']>;
+  ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: Scalars['Int']['input'];
+  locale: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy: InputMaybe<ContentOrderByInput>;
+  skip?: Scalars['Int']['input'];
+  where: InputMaybe<ContentWhereInput>;
+};
+
+
 export type QueryRefDataArgs = {
   cursor: InputMaybe<Scalars['String']['input']>;
   ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -2809,17 +7699,6 @@ export type QueryRefDataArgs = {
   orderBy: InputMaybe<DataOrderByInput>;
   skip?: Scalars['Int']['input'];
   where: InputMaybe<DataWhereInput>;
-};
-
-
-export type QueryRefFooterArgs = {
-  cursor: InputMaybe<Scalars['String']['input']>;
-  ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  limit?: Scalars['Int']['input'];
-  locale: InputMaybe<Array<InputMaybe<Locales>>>;
-  orderBy: InputMaybe<FooterOrderByInput>;
-  skip?: Scalars['Int']['input'];
-  where: InputMaybe<FooterWhereInput>;
 };
 
 
@@ -2834,25 +7713,36 @@ export type QueryRefFooterColumnArgs = {
 };
 
 
-export type QueryRefGenericMedia123Args = {
+export type QueryRefFooterPageArgs = {
   cursor: InputMaybe<Scalars['String']['input']>;
   ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
   locale: InputMaybe<Array<InputMaybe<Locales>>>;
-  orderBy: InputMaybe<GenericMedia123OrderByInput>;
+  orderBy: InputMaybe<FooterPageOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where: InputMaybe<GenericMedia123WhereInput>;
+  where: InputMaybe<FooterPageWhereInput>;
 };
 
 
-export type QueryRefHeaderArgs = {
+export type QueryRefGenericMediaArgs = {
   cursor: InputMaybe<Scalars['String']['input']>;
   ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
   locale: InputMaybe<Array<InputMaybe<Locales>>>;
-  orderBy: InputMaybe<HeaderOrderByInput>;
+  orderBy: InputMaybe<GenericMediaOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where: InputMaybe<HeaderWhereInput>;
+  where: InputMaybe<GenericMediaWhereInput>;
+};
+
+
+export type QueryRefHeaderPageArgs = {
+  cursor: InputMaybe<Scalars['String']['input']>;
+  ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: Scalars['Int']['input'];
+  locale: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy: InputMaybe<HeaderPageOrderByInput>;
+  skip?: Scalars['Int']['input'];
+  where: InputMaybe<HeaderPageWhereInput>;
 };
 
 
@@ -2867,14 +7757,14 @@ export type QueryRefHeroBlockArgs = {
 };
 
 
-export type QueryRefImageMediaArgs = {
+export type QueryRefImageFileArgs = {
   cursor: InputMaybe<Scalars['String']['input']>;
   ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
   locale: InputMaybe<Array<InputMaybe<Locales>>>;
-  orderBy: InputMaybe<ImageMediaOrderByInput>;
+  orderBy: InputMaybe<ImageFileOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where: InputMaybe<ImageMediaWhereInput>;
+  where: InputMaybe<ImageFileWhereInput>;
 };
 
 
@@ -2944,17 +7834,6 @@ export type QueryRefProfileBlockArgs = {
 };
 
 
-export type QueryRefSeoExperienceArgs = {
-  cursor: InputMaybe<Scalars['String']['input']>;
-  ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  limit?: Scalars['Int']['input'];
-  locale: InputMaybe<Array<InputMaybe<Locales>>>;
-  orderBy: InputMaybe<SeoExperienceOrderByInput>;
-  skip?: Scalars['Int']['input'];
-  where: InputMaybe<SeoExperienceWhereInput>;
-};
-
-
 export type QueryRefServiceItemArgs = {
   cursor: InputMaybe<Scalars['String']['input']>;
   ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -2974,6 +7853,17 @@ export type QueryRefServicesBlockArgs = {
   orderBy: InputMaybe<ServicesBlockOrderByInput>;
   skip?: Scalars['Int']['input'];
   where: InputMaybe<ServicesBlockWhereInput>;
+};
+
+
+export type QueryRefSiteDefinitionArgs = {
+  cursor: InputMaybe<Scalars['String']['input']>;
+  ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: Scalars['Int']['input'];
+  locale: InputMaybe<Array<InputMaybe<Locales>>>;
+  orderBy: InputMaybe<SiteDefinitionOrderByInput>;
+  skip?: Scalars['Int']['input'];
+  where: InputMaybe<SiteDefinitionWhereInput>;
 };
 
 
@@ -3010,28 +7900,6 @@ export type QueryRefStoryBlockArgs = {
 };
 
 
-export type QueryRefSysContentFolderArgs = {
-  cursor: InputMaybe<Scalars['String']['input']>;
-  ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  limit?: Scalars['Int']['input'];
-  locale: InputMaybe<Array<InputMaybe<Locales>>>;
-  orderBy: InputMaybe<SysContentFolderOrderByInput>;
-  skip?: Scalars['Int']['input'];
-  where: InputMaybe<SysContentFolderWhereInput>;
-};
-
-
-export type QueryRefTestimonialItemArgs = {
-  cursor: InputMaybe<Scalars['String']['input']>;
-  ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  limit?: Scalars['Int']['input'];
-  locale: InputMaybe<Array<InputMaybe<Locales>>>;
-  orderBy: InputMaybe<TestimonialItemOrderByInput>;
-  skip?: Scalars['Int']['input'];
-  where: InputMaybe<TestimonialItemWhereInput>;
-};
-
-
 export type QueryRefTestimonialItemBlockArgs = {
   cursor: InputMaybe<Scalars['String']['input']>;
   ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -3054,113 +7922,30 @@ export type QueryRefTestimonialsBlockArgs = {
 };
 
 
-export type QueryRefVideoMediaArgs = {
+export type QueryRefVectorImageFileArgs = {
   cursor: InputMaybe<Scalars['String']['input']>;
   ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
   locale: InputMaybe<Array<InputMaybe<Locales>>>;
-  orderBy: InputMaybe<VideoMediaOrderByInput>;
+  orderBy: InputMaybe<VectorImageFileOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where: InputMaybe<VideoMediaWhereInput>;
+  where: InputMaybe<VectorImageFileWhereInput>;
 };
 
 
-export type QueryRef_ComponentArgs = {
+export type QueryRefVideoFileArgs = {
   cursor: InputMaybe<Scalars['String']['input']>;
   ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: Scalars['Int']['input'];
   locale: InputMaybe<Array<InputMaybe<Locales>>>;
-  orderBy: InputMaybe<_ComponentOrderByInput>;
+  orderBy: InputMaybe<VideoFileOrderByInput>;
   skip?: Scalars['Int']['input'];
-  where: InputMaybe<_ComponentWhereInput>;
+  where: InputMaybe<VideoFileWhereInput>;
 };
 
-
-export type QueryRef_ContentArgs = {
-  cursor: InputMaybe<Scalars['String']['input']>;
-  ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  limit?: Scalars['Int']['input'];
-  locale: InputMaybe<Array<InputMaybe<Locales>>>;
-  orderBy: InputMaybe<_ContentOrderByInput>;
-  skip?: Scalars['Int']['input'];
-  where: InputMaybe<_ContentWhereInput>;
-};
-
-
-export type QueryRef_ExperienceArgs = {
-  cursor: InputMaybe<Scalars['String']['input']>;
-  ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  limit?: Scalars['Int']['input'];
-  locale: InputMaybe<Array<InputMaybe<Locales>>>;
-  orderBy: InputMaybe<_ExperienceOrderByInput>;
-  skip?: Scalars['Int']['input'];
-  where: InputMaybe<_ExperienceWhereInput>;
-};
-
-
-export type QueryRef_FolderArgs = {
-  cursor: InputMaybe<Scalars['String']['input']>;
-  ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  limit?: Scalars['Int']['input'];
-  locale: InputMaybe<Array<InputMaybe<Locales>>>;
-  orderBy: InputMaybe<_FolderOrderByInput>;
-  skip?: Scalars['Int']['input'];
-  where: InputMaybe<_FolderWhereInput>;
-};
-
-
-export type QueryRef_ImageArgs = {
-  cursor: InputMaybe<Scalars['String']['input']>;
-  ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  limit?: Scalars['Int']['input'];
-  locale: InputMaybe<Array<InputMaybe<Locales>>>;
-  orderBy: InputMaybe<_ImageOrderByInput>;
-  skip?: Scalars['Int']['input'];
-  where: InputMaybe<_ImageWhereInput>;
-};
-
-
-export type QueryRef_MediaArgs = {
-  cursor: InputMaybe<Scalars['String']['input']>;
-  ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  limit?: Scalars['Int']['input'];
-  locale: InputMaybe<Array<InputMaybe<Locales>>>;
-  orderBy: InputMaybe<_MediaOrderByInput>;
-  skip?: Scalars['Int']['input'];
-  where: InputMaybe<_MediaWhereInput>;
-};
-
-
-export type QueryRef_PageArgs = {
-  cursor: InputMaybe<Scalars['String']['input']>;
-  ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  limit?: Scalars['Int']['input'];
-  locale: InputMaybe<Array<InputMaybe<Locales>>>;
-  orderBy: InputMaybe<_PageOrderByInput>;
-  skip?: Scalars['Int']['input'];
-  where: InputMaybe<_PageWhereInput>;
-};
-
-
-export type QueryRef_SectionArgs = {
-  cursor: InputMaybe<Scalars['String']['input']>;
-  ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  limit?: Scalars['Int']['input'];
-  locale: InputMaybe<Array<InputMaybe<Locales>>>;
-  orderBy: InputMaybe<_SectionOrderByInput>;
-  skip?: Scalars['Int']['input'];
-  where: InputMaybe<_SectionWhereInput>;
-};
-
-
-export type QueryRef_VideoArgs = {
-  cursor: InputMaybe<Scalars['String']['input']>;
-  ids: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  limit?: Scalars['Int']['input'];
-  locale: InputMaybe<Array<InputMaybe<Locales>>>;
-  orderBy: InputMaybe<_VideoOrderByInput>;
-  skip?: Scalars['Int']['input'];
-  where: InputMaybe<_VideoWhereInput>;
+export type RangeFacetsInput = {
+  from: InputMaybe<Scalars['Int']['input']>;
+  to: InputMaybe<Scalars['Int']['input']>;
 };
 
 export enum Ranking {
@@ -3169,79 +7954,6 @@ export enum Ranking {
   Relevance = 'RELEVANCE',
   Semantic = 'SEMANTIC'
 }
-
-export type SeoExperience = IData & _IContent & _IExperience & _IPage & {
-  __typename?: 'SEOExperience';
-  /** @deprecated Use `_link` field instead */
-  _children: Maybe<QueryRef>;
-  _deleted: Maybe<Scalars['Bool']['output']>;
-  _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  _id: Maybe<Scalars['String']['output']>;
-  _link: Maybe<QueryRef>;
-  _metadata: Maybe<IContentMetadata>;
-  _modified: Maybe<Scalars['Date']['output']>;
-  _score: Maybe<Scalars['Float']['output']>;
-  composition: Maybe<CompositionStructureNode>;
-  keywords: Maybe<Scalars['String']['output']>;
-  shortDescription: Maybe<Scalars['String']['output']>;
-  title: Maybe<Scalars['String']['output']>;
-};
-
-
-export type SeoExperience_FulltextArgs = {
-  highlight: InputMaybe<HighlightOptions>;
-};
-
-
-export type SeoExperience_LinkArgs = {
-  type: InputMaybe<LinkTypes>;
-};
-
-export type SeoExperienceAutocomplete = {
-  __typename?: 'SEOExperienceAutocomplete';
-  _metadata: Maybe<IContentMetadataAutocomplete>;
-  composition: Maybe<CompositionStructureNodeAutocomplete>;
-};
-
-export type SeoExperienceFacet = {
-  __typename?: 'SEOExperienceFacet';
-  _metadata: Maybe<IContentMetadataFacet>;
-  composition: Maybe<CompositionStructureNodeFacet>;
-};
-
-export type SeoExperienceOrderByInput = {
-  _metadata: InputMaybe<IContentMetadataOrderByInput>;
-  _minimumScore: InputMaybe<Scalars['Float']['input']>;
-  _modified: InputMaybe<OrderBy>;
-  _ranking: InputMaybe<Ranking>;
-  /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
-  _semanticWeight: InputMaybe<Scalars['Float']['input']>;
-  composition: InputMaybe<CompositionStructureNodeOrderByInput>;
-};
-
-export type SeoExperienceOutput = {
-  __typename?: 'SEOExperienceOutput';
-  autocomplete: Maybe<SeoExperienceAutocomplete>;
-  cursor: Maybe<Scalars['String']['output']>;
-  facets: Maybe<SeoExperienceFacet>;
-  items: Maybe<Array<Maybe<SeoExperience>>>;
-  total: Maybe<Scalars['Int']['output']>;
-};
-
-
-export type SeoExperienceOutputTotalArgs = {
-  all: InputMaybe<Scalars['Boolean']['input']>;
-};
-
-export type SeoExperienceWhereInput = {
-  _and: InputMaybe<Array<InputMaybe<SeoExperienceWhereInput>>>;
-  _fulltext: InputMaybe<SearchableStringFilterInput>;
-  _metadata: InputMaybe<IContentMetadataWhereInput>;
-  _modified: InputMaybe<DateFilterInput>;
-  _not: InputMaybe<Array<InputMaybe<SeoExperienceWhereInput>>>;
-  _or: InputMaybe<Array<InputMaybe<SeoExperienceWhereInput>>>;
-  composition: InputMaybe<CompositionStructureNodeWhereInput>;
-};
 
 export type SearchableStringFilterInput = {
   /** `boost` influences the weight of a field by boosting a match with a number (default: 1) — counts more towards the eventual relevance score which can be projected with `_score` — at query time. Note that `boost` cannot be a negative number. */
@@ -3270,20 +7982,62 @@ export type SearchableStringFilterInput = {
   synonyms: InputMaybe<Array<InputMaybe<SynonymSlot>>>;
 };
 
-export type ServiceItem = IData & _IComponent & _IContent & {
+export type ServiceItem = IContent & IData & {
   __typename?: 'ServiceItem';
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Category: Maybe<Array<Maybe<CategoryModel>>>;
+  Changed: Maybe<Scalars['Date']['output']>;
+  ContentLink: Maybe<ContentModelReference>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Created: Maybe<Scalars['Date']['output']>;
+  Description: Maybe<Scalars['String']['output']>;
+  ExistingLanguages: Maybe<Array<Maybe<ContentLanguageModel>>>;
+  Icon: Maybe<Scalars['String']['output']>;
+  IsCommonDraft: Maybe<Scalars['Bool']['output']>;
+  Language: Maybe<ContentLanguageModel>;
+  MasterLanguage: Maybe<ContentLanguageModel>;
+  Name: Maybe<Scalars['String']['output']>;
+  ParentLink: Maybe<ContentModelReference>;
+  RelativePath: Maybe<Scalars['String']['output']>;
+  RouteSegment: Maybe<Scalars['String']['output']>;
+  Saved: Maybe<Scalars['Date']['output']>;
+  Shortcut: Maybe<Scalars['String']['output']>;
+  SiteId: Maybe<Scalars['String']['output']>;
+  StartPublish: Maybe<Scalars['Date']['output']>;
+  Status: Maybe<Scalars['String']['output']>;
+  StopPublish: Maybe<Scalars['Date']['output']>;
+  Title: Maybe<Scalars['String']['output']>;
+  Url: Maybe<Scalars['String']['output']>;
   /** @deprecated Use `_link` field instead */
   _children: Maybe<QueryRef>;
+  _concreteType: Maybe<Scalars['String']['output']>;
   _deleted: Maybe<Scalars['Bool']['output']>;
   _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id: Maybe<Scalars['String']['output']>;
   _link: Maybe<QueryRef>;
-  _metadata: Maybe<IContentMetadata>;
   _modified: Maybe<Scalars['Date']['output']>;
   _score: Maybe<Scalars['Float']['output']>;
-  description: Maybe<Scalars['String']['output']>;
-  icon: Maybe<Scalars['String']['output']>;
-  title: Maybe<Scalars['String']['output']>;
+  _sortOrder: Maybe<Scalars['Int']['output']>;
+};
+
+
+export type ServiceItemDescriptionArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type ServiceItemIconArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type ServiceItemNameArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type ServiceItemTitleArgs = {
+  highlight: InputMaybe<HighlightOptions>;
 };
 
 
@@ -3298,21 +8052,290 @@ export type ServiceItem_LinkArgs = {
 
 export type ServiceItemAutocomplete = {
   __typename?: 'ServiceItemAutocomplete';
-  _metadata: Maybe<IContentMetadataAutocomplete>;
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Category: Maybe<CategoryModelAutocomplete>;
+  ContentLink: Maybe<ContentModelReferenceAutocomplete>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelAutocomplete>;
+  Language: Maybe<ContentLanguageModelAutocomplete>;
+  MasterLanguage: Maybe<ContentLanguageModelAutocomplete>;
+  ParentLink: Maybe<ContentModelReferenceAutocomplete>;
+  RelativePath: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  RouteSegment: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Shortcut: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  SiteId: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Status: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Url: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _concreteType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+};
+
+
+export type ServiceItemAutocompleteAncestorsArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ServiceItemAutocompleteContentTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ServiceItemAutocompleteRelativePathArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ServiceItemAutocompleteRouteSegmentArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ServiceItemAutocompleteShortcutArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ServiceItemAutocompleteSiteIdArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ServiceItemAutocompleteStatusArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ServiceItemAutocompleteUrlArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ServiceItemAutocomplete_ConcreteTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
 };
 
 export type ServiceItemFacet = {
   __typename?: 'ServiceItemFacet';
-  _metadata: Maybe<IContentMetadataFacet>;
+  Ancestors: Maybe<Array<Maybe<StringFacet>>>;
+  Category: Maybe<CategoryModelFacet>;
+  Changed: Maybe<Array<Maybe<DateFacet>>>;
+  ContentLink: Maybe<ContentModelReferenceFacet>;
+  ContentType: Maybe<Array<Maybe<StringFacet>>>;
+  Created: Maybe<Array<Maybe<DateFacet>>>;
+  Description: Maybe<Array<Maybe<StringFacet>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelFacet>;
+  Icon: Maybe<Array<Maybe<StringFacet>>>;
+  IsCommonDraft: Maybe<Array<Maybe<StringFacet>>>;
+  Language: Maybe<ContentLanguageModelFacet>;
+  MasterLanguage: Maybe<ContentLanguageModelFacet>;
+  Name: Maybe<Array<Maybe<StringFacet>>>;
+  ParentLink: Maybe<ContentModelReferenceFacet>;
+  RelativePath: Maybe<Array<Maybe<StringFacet>>>;
+  RouteSegment: Maybe<Array<Maybe<StringFacet>>>;
+  Saved: Maybe<Array<Maybe<DateFacet>>>;
+  Shortcut: Maybe<Array<Maybe<StringFacet>>>;
+  SiteId: Maybe<Array<Maybe<StringFacet>>>;
+  StartPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Status: Maybe<Array<Maybe<StringFacet>>>;
+  StopPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Title: Maybe<Array<Maybe<StringFacet>>>;
+  Url: Maybe<Array<Maybe<StringFacet>>>;
+  _concreteType: Maybe<Array<Maybe<StringFacet>>>;
+  _sortOrder: Maybe<Array<Maybe<NumberFacet>>>;
+};
+
+
+export type ServiceItemFacetAncestorsArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ServiceItemFacetChangedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type ServiceItemFacetContentTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ServiceItemFacetCreatedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type ServiceItemFacetDescriptionArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ServiceItemFacetIconArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ServiceItemFacetIsCommonDraftArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ServiceItemFacetNameArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ServiceItemFacetRelativePathArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ServiceItemFacetRouteSegmentArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ServiceItemFacetSavedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type ServiceItemFacetShortcutArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ServiceItemFacetSiteIdArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ServiceItemFacetStartPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type ServiceItemFacetStatusArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ServiceItemFacetStopPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type ServiceItemFacetTitleArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ServiceItemFacetUrlArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ServiceItemFacet_ConcreteTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ServiceItemFacet_SortOrderArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<OrderBy>;
+  orderType: InputMaybe<OrderByFacetType>;
+  ranges: InputMaybe<Array<InputMaybe<RangeFacetsInput>>>;
 };
 
 export type ServiceItemOrderByInput = {
-  _metadata: InputMaybe<IContentMetadataOrderByInput>;
+  Ancestors: InputMaybe<OrderBy>;
+  Category: InputMaybe<CategoryModelOrderByInput>;
+  Changed: InputMaybe<OrderBy>;
+  ContentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  ContentType: InputMaybe<OrderBy>;
+  Created: InputMaybe<OrderBy>;
+  Description: InputMaybe<OrderBy>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelOrderByInput>;
+  Icon: InputMaybe<OrderBy>;
+  IsCommonDraft: InputMaybe<OrderBy>;
+  Language: InputMaybe<ContentLanguageModelOrderByInput>;
+  MasterLanguage: InputMaybe<ContentLanguageModelOrderByInput>;
+  Name: InputMaybe<OrderBy>;
+  ParentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  RelativePath: InputMaybe<OrderBy>;
+  RouteSegment: InputMaybe<OrderBy>;
+  Saved: InputMaybe<OrderBy>;
+  Shortcut: InputMaybe<OrderBy>;
+  SiteId: InputMaybe<OrderBy>;
+  StartPublish: InputMaybe<OrderBy>;
+  Status: InputMaybe<OrderBy>;
+  StopPublish: InputMaybe<OrderBy>;
+  Title: InputMaybe<OrderBy>;
+  Url: InputMaybe<OrderBy>;
+  _concreteType: InputMaybe<OrderBy>;
   _minimumScore: InputMaybe<Scalars['Float']['input']>;
   _modified: InputMaybe<OrderBy>;
   _ranking: InputMaybe<Ranking>;
   /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
   _semanticWeight: InputMaybe<Scalars['Float']['input']>;
+  _sortOrder: InputMaybe<OrderBy>;
 };
 
 export type ServiceItemOutput = {
@@ -3330,26 +8353,83 @@ export type ServiceItemOutputTotalArgs = {
 };
 
 export type ServiceItemWhereInput = {
+  Ancestors: InputMaybe<StringFilterInput>;
+  Category: InputMaybe<CategoryModelWhereInput>;
+  Changed: InputMaybe<DateFilterInput>;
+  ContentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  ContentType: InputMaybe<StringFilterInput>;
+  Created: InputMaybe<DateFilterInput>;
+  Description: InputMaybe<SearchableStringFilterInput>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelWhereInput>;
+  Icon: InputMaybe<SearchableStringFilterInput>;
+  IsCommonDraft: InputMaybe<BoolFilterInput>;
+  Language: InputMaybe<ContentLanguageModelWhereInput>;
+  MasterLanguage: InputMaybe<ContentLanguageModelWhereInput>;
+  Name: InputMaybe<SearchableStringFilterInput>;
+  ParentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  RelativePath: InputMaybe<StringFilterInput>;
+  RouteSegment: InputMaybe<StringFilterInput>;
+  Saved: InputMaybe<DateFilterInput>;
+  Shortcut: InputMaybe<StringFilterInput>;
+  SiteId: InputMaybe<StringFilterInput>;
+  StartPublish: InputMaybe<DateFilterInput>;
+  Status: InputMaybe<StringFilterInput>;
+  StopPublish: InputMaybe<DateFilterInput>;
+  Title: InputMaybe<SearchableStringFilterInput>;
+  Url: InputMaybe<StringFilterInput>;
   _and: InputMaybe<Array<InputMaybe<ServiceItemWhereInput>>>;
+  _concreteType: InputMaybe<StringFilterInput>;
   _fulltext: InputMaybe<SearchableStringFilterInput>;
-  _metadata: InputMaybe<IContentMetadataWhereInput>;
   _modified: InputMaybe<DateFilterInput>;
   _not: InputMaybe<Array<InputMaybe<ServiceItemWhereInput>>>;
   _or: InputMaybe<Array<InputMaybe<ServiceItemWhereInput>>>;
+  _sortOrder: InputMaybe<IntFilterInput>;
 };
 
-export type ServicesBlock = IData & _IComponent & _IContent & {
+export type ServicesBlock = IContent & IData & {
   __typename?: 'ServicesBlock';
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Category: Maybe<Array<Maybe<CategoryModel>>>;
+  Changed: Maybe<Scalars['Date']['output']>;
+  ContentLink: Maybe<ContentModelReference>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Created: Maybe<Scalars['Date']['output']>;
+  ExistingLanguages: Maybe<Array<Maybe<ContentLanguageModel>>>;
+  IsCommonDraft: Maybe<Scalars['Bool']['output']>;
+  Language: Maybe<ContentLanguageModel>;
+  MasterLanguage: Maybe<ContentLanguageModel>;
+  Name: Maybe<Scalars['String']['output']>;
+  ParentLink: Maybe<ContentModelReference>;
+  RelativePath: Maybe<Scalars['String']['output']>;
+  RouteSegment: Maybe<Scalars['String']['output']>;
+  Saved: Maybe<Scalars['Date']['output']>;
+  Services: Maybe<Array<Maybe<ContentAreaItemModelSearch>>>;
+  Shortcut: Maybe<Scalars['String']['output']>;
+  SiteId: Maybe<Scalars['String']['output']>;
+  StartPublish: Maybe<Scalars['Date']['output']>;
+  Status: Maybe<Scalars['String']['output']>;
+  StopPublish: Maybe<Scalars['Date']['output']>;
+  Url: Maybe<Scalars['String']['output']>;
   /** @deprecated Use `_link` field instead */
   _children: Maybe<QueryRef>;
+  _concreteType: Maybe<Scalars['String']['output']>;
   _deleted: Maybe<Scalars['Bool']['output']>;
   _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id: Maybe<Scalars['String']['output']>;
   _link: Maybe<QueryRef>;
-  _metadata: Maybe<IContentMetadata>;
   _modified: Maybe<Scalars['Date']['output']>;
   _score: Maybe<Scalars['Float']['output']>;
-  services: Maybe<Array<Maybe<_IContent>>>;
+  _sortOrder: Maybe<Scalars['Int']['output']>;
+};
+
+
+export type ServicesBlockNameArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type ServicesBlockServicesArgs = {
+  highlight: InputMaybe<HighlightOptions>;
 };
 
 
@@ -3364,24 +8444,262 @@ export type ServicesBlock_LinkArgs = {
 
 export type ServicesBlockAutocomplete = {
   __typename?: 'ServicesBlockAutocomplete';
-  _metadata: Maybe<IContentMetadataAutocomplete>;
-  services: Maybe<_IContentAutocomplete>;
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Category: Maybe<CategoryModelAutocomplete>;
+  ContentLink: Maybe<ContentModelReferenceAutocomplete>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelAutocomplete>;
+  Language: Maybe<ContentLanguageModelAutocomplete>;
+  MasterLanguage: Maybe<ContentLanguageModelAutocomplete>;
+  ParentLink: Maybe<ContentModelReferenceAutocomplete>;
+  RelativePath: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  RouteSegment: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Shortcut: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  SiteId: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Status: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Url: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _concreteType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+};
+
+
+export type ServicesBlockAutocompleteAncestorsArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ServicesBlockAutocompleteContentTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ServicesBlockAutocompleteRelativePathArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ServicesBlockAutocompleteRouteSegmentArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ServicesBlockAutocompleteShortcutArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ServicesBlockAutocompleteSiteIdArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ServicesBlockAutocompleteStatusArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ServicesBlockAutocompleteUrlArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type ServicesBlockAutocomplete_ConcreteTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
 };
 
 export type ServicesBlockFacet = {
   __typename?: 'ServicesBlockFacet';
-  _metadata: Maybe<IContentMetadataFacet>;
-  services: Maybe<_IContentFacet>;
+  Ancestors: Maybe<Array<Maybe<StringFacet>>>;
+  Category: Maybe<CategoryModelFacet>;
+  Changed: Maybe<Array<Maybe<DateFacet>>>;
+  ContentLink: Maybe<ContentModelReferenceFacet>;
+  ContentType: Maybe<Array<Maybe<StringFacet>>>;
+  Created: Maybe<Array<Maybe<DateFacet>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelFacet>;
+  IsCommonDraft: Maybe<Array<Maybe<StringFacet>>>;
+  Language: Maybe<ContentLanguageModelFacet>;
+  MasterLanguage: Maybe<ContentLanguageModelFacet>;
+  Name: Maybe<Array<Maybe<StringFacet>>>;
+  ParentLink: Maybe<ContentModelReferenceFacet>;
+  RelativePath: Maybe<Array<Maybe<StringFacet>>>;
+  RouteSegment: Maybe<Array<Maybe<StringFacet>>>;
+  Saved: Maybe<Array<Maybe<DateFacet>>>;
+  Services: Maybe<ContentAreaItemModelSearchFacet>;
+  Shortcut: Maybe<Array<Maybe<StringFacet>>>;
+  SiteId: Maybe<Array<Maybe<StringFacet>>>;
+  StartPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Status: Maybe<Array<Maybe<StringFacet>>>;
+  StopPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Url: Maybe<Array<Maybe<StringFacet>>>;
+  _concreteType: Maybe<Array<Maybe<StringFacet>>>;
+  _sortOrder: Maybe<Array<Maybe<NumberFacet>>>;
+};
+
+
+export type ServicesBlockFacetAncestorsArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ServicesBlockFacetChangedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type ServicesBlockFacetContentTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ServicesBlockFacetCreatedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type ServicesBlockFacetIsCommonDraftArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ServicesBlockFacetNameArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ServicesBlockFacetRelativePathArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ServicesBlockFacetRouteSegmentArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ServicesBlockFacetSavedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type ServicesBlockFacetShortcutArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ServicesBlockFacetSiteIdArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ServicesBlockFacetStartPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type ServicesBlockFacetStatusArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ServicesBlockFacetStopPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type ServicesBlockFacetUrlArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ServicesBlockFacet_ConcreteTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type ServicesBlockFacet_SortOrderArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<OrderBy>;
+  orderType: InputMaybe<OrderByFacetType>;
+  ranges: InputMaybe<Array<InputMaybe<RangeFacetsInput>>>;
 };
 
 export type ServicesBlockOrderByInput = {
-  _metadata: InputMaybe<IContentMetadataOrderByInput>;
+  Ancestors: InputMaybe<OrderBy>;
+  Category: InputMaybe<CategoryModelOrderByInput>;
+  Changed: InputMaybe<OrderBy>;
+  ContentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  ContentType: InputMaybe<OrderBy>;
+  Created: InputMaybe<OrderBy>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelOrderByInput>;
+  IsCommonDraft: InputMaybe<OrderBy>;
+  Language: InputMaybe<ContentLanguageModelOrderByInput>;
+  MasterLanguage: InputMaybe<ContentLanguageModelOrderByInput>;
+  Name: InputMaybe<OrderBy>;
+  ParentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  RelativePath: InputMaybe<OrderBy>;
+  RouteSegment: InputMaybe<OrderBy>;
+  Saved: InputMaybe<OrderBy>;
+  Services: InputMaybe<ContentAreaItemModelSearchOrderByInput>;
+  Shortcut: InputMaybe<OrderBy>;
+  SiteId: InputMaybe<OrderBy>;
+  StartPublish: InputMaybe<OrderBy>;
+  Status: InputMaybe<OrderBy>;
+  StopPublish: InputMaybe<OrderBy>;
+  Url: InputMaybe<OrderBy>;
+  _concreteType: InputMaybe<OrderBy>;
   _minimumScore: InputMaybe<Scalars['Float']['input']>;
   _modified: InputMaybe<OrderBy>;
   _ranking: InputMaybe<Ranking>;
   /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
   _semanticWeight: InputMaybe<Scalars['Float']['input']>;
-  services: InputMaybe<_IContentOrderByInput>;
+  _sortOrder: InputMaybe<OrderBy>;
 };
 
 export type ServicesBlockOutput = {
@@ -3399,28 +8717,366 @@ export type ServicesBlockOutputTotalArgs = {
 };
 
 export type ServicesBlockWhereInput = {
+  Ancestors: InputMaybe<StringFilterInput>;
+  Category: InputMaybe<CategoryModelWhereInput>;
+  Changed: InputMaybe<DateFilterInput>;
+  ContentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  ContentType: InputMaybe<StringFilterInput>;
+  Created: InputMaybe<DateFilterInput>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelWhereInput>;
+  IsCommonDraft: InputMaybe<BoolFilterInput>;
+  Language: InputMaybe<ContentLanguageModelWhereInput>;
+  MasterLanguage: InputMaybe<ContentLanguageModelWhereInput>;
+  Name: InputMaybe<SearchableStringFilterInput>;
+  ParentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  RelativePath: InputMaybe<StringFilterInput>;
+  RouteSegment: InputMaybe<StringFilterInput>;
+  Saved: InputMaybe<DateFilterInput>;
+  Services: InputMaybe<ContentAreaItemModelSearchWhereInput>;
+  Shortcut: InputMaybe<StringFilterInput>;
+  SiteId: InputMaybe<StringFilterInput>;
+  StartPublish: InputMaybe<DateFilterInput>;
+  Status: InputMaybe<StringFilterInput>;
+  StopPublish: InputMaybe<DateFilterInput>;
+  Url: InputMaybe<StringFilterInput>;
   _and: InputMaybe<Array<InputMaybe<ServicesBlockWhereInput>>>;
+  _concreteType: InputMaybe<StringFilterInput>;
   _fulltext: InputMaybe<SearchableStringFilterInput>;
-  _metadata: InputMaybe<IContentMetadataWhereInput>;
   _modified: InputMaybe<DateFilterInput>;
   _not: InputMaybe<Array<InputMaybe<ServicesBlockWhereInput>>>;
   _or: InputMaybe<Array<InputMaybe<ServicesBlockWhereInput>>>;
-  services: InputMaybe<_IContentWhereInput>;
+  _sortOrder: InputMaybe<IntFilterInput>;
 };
 
-export type SocialLink = IData & _IComponent & _IContent & {
-  __typename?: 'SocialLink';
+export type SiteDefinition = IData & {
+  __typename?: 'SiteDefinition';
+  ContentLink: Maybe<ContentModelReference>;
+  ContentRoots: Maybe<ContentRootsModel>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  EditLocation: Maybe<Scalars['String']['output']>;
+  Hosts: Maybe<Array<Maybe<HostDefinitionModel>>>;
+  Id: Maybe<Scalars['String']['output']>;
+  Languages: Maybe<Array<Maybe<SiteDefinitionLanguageModel>>>;
+  Name: Maybe<Scalars['String']['output']>;
+  Status: Maybe<Scalars['String']['output']>;
   /** @deprecated Use `_link` field instead */
   _children: Maybe<QueryRef>;
   _deleted: Maybe<Scalars['Bool']['output']>;
   _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id: Maybe<Scalars['String']['output']>;
   _link: Maybe<QueryRef>;
-  _metadata: Maybe<IContentMetadata>;
   _modified: Maybe<Scalars['Date']['output']>;
   _score: Maybe<Scalars['Float']['output']>;
-  href: Maybe<Scalars['String']['output']>;
-  platform: Maybe<Scalars['String']['output']>;
+};
+
+
+export type SiteDefinitionNameArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type SiteDefinition_FulltextArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type SiteDefinition_LinkArgs = {
+  type: InputMaybe<LinkTypes>;
+};
+
+export type SiteDefinitionAutocomplete = {
+  __typename?: 'SiteDefinitionAutocomplete';
+  ContentLink: Maybe<ContentModelReferenceAutocomplete>;
+  ContentRoots: Maybe<ContentRootsModelAutocomplete>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  EditLocation: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Hosts: Maybe<HostDefinitionModelAutocomplete>;
+  Id: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Languages: Maybe<SiteDefinitionLanguageModelAutocomplete>;
+  Status: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+};
+
+
+export type SiteDefinitionAutocompleteContentTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type SiteDefinitionAutocompleteEditLocationArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type SiteDefinitionAutocompleteIdArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type SiteDefinitionAutocompleteStatusArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+export type SiteDefinitionFacet = {
+  __typename?: 'SiteDefinitionFacet';
+  ContentLink: Maybe<ContentModelReferenceFacet>;
+  ContentRoots: Maybe<ContentRootsModelFacet>;
+  ContentType: Maybe<Array<Maybe<StringFacet>>>;
+  EditLocation: Maybe<Array<Maybe<StringFacet>>>;
+  Hosts: Maybe<HostDefinitionModelFacet>;
+  Id: Maybe<Array<Maybe<StringFacet>>>;
+  Languages: Maybe<SiteDefinitionLanguageModelFacet>;
+  Name: Maybe<Array<Maybe<StringFacet>>>;
+  Status: Maybe<Array<Maybe<StringFacet>>>;
+};
+
+
+export type SiteDefinitionFacetContentTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type SiteDefinitionFacetEditLocationArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type SiteDefinitionFacetIdArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type SiteDefinitionFacetNameArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type SiteDefinitionFacetStatusArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+export type SiteDefinitionLanguageModel = {
+  __typename?: 'SiteDefinitionLanguageModel';
+  DisplayName: Maybe<Scalars['String']['output']>;
+  IsMasterLanguage: Maybe<Scalars['Bool']['output']>;
+  Name: Maybe<Scalars['String']['output']>;
+  Url: Maybe<Scalars['String']['output']>;
+  UrlSegment: Maybe<Scalars['String']['output']>;
+};
+
+export type SiteDefinitionLanguageModelAutocomplete = {
+  __typename?: 'SiteDefinitionLanguageModelAutocomplete';
+  DisplayName: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Name: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Url: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  UrlSegment: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+};
+
+
+export type SiteDefinitionLanguageModelAutocompleteDisplayNameArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type SiteDefinitionLanguageModelAutocompleteNameArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type SiteDefinitionLanguageModelAutocompleteUrlArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type SiteDefinitionLanguageModelAutocompleteUrlSegmentArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+export type SiteDefinitionLanguageModelFacet = {
+  __typename?: 'SiteDefinitionLanguageModelFacet';
+  DisplayName: Maybe<Array<Maybe<StringFacet>>>;
+  IsMasterLanguage: Maybe<Array<Maybe<StringFacet>>>;
+  Name: Maybe<Array<Maybe<StringFacet>>>;
+  Url: Maybe<Array<Maybe<StringFacet>>>;
+  UrlSegment: Maybe<Array<Maybe<StringFacet>>>;
+};
+
+
+export type SiteDefinitionLanguageModelFacetDisplayNameArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type SiteDefinitionLanguageModelFacetIsMasterLanguageArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type SiteDefinitionLanguageModelFacetNameArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type SiteDefinitionLanguageModelFacetUrlArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type SiteDefinitionLanguageModelFacetUrlSegmentArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+export type SiteDefinitionLanguageModelOrderByInput = {
+  DisplayName: InputMaybe<OrderBy>;
+  IsMasterLanguage: InputMaybe<OrderBy>;
+  Name: InputMaybe<OrderBy>;
+  Url: InputMaybe<OrderBy>;
+  UrlSegment: InputMaybe<OrderBy>;
+};
+
+export type SiteDefinitionLanguageModelWhereInput = {
+  DisplayName: InputMaybe<StringFilterInput>;
+  IsMasterLanguage: InputMaybe<BoolFilterInput>;
+  Name: InputMaybe<StringFilterInput>;
+  Url: InputMaybe<StringFilterInput>;
+  UrlSegment: InputMaybe<StringFilterInput>;
+};
+
+export type SiteDefinitionOrderByInput = {
+  ContentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  ContentRoots: InputMaybe<ContentRootsModelOrderByInput>;
+  ContentType: InputMaybe<OrderBy>;
+  EditLocation: InputMaybe<OrderBy>;
+  Hosts: InputMaybe<HostDefinitionModelOrderByInput>;
+  Id: InputMaybe<OrderBy>;
+  Languages: InputMaybe<SiteDefinitionLanguageModelOrderByInput>;
+  Name: InputMaybe<OrderBy>;
+  Status: InputMaybe<OrderBy>;
+  _minimumScore: InputMaybe<Scalars['Float']['input']>;
+  _modified: InputMaybe<OrderBy>;
+  _ranking: InputMaybe<Ranking>;
+  /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
+  _semanticWeight: InputMaybe<Scalars['Float']['input']>;
+};
+
+export type SiteDefinitionOutput = {
+  __typename?: 'SiteDefinitionOutput';
+  autocomplete: Maybe<SiteDefinitionAutocomplete>;
+  cursor: Maybe<Scalars['String']['output']>;
+  facets: Maybe<SiteDefinitionFacet>;
+  items: Maybe<Array<Maybe<SiteDefinition>>>;
+  total: Maybe<Scalars['Int']['output']>;
+};
+
+
+export type SiteDefinitionOutputTotalArgs = {
+  all: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type SiteDefinitionWhereInput = {
+  ContentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  ContentRoots: InputMaybe<ContentRootsModelWhereInput>;
+  ContentType: InputMaybe<StringFilterInput>;
+  EditLocation: InputMaybe<StringFilterInput>;
+  Hosts: InputMaybe<HostDefinitionModelWhereInput>;
+  Id: InputMaybe<StringFilterInput>;
+  Languages: InputMaybe<SiteDefinitionLanguageModelWhereInput>;
+  Name: InputMaybe<SearchableStringFilterInput>;
+  Status: InputMaybe<StringFilterInput>;
+  _and: InputMaybe<Array<InputMaybe<SiteDefinitionWhereInput>>>;
+  _fulltext: InputMaybe<SearchableStringFilterInput>;
+  _modified: InputMaybe<DateFilterInput>;
+  _not: InputMaybe<Array<InputMaybe<SiteDefinitionWhereInput>>>;
+  _or: InputMaybe<Array<InputMaybe<SiteDefinitionWhereInput>>>;
+};
+
+export type SocialLink = IContent & IData & {
+  __typename?: 'SocialLink';
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Category: Maybe<Array<Maybe<CategoryModel>>>;
+  Changed: Maybe<Scalars['Date']['output']>;
+  ContentLink: Maybe<ContentModelReference>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Created: Maybe<Scalars['Date']['output']>;
+  ExistingLanguages: Maybe<Array<Maybe<ContentLanguageModel>>>;
+  Href: Maybe<Scalars['String']['output']>;
+  IsCommonDraft: Maybe<Scalars['Bool']['output']>;
+  Language: Maybe<ContentLanguageModel>;
+  MasterLanguage: Maybe<ContentLanguageModel>;
+  Name: Maybe<Scalars['String']['output']>;
+  ParentLink: Maybe<ContentModelReference>;
+  Platform: Maybe<Scalars['String']['output']>;
+  RelativePath: Maybe<Scalars['String']['output']>;
+  RouteSegment: Maybe<Scalars['String']['output']>;
+  Saved: Maybe<Scalars['Date']['output']>;
+  Shortcut: Maybe<Scalars['String']['output']>;
+  SiteId: Maybe<Scalars['String']['output']>;
+  StartPublish: Maybe<Scalars['Date']['output']>;
+  Status: Maybe<Scalars['String']['output']>;
+  StopPublish: Maybe<Scalars['Date']['output']>;
+  Url: Maybe<Scalars['String']['output']>;
+  /** @deprecated Use `_link` field instead */
+  _children: Maybe<QueryRef>;
+  _concreteType: Maybe<Scalars['String']['output']>;
+  _deleted: Maybe<Scalars['Bool']['output']>;
+  _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _id: Maybe<Scalars['String']['output']>;
+  _link: Maybe<QueryRef>;
+  _modified: Maybe<Scalars['Date']['output']>;
+  _score: Maybe<Scalars['Float']['output']>;
+  _sortOrder: Maybe<Scalars['Int']['output']>;
+};
+
+
+export type SocialLinkHrefArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type SocialLinkNameArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type SocialLinkPlatformArgs = {
+  highlight: InputMaybe<HighlightOptions>;
 };
 
 
@@ -3435,21 +9091,280 @@ export type SocialLink_LinkArgs = {
 
 export type SocialLinkAutocomplete = {
   __typename?: 'SocialLinkAutocomplete';
-  _metadata: Maybe<IContentMetadataAutocomplete>;
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Category: Maybe<CategoryModelAutocomplete>;
+  ContentLink: Maybe<ContentModelReferenceAutocomplete>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelAutocomplete>;
+  Language: Maybe<ContentLanguageModelAutocomplete>;
+  MasterLanguage: Maybe<ContentLanguageModelAutocomplete>;
+  ParentLink: Maybe<ContentModelReferenceAutocomplete>;
+  RelativePath: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  RouteSegment: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Shortcut: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  SiteId: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Status: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Url: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _concreteType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+};
+
+
+export type SocialLinkAutocompleteAncestorsArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type SocialLinkAutocompleteContentTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type SocialLinkAutocompleteRelativePathArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type SocialLinkAutocompleteRouteSegmentArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type SocialLinkAutocompleteShortcutArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type SocialLinkAutocompleteSiteIdArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type SocialLinkAutocompleteStatusArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type SocialLinkAutocompleteUrlArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type SocialLinkAutocomplete_ConcreteTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
 };
 
 export type SocialLinkFacet = {
   __typename?: 'SocialLinkFacet';
-  _metadata: Maybe<IContentMetadataFacet>;
+  Ancestors: Maybe<Array<Maybe<StringFacet>>>;
+  Category: Maybe<CategoryModelFacet>;
+  Changed: Maybe<Array<Maybe<DateFacet>>>;
+  ContentLink: Maybe<ContentModelReferenceFacet>;
+  ContentType: Maybe<Array<Maybe<StringFacet>>>;
+  Created: Maybe<Array<Maybe<DateFacet>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelFacet>;
+  Href: Maybe<Array<Maybe<StringFacet>>>;
+  IsCommonDraft: Maybe<Array<Maybe<StringFacet>>>;
+  Language: Maybe<ContentLanguageModelFacet>;
+  MasterLanguage: Maybe<ContentLanguageModelFacet>;
+  Name: Maybe<Array<Maybe<StringFacet>>>;
+  ParentLink: Maybe<ContentModelReferenceFacet>;
+  Platform: Maybe<Array<Maybe<StringFacet>>>;
+  RelativePath: Maybe<Array<Maybe<StringFacet>>>;
+  RouteSegment: Maybe<Array<Maybe<StringFacet>>>;
+  Saved: Maybe<Array<Maybe<DateFacet>>>;
+  Shortcut: Maybe<Array<Maybe<StringFacet>>>;
+  SiteId: Maybe<Array<Maybe<StringFacet>>>;
+  StartPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Status: Maybe<Array<Maybe<StringFacet>>>;
+  StopPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Url: Maybe<Array<Maybe<StringFacet>>>;
+  _concreteType: Maybe<Array<Maybe<StringFacet>>>;
+  _sortOrder: Maybe<Array<Maybe<NumberFacet>>>;
+};
+
+
+export type SocialLinkFacetAncestorsArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type SocialLinkFacetChangedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type SocialLinkFacetContentTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type SocialLinkFacetCreatedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type SocialLinkFacetHrefArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type SocialLinkFacetIsCommonDraftArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type SocialLinkFacetNameArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type SocialLinkFacetPlatformArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type SocialLinkFacetRelativePathArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type SocialLinkFacetRouteSegmentArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type SocialLinkFacetSavedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type SocialLinkFacetShortcutArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type SocialLinkFacetSiteIdArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type SocialLinkFacetStartPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type SocialLinkFacetStatusArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type SocialLinkFacetStopPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type SocialLinkFacetUrlArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type SocialLinkFacet_ConcreteTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type SocialLinkFacet_SortOrderArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<OrderBy>;
+  orderType: InputMaybe<OrderByFacetType>;
+  ranges: InputMaybe<Array<InputMaybe<RangeFacetsInput>>>;
 };
 
 export type SocialLinkOrderByInput = {
-  _metadata: InputMaybe<IContentMetadataOrderByInput>;
+  Ancestors: InputMaybe<OrderBy>;
+  Category: InputMaybe<CategoryModelOrderByInput>;
+  Changed: InputMaybe<OrderBy>;
+  ContentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  ContentType: InputMaybe<OrderBy>;
+  Created: InputMaybe<OrderBy>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelOrderByInput>;
+  Href: InputMaybe<OrderBy>;
+  IsCommonDraft: InputMaybe<OrderBy>;
+  Language: InputMaybe<ContentLanguageModelOrderByInput>;
+  MasterLanguage: InputMaybe<ContentLanguageModelOrderByInput>;
+  Name: InputMaybe<OrderBy>;
+  ParentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  Platform: InputMaybe<OrderBy>;
+  RelativePath: InputMaybe<OrderBy>;
+  RouteSegment: InputMaybe<OrderBy>;
+  Saved: InputMaybe<OrderBy>;
+  Shortcut: InputMaybe<OrderBy>;
+  SiteId: InputMaybe<OrderBy>;
+  StartPublish: InputMaybe<OrderBy>;
+  Status: InputMaybe<OrderBy>;
+  StopPublish: InputMaybe<OrderBy>;
+  Url: InputMaybe<OrderBy>;
+  _concreteType: InputMaybe<OrderBy>;
   _minimumScore: InputMaybe<Scalars['Float']['input']>;
   _modified: InputMaybe<OrderBy>;
   _ranking: InputMaybe<Ranking>;
   /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
   _semanticWeight: InputMaybe<Scalars['Float']['input']>;
+  _sortOrder: InputMaybe<OrderBy>;
 };
 
 export type SocialLinkOutput = {
@@ -3467,29 +9382,101 @@ export type SocialLinkOutputTotalArgs = {
 };
 
 export type SocialLinkWhereInput = {
+  Ancestors: InputMaybe<StringFilterInput>;
+  Category: InputMaybe<CategoryModelWhereInput>;
+  Changed: InputMaybe<DateFilterInput>;
+  ContentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  ContentType: InputMaybe<StringFilterInput>;
+  Created: InputMaybe<DateFilterInput>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelWhereInput>;
+  Href: InputMaybe<SearchableStringFilterInput>;
+  IsCommonDraft: InputMaybe<BoolFilterInput>;
+  Language: InputMaybe<ContentLanguageModelWhereInput>;
+  MasterLanguage: InputMaybe<ContentLanguageModelWhereInput>;
+  Name: InputMaybe<SearchableStringFilterInput>;
+  ParentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  Platform: InputMaybe<SearchableStringFilterInput>;
+  RelativePath: InputMaybe<StringFilterInput>;
+  RouteSegment: InputMaybe<StringFilterInput>;
+  Saved: InputMaybe<DateFilterInput>;
+  Shortcut: InputMaybe<StringFilterInput>;
+  SiteId: InputMaybe<StringFilterInput>;
+  StartPublish: InputMaybe<DateFilterInput>;
+  Status: InputMaybe<StringFilterInput>;
+  StopPublish: InputMaybe<DateFilterInput>;
+  Url: InputMaybe<StringFilterInput>;
   _and: InputMaybe<Array<InputMaybe<SocialLinkWhereInput>>>;
+  _concreteType: InputMaybe<StringFilterInput>;
   _fulltext: InputMaybe<SearchableStringFilterInput>;
-  _metadata: InputMaybe<IContentMetadataWhereInput>;
   _modified: InputMaybe<DateFilterInput>;
   _not: InputMaybe<Array<InputMaybe<SocialLinkWhereInput>>>;
   _or: InputMaybe<Array<InputMaybe<SocialLinkWhereInput>>>;
+  _sortOrder: InputMaybe<IntFilterInput>;
 };
 
-export type StartPage = IData & _IContent & _IPage & {
+export type StartPage = IContent & IData & {
   __typename?: 'StartPage';
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Blocks: Maybe<Array<Maybe<ContentAreaItemModelSearch>>>;
+  Category: Maybe<Array<Maybe<CategoryModel>>>;
+  Changed: Maybe<Scalars['Date']['output']>;
+  ContentLink: Maybe<ContentModelReference>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Created: Maybe<Scalars['Date']['output']>;
+  ExistingLanguages: Maybe<Array<Maybe<ContentLanguageModel>>>;
+  IsCommonDraft: Maybe<Scalars['Bool']['output']>;
+  Keywords: Maybe<Scalars['String']['output']>;
+  Language: Maybe<ContentLanguageModel>;
+  MasterLanguage: Maybe<ContentLanguageModel>;
+  MetaKeywords: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Name: Maybe<Scalars['String']['output']>;
+  ParentLink: Maybe<ContentModelReference>;
+  RelativePath: Maybe<Scalars['String']['output']>;
+  RouteSegment: Maybe<Scalars['String']['output']>;
+  Saved: Maybe<Scalars['Date']['output']>;
+  ShortDescription: Maybe<Scalars['String']['output']>;
+  Shortcut: Maybe<Scalars['String']['output']>;
+  SiteId: Maybe<Scalars['String']['output']>;
+  StartPublish: Maybe<Scalars['Date']['output']>;
+  Status: Maybe<Scalars['String']['output']>;
+  StopPublish: Maybe<Scalars['Date']['output']>;
+  Title: Maybe<Scalars['String']['output']>;
+  Url: Maybe<Scalars['String']['output']>;
   /** @deprecated Use `_link` field instead */
   _children: Maybe<QueryRef>;
+  _concreteType: Maybe<Scalars['String']['output']>;
   _deleted: Maybe<Scalars['Bool']['output']>;
   _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id: Maybe<Scalars['String']['output']>;
   _link: Maybe<QueryRef>;
-  _metadata: Maybe<IContentMetadata>;
   _modified: Maybe<Scalars['Date']['output']>;
   _score: Maybe<Scalars['Float']['output']>;
-  blocks: Maybe<Array<Maybe<_IContent>>>;
-  keywords: Maybe<Scalars['String']['output']>;
-  shortDescription: Maybe<Scalars['String']['output']>;
-  title: Maybe<Scalars['String']['output']>;
+  _sortOrder: Maybe<Scalars['Int']['output']>;
+};
+
+
+export type StartPageBlocksArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type StartPageKeywordsArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type StartPageNameArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type StartPageShortDescriptionArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type StartPageTitleArgs = {
+  highlight: InputMaybe<HighlightOptions>;
 };
 
 
@@ -3504,24 +9491,309 @@ export type StartPage_LinkArgs = {
 
 export type StartPageAutocomplete = {
   __typename?: 'StartPageAutocomplete';
-  _metadata: Maybe<IContentMetadataAutocomplete>;
-  blocks: Maybe<_IContentAutocomplete>;
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Category: Maybe<CategoryModelAutocomplete>;
+  ContentLink: Maybe<ContentModelReferenceAutocomplete>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelAutocomplete>;
+  Language: Maybe<ContentLanguageModelAutocomplete>;
+  MasterLanguage: Maybe<ContentLanguageModelAutocomplete>;
+  MetaKeywords: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  ParentLink: Maybe<ContentModelReferenceAutocomplete>;
+  RelativePath: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  RouteSegment: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Shortcut: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  SiteId: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Status: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Url: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _concreteType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+};
+
+
+export type StartPageAutocompleteAncestorsArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type StartPageAutocompleteContentTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type StartPageAutocompleteMetaKeywordsArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type StartPageAutocompleteRelativePathArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type StartPageAutocompleteRouteSegmentArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type StartPageAutocompleteShortcutArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type StartPageAutocompleteSiteIdArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type StartPageAutocompleteStatusArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type StartPageAutocompleteUrlArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type StartPageAutocomplete_ConcreteTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
 };
 
 export type StartPageFacet = {
   __typename?: 'StartPageFacet';
-  _metadata: Maybe<IContentMetadataFacet>;
-  blocks: Maybe<_IContentFacet>;
+  Ancestors: Maybe<Array<Maybe<StringFacet>>>;
+  Blocks: Maybe<ContentAreaItemModelSearchFacet>;
+  Category: Maybe<CategoryModelFacet>;
+  Changed: Maybe<Array<Maybe<DateFacet>>>;
+  ContentLink: Maybe<ContentModelReferenceFacet>;
+  ContentType: Maybe<Array<Maybe<StringFacet>>>;
+  Created: Maybe<Array<Maybe<DateFacet>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelFacet>;
+  IsCommonDraft: Maybe<Array<Maybe<StringFacet>>>;
+  Keywords: Maybe<Array<Maybe<StringFacet>>>;
+  Language: Maybe<ContentLanguageModelFacet>;
+  MasterLanguage: Maybe<ContentLanguageModelFacet>;
+  MetaKeywords: Maybe<Array<Maybe<StringFacet>>>;
+  Name: Maybe<Array<Maybe<StringFacet>>>;
+  ParentLink: Maybe<ContentModelReferenceFacet>;
+  RelativePath: Maybe<Array<Maybe<StringFacet>>>;
+  RouteSegment: Maybe<Array<Maybe<StringFacet>>>;
+  Saved: Maybe<Array<Maybe<DateFacet>>>;
+  ShortDescription: Maybe<Array<Maybe<StringFacet>>>;
+  Shortcut: Maybe<Array<Maybe<StringFacet>>>;
+  SiteId: Maybe<Array<Maybe<StringFacet>>>;
+  StartPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Status: Maybe<Array<Maybe<StringFacet>>>;
+  StopPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Title: Maybe<Array<Maybe<StringFacet>>>;
+  Url: Maybe<Array<Maybe<StringFacet>>>;
+  _concreteType: Maybe<Array<Maybe<StringFacet>>>;
+  _sortOrder: Maybe<Array<Maybe<NumberFacet>>>;
+};
+
+
+export type StartPageFacetAncestorsArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type StartPageFacetChangedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type StartPageFacetContentTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type StartPageFacetCreatedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type StartPageFacetIsCommonDraftArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type StartPageFacetKeywordsArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type StartPageFacetMetaKeywordsArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type StartPageFacetNameArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type StartPageFacetRelativePathArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type StartPageFacetRouteSegmentArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type StartPageFacetSavedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type StartPageFacetShortDescriptionArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type StartPageFacetShortcutArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type StartPageFacetSiteIdArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type StartPageFacetStartPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type StartPageFacetStatusArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type StartPageFacetStopPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type StartPageFacetTitleArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type StartPageFacetUrlArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type StartPageFacet_ConcreteTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type StartPageFacet_SortOrderArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<OrderBy>;
+  orderType: InputMaybe<OrderByFacetType>;
+  ranges: InputMaybe<Array<InputMaybe<RangeFacetsInput>>>;
 };
 
 export type StartPageOrderByInput = {
-  _metadata: InputMaybe<IContentMetadataOrderByInput>;
+  Ancestors: InputMaybe<OrderBy>;
+  Blocks: InputMaybe<ContentAreaItemModelSearchOrderByInput>;
+  Category: InputMaybe<CategoryModelOrderByInput>;
+  Changed: InputMaybe<OrderBy>;
+  ContentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  ContentType: InputMaybe<OrderBy>;
+  Created: InputMaybe<OrderBy>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelOrderByInput>;
+  IsCommonDraft: InputMaybe<OrderBy>;
+  Keywords: InputMaybe<OrderBy>;
+  Language: InputMaybe<ContentLanguageModelOrderByInput>;
+  MasterLanguage: InputMaybe<ContentLanguageModelOrderByInput>;
+  MetaKeywords: InputMaybe<OrderBy>;
+  Name: InputMaybe<OrderBy>;
+  ParentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  RelativePath: InputMaybe<OrderBy>;
+  RouteSegment: InputMaybe<OrderBy>;
+  Saved: InputMaybe<OrderBy>;
+  ShortDescription: InputMaybe<OrderBy>;
+  Shortcut: InputMaybe<OrderBy>;
+  SiteId: InputMaybe<OrderBy>;
+  StartPublish: InputMaybe<OrderBy>;
+  Status: InputMaybe<OrderBy>;
+  StopPublish: InputMaybe<OrderBy>;
+  Title: InputMaybe<OrderBy>;
+  Url: InputMaybe<OrderBy>;
+  _concreteType: InputMaybe<OrderBy>;
   _minimumScore: InputMaybe<Scalars['Float']['input']>;
   _modified: InputMaybe<OrderBy>;
   _ranking: InputMaybe<Ranking>;
   /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
   _semanticWeight: InputMaybe<Scalars['Float']['input']>;
-  blocks: InputMaybe<_IContentOrderByInput>;
+  _sortOrder: InputMaybe<OrderBy>;
 };
 
 export type StartPageOutput = {
@@ -3539,28 +9811,91 @@ export type StartPageOutputTotalArgs = {
 };
 
 export type StartPageWhereInput = {
+  Ancestors: InputMaybe<StringFilterInput>;
+  Blocks: InputMaybe<ContentAreaItemModelSearchWhereInput>;
+  Category: InputMaybe<CategoryModelWhereInput>;
+  Changed: InputMaybe<DateFilterInput>;
+  ContentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  ContentType: InputMaybe<StringFilterInput>;
+  Created: InputMaybe<DateFilterInput>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelWhereInput>;
+  IsCommonDraft: InputMaybe<BoolFilterInput>;
+  Keywords: InputMaybe<SearchableStringFilterInput>;
+  Language: InputMaybe<ContentLanguageModelWhereInput>;
+  MasterLanguage: InputMaybe<ContentLanguageModelWhereInput>;
+  MetaKeywords: InputMaybe<StringFilterInput>;
+  Name: InputMaybe<SearchableStringFilterInput>;
+  ParentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  RelativePath: InputMaybe<StringFilterInput>;
+  RouteSegment: InputMaybe<StringFilterInput>;
+  Saved: InputMaybe<DateFilterInput>;
+  ShortDescription: InputMaybe<SearchableStringFilterInput>;
+  Shortcut: InputMaybe<StringFilterInput>;
+  SiteId: InputMaybe<StringFilterInput>;
+  StartPublish: InputMaybe<DateFilterInput>;
+  Status: InputMaybe<StringFilterInput>;
+  StopPublish: InputMaybe<DateFilterInput>;
+  Title: InputMaybe<SearchableStringFilterInput>;
+  Url: InputMaybe<StringFilterInput>;
   _and: InputMaybe<Array<InputMaybe<StartPageWhereInput>>>;
+  _concreteType: InputMaybe<StringFilterInput>;
   _fulltext: InputMaybe<SearchableStringFilterInput>;
-  _metadata: InputMaybe<IContentMetadataWhereInput>;
   _modified: InputMaybe<DateFilterInput>;
   _not: InputMaybe<Array<InputMaybe<StartPageWhereInput>>>;
   _or: InputMaybe<Array<InputMaybe<StartPageWhereInput>>>;
-  blocks: InputMaybe<_IContentWhereInput>;
+  _sortOrder: InputMaybe<IntFilterInput>;
 };
 
-export type StoryBlock = IData & _IComponent & _IContent & {
+export type StoryBlock = IContent & IData & {
   __typename?: 'StoryBlock';
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Category: Maybe<Array<Maybe<CategoryModel>>>;
+  Changed: Maybe<Scalars['Date']['output']>;
+  ContentLink: Maybe<ContentModelReference>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Created: Maybe<Scalars['Date']['output']>;
+  ExistingLanguages: Maybe<Array<Maybe<ContentLanguageModel>>>;
+  Highlights: Maybe<Scalars['String']['output']>;
+  IsCommonDraft: Maybe<Scalars['Bool']['output']>;
+  Language: Maybe<ContentLanguageModel>;
+  MasterLanguage: Maybe<ContentLanguageModel>;
+  Name: Maybe<Scalars['String']['output']>;
+  ParentLink: Maybe<ContentModelReference>;
+  RelativePath: Maybe<Scalars['String']['output']>;
+  RouteSegment: Maybe<Scalars['String']['output']>;
+  Saved: Maybe<Scalars['Date']['output']>;
+  Shortcut: Maybe<Scalars['String']['output']>;
+  SiteId: Maybe<Scalars['String']['output']>;
+  StartPublish: Maybe<Scalars['Date']['output']>;
+  Status: Maybe<Scalars['String']['output']>;
+  StopPublish: Maybe<Scalars['Date']['output']>;
+  Story: Maybe<Scalars['String']['output']>;
+  Url: Maybe<Scalars['String']['output']>;
   /** @deprecated Use `_link` field instead */
   _children: Maybe<QueryRef>;
+  _concreteType: Maybe<Scalars['String']['output']>;
   _deleted: Maybe<Scalars['Bool']['output']>;
   _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id: Maybe<Scalars['String']['output']>;
   _link: Maybe<QueryRef>;
-  _metadata: Maybe<IContentMetadata>;
   _modified: Maybe<Scalars['Date']['output']>;
   _score: Maybe<Scalars['Float']['output']>;
-  highlights: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  story: Maybe<Scalars['String']['output']>;
+  _sortOrder: Maybe<Scalars['Int']['output']>;
+};
+
+
+export type StoryBlockHighlightsArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type StoryBlockNameArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type StoryBlockStoryArgs = {
+  highlight: InputMaybe<HighlightOptions>;
 };
 
 
@@ -3575,21 +9910,280 @@ export type StoryBlock_LinkArgs = {
 
 export type StoryBlockAutocomplete = {
   __typename?: 'StoryBlockAutocomplete';
-  _metadata: Maybe<IContentMetadataAutocomplete>;
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Category: Maybe<CategoryModelAutocomplete>;
+  ContentLink: Maybe<ContentModelReferenceAutocomplete>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelAutocomplete>;
+  Language: Maybe<ContentLanguageModelAutocomplete>;
+  MasterLanguage: Maybe<ContentLanguageModelAutocomplete>;
+  ParentLink: Maybe<ContentModelReferenceAutocomplete>;
+  RelativePath: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  RouteSegment: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Shortcut: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  SiteId: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Status: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Url: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _concreteType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+};
+
+
+export type StoryBlockAutocompleteAncestorsArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type StoryBlockAutocompleteContentTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type StoryBlockAutocompleteRelativePathArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type StoryBlockAutocompleteRouteSegmentArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type StoryBlockAutocompleteShortcutArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type StoryBlockAutocompleteSiteIdArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type StoryBlockAutocompleteStatusArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type StoryBlockAutocompleteUrlArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type StoryBlockAutocomplete_ConcreteTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
 };
 
 export type StoryBlockFacet = {
   __typename?: 'StoryBlockFacet';
-  _metadata: Maybe<IContentMetadataFacet>;
+  Ancestors: Maybe<Array<Maybe<StringFacet>>>;
+  Category: Maybe<CategoryModelFacet>;
+  Changed: Maybe<Array<Maybe<DateFacet>>>;
+  ContentLink: Maybe<ContentModelReferenceFacet>;
+  ContentType: Maybe<Array<Maybe<StringFacet>>>;
+  Created: Maybe<Array<Maybe<DateFacet>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelFacet>;
+  Highlights: Maybe<Array<Maybe<StringFacet>>>;
+  IsCommonDraft: Maybe<Array<Maybe<StringFacet>>>;
+  Language: Maybe<ContentLanguageModelFacet>;
+  MasterLanguage: Maybe<ContentLanguageModelFacet>;
+  Name: Maybe<Array<Maybe<StringFacet>>>;
+  ParentLink: Maybe<ContentModelReferenceFacet>;
+  RelativePath: Maybe<Array<Maybe<StringFacet>>>;
+  RouteSegment: Maybe<Array<Maybe<StringFacet>>>;
+  Saved: Maybe<Array<Maybe<DateFacet>>>;
+  Shortcut: Maybe<Array<Maybe<StringFacet>>>;
+  SiteId: Maybe<Array<Maybe<StringFacet>>>;
+  StartPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Status: Maybe<Array<Maybe<StringFacet>>>;
+  StopPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Story: Maybe<Array<Maybe<StringFacet>>>;
+  Url: Maybe<Array<Maybe<StringFacet>>>;
+  _concreteType: Maybe<Array<Maybe<StringFacet>>>;
+  _sortOrder: Maybe<Array<Maybe<NumberFacet>>>;
+};
+
+
+export type StoryBlockFacetAncestorsArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type StoryBlockFacetChangedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type StoryBlockFacetContentTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type StoryBlockFacetCreatedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type StoryBlockFacetHighlightsArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type StoryBlockFacetIsCommonDraftArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type StoryBlockFacetNameArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type StoryBlockFacetRelativePathArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type StoryBlockFacetRouteSegmentArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type StoryBlockFacetSavedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type StoryBlockFacetShortcutArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type StoryBlockFacetSiteIdArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type StoryBlockFacetStartPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type StoryBlockFacetStatusArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type StoryBlockFacetStopPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type StoryBlockFacetStoryArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type StoryBlockFacetUrlArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type StoryBlockFacet_ConcreteTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type StoryBlockFacet_SortOrderArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<OrderBy>;
+  orderType: InputMaybe<OrderByFacetType>;
+  ranges: InputMaybe<Array<InputMaybe<RangeFacetsInput>>>;
 };
 
 export type StoryBlockOrderByInput = {
-  _metadata: InputMaybe<IContentMetadataOrderByInput>;
+  Ancestors: InputMaybe<OrderBy>;
+  Category: InputMaybe<CategoryModelOrderByInput>;
+  Changed: InputMaybe<OrderBy>;
+  ContentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  ContentType: InputMaybe<OrderBy>;
+  Created: InputMaybe<OrderBy>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelOrderByInput>;
+  Highlights: InputMaybe<OrderBy>;
+  IsCommonDraft: InputMaybe<OrderBy>;
+  Language: InputMaybe<ContentLanguageModelOrderByInput>;
+  MasterLanguage: InputMaybe<ContentLanguageModelOrderByInput>;
+  Name: InputMaybe<OrderBy>;
+  ParentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  RelativePath: InputMaybe<OrderBy>;
+  RouteSegment: InputMaybe<OrderBy>;
+  Saved: InputMaybe<OrderBy>;
+  Shortcut: InputMaybe<OrderBy>;
+  SiteId: InputMaybe<OrderBy>;
+  StartPublish: InputMaybe<OrderBy>;
+  Status: InputMaybe<OrderBy>;
+  StopPublish: InputMaybe<OrderBy>;
+  Story: InputMaybe<OrderBy>;
+  Url: InputMaybe<OrderBy>;
+  _concreteType: InputMaybe<OrderBy>;
   _minimumScore: InputMaybe<Scalars['Float']['input']>;
   _modified: InputMaybe<OrderBy>;
   _ranking: InputMaybe<Ranking>;
   /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
   _semanticWeight: InputMaybe<Scalars['Float']['input']>;
+  _sortOrder: InputMaybe<OrderBy>;
 };
 
 export type StoryBlockOutput = {
@@ -3607,12 +10201,36 @@ export type StoryBlockOutputTotalArgs = {
 };
 
 export type StoryBlockWhereInput = {
+  Ancestors: InputMaybe<StringFilterInput>;
+  Category: InputMaybe<CategoryModelWhereInput>;
+  Changed: InputMaybe<DateFilterInput>;
+  ContentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  ContentType: InputMaybe<StringFilterInput>;
+  Created: InputMaybe<DateFilterInput>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelWhereInput>;
+  Highlights: InputMaybe<SearchableStringFilterInput>;
+  IsCommonDraft: InputMaybe<BoolFilterInput>;
+  Language: InputMaybe<ContentLanguageModelWhereInput>;
+  MasterLanguage: InputMaybe<ContentLanguageModelWhereInput>;
+  Name: InputMaybe<SearchableStringFilterInput>;
+  ParentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  RelativePath: InputMaybe<StringFilterInput>;
+  RouteSegment: InputMaybe<StringFilterInput>;
+  Saved: InputMaybe<DateFilterInput>;
+  Shortcut: InputMaybe<StringFilterInput>;
+  SiteId: InputMaybe<StringFilterInput>;
+  StartPublish: InputMaybe<DateFilterInput>;
+  Status: InputMaybe<StringFilterInput>;
+  StopPublish: InputMaybe<DateFilterInput>;
+  Story: InputMaybe<SearchableStringFilterInput>;
+  Url: InputMaybe<StringFilterInput>;
   _and: InputMaybe<Array<InputMaybe<StoryBlockWhereInput>>>;
+  _concreteType: InputMaybe<StringFilterInput>;
   _fulltext: InputMaybe<SearchableStringFilterInput>;
-  _metadata: InputMaybe<IContentMetadataWhereInput>;
   _modified: InputMaybe<DateFilterInput>;
   _not: InputMaybe<Array<InputMaybe<StoryBlockWhereInput>>>;
   _or: InputMaybe<Array<InputMaybe<StoryBlockWhereInput>>>;
+  _sortOrder: InputMaybe<IntFilterInput>;
 };
 
 export type StringFacet = {
@@ -3653,118 +10271,68 @@ export enum SynonymSlot {
   Two = 'TWO'
 }
 
-export type SysContentFolder = IData & _IContent & _IFolder & {
-  __typename?: 'SysContentFolder';
-  /** @deprecated Use `_link` field instead */
-  _children: Maybe<QueryRef>;
-  _deleted: Maybe<Scalars['Bool']['output']>;
-  _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  _id: Maybe<Scalars['String']['output']>;
-  _link: Maybe<QueryRef>;
-  _metadata: Maybe<IContentMetadata>;
-  _modified: Maybe<Scalars['Date']['output']>;
-  _score: Maybe<Scalars['Float']['output']>;
-};
-
-
-export type SysContentFolder_FulltextArgs = {
-  highlight: InputMaybe<HighlightOptions>;
-};
-
-
-export type SysContentFolder_LinkArgs = {
-  type: InputMaybe<LinkTypes>;
-};
-
-export type SysContentFolderAutocomplete = {
-  __typename?: 'SysContentFolderAutocomplete';
-  _metadata: Maybe<IContentMetadataAutocomplete>;
-};
-
-export type SysContentFolderFacet = {
-  __typename?: 'SysContentFolderFacet';
-  _metadata: Maybe<IContentMetadataFacet>;
-};
-
-export type SysContentFolderOrderByInput = {
-  _metadata: InputMaybe<IContentMetadataOrderByInput>;
-  _minimumScore: InputMaybe<Scalars['Float']['input']>;
-  _modified: InputMaybe<OrderBy>;
-  _ranking: InputMaybe<Ranking>;
-  /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
-  _semanticWeight: InputMaybe<Scalars['Float']['input']>;
-};
-
-export type SysContentFolderOutput = {
-  __typename?: 'SysContentFolderOutput';
-  autocomplete: Maybe<SysContentFolderAutocomplete>;
-  cursor: Maybe<Scalars['String']['output']>;
-  facets: Maybe<SysContentFolderFacet>;
-  items: Maybe<Array<Maybe<SysContentFolder>>>;
-  total: Maybe<Scalars['Int']['output']>;
-};
-
-
-export type SysContentFolderOutputTotalArgs = {
-  all: InputMaybe<Scalars['Boolean']['input']>;
-};
-
-export type SysContentFolderWhereInput = {
-  _and: InputMaybe<Array<InputMaybe<SysContentFolderWhereInput>>>;
-  _fulltext: InputMaybe<SearchableStringFilterInput>;
-  _metadata: InputMaybe<IContentMetadataWhereInput>;
-  _modified: InputMaybe<DateFilterInput>;
-  _not: InputMaybe<Array<InputMaybe<SysContentFolderWhereInput>>>;
-  _or: InputMaybe<Array<InputMaybe<SysContentFolderWhereInput>>>;
-};
-
-export type TestimonialItem = IData & _IComponent & _IContent & {
-  __typename?: 'TestimonialItem';
-  /** @deprecated Use `_link` field instead */
-  _children: Maybe<QueryRef>;
-  _deleted: Maybe<Scalars['Bool']['output']>;
-  _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  _id: Maybe<Scalars['String']['output']>;
-  _link: Maybe<QueryRef>;
-  _metadata: Maybe<IContentMetadata>;
-  _modified: Maybe<Scalars['Date']['output']>;
-  _score: Maybe<Scalars['Float']['output']>;
-  avatarSrc: Maybe<Scalars['String']['output']>;
-  content: Maybe<Scalars['String']['output']>;
-  fullName: Maybe<Scalars['String']['output']>;
-  position: Maybe<Scalars['String']['output']>;
-};
-
-
-export type TestimonialItem_FulltextArgs = {
-  highlight: InputMaybe<HighlightOptions>;
-};
-
-
-export type TestimonialItem_LinkArgs = {
-  type: InputMaybe<LinkTypes>;
-};
-
-export type TestimonialItemAutocomplete = {
-  __typename?: 'TestimonialItemAutocomplete';
-  _metadata: Maybe<IContentMetadataAutocomplete>;
-};
-
-export type TestimonialItemBlock = IData & _IComponent & _IContent & {
+export type TestimonialItemBlock = IContent & IData & {
   __typename?: 'TestimonialItemBlock';
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  AvatarSrc: Maybe<Scalars['String']['output']>;
+  Category: Maybe<Array<Maybe<CategoryModel>>>;
+  Changed: Maybe<Scalars['Date']['output']>;
+  Content: Maybe<Scalars['String']['output']>;
+  ContentLink: Maybe<ContentModelReference>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Created: Maybe<Scalars['Date']['output']>;
+  ExistingLanguages: Maybe<Array<Maybe<ContentLanguageModel>>>;
+  FullName: Maybe<Scalars['String']['output']>;
+  IsCommonDraft: Maybe<Scalars['Bool']['output']>;
+  Language: Maybe<ContentLanguageModel>;
+  MasterLanguage: Maybe<ContentLanguageModel>;
+  Name: Maybe<Scalars['String']['output']>;
+  ParentLink: Maybe<ContentModelReference>;
+  Position: Maybe<Scalars['String']['output']>;
+  RelativePath: Maybe<Scalars['String']['output']>;
+  RouteSegment: Maybe<Scalars['String']['output']>;
+  Saved: Maybe<Scalars['Date']['output']>;
+  Shortcut: Maybe<Scalars['String']['output']>;
+  SiteId: Maybe<Scalars['String']['output']>;
+  StartPublish: Maybe<Scalars['Date']['output']>;
+  Status: Maybe<Scalars['String']['output']>;
+  StopPublish: Maybe<Scalars['Date']['output']>;
+  Url: Maybe<Scalars['String']['output']>;
   /** @deprecated Use `_link` field instead */
   _children: Maybe<QueryRef>;
+  _concreteType: Maybe<Scalars['String']['output']>;
   _deleted: Maybe<Scalars['Bool']['output']>;
   _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id: Maybe<Scalars['String']['output']>;
   _link: Maybe<QueryRef>;
-  _metadata: Maybe<IContentMetadata>;
   _modified: Maybe<Scalars['Date']['output']>;
   _score: Maybe<Scalars['Float']['output']>;
-  avatarSrc: Maybe<Scalars['String']['output']>;
-  content: Maybe<Scalars['String']['output']>;
-  fullName: Maybe<Scalars['String']['output']>;
-  position: Maybe<Scalars['String']['output']>;
+  _sortOrder: Maybe<Scalars['Int']['output']>;
+};
+
+
+export type TestimonialItemBlockAvatarSrcArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type TestimonialItemBlockContentArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type TestimonialItemBlockFullNameArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type TestimonialItemBlockNameArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type TestimonialItemBlockPositionArgs = {
+  highlight: InputMaybe<HighlightOptions>;
 };
 
 
@@ -3779,21 +10347,300 @@ export type TestimonialItemBlock_LinkArgs = {
 
 export type TestimonialItemBlockAutocomplete = {
   __typename?: 'TestimonialItemBlockAutocomplete';
-  _metadata: Maybe<IContentMetadataAutocomplete>;
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Category: Maybe<CategoryModelAutocomplete>;
+  ContentLink: Maybe<ContentModelReferenceAutocomplete>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelAutocomplete>;
+  Language: Maybe<ContentLanguageModelAutocomplete>;
+  MasterLanguage: Maybe<ContentLanguageModelAutocomplete>;
+  ParentLink: Maybe<ContentModelReferenceAutocomplete>;
+  RelativePath: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  RouteSegment: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Shortcut: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  SiteId: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Status: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Url: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _concreteType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+};
+
+
+export type TestimonialItemBlockAutocompleteAncestorsArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type TestimonialItemBlockAutocompleteContentTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type TestimonialItemBlockAutocompleteRelativePathArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type TestimonialItemBlockAutocompleteRouteSegmentArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type TestimonialItemBlockAutocompleteShortcutArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type TestimonialItemBlockAutocompleteSiteIdArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type TestimonialItemBlockAutocompleteStatusArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type TestimonialItemBlockAutocompleteUrlArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type TestimonialItemBlockAutocomplete_ConcreteTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
 };
 
 export type TestimonialItemBlockFacet = {
   __typename?: 'TestimonialItemBlockFacet';
-  _metadata: Maybe<IContentMetadataFacet>;
+  Ancestors: Maybe<Array<Maybe<StringFacet>>>;
+  AvatarSrc: Maybe<Array<Maybe<StringFacet>>>;
+  Category: Maybe<CategoryModelFacet>;
+  Changed: Maybe<Array<Maybe<DateFacet>>>;
+  Content: Maybe<Array<Maybe<StringFacet>>>;
+  ContentLink: Maybe<ContentModelReferenceFacet>;
+  ContentType: Maybe<Array<Maybe<StringFacet>>>;
+  Created: Maybe<Array<Maybe<DateFacet>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelFacet>;
+  FullName: Maybe<Array<Maybe<StringFacet>>>;
+  IsCommonDraft: Maybe<Array<Maybe<StringFacet>>>;
+  Language: Maybe<ContentLanguageModelFacet>;
+  MasterLanguage: Maybe<ContentLanguageModelFacet>;
+  Name: Maybe<Array<Maybe<StringFacet>>>;
+  ParentLink: Maybe<ContentModelReferenceFacet>;
+  Position: Maybe<Array<Maybe<StringFacet>>>;
+  RelativePath: Maybe<Array<Maybe<StringFacet>>>;
+  RouteSegment: Maybe<Array<Maybe<StringFacet>>>;
+  Saved: Maybe<Array<Maybe<DateFacet>>>;
+  Shortcut: Maybe<Array<Maybe<StringFacet>>>;
+  SiteId: Maybe<Array<Maybe<StringFacet>>>;
+  StartPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Status: Maybe<Array<Maybe<StringFacet>>>;
+  StopPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Url: Maybe<Array<Maybe<StringFacet>>>;
+  _concreteType: Maybe<Array<Maybe<StringFacet>>>;
+  _sortOrder: Maybe<Array<Maybe<NumberFacet>>>;
+};
+
+
+export type TestimonialItemBlockFacetAncestorsArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type TestimonialItemBlockFacetAvatarSrcArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type TestimonialItemBlockFacetChangedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type TestimonialItemBlockFacetContentArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type TestimonialItemBlockFacetContentTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type TestimonialItemBlockFacetCreatedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type TestimonialItemBlockFacetFullNameArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type TestimonialItemBlockFacetIsCommonDraftArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type TestimonialItemBlockFacetNameArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type TestimonialItemBlockFacetPositionArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type TestimonialItemBlockFacetRelativePathArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type TestimonialItemBlockFacetRouteSegmentArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type TestimonialItemBlockFacetSavedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type TestimonialItemBlockFacetShortcutArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type TestimonialItemBlockFacetSiteIdArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type TestimonialItemBlockFacetStartPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type TestimonialItemBlockFacetStatusArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type TestimonialItemBlockFacetStopPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type TestimonialItemBlockFacetUrlArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type TestimonialItemBlockFacet_ConcreteTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type TestimonialItemBlockFacet_SortOrderArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<OrderBy>;
+  orderType: InputMaybe<OrderByFacetType>;
+  ranges: InputMaybe<Array<InputMaybe<RangeFacetsInput>>>;
 };
 
 export type TestimonialItemBlockOrderByInput = {
-  _metadata: InputMaybe<IContentMetadataOrderByInput>;
+  Ancestors: InputMaybe<OrderBy>;
+  AvatarSrc: InputMaybe<OrderBy>;
+  Category: InputMaybe<CategoryModelOrderByInput>;
+  Changed: InputMaybe<OrderBy>;
+  Content: InputMaybe<OrderBy>;
+  ContentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  ContentType: InputMaybe<OrderBy>;
+  Created: InputMaybe<OrderBy>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelOrderByInput>;
+  FullName: InputMaybe<OrderBy>;
+  IsCommonDraft: InputMaybe<OrderBy>;
+  Language: InputMaybe<ContentLanguageModelOrderByInput>;
+  MasterLanguage: InputMaybe<ContentLanguageModelOrderByInput>;
+  Name: InputMaybe<OrderBy>;
+  ParentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  Position: InputMaybe<OrderBy>;
+  RelativePath: InputMaybe<OrderBy>;
+  RouteSegment: InputMaybe<OrderBy>;
+  Saved: InputMaybe<OrderBy>;
+  Shortcut: InputMaybe<OrderBy>;
+  SiteId: InputMaybe<OrderBy>;
+  StartPublish: InputMaybe<OrderBy>;
+  Status: InputMaybe<OrderBy>;
+  StopPublish: InputMaybe<OrderBy>;
+  Url: InputMaybe<OrderBy>;
+  _concreteType: InputMaybe<OrderBy>;
   _minimumScore: InputMaybe<Scalars['Float']['input']>;
   _modified: InputMaybe<OrderBy>;
   _ranking: InputMaybe<Ranking>;
   /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
   _semanticWeight: InputMaybe<Scalars['Float']['input']>;
+  _sortOrder: InputMaybe<OrderBy>;
 };
 
 export type TestimonialItemBlockOutput = {
@@ -3811,64 +10658,90 @@ export type TestimonialItemBlockOutputTotalArgs = {
 };
 
 export type TestimonialItemBlockWhereInput = {
+  Ancestors: InputMaybe<StringFilterInput>;
+  AvatarSrc: InputMaybe<SearchableStringFilterInput>;
+  Category: InputMaybe<CategoryModelWhereInput>;
+  Changed: InputMaybe<DateFilterInput>;
+  Content: InputMaybe<SearchableStringFilterInput>;
+  ContentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  ContentType: InputMaybe<StringFilterInput>;
+  Created: InputMaybe<DateFilterInput>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelWhereInput>;
+  FullName: InputMaybe<SearchableStringFilterInput>;
+  IsCommonDraft: InputMaybe<BoolFilterInput>;
+  Language: InputMaybe<ContentLanguageModelWhereInput>;
+  MasterLanguage: InputMaybe<ContentLanguageModelWhereInput>;
+  Name: InputMaybe<SearchableStringFilterInput>;
+  ParentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  Position: InputMaybe<SearchableStringFilterInput>;
+  RelativePath: InputMaybe<StringFilterInput>;
+  RouteSegment: InputMaybe<StringFilterInput>;
+  Saved: InputMaybe<DateFilterInput>;
+  Shortcut: InputMaybe<StringFilterInput>;
+  SiteId: InputMaybe<StringFilterInput>;
+  StartPublish: InputMaybe<DateFilterInput>;
+  Status: InputMaybe<StringFilterInput>;
+  StopPublish: InputMaybe<DateFilterInput>;
+  Url: InputMaybe<StringFilterInput>;
   _and: InputMaybe<Array<InputMaybe<TestimonialItemBlockWhereInput>>>;
+  _concreteType: InputMaybe<StringFilterInput>;
   _fulltext: InputMaybe<SearchableStringFilterInput>;
-  _metadata: InputMaybe<IContentMetadataWhereInput>;
   _modified: InputMaybe<DateFilterInput>;
   _not: InputMaybe<Array<InputMaybe<TestimonialItemBlockWhereInput>>>;
   _or: InputMaybe<Array<InputMaybe<TestimonialItemBlockWhereInput>>>;
+  _sortOrder: InputMaybe<IntFilterInput>;
 };
 
-export type TestimonialItemFacet = {
-  __typename?: 'TestimonialItemFacet';
-  _metadata: Maybe<IContentMetadataFacet>;
-};
-
-export type TestimonialItemOrderByInput = {
-  _metadata: InputMaybe<IContentMetadataOrderByInput>;
-  _minimumScore: InputMaybe<Scalars['Float']['input']>;
-  _modified: InputMaybe<OrderBy>;
-  _ranking: InputMaybe<Ranking>;
-  /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
-  _semanticWeight: InputMaybe<Scalars['Float']['input']>;
-};
-
-export type TestimonialItemOutput = {
-  __typename?: 'TestimonialItemOutput';
-  autocomplete: Maybe<TestimonialItemAutocomplete>;
-  cursor: Maybe<Scalars['String']['output']>;
-  facets: Maybe<TestimonialItemFacet>;
-  items: Maybe<Array<Maybe<TestimonialItem>>>;
-  total: Maybe<Scalars['Int']['output']>;
-};
-
-
-export type TestimonialItemOutputTotalArgs = {
-  all: InputMaybe<Scalars['Boolean']['input']>;
-};
-
-export type TestimonialItemWhereInput = {
-  _and: InputMaybe<Array<InputMaybe<TestimonialItemWhereInput>>>;
-  _fulltext: InputMaybe<SearchableStringFilterInput>;
-  _metadata: InputMaybe<IContentMetadataWhereInput>;
-  _modified: InputMaybe<DateFilterInput>;
-  _not: InputMaybe<Array<InputMaybe<TestimonialItemWhereInput>>>;
-  _or: InputMaybe<Array<InputMaybe<TestimonialItemWhereInput>>>;
-};
-
-export type TestimonialsBlock = IData & _IComponent & _IContent & {
+export type TestimonialsBlock = IContent & IData & {
   __typename?: 'TestimonialsBlock';
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Category: Maybe<Array<Maybe<CategoryModel>>>;
+  Changed: Maybe<Scalars['Date']['output']>;
+  ContentLink: Maybe<ContentModelReference>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Created: Maybe<Scalars['Date']['output']>;
+  ExistingLanguages: Maybe<Array<Maybe<ContentLanguageModel>>>;
+  IsCommonDraft: Maybe<Scalars['Bool']['output']>;
+  Language: Maybe<ContentLanguageModel>;
+  MasterLanguage: Maybe<ContentLanguageModel>;
+  Name: Maybe<Scalars['String']['output']>;
+  ParentLink: Maybe<ContentModelReference>;
+  RelativePath: Maybe<Scalars['String']['output']>;
+  RouteSegment: Maybe<Scalars['String']['output']>;
+  Saved: Maybe<Scalars['Date']['output']>;
+  Shortcut: Maybe<Scalars['String']['output']>;
+  SiteId: Maybe<Scalars['String']['output']>;
+  StartPublish: Maybe<Scalars['Date']['output']>;
+  Status: Maybe<Scalars['String']['output']>;
+  StopPublish: Maybe<Scalars['Date']['output']>;
+  Testimonials: Maybe<Array<Maybe<ContentAreaItemModelSearch>>>;
+  Title: Maybe<Scalars['String']['output']>;
+  Url: Maybe<Scalars['String']['output']>;
   /** @deprecated Use `_link` field instead */
   _children: Maybe<QueryRef>;
+  _concreteType: Maybe<Scalars['String']['output']>;
   _deleted: Maybe<Scalars['Bool']['output']>;
   _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id: Maybe<Scalars['String']['output']>;
   _link: Maybe<QueryRef>;
-  _metadata: Maybe<IContentMetadata>;
   _modified: Maybe<Scalars['Date']['output']>;
   _score: Maybe<Scalars['Float']['output']>;
-  testimonials: Maybe<Array<Maybe<_IContent>>>;
-  title: Maybe<Scalars['String']['output']>;
+  _sortOrder: Maybe<Scalars['Int']['output']>;
+};
+
+
+export type TestimonialsBlockNameArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type TestimonialsBlockTestimonialsArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type TestimonialsBlockTitleArgs = {
+  highlight: InputMaybe<HighlightOptions>;
 };
 
 
@@ -3883,24 +10756,272 @@ export type TestimonialsBlock_LinkArgs = {
 
 export type TestimonialsBlockAutocomplete = {
   __typename?: 'TestimonialsBlockAutocomplete';
-  _metadata: Maybe<IContentMetadataAutocomplete>;
-  testimonials: Maybe<_IContentAutocomplete>;
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Category: Maybe<CategoryModelAutocomplete>;
+  ContentLink: Maybe<ContentModelReferenceAutocomplete>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelAutocomplete>;
+  Language: Maybe<ContentLanguageModelAutocomplete>;
+  MasterLanguage: Maybe<ContentLanguageModelAutocomplete>;
+  ParentLink: Maybe<ContentModelReferenceAutocomplete>;
+  RelativePath: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  RouteSegment: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Shortcut: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  SiteId: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Status: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Url: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _concreteType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+};
+
+
+export type TestimonialsBlockAutocompleteAncestorsArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type TestimonialsBlockAutocompleteContentTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type TestimonialsBlockAutocompleteRelativePathArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type TestimonialsBlockAutocompleteRouteSegmentArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type TestimonialsBlockAutocompleteShortcutArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type TestimonialsBlockAutocompleteSiteIdArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type TestimonialsBlockAutocompleteStatusArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type TestimonialsBlockAutocompleteUrlArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type TestimonialsBlockAutocomplete_ConcreteTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
 };
 
 export type TestimonialsBlockFacet = {
   __typename?: 'TestimonialsBlockFacet';
-  _metadata: Maybe<IContentMetadataFacet>;
-  testimonials: Maybe<_IContentFacet>;
+  Ancestors: Maybe<Array<Maybe<StringFacet>>>;
+  Category: Maybe<CategoryModelFacet>;
+  Changed: Maybe<Array<Maybe<DateFacet>>>;
+  ContentLink: Maybe<ContentModelReferenceFacet>;
+  ContentType: Maybe<Array<Maybe<StringFacet>>>;
+  Created: Maybe<Array<Maybe<DateFacet>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelFacet>;
+  IsCommonDraft: Maybe<Array<Maybe<StringFacet>>>;
+  Language: Maybe<ContentLanguageModelFacet>;
+  MasterLanguage: Maybe<ContentLanguageModelFacet>;
+  Name: Maybe<Array<Maybe<StringFacet>>>;
+  ParentLink: Maybe<ContentModelReferenceFacet>;
+  RelativePath: Maybe<Array<Maybe<StringFacet>>>;
+  RouteSegment: Maybe<Array<Maybe<StringFacet>>>;
+  Saved: Maybe<Array<Maybe<DateFacet>>>;
+  Shortcut: Maybe<Array<Maybe<StringFacet>>>;
+  SiteId: Maybe<Array<Maybe<StringFacet>>>;
+  StartPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Status: Maybe<Array<Maybe<StringFacet>>>;
+  StopPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Testimonials: Maybe<ContentAreaItemModelSearchFacet>;
+  Title: Maybe<Array<Maybe<StringFacet>>>;
+  Url: Maybe<Array<Maybe<StringFacet>>>;
+  _concreteType: Maybe<Array<Maybe<StringFacet>>>;
+  _sortOrder: Maybe<Array<Maybe<NumberFacet>>>;
+};
+
+
+export type TestimonialsBlockFacetAncestorsArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type TestimonialsBlockFacetChangedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type TestimonialsBlockFacetContentTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type TestimonialsBlockFacetCreatedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type TestimonialsBlockFacetIsCommonDraftArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type TestimonialsBlockFacetNameArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type TestimonialsBlockFacetRelativePathArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type TestimonialsBlockFacetRouteSegmentArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type TestimonialsBlockFacetSavedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type TestimonialsBlockFacetShortcutArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type TestimonialsBlockFacetSiteIdArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type TestimonialsBlockFacetStartPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type TestimonialsBlockFacetStatusArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type TestimonialsBlockFacetStopPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type TestimonialsBlockFacetTitleArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type TestimonialsBlockFacetUrlArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type TestimonialsBlockFacet_ConcreteTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type TestimonialsBlockFacet_SortOrderArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<OrderBy>;
+  orderType: InputMaybe<OrderByFacetType>;
+  ranges: InputMaybe<Array<InputMaybe<RangeFacetsInput>>>;
 };
 
 export type TestimonialsBlockOrderByInput = {
-  _metadata: InputMaybe<IContentMetadataOrderByInput>;
+  Ancestors: InputMaybe<OrderBy>;
+  Category: InputMaybe<CategoryModelOrderByInput>;
+  Changed: InputMaybe<OrderBy>;
+  ContentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  ContentType: InputMaybe<OrderBy>;
+  Created: InputMaybe<OrderBy>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelOrderByInput>;
+  IsCommonDraft: InputMaybe<OrderBy>;
+  Language: InputMaybe<ContentLanguageModelOrderByInput>;
+  MasterLanguage: InputMaybe<ContentLanguageModelOrderByInput>;
+  Name: InputMaybe<OrderBy>;
+  ParentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  RelativePath: InputMaybe<OrderBy>;
+  RouteSegment: InputMaybe<OrderBy>;
+  Saved: InputMaybe<OrderBy>;
+  Shortcut: InputMaybe<OrderBy>;
+  SiteId: InputMaybe<OrderBy>;
+  StartPublish: InputMaybe<OrderBy>;
+  Status: InputMaybe<OrderBy>;
+  StopPublish: InputMaybe<OrderBy>;
+  Testimonials: InputMaybe<ContentAreaItemModelSearchOrderByInput>;
+  Title: InputMaybe<OrderBy>;
+  Url: InputMaybe<OrderBy>;
+  _concreteType: InputMaybe<OrderBy>;
   _minimumScore: InputMaybe<Scalars['Float']['input']>;
   _modified: InputMaybe<OrderBy>;
   _ranking: InputMaybe<Ranking>;
   /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
   _semanticWeight: InputMaybe<Scalars['Float']['input']>;
-  testimonials: InputMaybe<_IContentOrderByInput>;
+  _sortOrder: InputMaybe<OrderBy>;
 };
 
 export type TestimonialsBlockOutput = {
@@ -3918,901 +11039,846 @@ export type TestimonialsBlockOutputTotalArgs = {
 };
 
 export type TestimonialsBlockWhereInput = {
+  Ancestors: InputMaybe<StringFilterInput>;
+  Category: InputMaybe<CategoryModelWhereInput>;
+  Changed: InputMaybe<DateFilterInput>;
+  ContentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  ContentType: InputMaybe<StringFilterInput>;
+  Created: InputMaybe<DateFilterInput>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelWhereInput>;
+  IsCommonDraft: InputMaybe<BoolFilterInput>;
+  Language: InputMaybe<ContentLanguageModelWhereInput>;
+  MasterLanguage: InputMaybe<ContentLanguageModelWhereInput>;
+  Name: InputMaybe<SearchableStringFilterInput>;
+  ParentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  RelativePath: InputMaybe<StringFilterInput>;
+  RouteSegment: InputMaybe<StringFilterInput>;
+  Saved: InputMaybe<DateFilterInput>;
+  Shortcut: InputMaybe<StringFilterInput>;
+  SiteId: InputMaybe<StringFilterInput>;
+  StartPublish: InputMaybe<DateFilterInput>;
+  Status: InputMaybe<StringFilterInput>;
+  StopPublish: InputMaybe<DateFilterInput>;
+  Testimonials: InputMaybe<ContentAreaItemModelSearchWhereInput>;
+  Title: InputMaybe<SearchableStringFilterInput>;
+  Url: InputMaybe<StringFilterInput>;
   _and: InputMaybe<Array<InputMaybe<TestimonialsBlockWhereInput>>>;
+  _concreteType: InputMaybe<StringFilterInput>;
   _fulltext: InputMaybe<SearchableStringFilterInput>;
-  _metadata: InputMaybe<IContentMetadataWhereInput>;
   _modified: InputMaybe<DateFilterInput>;
   _not: InputMaybe<Array<InputMaybe<TestimonialsBlockWhereInput>>>;
   _or: InputMaybe<Array<InputMaybe<TestimonialsBlockWhereInput>>>;
-  testimonials: InputMaybe<_IContentWhereInput>;
+  _sortOrder: InputMaybe<IntFilterInput>;
 };
 
-export type VideoMedia = IData & _IContent & _IMedia & _IVideo & {
-  __typename?: 'VideoMedia';
+export type VectorImageFile = IContent & IData & {
+  __typename?: 'VectorImageFile';
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Category: Maybe<Array<Maybe<CategoryModel>>>;
+  Changed: Maybe<Scalars['Date']['output']>;
+  Content: Maybe<Scalars['String']['output']>;
+  ContentLink: Maybe<ContentModelReference>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Created: Maybe<Scalars['Date']['output']>;
+  ExistingLanguages: Maybe<Array<Maybe<ContentLanguageModel>>>;
+  IsCommonDraft: Maybe<Scalars['Bool']['output']>;
+  Language: Maybe<ContentLanguageModel>;
+  MasterLanguage: Maybe<ContentLanguageModel>;
+  MimeType: Maybe<Scalars['String']['output']>;
+  Name: Maybe<Scalars['String']['output']>;
+  ParentLink: Maybe<ContentModelReference>;
+  RelativePath: Maybe<Scalars['String']['output']>;
+  RouteSegment: Maybe<Scalars['String']['output']>;
+  Saved: Maybe<Scalars['Date']['output']>;
+  Shortcut: Maybe<Scalars['String']['output']>;
+  SiteId: Maybe<Scalars['String']['output']>;
+  StartPublish: Maybe<Scalars['Date']['output']>;
+  Status: Maybe<Scalars['String']['output']>;
+  StopPublish: Maybe<Scalars['Date']['output']>;
+  Thumbnail: Maybe<BlobModel>;
+  Url: Maybe<Scalars['String']['output']>;
   /** @deprecated Use `_link` field instead */
   _children: Maybe<QueryRef>;
+  _concreteType: Maybe<Scalars['String']['output']>;
   _deleted: Maybe<Scalars['Bool']['output']>;
   _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id: Maybe<Scalars['String']['output']>;
   _link: Maybe<QueryRef>;
-  _metadata: Maybe<IContentMetadata>;
   _modified: Maybe<Scalars['Date']['output']>;
   _score: Maybe<Scalars['Float']['output']>;
+  _sortOrder: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type VideoMedia_FulltextArgs = {
+export type VectorImageFileContentArgs = {
   highlight: InputMaybe<HighlightOptions>;
 };
 
 
-export type VideoMedia_LinkArgs = {
+export type VectorImageFileNameArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type VectorImageFile_FulltextArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type VectorImageFile_LinkArgs = {
   type: InputMaybe<LinkTypes>;
 };
 
-export type VideoMediaAutocomplete = {
-  __typename?: 'VideoMediaAutocomplete';
-  _metadata: Maybe<IContentMetadataAutocomplete>;
+export type VectorImageFileAutocomplete = {
+  __typename?: 'VectorImageFileAutocomplete';
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Category: Maybe<CategoryModelAutocomplete>;
+  ContentLink: Maybe<ContentModelReferenceAutocomplete>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelAutocomplete>;
+  Language: Maybe<ContentLanguageModelAutocomplete>;
+  MasterLanguage: Maybe<ContentLanguageModelAutocomplete>;
+  MimeType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  ParentLink: Maybe<ContentModelReferenceAutocomplete>;
+  RelativePath: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  RouteSegment: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Shortcut: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  SiteId: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Status: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Thumbnail: Maybe<BlobModelAutocomplete>;
+  Url: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _concreteType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
 };
 
-export type VideoMediaFacet = {
-  __typename?: 'VideoMediaFacet';
-  _metadata: Maybe<IContentMetadataFacet>;
+
+export type VectorImageFileAutocompleteAncestorsArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
 };
 
-export type VideoMediaOrderByInput = {
-  _metadata: InputMaybe<IContentMetadataOrderByInput>;
+
+export type VectorImageFileAutocompleteContentTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type VectorImageFileAutocompleteMimeTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type VectorImageFileAutocompleteRelativePathArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type VectorImageFileAutocompleteRouteSegmentArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type VectorImageFileAutocompleteShortcutArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type VectorImageFileAutocompleteSiteIdArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type VectorImageFileAutocompleteStatusArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type VectorImageFileAutocompleteUrlArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type VectorImageFileAutocomplete_ConcreteTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+export type VectorImageFileFacet = {
+  __typename?: 'VectorImageFileFacet';
+  Ancestors: Maybe<Array<Maybe<StringFacet>>>;
+  Category: Maybe<CategoryModelFacet>;
+  Changed: Maybe<Array<Maybe<DateFacet>>>;
+  Content: Maybe<Array<Maybe<StringFacet>>>;
+  ContentLink: Maybe<ContentModelReferenceFacet>;
+  ContentType: Maybe<Array<Maybe<StringFacet>>>;
+  Created: Maybe<Array<Maybe<DateFacet>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelFacet>;
+  IsCommonDraft: Maybe<Array<Maybe<StringFacet>>>;
+  Language: Maybe<ContentLanguageModelFacet>;
+  MasterLanguage: Maybe<ContentLanguageModelFacet>;
+  MimeType: Maybe<Array<Maybe<StringFacet>>>;
+  Name: Maybe<Array<Maybe<StringFacet>>>;
+  ParentLink: Maybe<ContentModelReferenceFacet>;
+  RelativePath: Maybe<Array<Maybe<StringFacet>>>;
+  RouteSegment: Maybe<Array<Maybe<StringFacet>>>;
+  Saved: Maybe<Array<Maybe<DateFacet>>>;
+  Shortcut: Maybe<Array<Maybe<StringFacet>>>;
+  SiteId: Maybe<Array<Maybe<StringFacet>>>;
+  StartPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Status: Maybe<Array<Maybe<StringFacet>>>;
+  StopPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Thumbnail: Maybe<BlobModelFacet>;
+  Url: Maybe<Array<Maybe<StringFacet>>>;
+  _concreteType: Maybe<Array<Maybe<StringFacet>>>;
+  _sortOrder: Maybe<Array<Maybe<NumberFacet>>>;
+};
+
+
+export type VectorImageFileFacetAncestorsArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type VectorImageFileFacetChangedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type VectorImageFileFacetContentArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type VectorImageFileFacetContentTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type VectorImageFileFacetCreatedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type VectorImageFileFacetIsCommonDraftArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type VectorImageFileFacetMimeTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type VectorImageFileFacetNameArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type VectorImageFileFacetRelativePathArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type VectorImageFileFacetRouteSegmentArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type VectorImageFileFacetSavedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type VectorImageFileFacetShortcutArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type VectorImageFileFacetSiteIdArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type VectorImageFileFacetStartPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type VectorImageFileFacetStatusArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type VectorImageFileFacetStopPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type VectorImageFileFacetUrlArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type VectorImageFileFacet_ConcreteTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type VectorImageFileFacet_SortOrderArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<OrderBy>;
+  orderType: InputMaybe<OrderByFacetType>;
+  ranges: InputMaybe<Array<InputMaybe<RangeFacetsInput>>>;
+};
+
+export type VectorImageFileOrderByInput = {
+  Ancestors: InputMaybe<OrderBy>;
+  Category: InputMaybe<CategoryModelOrderByInput>;
+  Changed: InputMaybe<OrderBy>;
+  Content: InputMaybe<OrderBy>;
+  ContentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  ContentType: InputMaybe<OrderBy>;
+  Created: InputMaybe<OrderBy>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelOrderByInput>;
+  IsCommonDraft: InputMaybe<OrderBy>;
+  Language: InputMaybe<ContentLanguageModelOrderByInput>;
+  MasterLanguage: InputMaybe<ContentLanguageModelOrderByInput>;
+  MimeType: InputMaybe<OrderBy>;
+  Name: InputMaybe<OrderBy>;
+  ParentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  RelativePath: InputMaybe<OrderBy>;
+  RouteSegment: InputMaybe<OrderBy>;
+  Saved: InputMaybe<OrderBy>;
+  Shortcut: InputMaybe<OrderBy>;
+  SiteId: InputMaybe<OrderBy>;
+  StartPublish: InputMaybe<OrderBy>;
+  Status: InputMaybe<OrderBy>;
+  StopPublish: InputMaybe<OrderBy>;
+  Thumbnail: InputMaybe<BlobModelOrderByInput>;
+  Url: InputMaybe<OrderBy>;
+  _concreteType: InputMaybe<OrderBy>;
   _minimumScore: InputMaybe<Scalars['Float']['input']>;
   _modified: InputMaybe<OrderBy>;
   _ranking: InputMaybe<Ranking>;
   /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
   _semanticWeight: InputMaybe<Scalars['Float']['input']>;
+  _sortOrder: InputMaybe<OrderBy>;
 };
 
-export type VideoMediaOutput = {
-  __typename?: 'VideoMediaOutput';
-  autocomplete: Maybe<VideoMediaAutocomplete>;
+export type VectorImageFileOutput = {
+  __typename?: 'VectorImageFileOutput';
+  autocomplete: Maybe<VectorImageFileAutocomplete>;
   cursor: Maybe<Scalars['String']['output']>;
-  facets: Maybe<VideoMediaFacet>;
-  items: Maybe<Array<Maybe<VideoMedia>>>;
+  facets: Maybe<VectorImageFileFacet>;
+  items: Maybe<Array<Maybe<VectorImageFile>>>;
   total: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type VideoMediaOutputTotalArgs = {
+export type VectorImageFileOutputTotalArgs = {
   all: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type VideoMediaWhereInput = {
-  _and: InputMaybe<Array<InputMaybe<VideoMediaWhereInput>>>;
+export type VectorImageFileWhereInput = {
+  Ancestors: InputMaybe<StringFilterInput>;
+  Category: InputMaybe<CategoryModelWhereInput>;
+  Changed: InputMaybe<DateFilterInput>;
+  Content: InputMaybe<SearchableStringFilterInput>;
+  ContentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  ContentType: InputMaybe<StringFilterInput>;
+  Created: InputMaybe<DateFilterInput>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelWhereInput>;
+  IsCommonDraft: InputMaybe<BoolFilterInput>;
+  Language: InputMaybe<ContentLanguageModelWhereInput>;
+  MasterLanguage: InputMaybe<ContentLanguageModelWhereInput>;
+  MimeType: InputMaybe<StringFilterInput>;
+  Name: InputMaybe<SearchableStringFilterInput>;
+  ParentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  RelativePath: InputMaybe<StringFilterInput>;
+  RouteSegment: InputMaybe<StringFilterInput>;
+  Saved: InputMaybe<DateFilterInput>;
+  Shortcut: InputMaybe<StringFilterInput>;
+  SiteId: InputMaybe<StringFilterInput>;
+  StartPublish: InputMaybe<DateFilterInput>;
+  Status: InputMaybe<StringFilterInput>;
+  StopPublish: InputMaybe<DateFilterInput>;
+  Thumbnail: InputMaybe<BlobModelWhereInput>;
+  Url: InputMaybe<StringFilterInput>;
+  _and: InputMaybe<Array<InputMaybe<VectorImageFileWhereInput>>>;
+  _concreteType: InputMaybe<StringFilterInput>;
   _fulltext: InputMaybe<SearchableStringFilterInput>;
-  _metadata: InputMaybe<IContentMetadataWhereInput>;
   _modified: InputMaybe<DateFilterInput>;
-  _not: InputMaybe<Array<InputMaybe<VideoMediaWhereInput>>>;
-  _or: InputMaybe<Array<InputMaybe<VideoMediaWhereInput>>>;
+  _not: InputMaybe<Array<InputMaybe<VectorImageFileWhereInput>>>;
+  _or: InputMaybe<Array<InputMaybe<VectorImageFileWhereInput>>>;
+  _sortOrder: InputMaybe<IntFilterInput>;
 };
 
-export type _Component = IData & _IComponent & _IContent & {
-  __typename?: '_Component';
+export type VideoFile = IContent & IData & {
+  __typename?: 'VideoFile';
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Category: Maybe<Array<Maybe<CategoryModel>>>;
+  Changed: Maybe<Scalars['Date']['output']>;
+  Content: Maybe<Scalars['String']['output']>;
+  ContentLink: Maybe<ContentModelReference>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Copyright: Maybe<Scalars['String']['output']>;
+  Created: Maybe<Scalars['Date']['output']>;
+  ExistingLanguages: Maybe<Array<Maybe<ContentLanguageModel>>>;
+  IsCommonDraft: Maybe<Scalars['Bool']['output']>;
+  Language: Maybe<ContentLanguageModel>;
+  MasterLanguage: Maybe<ContentLanguageModel>;
+  MimeType: Maybe<Scalars['String']['output']>;
+  Name: Maybe<Scalars['String']['output']>;
+  ParentLink: Maybe<ContentModelReference>;
+  PreviewImage: Maybe<ContentModelReference>;
+  RelativePath: Maybe<Scalars['String']['output']>;
+  RouteSegment: Maybe<Scalars['String']['output']>;
+  Saved: Maybe<Scalars['Date']['output']>;
+  Shortcut: Maybe<Scalars['String']['output']>;
+  SiteId: Maybe<Scalars['String']['output']>;
+  StartPublish: Maybe<Scalars['Date']['output']>;
+  Status: Maybe<Scalars['String']['output']>;
+  StopPublish: Maybe<Scalars['Date']['output']>;
+  Thumbnail: Maybe<BlobModel>;
+  Url: Maybe<Scalars['String']['output']>;
   /** @deprecated Use `_link` field instead */
   _children: Maybe<QueryRef>;
+  _concreteType: Maybe<Scalars['String']['output']>;
   _deleted: Maybe<Scalars['Bool']['output']>;
   _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   _id: Maybe<Scalars['String']['output']>;
   _link: Maybe<QueryRef>;
-  _metadata: Maybe<IContentMetadata>;
   _modified: Maybe<Scalars['Date']['output']>;
   _score: Maybe<Scalars['Float']['output']>;
+  _sortOrder: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type _Component_FulltextArgs = {
+export type VideoFileContentArgs = {
   highlight: InputMaybe<HighlightOptions>;
 };
 
 
-export type _Component_LinkArgs = {
+export type VideoFileCopyrightArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type VideoFileNameArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type VideoFile_FulltextArgs = {
+  highlight: InputMaybe<HighlightOptions>;
+};
+
+
+export type VideoFile_LinkArgs = {
   type: InputMaybe<LinkTypes>;
 };
 
-export type _ComponentAutocomplete = {
-  __typename?: '_ComponentAutocomplete';
-  _metadata: Maybe<IContentMetadataAutocomplete>;
+export type VideoFileAutocomplete = {
+  __typename?: 'VideoFileAutocomplete';
+  Ancestors: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Category: Maybe<CategoryModelAutocomplete>;
+  ContentLink: Maybe<ContentModelReferenceAutocomplete>;
+  ContentType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelAutocomplete>;
+  Language: Maybe<ContentLanguageModelAutocomplete>;
+  MasterLanguage: Maybe<ContentLanguageModelAutocomplete>;
+  MimeType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  ParentLink: Maybe<ContentModelReferenceAutocomplete>;
+  PreviewImage: Maybe<ContentModelReferenceAutocomplete>;
+  RelativePath: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  RouteSegment: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Shortcut: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  SiteId: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Status: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  Thumbnail: Maybe<BlobModelAutocomplete>;
+  Url: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  _concreteType: Maybe<Array<Maybe<Scalars['String']['output']>>>;
 };
 
-export type _ComponentFacet = {
-  __typename?: '_ComponentFacet';
-  _metadata: Maybe<IContentMetadataFacet>;
+
+export type VideoFileAutocompleteAncestorsArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
 };
 
-export type _ComponentOrderByInput = {
-  _metadata: InputMaybe<IContentMetadataOrderByInput>;
+
+export type VideoFileAutocompleteContentTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type VideoFileAutocompleteMimeTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type VideoFileAutocompleteRelativePathArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type VideoFileAutocompleteRouteSegmentArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type VideoFileAutocompleteShortcutArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type VideoFileAutocompleteSiteIdArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type VideoFileAutocompleteStatusArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type VideoFileAutocompleteUrlArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+
+export type VideoFileAutocomplete_ConcreteTypeArgs = {
+  limit?: Scalars['Int']['input'];
+  value: Scalars['String']['input'];
+};
+
+export type VideoFileFacet = {
+  __typename?: 'VideoFileFacet';
+  Ancestors: Maybe<Array<Maybe<StringFacet>>>;
+  Category: Maybe<CategoryModelFacet>;
+  Changed: Maybe<Array<Maybe<DateFacet>>>;
+  Content: Maybe<Array<Maybe<StringFacet>>>;
+  ContentLink: Maybe<ContentModelReferenceFacet>;
+  ContentType: Maybe<Array<Maybe<StringFacet>>>;
+  Copyright: Maybe<Array<Maybe<StringFacet>>>;
+  Created: Maybe<Array<Maybe<DateFacet>>>;
+  ExistingLanguages: Maybe<ContentLanguageModelFacet>;
+  IsCommonDraft: Maybe<Array<Maybe<StringFacet>>>;
+  Language: Maybe<ContentLanguageModelFacet>;
+  MasterLanguage: Maybe<ContentLanguageModelFacet>;
+  MimeType: Maybe<Array<Maybe<StringFacet>>>;
+  Name: Maybe<Array<Maybe<StringFacet>>>;
+  ParentLink: Maybe<ContentModelReferenceFacet>;
+  PreviewImage: Maybe<ContentModelReferenceFacet>;
+  RelativePath: Maybe<Array<Maybe<StringFacet>>>;
+  RouteSegment: Maybe<Array<Maybe<StringFacet>>>;
+  Saved: Maybe<Array<Maybe<DateFacet>>>;
+  Shortcut: Maybe<Array<Maybe<StringFacet>>>;
+  SiteId: Maybe<Array<Maybe<StringFacet>>>;
+  StartPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Status: Maybe<Array<Maybe<StringFacet>>>;
+  StopPublish: Maybe<Array<Maybe<DateFacet>>>;
+  Thumbnail: Maybe<BlobModelFacet>;
+  Url: Maybe<Array<Maybe<StringFacet>>>;
+  _concreteType: Maybe<Array<Maybe<StringFacet>>>;
+  _sortOrder: Maybe<Array<Maybe<NumberFacet>>>;
+};
+
+
+export type VideoFileFacetAncestorsArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type VideoFileFacetChangedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type VideoFileFacetContentArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type VideoFileFacetContentTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type VideoFileFacetCopyrightArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type VideoFileFacetCreatedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type VideoFileFacetIsCommonDraftArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type VideoFileFacetMimeTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type VideoFileFacetNameArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type VideoFileFacetRelativePathArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type VideoFileFacetRouteSegmentArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type VideoFileFacetSavedArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type VideoFileFacetShortcutArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type VideoFileFacetSiteIdArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type VideoFileFacetStartPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type VideoFileFacetStatusArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type VideoFileFacetStopPublishArgs = {
+  unit?: InputMaybe<DateFacetUnit>;
+  value?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type VideoFileFacetUrlArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type VideoFileFacet_ConcreteTypeArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit?: Scalars['Int']['input'];
+  orderBy?: InputMaybe<OrderBy>;
+  orderType?: InputMaybe<OrderByFacetType>;
+};
+
+
+export type VideoFileFacet_SortOrderArgs = {
+  filters: InputMaybe<Array<Scalars['String']['input']>>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<OrderBy>;
+  orderType: InputMaybe<OrderByFacetType>;
+  ranges: InputMaybe<Array<InputMaybe<RangeFacetsInput>>>;
+};
+
+export type VideoFileOrderByInput = {
+  Ancestors: InputMaybe<OrderBy>;
+  Category: InputMaybe<CategoryModelOrderByInput>;
+  Changed: InputMaybe<OrderBy>;
+  Content: InputMaybe<OrderBy>;
+  ContentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  ContentType: InputMaybe<OrderBy>;
+  Copyright: InputMaybe<OrderBy>;
+  Created: InputMaybe<OrderBy>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelOrderByInput>;
+  IsCommonDraft: InputMaybe<OrderBy>;
+  Language: InputMaybe<ContentLanguageModelOrderByInput>;
+  MasterLanguage: InputMaybe<ContentLanguageModelOrderByInput>;
+  MimeType: InputMaybe<OrderBy>;
+  Name: InputMaybe<OrderBy>;
+  ParentLink: InputMaybe<ContentModelReferenceOrderByInput>;
+  PreviewImage: InputMaybe<ContentModelReferenceOrderByInput>;
+  RelativePath: InputMaybe<OrderBy>;
+  RouteSegment: InputMaybe<OrderBy>;
+  Saved: InputMaybe<OrderBy>;
+  Shortcut: InputMaybe<OrderBy>;
+  SiteId: InputMaybe<OrderBy>;
+  StartPublish: InputMaybe<OrderBy>;
+  Status: InputMaybe<OrderBy>;
+  StopPublish: InputMaybe<OrderBy>;
+  Thumbnail: InputMaybe<BlobModelOrderByInput>;
+  Url: InputMaybe<OrderBy>;
+  _concreteType: InputMaybe<OrderBy>;
   _minimumScore: InputMaybe<Scalars['Float']['input']>;
   _modified: InputMaybe<OrderBy>;
   _ranking: InputMaybe<Ranking>;
   /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
   _semanticWeight: InputMaybe<Scalars['Float']['input']>;
+  _sortOrder: InputMaybe<OrderBy>;
 };
 
-export type _ComponentOutput = {
-  __typename?: '_ComponentOutput';
-  autocomplete: Maybe<_ComponentAutocomplete>;
+export type VideoFileOutput = {
+  __typename?: 'VideoFileOutput';
+  autocomplete: Maybe<VideoFileAutocomplete>;
   cursor: Maybe<Scalars['String']['output']>;
-  facets: Maybe<_ComponentFacet>;
-  items: Maybe<Array<Maybe<_IComponent>>>;
+  facets: Maybe<VideoFileFacet>;
+  items: Maybe<Array<Maybe<VideoFile>>>;
   total: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type _ComponentOutputTotalArgs = {
+export type VideoFileOutputTotalArgs = {
   all: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type _ComponentWhereInput = {
-  _and: InputMaybe<Array<InputMaybe<_ComponentWhereInput>>>;
+export type VideoFileWhereInput = {
+  Ancestors: InputMaybe<StringFilterInput>;
+  Category: InputMaybe<CategoryModelWhereInput>;
+  Changed: InputMaybe<DateFilterInput>;
+  Content: InputMaybe<SearchableStringFilterInput>;
+  ContentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  ContentType: InputMaybe<StringFilterInput>;
+  Copyright: InputMaybe<SearchableStringFilterInput>;
+  Created: InputMaybe<DateFilterInput>;
+  ExistingLanguages: InputMaybe<ContentLanguageModelWhereInput>;
+  IsCommonDraft: InputMaybe<BoolFilterInput>;
+  Language: InputMaybe<ContentLanguageModelWhereInput>;
+  MasterLanguage: InputMaybe<ContentLanguageModelWhereInput>;
+  MimeType: InputMaybe<StringFilterInput>;
+  Name: InputMaybe<SearchableStringFilterInput>;
+  ParentLink: InputMaybe<ContentModelReferenceWhereInput>;
+  PreviewImage: InputMaybe<ContentModelReferenceWhereInput>;
+  RelativePath: InputMaybe<StringFilterInput>;
+  RouteSegment: InputMaybe<StringFilterInput>;
+  Saved: InputMaybe<DateFilterInput>;
+  Shortcut: InputMaybe<StringFilterInput>;
+  SiteId: InputMaybe<StringFilterInput>;
+  StartPublish: InputMaybe<DateFilterInput>;
+  Status: InputMaybe<StringFilterInput>;
+  StopPublish: InputMaybe<DateFilterInput>;
+  Thumbnail: InputMaybe<BlobModelWhereInput>;
+  Url: InputMaybe<StringFilterInput>;
+  _and: InputMaybe<Array<InputMaybe<VideoFileWhereInput>>>;
+  _concreteType: InputMaybe<StringFilterInput>;
   _fulltext: InputMaybe<SearchableStringFilterInput>;
-  _metadata: InputMaybe<IContentMetadataWhereInput>;
   _modified: InputMaybe<DateFilterInput>;
-  _not: InputMaybe<Array<InputMaybe<_ComponentWhereInput>>>;
-  _or: InputMaybe<Array<InputMaybe<_ComponentWhereInput>>>;
-};
-
-export type _Content = IData & _IContent & {
-  __typename?: '_Content';
-  /** @deprecated Use `_link` field instead */
-  _children: Maybe<QueryRef>;
-  _deleted: Maybe<Scalars['Bool']['output']>;
-  _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  _id: Maybe<Scalars['String']['output']>;
-  _link: Maybe<QueryRef>;
-  _metadata: Maybe<IContentMetadata>;
-  _modified: Maybe<Scalars['Date']['output']>;
-  _score: Maybe<Scalars['Float']['output']>;
-};
-
-
-export type _Content_FulltextArgs = {
-  highlight: InputMaybe<HighlightOptions>;
-};
-
-
-export type _Content_LinkArgs = {
-  type: InputMaybe<LinkTypes>;
-};
-
-export type _ContentAutocomplete = {
-  __typename?: '_ContentAutocomplete';
-  _metadata: Maybe<IContentMetadataAutocomplete>;
-};
-
-export type _ContentFacet = {
-  __typename?: '_ContentFacet';
-  _metadata: Maybe<IContentMetadataFacet>;
-};
-
-export type _ContentOrderByInput = {
-  _metadata: InputMaybe<IContentMetadataOrderByInput>;
-  _minimumScore: InputMaybe<Scalars['Float']['input']>;
-  _modified: InputMaybe<OrderBy>;
-  _ranking: InputMaybe<Ranking>;
-  /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
-  _semanticWeight: InputMaybe<Scalars['Float']['input']>;
-};
-
-export type _ContentOutput = {
-  __typename?: '_ContentOutput';
-  autocomplete: Maybe<_ContentAutocomplete>;
-  cursor: Maybe<Scalars['String']['output']>;
-  facets: Maybe<_ContentFacet>;
-  items: Maybe<Array<Maybe<_IContent>>>;
-  total: Maybe<Scalars['Int']['output']>;
-};
-
-
-export type _ContentOutputTotalArgs = {
-  all: InputMaybe<Scalars['Boolean']['input']>;
-};
-
-export type _ContentWhereInput = {
-  _and: InputMaybe<Array<InputMaybe<_ContentWhereInput>>>;
-  _fulltext: InputMaybe<SearchableStringFilterInput>;
-  _metadata: InputMaybe<IContentMetadataWhereInput>;
-  _modified: InputMaybe<DateFilterInput>;
-  _not: InputMaybe<Array<InputMaybe<_ContentWhereInput>>>;
-  _or: InputMaybe<Array<InputMaybe<_ContentWhereInput>>>;
-};
-
-export type _Experience = IData & _IContent & _IExperience & _IPage & {
-  __typename?: '_Experience';
-  /** @deprecated Use `_link` field instead */
-  _children: Maybe<QueryRef>;
-  _deleted: Maybe<Scalars['Bool']['output']>;
-  _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  _id: Maybe<Scalars['String']['output']>;
-  _link: Maybe<QueryRef>;
-  _metadata: Maybe<IContentMetadata>;
-  _modified: Maybe<Scalars['Date']['output']>;
-  _score: Maybe<Scalars['Float']['output']>;
-  composition: Maybe<CompositionStructureNode>;
-};
-
-
-export type _Experience_FulltextArgs = {
-  highlight: InputMaybe<HighlightOptions>;
-};
-
-
-export type _Experience_LinkArgs = {
-  type: InputMaybe<LinkTypes>;
-};
-
-export type _ExperienceAutocomplete = {
-  __typename?: '_ExperienceAutocomplete';
-  _metadata: Maybe<IContentMetadataAutocomplete>;
-  composition: Maybe<CompositionStructureNodeAutocomplete>;
-};
-
-export type _ExperienceFacet = {
-  __typename?: '_ExperienceFacet';
-  _metadata: Maybe<IContentMetadataFacet>;
-  composition: Maybe<CompositionStructureNodeFacet>;
-};
-
-export type _ExperienceOrderByInput = {
-  _metadata: InputMaybe<IContentMetadataOrderByInput>;
-  _minimumScore: InputMaybe<Scalars['Float']['input']>;
-  _modified: InputMaybe<OrderBy>;
-  _ranking: InputMaybe<Ranking>;
-  /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
-  _semanticWeight: InputMaybe<Scalars['Float']['input']>;
-  composition: InputMaybe<CompositionStructureNodeOrderByInput>;
-};
-
-export type _ExperienceOutput = {
-  __typename?: '_ExperienceOutput';
-  autocomplete: Maybe<_ExperienceAutocomplete>;
-  cursor: Maybe<Scalars['String']['output']>;
-  facets: Maybe<_ExperienceFacet>;
-  items: Maybe<Array<Maybe<_IExperience>>>;
-  total: Maybe<Scalars['Int']['output']>;
-};
-
-
-export type _ExperienceOutputTotalArgs = {
-  all: InputMaybe<Scalars['Boolean']['input']>;
-};
-
-export type _ExperienceWhereInput = {
-  _and: InputMaybe<Array<InputMaybe<_ExperienceWhereInput>>>;
-  _fulltext: InputMaybe<SearchableStringFilterInput>;
-  _metadata: InputMaybe<IContentMetadataWhereInput>;
-  _modified: InputMaybe<DateFilterInput>;
-  _not: InputMaybe<Array<InputMaybe<_ExperienceWhereInput>>>;
-  _or: InputMaybe<Array<InputMaybe<_ExperienceWhereInput>>>;
-  composition: InputMaybe<CompositionStructureNodeWhereInput>;
-};
-
-export type _Folder = IData & _IContent & _IFolder & {
-  __typename?: '_Folder';
-  /** @deprecated Use `_link` field instead */
-  _children: Maybe<QueryRef>;
-  _deleted: Maybe<Scalars['Bool']['output']>;
-  _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  _id: Maybe<Scalars['String']['output']>;
-  _link: Maybe<QueryRef>;
-  _metadata: Maybe<IContentMetadata>;
-  _modified: Maybe<Scalars['Date']['output']>;
-  _score: Maybe<Scalars['Float']['output']>;
-};
-
-
-export type _Folder_FulltextArgs = {
-  highlight: InputMaybe<HighlightOptions>;
-};
-
-
-export type _Folder_LinkArgs = {
-  type: InputMaybe<LinkTypes>;
-};
-
-export type _FolderAutocomplete = {
-  __typename?: '_FolderAutocomplete';
-  _metadata: Maybe<IContentMetadataAutocomplete>;
-};
-
-export type _FolderFacet = {
-  __typename?: '_FolderFacet';
-  _metadata: Maybe<IContentMetadataFacet>;
-};
-
-export type _FolderOrderByInput = {
-  _metadata: InputMaybe<IContentMetadataOrderByInput>;
-  _minimumScore: InputMaybe<Scalars['Float']['input']>;
-  _modified: InputMaybe<OrderBy>;
-  _ranking: InputMaybe<Ranking>;
-  /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
-  _semanticWeight: InputMaybe<Scalars['Float']['input']>;
-};
-
-export type _FolderOutput = {
-  __typename?: '_FolderOutput';
-  autocomplete: Maybe<_FolderAutocomplete>;
-  cursor: Maybe<Scalars['String']['output']>;
-  facets: Maybe<_FolderFacet>;
-  items: Maybe<Array<Maybe<_IFolder>>>;
-  total: Maybe<Scalars['Int']['output']>;
-};
-
-
-export type _FolderOutputTotalArgs = {
-  all: InputMaybe<Scalars['Boolean']['input']>;
-};
-
-export type _FolderWhereInput = {
-  _and: InputMaybe<Array<InputMaybe<_FolderWhereInput>>>;
-  _fulltext: InputMaybe<SearchableStringFilterInput>;
-  _metadata: InputMaybe<IContentMetadataWhereInput>;
-  _modified: InputMaybe<DateFilterInput>;
-  _not: InputMaybe<Array<InputMaybe<_FolderWhereInput>>>;
-  _or: InputMaybe<Array<InputMaybe<_FolderWhereInput>>>;
-};
-
-export type _IComponent = {
-  /** @deprecated Use `_link` field instead */
-  _children: Maybe<QueryRef>;
-  _deleted: Maybe<Scalars['Bool']['output']>;
-  _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  _id: Maybe<Scalars['String']['output']>;
-  _link: Maybe<QueryRef>;
-  _metadata: Maybe<IContentMetadata>;
-  _modified: Maybe<Scalars['Date']['output']>;
-  _score: Maybe<Scalars['Float']['output']>;
-};
-
-
-export type _IComponent_FulltextArgs = {
-  highlight: InputMaybe<HighlightOptions>;
-};
-
-
-export type _IComponent_LinkArgs = {
-  type: InputMaybe<LinkTypes>;
-};
-
-export type _IContent = {
-  /** @deprecated Use `_link` field instead */
-  _children: Maybe<QueryRef>;
-  _deleted: Maybe<Scalars['Bool']['output']>;
-  _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  _id: Maybe<Scalars['String']['output']>;
-  _link: Maybe<QueryRef>;
-  _metadata: Maybe<IContentMetadata>;
-  _modified: Maybe<Scalars['Date']['output']>;
-  _score: Maybe<Scalars['Float']['output']>;
-};
-
-
-export type _IContent_FulltextArgs = {
-  highlight: InputMaybe<HighlightOptions>;
-};
-
-
-export type _IContent_LinkArgs = {
-  type: InputMaybe<LinkTypes>;
-};
-
-export type _IContentAutocomplete = {
-  __typename?: '_IContentAutocomplete';
-  _metadata: Maybe<IContentMetadataAutocomplete>;
-};
-
-export type _IContentFacet = {
-  __typename?: '_IContentFacet';
-  _metadata: Maybe<IContentMetadataFacet>;
-};
-
-export type _IContentOrderByInput = {
-  _metadata: InputMaybe<IContentMetadataOrderByInput>;
-  _minimumScore: InputMaybe<Scalars['Float']['input']>;
-  _modified: InputMaybe<OrderBy>;
-  _ranking: InputMaybe<Ranking>;
-  /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
-  _semanticWeight: InputMaybe<Scalars['Float']['input']>;
-};
-
-export type _IContentWhereInput = {
-  _and: InputMaybe<Array<InputMaybe<_IContentWhereInput>>>;
-  _fulltext: InputMaybe<SearchableStringFilterInput>;
-  _metadata: InputMaybe<IContentMetadataWhereInput>;
-  _modified: InputMaybe<DateFilterInput>;
-  _not: InputMaybe<Array<InputMaybe<_IContentWhereInput>>>;
-  _or: InputMaybe<Array<InputMaybe<_IContentWhereInput>>>;
-};
-
-export type _IExperience = {
-  /** @deprecated Use `_link` field instead */
-  _children: Maybe<QueryRef>;
-  _deleted: Maybe<Scalars['Bool']['output']>;
-  _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  _id: Maybe<Scalars['String']['output']>;
-  _link: Maybe<QueryRef>;
-  _metadata: Maybe<IContentMetadata>;
-  _modified: Maybe<Scalars['Date']['output']>;
-  _score: Maybe<Scalars['Float']['output']>;
-  composition: Maybe<CompositionStructureNode>;
-};
-
-
-export type _IExperience_FulltextArgs = {
-  highlight: InputMaybe<HighlightOptions>;
-};
-
-
-export type _IExperience_LinkArgs = {
-  type: InputMaybe<LinkTypes>;
-};
-
-export type _IFolder = {
-  /** @deprecated Use `_link` field instead */
-  _children: Maybe<QueryRef>;
-  _deleted: Maybe<Scalars['Bool']['output']>;
-  _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  _id: Maybe<Scalars['String']['output']>;
-  _link: Maybe<QueryRef>;
-  _metadata: Maybe<IContentMetadata>;
-  _modified: Maybe<Scalars['Date']['output']>;
-  _score: Maybe<Scalars['Float']['output']>;
-};
-
-
-export type _IFolder_FulltextArgs = {
-  highlight: InputMaybe<HighlightOptions>;
-};
-
-
-export type _IFolder_LinkArgs = {
-  type: InputMaybe<LinkTypes>;
-};
-
-export type _IImage = {
-  /** @deprecated Use `_link` field instead */
-  _children: Maybe<QueryRef>;
-  _deleted: Maybe<Scalars['Bool']['output']>;
-  _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  _id: Maybe<Scalars['String']['output']>;
-  _link: Maybe<QueryRef>;
-  _metadata: Maybe<IContentMetadata>;
-  _modified: Maybe<Scalars['Date']['output']>;
-  _score: Maybe<Scalars['Float']['output']>;
-};
-
-
-export type _IImage_FulltextArgs = {
-  highlight: InputMaybe<HighlightOptions>;
-};
-
-
-export type _IImage_LinkArgs = {
-  type: InputMaybe<LinkTypes>;
-};
-
-export type _IMedia = {
-  /** @deprecated Use `_link` field instead */
-  _children: Maybe<QueryRef>;
-  _deleted: Maybe<Scalars['Bool']['output']>;
-  _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  _id: Maybe<Scalars['String']['output']>;
-  _link: Maybe<QueryRef>;
-  _metadata: Maybe<IContentMetadata>;
-  _modified: Maybe<Scalars['Date']['output']>;
-  _score: Maybe<Scalars['Float']['output']>;
-};
-
-
-export type _IMedia_FulltextArgs = {
-  highlight: InputMaybe<HighlightOptions>;
-};
-
-
-export type _IMedia_LinkArgs = {
-  type: InputMaybe<LinkTypes>;
-};
-
-export type _IPage = {
-  /** @deprecated Use `_link` field instead */
-  _children: Maybe<QueryRef>;
-  _deleted: Maybe<Scalars['Bool']['output']>;
-  _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  _id: Maybe<Scalars['String']['output']>;
-  _link: Maybe<QueryRef>;
-  _metadata: Maybe<IContentMetadata>;
-  _modified: Maybe<Scalars['Date']['output']>;
-  _score: Maybe<Scalars['Float']['output']>;
-};
-
-
-export type _IPage_FulltextArgs = {
-  highlight: InputMaybe<HighlightOptions>;
-};
-
-
-export type _IPage_LinkArgs = {
-  type: InputMaybe<LinkTypes>;
-};
-
-export type _ISection = {
-  /** @deprecated Use `_link` field instead */
-  _children: Maybe<QueryRef>;
-  _deleted: Maybe<Scalars['Bool']['output']>;
-  _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  _id: Maybe<Scalars['String']['output']>;
-  _link: Maybe<QueryRef>;
-  _metadata: Maybe<IContentMetadata>;
-  _modified: Maybe<Scalars['Date']['output']>;
-  _score: Maybe<Scalars['Float']['output']>;
-  composition: Maybe<CompositionStructureNode>;
-};
-
-
-export type _ISection_FulltextArgs = {
-  highlight: InputMaybe<HighlightOptions>;
-};
-
-
-export type _ISection_LinkArgs = {
-  type: InputMaybe<LinkTypes>;
-};
-
-export type _IVideo = {
-  /** @deprecated Use `_link` field instead */
-  _children: Maybe<QueryRef>;
-  _deleted: Maybe<Scalars['Bool']['output']>;
-  _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  _id: Maybe<Scalars['String']['output']>;
-  _link: Maybe<QueryRef>;
-  _metadata: Maybe<IContentMetadata>;
-  _modified: Maybe<Scalars['Date']['output']>;
-  _score: Maybe<Scalars['Float']['output']>;
-};
-
-
-export type _IVideo_FulltextArgs = {
-  highlight: InputMaybe<HighlightOptions>;
-};
-
-
-export type _IVideo_LinkArgs = {
-  type: InputMaybe<LinkTypes>;
-};
-
-export type _Image = IData & _IContent & _IImage & _IMedia & {
-  __typename?: '_Image';
-  /** @deprecated Use `_link` field instead */
-  _children: Maybe<QueryRef>;
-  _deleted: Maybe<Scalars['Bool']['output']>;
-  _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  _id: Maybe<Scalars['String']['output']>;
-  _link: Maybe<QueryRef>;
-  _metadata: Maybe<IContentMetadata>;
-  _modified: Maybe<Scalars['Date']['output']>;
-  _score: Maybe<Scalars['Float']['output']>;
-};
-
-
-export type _Image_FulltextArgs = {
-  highlight: InputMaybe<HighlightOptions>;
-};
-
-
-export type _Image_LinkArgs = {
-  type: InputMaybe<LinkTypes>;
-};
-
-export type _ImageAutocomplete = {
-  __typename?: '_ImageAutocomplete';
-  _metadata: Maybe<IContentMetadataAutocomplete>;
-};
-
-export type _ImageFacet = {
-  __typename?: '_ImageFacet';
-  _metadata: Maybe<IContentMetadataFacet>;
-};
-
-export type _ImageOrderByInput = {
-  _metadata: InputMaybe<IContentMetadataOrderByInput>;
-  _minimumScore: InputMaybe<Scalars['Float']['input']>;
-  _modified: InputMaybe<OrderBy>;
-  _ranking: InputMaybe<Ranking>;
-  /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
-  _semanticWeight: InputMaybe<Scalars['Float']['input']>;
-};
-
-export type _ImageOutput = {
-  __typename?: '_ImageOutput';
-  autocomplete: Maybe<_ImageAutocomplete>;
-  cursor: Maybe<Scalars['String']['output']>;
-  facets: Maybe<_ImageFacet>;
-  items: Maybe<Array<Maybe<_IImage>>>;
-  total: Maybe<Scalars['Int']['output']>;
-};
-
-
-export type _ImageOutputTotalArgs = {
-  all: InputMaybe<Scalars['Boolean']['input']>;
-};
-
-export type _ImageWhereInput = {
-  _and: InputMaybe<Array<InputMaybe<_ImageWhereInput>>>;
-  _fulltext: InputMaybe<SearchableStringFilterInput>;
-  _metadata: InputMaybe<IContentMetadataWhereInput>;
-  _modified: InputMaybe<DateFilterInput>;
-  _not: InputMaybe<Array<InputMaybe<_ImageWhereInput>>>;
-  _or: InputMaybe<Array<InputMaybe<_ImageWhereInput>>>;
-};
-
-export type _Media = IData & _IContent & _IMedia & {
-  __typename?: '_Media';
-  /** @deprecated Use `_link` field instead */
-  _children: Maybe<QueryRef>;
-  _deleted: Maybe<Scalars['Bool']['output']>;
-  _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  _id: Maybe<Scalars['String']['output']>;
-  _link: Maybe<QueryRef>;
-  _metadata: Maybe<IContentMetadata>;
-  _modified: Maybe<Scalars['Date']['output']>;
-  _score: Maybe<Scalars['Float']['output']>;
-};
-
-
-export type _Media_FulltextArgs = {
-  highlight: InputMaybe<HighlightOptions>;
-};
-
-
-export type _Media_LinkArgs = {
-  type: InputMaybe<LinkTypes>;
-};
-
-export type _MediaAutocomplete = {
-  __typename?: '_MediaAutocomplete';
-  _metadata: Maybe<IContentMetadataAutocomplete>;
-};
-
-export type _MediaFacet = {
-  __typename?: '_MediaFacet';
-  _metadata: Maybe<IContentMetadataFacet>;
-};
-
-export type _MediaOrderByInput = {
-  _metadata: InputMaybe<IContentMetadataOrderByInput>;
-  _minimumScore: InputMaybe<Scalars['Float']['input']>;
-  _modified: InputMaybe<OrderBy>;
-  _ranking: InputMaybe<Ranking>;
-  /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
-  _semanticWeight: InputMaybe<Scalars['Float']['input']>;
-};
-
-export type _MediaOutput = {
-  __typename?: '_MediaOutput';
-  autocomplete: Maybe<_MediaAutocomplete>;
-  cursor: Maybe<Scalars['String']['output']>;
-  facets: Maybe<_MediaFacet>;
-  items: Maybe<Array<Maybe<_IMedia>>>;
-  total: Maybe<Scalars['Int']['output']>;
-};
-
-
-export type _MediaOutputTotalArgs = {
-  all: InputMaybe<Scalars['Boolean']['input']>;
-};
-
-export type _MediaWhereInput = {
-  _and: InputMaybe<Array<InputMaybe<_MediaWhereInput>>>;
-  _fulltext: InputMaybe<SearchableStringFilterInput>;
-  _metadata: InputMaybe<IContentMetadataWhereInput>;
-  _modified: InputMaybe<DateFilterInput>;
-  _not: InputMaybe<Array<InputMaybe<_MediaWhereInput>>>;
-  _or: InputMaybe<Array<InputMaybe<_MediaWhereInput>>>;
-};
-
-export type _Page = IData & _IContent & _IPage & {
-  __typename?: '_Page';
-  /** @deprecated Use `_link` field instead */
-  _children: Maybe<QueryRef>;
-  _deleted: Maybe<Scalars['Bool']['output']>;
-  _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  _id: Maybe<Scalars['String']['output']>;
-  _link: Maybe<QueryRef>;
-  _metadata: Maybe<IContentMetadata>;
-  _modified: Maybe<Scalars['Date']['output']>;
-  _score: Maybe<Scalars['Float']['output']>;
-};
-
-
-export type _Page_FulltextArgs = {
-  highlight: InputMaybe<HighlightOptions>;
-};
-
-
-export type _Page_LinkArgs = {
-  type: InputMaybe<LinkTypes>;
-};
-
-export type _PageAutocomplete = {
-  __typename?: '_PageAutocomplete';
-  _metadata: Maybe<IContentMetadataAutocomplete>;
-};
-
-export type _PageFacet = {
-  __typename?: '_PageFacet';
-  _metadata: Maybe<IContentMetadataFacet>;
-};
-
-export type _PageOrderByInput = {
-  _metadata: InputMaybe<IContentMetadataOrderByInput>;
-  _minimumScore: InputMaybe<Scalars['Float']['input']>;
-  _modified: InputMaybe<OrderBy>;
-  _ranking: InputMaybe<Ranking>;
-  /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
-  _semanticWeight: InputMaybe<Scalars['Float']['input']>;
-};
-
-export type _PageOutput = {
-  __typename?: '_PageOutput';
-  autocomplete: Maybe<_PageAutocomplete>;
-  cursor: Maybe<Scalars['String']['output']>;
-  facets: Maybe<_PageFacet>;
-  items: Maybe<Array<Maybe<_IPage>>>;
-  total: Maybe<Scalars['Int']['output']>;
-};
-
-
-export type _PageOutputTotalArgs = {
-  all: InputMaybe<Scalars['Boolean']['input']>;
-};
-
-export type _PageWhereInput = {
-  _and: InputMaybe<Array<InputMaybe<_PageWhereInput>>>;
-  _fulltext: InputMaybe<SearchableStringFilterInput>;
-  _metadata: InputMaybe<IContentMetadataWhereInput>;
-  _modified: InputMaybe<DateFilterInput>;
-  _not: InputMaybe<Array<InputMaybe<_PageWhereInput>>>;
-  _or: InputMaybe<Array<InputMaybe<_PageWhereInput>>>;
-};
-
-export type _Section = IData & _IComponent & _IContent & _ISection & {
-  __typename?: '_Section';
-  /** @deprecated Use `_link` field instead */
-  _children: Maybe<QueryRef>;
-  _deleted: Maybe<Scalars['Bool']['output']>;
-  _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  _id: Maybe<Scalars['String']['output']>;
-  _link: Maybe<QueryRef>;
-  _metadata: Maybe<IContentMetadata>;
-  _modified: Maybe<Scalars['Date']['output']>;
-  _score: Maybe<Scalars['Float']['output']>;
-  composition: Maybe<CompositionStructureNode>;
-};
-
-
-export type _Section_FulltextArgs = {
-  highlight: InputMaybe<HighlightOptions>;
-};
-
-
-export type _Section_LinkArgs = {
-  type: InputMaybe<LinkTypes>;
-};
-
-export type _SectionAutocomplete = {
-  __typename?: '_SectionAutocomplete';
-  _metadata: Maybe<IContentMetadataAutocomplete>;
-  composition: Maybe<CompositionStructureNodeAutocomplete>;
-};
-
-export type _SectionFacet = {
-  __typename?: '_SectionFacet';
-  _metadata: Maybe<IContentMetadataFacet>;
-  composition: Maybe<CompositionStructureNodeFacet>;
-};
-
-export type _SectionOrderByInput = {
-  _metadata: InputMaybe<IContentMetadataOrderByInput>;
-  _minimumScore: InputMaybe<Scalars['Float']['input']>;
-  _modified: InputMaybe<OrderBy>;
-  _ranking: InputMaybe<Ranking>;
-  /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
-  _semanticWeight: InputMaybe<Scalars['Float']['input']>;
-  composition: InputMaybe<CompositionStructureNodeOrderByInput>;
-};
-
-export type _SectionOutput = {
-  __typename?: '_SectionOutput';
-  autocomplete: Maybe<_SectionAutocomplete>;
-  cursor: Maybe<Scalars['String']['output']>;
-  facets: Maybe<_SectionFacet>;
-  items: Maybe<Array<Maybe<_ISection>>>;
-  total: Maybe<Scalars['Int']['output']>;
-};
-
-
-export type _SectionOutputTotalArgs = {
-  all: InputMaybe<Scalars['Boolean']['input']>;
-};
-
-export type _SectionWhereInput = {
-  _and: InputMaybe<Array<InputMaybe<_SectionWhereInput>>>;
-  _fulltext: InputMaybe<SearchableStringFilterInput>;
-  _metadata: InputMaybe<IContentMetadataWhereInput>;
-  _modified: InputMaybe<DateFilterInput>;
-  _not: InputMaybe<Array<InputMaybe<_SectionWhereInput>>>;
-  _or: InputMaybe<Array<InputMaybe<_SectionWhereInput>>>;
-  composition: InputMaybe<CompositionStructureNodeWhereInput>;
-};
-
-export type _Video = IData & _IContent & _IMedia & _IVideo & {
-  __typename?: '_Video';
-  /** @deprecated Use `_link` field instead */
-  _children: Maybe<QueryRef>;
-  _deleted: Maybe<Scalars['Bool']['output']>;
-  _fulltext: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  _id: Maybe<Scalars['String']['output']>;
-  _link: Maybe<QueryRef>;
-  _metadata: Maybe<IContentMetadata>;
-  _modified: Maybe<Scalars['Date']['output']>;
-  _score: Maybe<Scalars['Float']['output']>;
-};
-
-
-export type _Video_FulltextArgs = {
-  highlight: InputMaybe<HighlightOptions>;
-};
-
-
-export type _Video_LinkArgs = {
-  type: InputMaybe<LinkTypes>;
-};
-
-export type _VideoAutocomplete = {
-  __typename?: '_VideoAutocomplete';
-  _metadata: Maybe<IContentMetadataAutocomplete>;
-};
-
-export type _VideoFacet = {
-  __typename?: '_VideoFacet';
-  _metadata: Maybe<IContentMetadataFacet>;
-};
-
-export type _VideoOrderByInput = {
-  _metadata: InputMaybe<IContentMetadataOrderByInput>;
-  _minimumScore: InputMaybe<Scalars['Float']['input']>;
-  _modified: InputMaybe<OrderBy>;
-  _ranking: InputMaybe<Ranking>;
-  /** The value needs to be a positive value, but cannot exceed the maximum value of an integer. In case it is exceeded, the maximum of an integer is used. In case of a negative value, semantic search will be disabled. */
-  _semanticWeight: InputMaybe<Scalars['Float']['input']>;
-};
-
-export type _VideoOutput = {
-  __typename?: '_VideoOutput';
-  autocomplete: Maybe<_VideoAutocomplete>;
-  cursor: Maybe<Scalars['String']['output']>;
-  facets: Maybe<_VideoFacet>;
-  items: Maybe<Array<Maybe<_IVideo>>>;
-  total: Maybe<Scalars['Int']['output']>;
-};
-
-
-export type _VideoOutputTotalArgs = {
-  all: InputMaybe<Scalars['Boolean']['input']>;
-};
-
-export type _VideoWhereInput = {
-  _and: InputMaybe<Array<InputMaybe<_VideoWhereInput>>>;
-  _fulltext: InputMaybe<SearchableStringFilterInput>;
-  _metadata: InputMaybe<IContentMetadataWhereInput>;
-  _modified: InputMaybe<DateFilterInput>;
-  _not: InputMaybe<Array<InputMaybe<_VideoWhereInput>>>;
-  _or: InputMaybe<Array<InputMaybe<_VideoWhereInput>>>;
+  _not: InputMaybe<Array<InputMaybe<VideoFileWhereInput>>>;
+  _or: InputMaybe<Array<InputMaybe<VideoFileWhereInput>>>;
+  _sortOrder: InputMaybe<IntFilterInput>;
 };
 
 export enum System_Locales {
@@ -4825,28 +11891,28 @@ export type AllPagesQueryVariables = Exact<{
 }>;
 
 
-export type AllPagesQuery = { __typename?: 'Query', _Content: { __typename?: '_ContentOutput', items: Array<{ __typename?: 'AvailabilityBlock', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'BlankExperience', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'BlankSection', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'CMSPage', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'ContactBlock', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'Footer', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'FooterColumn', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'GenericMedia123', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'Header', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'HeroBlock', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'ImageMedia', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'LogoItemBlock', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'LogosBlock', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'NavItem', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'PortfolioGridBlock', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'PortfolioItemBlock', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'ProfileBlock', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'SEOExperience', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'ServiceItem', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'ServicesBlock', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'SocialLink', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'StartPage', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'StoryBlock', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'SysContentFolder', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'TestimonialItem', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'TestimonialItemBlock', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'TestimonialsBlock', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'VideoMedia', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: '_Component', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: '_Content', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: '_Experience', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: '_Folder', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: '_Image', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: '_Media', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: '_Page', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: '_Section', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: '_Video', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, types: Array<string | null> | null, status: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | null> | null } | null };
+export type AllPagesQuery = { __typename?: 'Query', Content: { __typename?: 'ContentOutput', items: Array<{ __typename?: 'AvailabilityBlock', Name: string | null, RelativePath: string | null, RouteSegment: string | null, ContentType: Array<string | null> | null } | { __typename?: 'CMSPage', Name: string | null, RelativePath: string | null, RouteSegment: string | null, ContentType: Array<string | null> | null } | { __typename?: 'ContactBlock', Name: string | null, RelativePath: string | null, RouteSegment: string | null, ContentType: Array<string | null> | null } | { __typename?: 'Content', Name: string | null, RelativePath: string | null, RouteSegment: string | null, ContentType: Array<string | null> | null } | { __typename?: 'FooterColumn', Name: string | null, RelativePath: string | null, RouteSegment: string | null, ContentType: Array<string | null> | null } | { __typename?: 'FooterPage', Name: string | null, RelativePath: string | null, RouteSegment: string | null, ContentType: Array<string | null> | null } | { __typename?: 'GenericMedia', Name: string | null, RelativePath: string | null, RouteSegment: string | null, ContentType: Array<string | null> | null } | { __typename?: 'HeaderPage', Name: string | null, RelativePath: string | null, RouteSegment: string | null, ContentType: Array<string | null> | null } | { __typename?: 'HeroBlock', Name: string | null, RelativePath: string | null, RouteSegment: string | null, ContentType: Array<string | null> | null } | { __typename?: 'ImageFile', Name: string | null, RelativePath: string | null, RouteSegment: string | null, ContentType: Array<string | null> | null } | { __typename?: 'LogoItemBlock', Name: string | null, RelativePath: string | null, RouteSegment: string | null, ContentType: Array<string | null> | null } | { __typename?: 'LogosBlock', Name: string | null, RelativePath: string | null, RouteSegment: string | null, ContentType: Array<string | null> | null } | { __typename?: 'NavItem', Name: string | null, RelativePath: string | null, RouteSegment: string | null, ContentType: Array<string | null> | null } | { __typename?: 'PortfolioGridBlock', Name: string | null, RelativePath: string | null, RouteSegment: string | null, ContentType: Array<string | null> | null } | { __typename?: 'PortfolioItemBlock', Name: string | null, RelativePath: string | null, RouteSegment: string | null, ContentType: Array<string | null> | null } | { __typename?: 'ProfileBlock', Name: string | null, RelativePath: string | null, RouteSegment: string | null, ContentType: Array<string | null> | null } | { __typename?: 'ServiceItem', Name: string | null, RelativePath: string | null, RouteSegment: string | null, ContentType: Array<string | null> | null } | { __typename?: 'ServicesBlock', Name: string | null, RelativePath: string | null, RouteSegment: string | null, ContentType: Array<string | null> | null } | { __typename?: 'SocialLink', Name: string | null, RelativePath: string | null, RouteSegment: string | null, ContentType: Array<string | null> | null } | { __typename?: 'StartPage', Name: string | null, RelativePath: string | null, RouteSegment: string | null, ContentType: Array<string | null> | null } | { __typename?: 'StoryBlock', Name: string | null, RelativePath: string | null, RouteSegment: string | null, ContentType: Array<string | null> | null } | { __typename?: 'TestimonialItemBlock', Name: string | null, RelativePath: string | null, RouteSegment: string | null, ContentType: Array<string | null> | null } | { __typename?: 'TestimonialsBlock', Name: string | null, RelativePath: string | null, RouteSegment: string | null, ContentType: Array<string | null> | null } | { __typename?: 'VectorImageFile', Name: string | null, RelativePath: string | null, RouteSegment: string | null, ContentType: Array<string | null> | null } | { __typename?: 'VideoFile', Name: string | null, RelativePath: string | null, RouteSegment: string | null, ContentType: Array<string | null> | null } | null> | null } | null };
 
 export type GetContentByGuidQueryVariables = Exact<{
   guid: InputMaybe<Scalars['String']['input']>;
 }>;
 
 
-export type GetContentByGuidQuery = { __typename?: 'Query', _Content: { __typename?: '_ContentOutput', items: Array<{ __typename?: 'AvailabilityBlock', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'BlankExperience', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'BlankSection', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'CMSPage', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'ContactBlock', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'Footer', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'FooterColumn', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'GenericMedia123', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'Header', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'HeroBlock', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'ImageMedia', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'LogoItemBlock', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'LogosBlock', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'NavItem', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'PortfolioGridBlock', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'PortfolioItemBlock', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'ProfileBlock', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'SEOExperience', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'ServiceItem', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'ServicesBlock', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'SocialLink', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'StartPage', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'StoryBlock', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'SysContentFolder', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'TestimonialItem', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'TestimonialItemBlock', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'TestimonialsBlock', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: 'VideoMedia', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: '_Component', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: '_Content', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: '_Experience', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: '_Folder', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: '_Image', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: '_Media', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: '_Page', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: '_Section', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename?: '_Video', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | null> | null } | null };
+export type GetContentByGuidQuery = { __typename?: 'Query', Content: { __typename?: 'ContentOutput', items: Array<{ __typename?: 'AvailabilityBlock', ContentType: Array<string | null> | null, ContentLink: { __typename?: 'ContentModelReference', GuidValue: string | null, Id: number | null, WorkId: number | null, Url: string | null } | null } | { __typename?: 'CMSPage', ContentType: Array<string | null> | null, ContentLink: { __typename?: 'ContentModelReference', GuidValue: string | null, Id: number | null, WorkId: number | null, Url: string | null } | null } | { __typename?: 'ContactBlock', ContentType: Array<string | null> | null, ContentLink: { __typename?: 'ContentModelReference', GuidValue: string | null, Id: number | null, WorkId: number | null, Url: string | null } | null } | { __typename?: 'Content', ContentType: Array<string | null> | null, ContentLink: { __typename?: 'ContentModelReference', GuidValue: string | null, Id: number | null, WorkId: number | null, Url: string | null } | null } | { __typename?: 'FooterColumn', ContentType: Array<string | null> | null, ContentLink: { __typename?: 'ContentModelReference', GuidValue: string | null, Id: number | null, WorkId: number | null, Url: string | null } | null } | { __typename?: 'FooterPage', ContentType: Array<string | null> | null, ContentLink: { __typename?: 'ContentModelReference', GuidValue: string | null, Id: number | null, WorkId: number | null, Url: string | null } | null } | { __typename?: 'GenericMedia', ContentType: Array<string | null> | null, ContentLink: { __typename?: 'ContentModelReference', GuidValue: string | null, Id: number | null, WorkId: number | null, Url: string | null } | null } | { __typename?: 'HeaderPage', ContentType: Array<string | null> | null, ContentLink: { __typename?: 'ContentModelReference', GuidValue: string | null, Id: number | null, WorkId: number | null, Url: string | null } | null } | { __typename?: 'HeroBlock', ContentType: Array<string | null> | null, ContentLink: { __typename?: 'ContentModelReference', GuidValue: string | null, Id: number | null, WorkId: number | null, Url: string | null } | null } | { __typename?: 'ImageFile', ContentType: Array<string | null> | null, ContentLink: { __typename?: 'ContentModelReference', GuidValue: string | null, Id: number | null, WorkId: number | null, Url: string | null } | null } | { __typename?: 'LogoItemBlock', ContentType: Array<string | null> | null, ContentLink: { __typename?: 'ContentModelReference', GuidValue: string | null, Id: number | null, WorkId: number | null, Url: string | null } | null } | { __typename?: 'LogosBlock', ContentType: Array<string | null> | null, ContentLink: { __typename?: 'ContentModelReference', GuidValue: string | null, Id: number | null, WorkId: number | null, Url: string | null } | null } | { __typename?: 'NavItem', ContentType: Array<string | null> | null, ContentLink: { __typename?: 'ContentModelReference', GuidValue: string | null, Id: number | null, WorkId: number | null, Url: string | null } | null } | { __typename?: 'PortfolioGridBlock', ContentType: Array<string | null> | null, ContentLink: { __typename?: 'ContentModelReference', GuidValue: string | null, Id: number | null, WorkId: number | null, Url: string | null } | null } | { __typename?: 'PortfolioItemBlock', ContentType: Array<string | null> | null, ContentLink: { __typename?: 'ContentModelReference', GuidValue: string | null, Id: number | null, WorkId: number | null, Url: string | null } | null } | { __typename?: 'ProfileBlock', ContentType: Array<string | null> | null, ContentLink: { __typename?: 'ContentModelReference', GuidValue: string | null, Id: number | null, WorkId: number | null, Url: string | null } | null } | { __typename?: 'ServiceItem', ContentType: Array<string | null> | null, ContentLink: { __typename?: 'ContentModelReference', GuidValue: string | null, Id: number | null, WorkId: number | null, Url: string | null } | null } | { __typename?: 'ServicesBlock', ContentType: Array<string | null> | null, ContentLink: { __typename?: 'ContentModelReference', GuidValue: string | null, Id: number | null, WorkId: number | null, Url: string | null } | null } | { __typename?: 'SocialLink', ContentType: Array<string | null> | null, ContentLink: { __typename?: 'ContentModelReference', GuidValue: string | null, Id: number | null, WorkId: number | null, Url: string | null } | null } | { __typename?: 'StartPage', ContentType: Array<string | null> | null, ContentLink: { __typename?: 'ContentModelReference', GuidValue: string | null, Id: number | null, WorkId: number | null, Url: string | null } | null } | { __typename?: 'StoryBlock', ContentType: Array<string | null> | null, ContentLink: { __typename?: 'ContentModelReference', GuidValue: string | null, Id: number | null, WorkId: number | null, Url: string | null } | null } | { __typename?: 'TestimonialItemBlock', ContentType: Array<string | null> | null, ContentLink: { __typename?: 'ContentModelReference', GuidValue: string | null, Id: number | null, WorkId: number | null, Url: string | null } | null } | { __typename?: 'TestimonialsBlock', ContentType: Array<string | null> | null, ContentLink: { __typename?: 'ContentModelReference', GuidValue: string | null, Id: number | null, WorkId: number | null, Url: string | null } | null } | { __typename?: 'VectorImageFile', ContentType: Array<string | null> | null, ContentLink: { __typename?: 'ContentModelReference', GuidValue: string | null, Id: number | null, WorkId: number | null, Url: string | null } | null } | { __typename?: 'VideoFile', ContentType: Array<string | null> | null, ContentLink: { __typename?: 'ContentModelReference', GuidValue: string | null, Id: number | null, WorkId: number | null, Url: string | null } | null } | null> | null } | null };
 
 export type GetFooterQueryVariables = Exact<{
   locales: InputMaybe<Array<InputMaybe<Locales>> | InputMaybe<Locales>>;
 }>;
 
 
-export type GetFooterQuery = { __typename?: 'Query', Footer: { __typename?: 'FooterOutput', items: Array<{ __typename?: 'Footer', copyrightText: string | null, socialLinks: Array<{ __typename: 'AvailabilityBlock' } | { __typename: 'BlankExperience' } | { __typename: 'BlankSection' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Footer' } | { __typename: 'FooterColumn' } | { __typename: 'GenericMedia123' } | { __typename: 'Header' } | { __typename: 'HeroBlock' } | { __typename: 'ImageMedia' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock' } | { __typename: 'SEOExperience' } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink', platform: string | null, href: string | null } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'SysContentFolder' } | { __typename: 'TestimonialItem' } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock' } | { __typename: 'VideoMedia' } | { __typename: '_Component' } | { __typename: '_Content' } | { __typename: '_Experience' } | { __typename: '_Folder' } | { __typename: '_Image' } | { __typename: '_Media' } | { __typename: '_Page' } | { __typename: '_Section' } | { __typename: '_Video' } | null> | null, columns: Array<{ __typename: 'AvailabilityBlock' } | { __typename: 'BlankExperience' } | { __typename: 'BlankSection' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Footer' } | { __typename: 'FooterColumn', title: string | null, links: Array<{ __typename: 'AvailabilityBlock' } | { __typename: 'BlankExperience' } | { __typename: 'BlankSection' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Footer' } | { __typename: 'FooterColumn' } | { __typename: 'GenericMedia123' } | { __typename: 'Header' } | { __typename: 'HeroBlock' } | { __typename: 'ImageMedia' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock' } | { __typename: 'NavItem', label: string | null, href: string | null } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock' } | { __typename: 'SEOExperience' } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'SysContentFolder' } | { __typename: 'TestimonialItem' } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock' } | { __typename: 'VideoMedia' } | { __typename: '_Component' } | { __typename: '_Content' } | { __typename: '_Experience' } | { __typename: '_Folder' } | { __typename: '_Image' } | { __typename: '_Media' } | { __typename: '_Page' } | { __typename: '_Section' } | { __typename: '_Video' } | null> | null } | { __typename: 'GenericMedia123' } | { __typename: 'Header' } | { __typename: 'HeroBlock' } | { __typename: 'ImageMedia' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock' } | { __typename: 'SEOExperience' } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'SysContentFolder' } | { __typename: 'TestimonialItem' } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock' } | { __typename: 'VideoMedia' } | { __typename: '_Component' } | { __typename: '_Content' } | { __typename: '_Experience' } | { __typename: '_Folder' } | { __typename: '_Image' } | { __typename: '_Media' } | { __typename: '_Page' } | { __typename: '_Section' } | { __typename: '_Video' } | null> | null } | null> | null } | null };
+export type GetFooterQuery = { __typename?: 'Query', FooterPage: { __typename?: 'FooterPageOutput', items: Array<{ __typename?: 'FooterPage', CopyrightText: string | null, SocialLinks: Array<{ __typename: 'ContentAreaItemModelSearch', ContentLink: { __typename?: 'ContentModelReferenceSearch', Expanded: { __typename?: 'AvailabilityBlock' } | { __typename?: 'CMSPage' } | { __typename?: 'ContactBlock' } | { __typename?: 'Content' } | { __typename?: 'FooterColumn' } | { __typename?: 'FooterPage' } | { __typename?: 'GenericMedia' } | { __typename?: 'HeaderPage' } | { __typename?: 'HeroBlock' } | { __typename?: 'ImageFile' } | { __typename?: 'LogoItemBlock' } | { __typename?: 'LogosBlock' } | { __typename?: 'NavItem' } | { __typename?: 'PortfolioGridBlock' } | { __typename?: 'PortfolioItemBlock' } | { __typename?: 'ProfileBlock' } | { __typename?: 'ServiceItem' } | { __typename?: 'ServicesBlock' } | { __typename?: 'SocialLink', Platform: string | null, Href: string | null } | { __typename?: 'StartPage' } | { __typename?: 'StoryBlock' } | { __typename?: 'TestimonialItemBlock' } | { __typename?: 'TestimonialsBlock' } | { __typename?: 'VectorImageFile' } | { __typename?: 'VideoFile' } | null } | null } | null> | null, Columns: Array<{ __typename: 'ContentAreaItemModelSearch', ContentLink: { __typename?: 'ContentModelReferenceSearch', Expanded: { __typename?: 'AvailabilityBlock' } | { __typename?: 'CMSPage' } | { __typename?: 'ContactBlock' } | { __typename?: 'Content' } | { __typename?: 'FooterColumn', Title: string | null, Links: Array<{ __typename?: 'ContentAreaItemModelSearch', ContentLink: { __typename?: 'ContentModelReferenceSearch', Expanded: { __typename: 'AvailabilityBlock' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Content' } | { __typename: 'FooterColumn' } | { __typename: 'FooterPage' } | { __typename: 'GenericMedia' } | { __typename: 'HeaderPage' } | { __typename: 'HeroBlock' } | { __typename: 'ImageFile' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock' } | { __typename: 'NavItem', Label: string | null, Href: string | null } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock' } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock' } | { __typename: 'VectorImageFile' } | { __typename: 'VideoFile' } | null } | null } | null> | null } | { __typename?: 'FooterPage' } | { __typename?: 'GenericMedia' } | { __typename?: 'HeaderPage' } | { __typename?: 'HeroBlock' } | { __typename?: 'ImageFile' } | { __typename?: 'LogoItemBlock' } | { __typename?: 'LogosBlock' } | { __typename?: 'NavItem' } | { __typename?: 'PortfolioGridBlock' } | { __typename?: 'PortfolioItemBlock' } | { __typename?: 'ProfileBlock' } | { __typename?: 'ServiceItem' } | { __typename?: 'ServicesBlock' } | { __typename?: 'SocialLink' } | { __typename?: 'StartPage' } | { __typename?: 'StoryBlock' } | { __typename?: 'TestimonialItemBlock' } | { __typename?: 'TestimonialsBlock' } | { __typename?: 'VectorImageFile' } | { __typename?: 'VideoFile' } | null } | null } | null> | null } | null> | null } | null };
 
 export type GetHeaderQueryVariables = Exact<{
   locale: InputMaybe<Array<InputMaybe<Locales>> | InputMaybe<Locales>>;
 }>;
 
 
-export type GetHeaderQuery = { __typename?: 'Query', Header: { __typename?: 'HeaderOutput', items: Array<{ __typename?: 'Header', logo: string | null, ctaText: string | null, ctaHref: string | null, navItems: Array<{ __typename: 'AvailabilityBlock' } | { __typename: 'BlankExperience' } | { __typename: 'BlankSection' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Footer' } | { __typename: 'FooterColumn' } | { __typename: 'GenericMedia123' } | { __typename: 'Header' } | { __typename: 'HeroBlock' } | { __typename: 'ImageMedia' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock' } | { __typename: 'NavItem', label: string | null, href: string | null } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock' } | { __typename: 'SEOExperience' } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'SysContentFolder' } | { __typename: 'TestimonialItem' } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock' } | { __typename: 'VideoMedia' } | { __typename: '_Component' } | { __typename: '_Content' } | { __typename: '_Experience' } | { __typename: '_Folder' } | { __typename: '_Image' } | { __typename: '_Media' } | { __typename: '_Page' } | { __typename: '_Section' } | { __typename: '_Video' } | null> | null } | null> | null } | null };
+export type GetHeaderQuery = { __typename?: 'Query', HeaderPage: { __typename?: 'HeaderPageOutput', items: Array<{ __typename?: 'HeaderPage', Logo: string | null, CtaText: string | null, CtaHref: string | null, NavItems: Array<{ __typename?: 'ContentAreaItemModelSearch', ContentLink: { __typename?: 'ContentModelReferenceSearch', Expanded: { __typename: 'AvailabilityBlock' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Content' } | { __typename: 'FooterColumn' } | { __typename: 'FooterPage' } | { __typename: 'GenericMedia' } | { __typename: 'HeaderPage' } | { __typename: 'HeroBlock' } | { __typename: 'ImageFile' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock' } | { __typename: 'NavItem', Label: string | null, Href: string | null } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock' } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock' } | { __typename: 'VectorImageFile' } | { __typename: 'VideoFile' } | null } | null } | null> | null } | null> | null } | null };
 
 export type GetPageByUrlQueryVariables = Exact<{
   locales: InputMaybe<Array<InputMaybe<Locales>> | InputMaybe<Locales>>;
@@ -4854,248 +11920,193 @@ export type GetPageByUrlQueryVariables = Exact<{
 }>;
 
 
-export type GetPageByUrlQuery = { __typename?: 'Query', CMSPage: { __typename?: 'CMSPageOutput', items: Array<{ __typename?: 'CMSPage', title: string | null, shortDescription: string | null, keywords: string | null, _modified: any | null, blocks: Array<{ __typename: 'AvailabilityBlock', availability: string | null, projectTypes: Array<string | null> | null } | { __typename: 'BlankExperience' } | { __typename: 'BlankSection' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock', title: string | null, description: string | null } | { __typename: 'Footer' } | { __typename: 'FooterColumn' } | { __typename: 'GenericMedia123' } | { __typename: 'Header' } | { __typename: 'HeroBlock', title: string | null, subtitle: string | null, decorationColorsPrimary: string | null, decorationColorsSecondary: string | null, showDecoration: boolean | null } | { __typename: 'ImageMedia' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock', logos: Array<{ __typename: 'AvailabilityBlock' } | { __typename: 'BlankExperience' } | { __typename: 'BlankSection' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Footer' } | { __typename: 'FooterColumn' } | { __typename: 'GenericMedia123' } | { __typename: 'Header' } | { __typename: 'HeroBlock' } | { __typename: 'ImageMedia' } | { __typename: 'LogoItemBlock', src: string | null, alt: string | null } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock' } | { __typename: 'SEOExperience' } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'SysContentFolder' } | { __typename: 'TestimonialItem' } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock' } | { __typename: 'VideoMedia' } | { __typename: '_Component' } | { __typename: '_Content' } | { __typename: '_Experience' } | { __typename: '_Folder' } | { __typename: '_Image' } | { __typename: '_Media' } | { __typename: '_Page' } | { __typename: '_Section' } | { __typename: '_Video' } | null> | null } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock', title: string | null, items: Array<{ __typename: 'AvailabilityBlock' } | { __typename: 'BlankExperience' } | { __typename: 'BlankSection' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Footer' } | { __typename: 'FooterColumn' } | { __typename: 'GenericMedia123' } | { __typename: 'Header' } | { __typename: 'HeroBlock' } | { __typename: 'ImageMedia' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock', title: string | null, description: string | null, imageUrl: string | null, link: string | null } | { __typename: 'ProfileBlock' } | { __typename: 'SEOExperience' } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'SysContentFolder' } | { __typename: 'TestimonialItem' } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock' } | { __typename: 'VideoMedia' } | { __typename: '_Component' } | { __typename: '_Content' } | { __typename: '_Experience' } | { __typename: '_Folder' } | { __typename: '_Image' } | { __typename: '_Media' } | { __typename: '_Page' } | { __typename: '_Section' } | { __typename: '_Video' } | null> | null } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock', imageSrc: string | null, bio: string | null, name: string | null, title: string | null } | { __typename: 'SEOExperience' } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock', services: Array<{ __typename: 'AvailabilityBlock' } | { __typename: 'BlankExperience' } | { __typename: 'BlankSection' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Footer' } | { __typename: 'FooterColumn' } | { __typename: 'GenericMedia123' } | { __typename: 'Header' } | { __typename: 'HeroBlock' } | { __typename: 'ImageMedia' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock' } | { __typename: 'SEOExperience' } | { __typename: 'ServiceItem', title: string | null, description: string | null, icon: string | null } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'SysContentFolder' } | { __typename: 'TestimonialItem' } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock' } | { __typename: 'VideoMedia' } | { __typename: '_Component' } | { __typename: '_Content' } | { __typename: '_Experience' } | { __typename: '_Folder' } | { __typename: '_Image' } | { __typename: '_Media' } | { __typename: '_Page' } | { __typename: '_Section' } | { __typename: '_Video' } | null> | null } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock', story: string | null, highlights: Array<string | null> | null } | { __typename: 'SysContentFolder' } | { __typename: 'TestimonialItem' } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock', title: string | null, testimonials: Array<{ __typename: 'AvailabilityBlock' } | { __typename: 'BlankExperience' } | { __typename: 'BlankSection' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Footer' } | { __typename: 'FooterColumn' } | { __typename: 'GenericMedia123' } | { __typename: 'Header' } | { __typename: 'HeroBlock' } | { __typename: 'ImageMedia' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock' } | { __typename: 'SEOExperience' } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'SysContentFolder' } | { __typename: 'TestimonialItem' } | { __typename: 'TestimonialItemBlock', fullName: string | null, position: string | null, content: string | null, avatarSrc: string | null } | { __typename: 'TestimonialsBlock' } | { __typename: 'VideoMedia' } | { __typename: '_Component' } | { __typename: '_Content' } | { __typename: '_Experience' } | { __typename: '_Folder' } | { __typename: '_Image' } | { __typename: '_Media' } | { __typename: '_Page' } | { __typename: '_Section' } | { __typename: '_Video' } | null> | null } | { __typename: 'VideoMedia' } | { __typename: '_Component' } | { __typename: '_Content' } | { __typename: '_Experience' } | { __typename: '_Folder' } | { __typename: '_Image' } | { __typename: '_Media' } | { __typename: '_Page' } | { __typename: '_Section' } | { __typename: '_Video' } | null> | null } | null> | null } | null };
+export type GetPageByUrlQuery = { __typename?: 'Query', CMSPage: { __typename?: 'CMSPageOutput', items: Array<{ __typename?: 'CMSPage', Title: string | null, ShortDescription: string | null, Keywords: string | null, _modified: any | null, Blocks: Array<{ __typename?: 'ContentAreaItemModelSearch', ContentLink: { __typename?: 'ContentModelReferenceSearch', Expanded: { __typename: 'AvailabilityBlock', Availability: string | null, ProjectTypes: Array<string | null> | null } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock', Title: string | null, Description: string | null } | { __typename: 'Content' } | { __typename: 'FooterColumn' } | { __typename: 'FooterPage' } | { __typename: 'GenericMedia' } | { __typename: 'HeaderPage' } | { __typename: 'HeroBlock', Title: string | null, Subtitle: string | null, DecorationColorsPrimary: string | null, DecorationColorsSecondary: string | null, ShowDecoration: any | null } | { __typename: 'ImageFile' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock', Links: Array<{ __typename?: 'ContentAreaItemModelSearch', DisplayOption: string | null, Tag: string | null, ContentLink: { __typename: 'ContentModelReferenceSearch', Expanded: { __typename?: 'AvailabilityBlock' } | { __typename?: 'CMSPage' } | { __typename?: 'ContactBlock' } | { __typename?: 'Content' } | { __typename?: 'FooterColumn' } | { __typename?: 'FooterPage' } | { __typename?: 'GenericMedia' } | { __typename?: 'HeaderPage' } | { __typename?: 'HeroBlock' } | { __typename?: 'ImageFile' } | { __typename?: 'LogoItemBlock', Src: string | null, Alt: string | null } | { __typename?: 'LogosBlock' } | { __typename?: 'NavItem' } | { __typename?: 'PortfolioGridBlock' } | { __typename?: 'PortfolioItemBlock' } | { __typename?: 'ProfileBlock' } | { __typename?: 'ServiceItem' } | { __typename?: 'ServicesBlock' } | { __typename?: 'SocialLink' } | { __typename?: 'StartPage' } | { __typename?: 'StoryBlock' } | { __typename?: 'TestimonialItemBlock' } | { __typename?: 'TestimonialsBlock' } | { __typename?: 'VectorImageFile' } | { __typename?: 'VideoFile' } | null } | null } | null> | null } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock', Title: string | null, Items: Array<{ __typename: 'ContentAreaItemModelSearch', ContentLink: { __typename?: 'ContentModelReferenceSearch', Expanded: { __typename: 'AvailabilityBlock' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Content' } | { __typename: 'FooterColumn' } | { __typename: 'FooterPage' } | { __typename: 'GenericMedia' } | { __typename: 'HeaderPage' } | { __typename: 'HeroBlock' } | { __typename: 'ImageFile' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock', Title: string | null, Description: string | null, ImageUrl: string | null, Link: string | null } | { __typename: 'ProfileBlock' } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock' } | { __typename: 'VectorImageFile' } | { __typename: 'VideoFile' } | null } | null } | null> | null } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock', ImageSrc: string | null, Bio: string | null, Name: string | null, Title: string | null } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock', Services: Array<{ __typename?: 'ContentAreaItemModelSearch', ContentLink: { __typename?: 'ContentModelReferenceSearch', Expanded: { __typename: 'AvailabilityBlock' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Content' } | { __typename: 'FooterColumn' } | { __typename: 'FooterPage' } | { __typename: 'GenericMedia' } | { __typename: 'HeaderPage' } | { __typename: 'HeroBlock' } | { __typename: 'ImageFile' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock' } | { __typename: 'ServiceItem', Title: string | null, Description: string | null, Icon: string | null } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock' } | { __typename: 'VectorImageFile' } | { __typename: 'VideoFile' } | null } | null } | null> | null } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock', Story: string | null, Highlights: string | null } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock', Title: string | null, Testimonials: Array<{ __typename: 'ContentAreaItemModelSearch', ContentLink: { __typename?: 'ContentModelReferenceSearch', Expanded: { __typename: 'AvailabilityBlock' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Content' } | { __typename: 'FooterColumn' } | { __typename: 'FooterPage' } | { __typename: 'GenericMedia' } | { __typename: 'HeaderPage' } | { __typename: 'HeroBlock' } | { __typename: 'ImageFile' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock' } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'TestimonialItemBlock', FullName: string | null, Position: string | null, Content: string | null, AvatarSrc: string | null } | { __typename: 'TestimonialsBlock' } | { __typename: 'VectorImageFile' } | { __typename: 'VideoFile' } | null } | null } | null> | null } | { __typename: 'VectorImageFile' } | { __typename: 'VideoFile' } | null } | null } | null> | null } | null> | null } | null };
 
 export type GetStartPageQueryVariables = Exact<{
   locales: InputMaybe<Array<InputMaybe<Locales>> | InputMaybe<Locales>>;
 }>;
 
 
-export type GetStartPageQuery = { __typename?: 'Query', StartPage: { __typename?: 'StartPageOutput', items: Array<{ __typename?: 'StartPage', title: string | null, shortDescription: string | null, keywords: string | null, blocks: Array<{ __typename: 'AvailabilityBlock', availability: string | null, projectTypes: Array<string | null> | null } | { __typename: 'BlankExperience' } | { __typename: 'BlankSection' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock', title: string | null, description: string | null } | { __typename: 'Footer' } | { __typename: 'FooterColumn' } | { __typename: 'GenericMedia123' } | { __typename: 'Header' } | { __typename: 'HeroBlock', title: string | null, subtitle: string | null, decorationColorsPrimary: string | null, decorationColorsSecondary: string | null, showDecoration: boolean | null } | { __typename: 'ImageMedia' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock', logos: Array<{ __typename: 'AvailabilityBlock' } | { __typename: 'BlankExperience' } | { __typename: 'BlankSection' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Footer' } | { __typename: 'FooterColumn' } | { __typename: 'GenericMedia123' } | { __typename: 'Header' } | { __typename: 'HeroBlock' } | { __typename: 'ImageMedia' } | { __typename: 'LogoItemBlock', src: string | null, alt: string | null } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock' } | { __typename: 'SEOExperience' } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'SysContentFolder' } | { __typename: 'TestimonialItem' } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock' } | { __typename: 'VideoMedia' } | { __typename: '_Component' } | { __typename: '_Content' } | { __typename: '_Experience' } | { __typename: '_Folder' } | { __typename: '_Image' } | { __typename: '_Media' } | { __typename: '_Page' } | { __typename: '_Section' } | { __typename: '_Video' } | null> | null } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock', title: string | null, items: Array<{ __typename: 'AvailabilityBlock' } | { __typename: 'BlankExperience' } | { __typename: 'BlankSection' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Footer' } | { __typename: 'FooterColumn' } | { __typename: 'GenericMedia123' } | { __typename: 'Header' } | { __typename: 'HeroBlock' } | { __typename: 'ImageMedia' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock', title: string | null, description: string | null, imageUrl: string | null, link: string | null } | { __typename: 'ProfileBlock' } | { __typename: 'SEOExperience' } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'SysContentFolder' } | { __typename: 'TestimonialItem' } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock' } | { __typename: 'VideoMedia' } | { __typename: '_Component' } | { __typename: '_Content' } | { __typename: '_Experience' } | { __typename: '_Folder' } | { __typename: '_Image' } | { __typename: '_Media' } | { __typename: '_Page' } | { __typename: '_Section' } | { __typename: '_Video' } | null> | null } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock', imageSrc: string | null, bio: string | null, name: string | null, title: string | null } | { __typename: 'SEOExperience' } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock', services: Array<{ __typename: 'AvailabilityBlock' } | { __typename: 'BlankExperience' } | { __typename: 'BlankSection' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Footer' } | { __typename: 'FooterColumn' } | { __typename: 'GenericMedia123' } | { __typename: 'Header' } | { __typename: 'HeroBlock' } | { __typename: 'ImageMedia' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock' } | { __typename: 'SEOExperience' } | { __typename: 'ServiceItem', title: string | null, description: string | null, icon: string | null } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'SysContentFolder' } | { __typename: 'TestimonialItem' } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock' } | { __typename: 'VideoMedia' } | { __typename: '_Component' } | { __typename: '_Content' } | { __typename: '_Experience' } | { __typename: '_Folder' } | { __typename: '_Image' } | { __typename: '_Media' } | { __typename: '_Page' } | { __typename: '_Section' } | { __typename: '_Video' } | null> | null } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock', story: string | null, highlights: Array<string | null> | null } | { __typename: 'SysContentFolder' } | { __typename: 'TestimonialItem' } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock', title: string | null, testimonials: Array<{ __typename: 'AvailabilityBlock' } | { __typename: 'BlankExperience' } | { __typename: 'BlankSection' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Footer' } | { __typename: 'FooterColumn' } | { __typename: 'GenericMedia123' } | { __typename: 'Header' } | { __typename: 'HeroBlock' } | { __typename: 'ImageMedia' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock' } | { __typename: 'SEOExperience' } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'SysContentFolder' } | { __typename: 'TestimonialItem' } | { __typename: 'TestimonialItemBlock', fullName: string | null, position: string | null, content: string | null, avatarSrc: string | null } | { __typename: 'TestimonialsBlock' } | { __typename: 'VideoMedia' } | { __typename: '_Component' } | { __typename: '_Content' } | { __typename: '_Experience' } | { __typename: '_Folder' } | { __typename: '_Image' } | { __typename: '_Media' } | { __typename: '_Page' } | { __typename: '_Section' } | { __typename: '_Video' } | null> | null } | { __typename: 'VideoMedia' } | { __typename: '_Component' } | { __typename: '_Content' } | { __typename: '_Experience' } | { __typename: '_Folder' } | { __typename: '_Image' } | { __typename: '_Media' } | { __typename: '_Page' } | { __typename: '_Section' } | { __typename: '_Video' } | null> | null } | null> | null } | null };
+export type GetStartPageQuery = { __typename?: 'Query', StartPage: { __typename?: 'StartPageOutput', items: Array<{ __typename?: 'StartPage', Title: string | null, ShortDescription: string | null, Keywords: string | null, Blocks: Array<{ __typename?: 'ContentAreaItemModelSearch', ContentLink: { __typename?: 'ContentModelReferenceSearch', Expanded: { __typename: 'AvailabilityBlock', Availability: string | null, ProjectTypes: Array<string | null> | null } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock', Title: string | null, Description: string | null } | { __typename: 'Content' } | { __typename: 'FooterColumn' } | { __typename: 'FooterPage' } | { __typename: 'GenericMedia' } | { __typename: 'HeaderPage' } | { __typename: 'HeroBlock', Title: string | null, Subtitle: string | null, DecorationColorsPrimary: string | null, DecorationColorsSecondary: string | null, ShowDecoration: any | null } | { __typename: 'ImageFile' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock', Links: Array<{ __typename?: 'ContentAreaItemModelSearch', DisplayOption: string | null, Tag: string | null, ContentLink: { __typename: 'ContentModelReferenceSearch', Expanded: { __typename?: 'AvailabilityBlock' } | { __typename?: 'CMSPage' } | { __typename?: 'ContactBlock' } | { __typename?: 'Content' } | { __typename?: 'FooterColumn' } | { __typename?: 'FooterPage' } | { __typename?: 'GenericMedia' } | { __typename?: 'HeaderPage' } | { __typename?: 'HeroBlock' } | { __typename?: 'ImageFile' } | { __typename?: 'LogoItemBlock', Src: string | null, Alt: string | null } | { __typename?: 'LogosBlock' } | { __typename?: 'NavItem' } | { __typename?: 'PortfolioGridBlock' } | { __typename?: 'PortfolioItemBlock' } | { __typename?: 'ProfileBlock' } | { __typename?: 'ServiceItem' } | { __typename?: 'ServicesBlock' } | { __typename?: 'SocialLink' } | { __typename?: 'StartPage' } | { __typename?: 'StoryBlock' } | { __typename?: 'TestimonialItemBlock' } | { __typename?: 'TestimonialsBlock' } | { __typename?: 'VectorImageFile' } | { __typename?: 'VideoFile' } | null } | null } | null> | null } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock', Title: string | null, Items: Array<{ __typename: 'ContentAreaItemModelSearch', ContentLink: { __typename?: 'ContentModelReferenceSearch', Expanded: { __typename: 'AvailabilityBlock' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Content' } | { __typename: 'FooterColumn' } | { __typename: 'FooterPage' } | { __typename: 'GenericMedia' } | { __typename: 'HeaderPage' } | { __typename: 'HeroBlock' } | { __typename: 'ImageFile' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock', Title: string | null, Description: string | null, ImageUrl: string | null, Link: string | null } | { __typename: 'ProfileBlock' } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock' } | { __typename: 'VectorImageFile' } | { __typename: 'VideoFile' } | null } | null } | null> | null } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock', ImageSrc: string | null, Bio: string | null, Name: string | null, Title: string | null } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock', Services: Array<{ __typename?: 'ContentAreaItemModelSearch', ContentLink: { __typename?: 'ContentModelReferenceSearch', Expanded: { __typename: 'AvailabilityBlock' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Content' } | { __typename: 'FooterColumn' } | { __typename: 'FooterPage' } | { __typename: 'GenericMedia' } | { __typename: 'HeaderPage' } | { __typename: 'HeroBlock' } | { __typename: 'ImageFile' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock' } | { __typename: 'ServiceItem', Title: string | null, Description: string | null, Icon: string | null } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock' } | { __typename: 'VectorImageFile' } | { __typename: 'VideoFile' } | null } | null } | null> | null } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock', Story: string | null, Highlights: string | null } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock', Title: string | null, Testimonials: Array<{ __typename: 'ContentAreaItemModelSearch', ContentLink: { __typename?: 'ContentModelReferenceSearch', Expanded: { __typename: 'AvailabilityBlock' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Content' } | { __typename: 'FooterColumn' } | { __typename: 'FooterPage' } | { __typename: 'GenericMedia' } | { __typename: 'HeaderPage' } | { __typename: 'HeroBlock' } | { __typename: 'ImageFile' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock' } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'TestimonialItemBlock', FullName: string | null, Position: string | null, Content: string | null, AvatarSrc: string | null } | { __typename: 'TestimonialsBlock' } | { __typename: 'VectorImageFile' } | { __typename: 'VideoFile' } | null } | null } | null> | null } | { __typename: 'VectorImageFile' } | { __typename: 'VideoFile' } | null } | null } | null> | null } | null> | null } | null };
 
-export type GetVisualBuilderBySlugQueryVariables = Exact<{
-  locales: InputMaybe<Array<InputMaybe<Locales>> | InputMaybe<Locales>>;
-  slug: InputMaybe<Scalars['String']['input']>;
-}>;
+export type HeroBlockFragmentFragment = { __typename?: 'HeroBlock', Title: string | null, Subtitle: string | null, DecorationColorsPrimary: string | null, DecorationColorsSecondary: string | null, ShowDecoration: any | null };
 
+export type ContactBlockFragmentFragment = { __typename?: 'ContactBlock', Title: string | null, Description: string | null };
 
-export type GetVisualBuilderBySlugQuery = { __typename?: 'Query', SEOExperience: { __typename?: 'SEOExperienceOutput', items: Array<{ __typename?: 'SEOExperience', title: string | null, shortDescription: string | null, keywords: string | null, composition: { __typename?: 'CompositionStructureNode', grids: Array<{ __typename?: 'CompositionComponentNode' } | { __typename?: 'CompositionNode' } | { __typename?: 'CompositionStructureNode', key: string | null, rows: Array<{ __typename?: 'CompositionComponentNode' } | { __typename?: 'CompositionNode' } | { __typename?: 'CompositionStructureNode', key: string | null, columns: Array<{ __typename?: 'CompositionComponentNode' } | { __typename?: 'CompositionNode' } | { __typename?: 'CompositionStructureNode', key: string | null, elements: Array<{ __typename?: 'CompositionComponentNode', key: string | null, component: { __typename: 'AvailabilityBlock', availability: string | null, projectTypes: Array<string | null> | null } | { __typename: 'BlankSection' } | { __typename: 'ContactBlock', title: string | null, description: string | null } | { __typename: 'FooterColumn' } | { __typename: 'HeroBlock', title: string | null, subtitle: string | null, decorationColorsPrimary: string | null, decorationColorsSecondary: string | null, showDecoration: boolean | null } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock', logos: Array<{ __typename: 'AvailabilityBlock' } | { __typename: 'BlankExperience' } | { __typename: 'BlankSection' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Footer' } | { __typename: 'FooterColumn' } | { __typename: 'GenericMedia123' } | { __typename: 'Header' } | { __typename: 'HeroBlock' } | { __typename: 'ImageMedia' } | { __typename: 'LogoItemBlock', src: string | null, alt: string | null } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock' } | { __typename: 'SEOExperience' } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'SysContentFolder' } | { __typename: 'TestimonialItem' } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock' } | { __typename: 'VideoMedia' } | { __typename: '_Component' } | { __typename: '_Content' } | { __typename: '_Experience' } | { __typename: '_Folder' } | { __typename: '_Image' } | { __typename: '_Media' } | { __typename: '_Page' } | { __typename: '_Section' } | { __typename: '_Video' } | null> | null } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock', title: string | null, items: Array<{ __typename: 'AvailabilityBlock' } | { __typename: 'BlankExperience' } | { __typename: 'BlankSection' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Footer' } | { __typename: 'FooterColumn' } | { __typename: 'GenericMedia123' } | { __typename: 'Header' } | { __typename: 'HeroBlock' } | { __typename: 'ImageMedia' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock', title: string | null, description: string | null, imageUrl: string | null, link: string | null } | { __typename: 'ProfileBlock' } | { __typename: 'SEOExperience' } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'SysContentFolder' } | { __typename: 'TestimonialItem' } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock' } | { __typename: 'VideoMedia' } | { __typename: '_Component' } | { __typename: '_Content' } | { __typename: '_Experience' } | { __typename: '_Folder' } | { __typename: '_Image' } | { __typename: '_Media' } | { __typename: '_Page' } | { __typename: '_Section' } | { __typename: '_Video' } | null> | null } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock', imageSrc: string | null, bio: string | null, name: string | null, title: string | null } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock', services: Array<{ __typename: 'AvailabilityBlock' } | { __typename: 'BlankExperience' } | { __typename: 'BlankSection' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Footer' } | { __typename: 'FooterColumn' } | { __typename: 'GenericMedia123' } | { __typename: 'Header' } | { __typename: 'HeroBlock' } | { __typename: 'ImageMedia' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock' } | { __typename: 'SEOExperience' } | { __typename: 'ServiceItem', title: string | null, description: string | null, icon: string | null } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'SysContentFolder' } | { __typename: 'TestimonialItem' } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock' } | { __typename: 'VideoMedia' } | { __typename: '_Component' } | { __typename: '_Content' } | { __typename: '_Experience' } | { __typename: '_Folder' } | { __typename: '_Image' } | { __typename: '_Media' } | { __typename: '_Page' } | { __typename: '_Section' } | { __typename: '_Video' } | null> | null } | { __typename: 'SocialLink' } | { __typename: 'StoryBlock', story: string | null, highlights: Array<string | null> | null } | { __typename: 'TestimonialItem' } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock', title: string | null, testimonials: Array<{ __typename: 'AvailabilityBlock' } | { __typename: 'BlankExperience' } | { __typename: 'BlankSection' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Footer' } | { __typename: 'FooterColumn' } | { __typename: 'GenericMedia123' } | { __typename: 'Header' } | { __typename: 'HeroBlock' } | { __typename: 'ImageMedia' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock' } | { __typename: 'SEOExperience' } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'SysContentFolder' } | { __typename: 'TestimonialItem' } | { __typename: 'TestimonialItemBlock', fullName: string | null, position: string | null, content: string | null, avatarSrc: string | null } | { __typename: 'TestimonialsBlock' } | { __typename: 'VideoMedia' } | { __typename: '_Component' } | { __typename: '_Content' } | { __typename: '_Experience' } | { __typename: '_Folder' } | { __typename: '_Image' } | { __typename: '_Media' } | { __typename: '_Page' } | { __typename: '_Section' } | { __typename: '_Video' } | null> | null } | { __typename: '_Component' } | { __typename: '_Section' } | null, displaySettings: Array<{ __typename?: 'CompositionDisplaySetting', value: string | null, key: string | null } | null> | null } | { __typename?: 'CompositionNode', key: string | null, displaySettings: Array<{ __typename?: 'CompositionDisplaySetting', value: string | null, key: string | null } | null> | null } | { __typename?: 'CompositionStructureNode', key: string | null, displaySettings: Array<{ __typename?: 'CompositionDisplaySetting', value: string | null, key: string | null } | null> | null } | null> | null } | null> | null } | null> | null } | null> | null } | null } | null> | null } | null };
+export type LogosBlockFragmentFragment = { __typename?: 'LogosBlock', Links: Array<{ __typename?: 'ContentAreaItemModelSearch', DisplayOption: string | null, Tag: string | null, ContentLink: { __typename: 'ContentModelReferenceSearch', Expanded: { __typename?: 'AvailabilityBlock' } | { __typename?: 'CMSPage' } | { __typename?: 'ContactBlock' } | { __typename?: 'Content' } | { __typename?: 'FooterColumn' } | { __typename?: 'FooterPage' } | { __typename?: 'GenericMedia' } | { __typename?: 'HeaderPage' } | { __typename?: 'HeroBlock' } | { __typename?: 'ImageFile' } | { __typename?: 'LogoItemBlock', Src: string | null, Alt: string | null } | { __typename?: 'LogosBlock' } | { __typename?: 'NavItem' } | { __typename?: 'PortfolioGridBlock' } | { __typename?: 'PortfolioItemBlock' } | { __typename?: 'ProfileBlock' } | { __typename?: 'ServiceItem' } | { __typename?: 'ServicesBlock' } | { __typename?: 'SocialLink' } | { __typename?: 'StartPage' } | { __typename?: 'StoryBlock' } | { __typename?: 'TestimonialItemBlock' } | { __typename?: 'TestimonialsBlock' } | { __typename?: 'VectorImageFile' } | { __typename?: 'VideoFile' } | null } | null } | null> | null };
 
-export type GetComponentByKeyQueryVariables = Exact<{
-  locales: InputMaybe<Array<InputMaybe<Locales>> | InputMaybe<Locales>>;
-  key: InputMaybe<Scalars['String']['input']>;
-  version: InputMaybe<Scalars['String']['input']>;
-}>;
+export type PortfolioGridBlockFragmentFragment = { __typename?: 'PortfolioGridBlock', Title: string | null, Items: Array<{ __typename: 'ContentAreaItemModelSearch', ContentLink: { __typename?: 'ContentModelReferenceSearch', Expanded: { __typename: 'AvailabilityBlock' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Content' } | { __typename: 'FooterColumn' } | { __typename: 'FooterPage' } | { __typename: 'GenericMedia' } | { __typename: 'HeaderPage' } | { __typename: 'HeroBlock' } | { __typename: 'ImageFile' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock', Title: string | null, Description: string | null, ImageUrl: string | null, Link: string | null } | { __typename: 'ProfileBlock' } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock' } | { __typename: 'VectorImageFile' } | { __typename: 'VideoFile' } | null } | null } | null> | null };
 
+export type ServicesBlockFragmentFragment = { __typename?: 'ServicesBlock', Services: Array<{ __typename?: 'ContentAreaItemModelSearch', ContentLink: { __typename?: 'ContentModelReferenceSearch', Expanded: { __typename: 'AvailabilityBlock' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Content' } | { __typename: 'FooterColumn' } | { __typename: 'FooterPage' } | { __typename: 'GenericMedia' } | { __typename: 'HeaderPage' } | { __typename: 'HeroBlock' } | { __typename: 'ImageFile' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock' } | { __typename: 'ServiceItem', Title: string | null, Description: string | null, Icon: string | null } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock' } | { __typename: 'VectorImageFile' } | { __typename: 'VideoFile' } | null } | null } | null> | null };
 
-export type GetComponentByKeyQuery = { __typename?: 'Query', _Component: { __typename?: '_ComponentOutput', items: Array<{ __typename: 'AvailabilityBlock', availability: string | null, projectTypes: Array<string | null> | null } | { __typename: 'BlankSection' } | { __typename: 'ContactBlock', title: string | null, description: string | null } | { __typename: 'FooterColumn' } | { __typename: 'HeroBlock', title: string | null, subtitle: string | null, decorationColorsPrimary: string | null, decorationColorsSecondary: string | null, showDecoration: boolean | null } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock', logos: Array<{ __typename: 'AvailabilityBlock' } | { __typename: 'BlankExperience' } | { __typename: 'BlankSection' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Footer' } | { __typename: 'FooterColumn' } | { __typename: 'GenericMedia123' } | { __typename: 'Header' } | { __typename: 'HeroBlock' } | { __typename: 'ImageMedia' } | { __typename: 'LogoItemBlock', src: string | null, alt: string | null } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock' } | { __typename: 'SEOExperience' } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'SysContentFolder' } | { __typename: 'TestimonialItem' } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock' } | { __typename: 'VideoMedia' } | { __typename: '_Component' } | { __typename: '_Content' } | { __typename: '_Experience' } | { __typename: '_Folder' } | { __typename: '_Image' } | { __typename: '_Media' } | { __typename: '_Page' } | { __typename: '_Section' } | { __typename: '_Video' } | null> | null } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock', title: string | null, items: Array<{ __typename: 'AvailabilityBlock' } | { __typename: 'BlankExperience' } | { __typename: 'BlankSection' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Footer' } | { __typename: 'FooterColumn' } | { __typename: 'GenericMedia123' } | { __typename: 'Header' } | { __typename: 'HeroBlock' } | { __typename: 'ImageMedia' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock', title: string | null, description: string | null, imageUrl: string | null, link: string | null } | { __typename: 'ProfileBlock' } | { __typename: 'SEOExperience' } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'SysContentFolder' } | { __typename: 'TestimonialItem' } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock' } | { __typename: 'VideoMedia' } | { __typename: '_Component' } | { __typename: '_Content' } | { __typename: '_Experience' } | { __typename: '_Folder' } | { __typename: '_Image' } | { __typename: '_Media' } | { __typename: '_Page' } | { __typename: '_Section' } | { __typename: '_Video' } | null> | null } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock', imageSrc: string | null, bio: string | null, name: string | null, title: string | null } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock', services: Array<{ __typename: 'AvailabilityBlock' } | { __typename: 'BlankExperience' } | { __typename: 'BlankSection' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Footer' } | { __typename: 'FooterColumn' } | { __typename: 'GenericMedia123' } | { __typename: 'Header' } | { __typename: 'HeroBlock' } | { __typename: 'ImageMedia' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock' } | { __typename: 'SEOExperience' } | { __typename: 'ServiceItem', title: string | null, description: string | null, icon: string | null } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'SysContentFolder' } | { __typename: 'TestimonialItem' } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock' } | { __typename: 'VideoMedia' } | { __typename: '_Component' } | { __typename: '_Content' } | { __typename: '_Experience' } | { __typename: '_Folder' } | { __typename: '_Image' } | { __typename: '_Media' } | { __typename: '_Page' } | { __typename: '_Section' } | { __typename: '_Video' } | null> | null } | { __typename: 'SocialLink' } | { __typename: 'StoryBlock', story: string | null, highlights: Array<string | null> | null } | { __typename: 'TestimonialItem' } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock', title: string | null, testimonials: Array<{ __typename: 'AvailabilityBlock' } | { __typename: 'BlankExperience' } | { __typename: 'BlankSection' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Footer' } | { __typename: 'FooterColumn' } | { __typename: 'GenericMedia123' } | { __typename: 'Header' } | { __typename: 'HeroBlock' } | { __typename: 'ImageMedia' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock' } | { __typename: 'SEOExperience' } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'SysContentFolder' } | { __typename: 'TestimonialItem' } | { __typename: 'TestimonialItemBlock', fullName: string | null, position: string | null, content: string | null, avatarSrc: string | null } | { __typename: 'TestimonialsBlock' } | { __typename: 'VideoMedia' } | { __typename: '_Component' } | { __typename: '_Content' } | { __typename: '_Experience' } | { __typename: '_Folder' } | { __typename: '_Image' } | { __typename: '_Media' } | { __typename: '_Page' } | { __typename: '_Section' } | { __typename: '_Video' } | null> | null } | { __typename: '_Component' } | { __typename: '_Section' } | null> | null } | null };
+export type TestimonialsBlockFragmentFragment = { __typename?: 'TestimonialsBlock', Title: string | null, Testimonials: Array<{ __typename: 'ContentAreaItemModelSearch', ContentLink: { __typename?: 'ContentModelReferenceSearch', Expanded: { __typename: 'AvailabilityBlock' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Content' } | { __typename: 'FooterColumn' } | { __typename: 'FooterPage' } | { __typename: 'GenericMedia' } | { __typename: 'HeaderPage' } | { __typename: 'HeroBlock' } | { __typename: 'ImageFile' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock' } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'TestimonialItemBlock', FullName: string | null, Position: string | null, Content: string | null, AvatarSrc: string | null } | { __typename: 'TestimonialsBlock' } | { __typename: 'VectorImageFile' } | { __typename: 'VideoFile' } | null } | null } | null> | null };
 
-export type GetContentByKeyAndVersionQueryVariables = Exact<{
-  key: InputMaybe<Scalars['String']['input']>;
-  ver: InputMaybe<Scalars['String']['input']>;
-}>;
+export type ProfileBlockFragmentFragment = { __typename?: 'ProfileBlock', ImageSrc: string | null, Bio: string | null, Name: string | null, Title: string | null };
 
+export type AvailabilityBlockFragmentFragment = { __typename?: 'AvailabilityBlock', Availability: string | null, ProjectTypes: Array<string | null> | null };
 
-export type GetContentByKeyAndVersionQuery = { __typename?: 'Query', _Content: { __typename?: '_ContentOutput', items: Array<{ __typename: 'AvailabilityBlock', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename: 'BlankExperience', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename: 'BlankSection', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename: 'CMSPage', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename: 'ContactBlock', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename: 'Footer', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename: 'FooterColumn', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename: 'GenericMedia123', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename: 'Header', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename: 'HeroBlock', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename: 'ImageMedia', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename: 'LogoItemBlock', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename: 'LogosBlock', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename: 'NavItem', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename: 'PortfolioGridBlock', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename: 'PortfolioItemBlock', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename: 'ProfileBlock', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename: 'SEOExperience', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename: 'ServiceItem', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename: 'ServicesBlock', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename: 'SocialLink', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename: 'StartPage', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename: 'StoryBlock', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename: 'SysContentFolder', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename: 'TestimonialItem', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename: 'TestimonialItemBlock', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename: 'TestimonialsBlock', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename: 'VideoMedia', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename: '_Component', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename: '_Content', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename: '_Experience', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename: '_Folder', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename: '_Image', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename: '_Media', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename: '_Page', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename: '_Section', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | { __typename: '_Video', _metadata: { __typename?: 'ContentMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'InstanceMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'ItemMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | { __typename?: 'MediaMetadata', displayName: string | null, version: string | null, key: string | null, url: { __typename?: 'ContentUrl', base: string | null, internal: string | null, hierarchical: string | null, default: string | null, type: string | null } | null } | null } | null> | null } | null };
+export type StoryBlockFragmentFragment = { __typename?: 'StoryBlock', Story: string | null, Highlights: string | null };
 
-export type GetPreviewPageByUrlQueryVariables = Exact<{
-  locales: InputMaybe<Array<InputMaybe<Locales>> | InputMaybe<Locales>>;
-  slug: InputMaybe<Scalars['String']['input']>;
-  version: InputMaybe<Scalars['String']['input']>;
-}>;
-
-
-export type GetPreviewPageByUrlQuery = { __typename?: 'Query', CMSPage: { __typename?: 'CMSPageOutput', items: Array<{ __typename?: 'CMSPage', blocks: Array<{ __typename: 'AvailabilityBlock', availability: string | null, projectTypes: Array<string | null> | null } | { __typename: 'BlankExperience' } | { __typename: 'BlankSection' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock', title: string | null, description: string | null } | { __typename: 'Footer' } | { __typename: 'FooterColumn' } | { __typename: 'GenericMedia123' } | { __typename: 'Header' } | { __typename: 'HeroBlock', title: string | null, subtitle: string | null, decorationColorsPrimary: string | null, decorationColorsSecondary: string | null, showDecoration: boolean | null } | { __typename: 'ImageMedia' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock', logos: Array<{ __typename: 'AvailabilityBlock' } | { __typename: 'BlankExperience' } | { __typename: 'BlankSection' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Footer' } | { __typename: 'FooterColumn' } | { __typename: 'GenericMedia123' } | { __typename: 'Header' } | { __typename: 'HeroBlock' } | { __typename: 'ImageMedia' } | { __typename: 'LogoItemBlock', src: string | null, alt: string | null } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock' } | { __typename: 'SEOExperience' } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'SysContentFolder' } | { __typename: 'TestimonialItem' } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock' } | { __typename: 'VideoMedia' } | { __typename: '_Component' } | { __typename: '_Content' } | { __typename: '_Experience' } | { __typename: '_Folder' } | { __typename: '_Image' } | { __typename: '_Media' } | { __typename: '_Page' } | { __typename: '_Section' } | { __typename: '_Video' } | null> | null } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock', title: string | null, items: Array<{ __typename: 'AvailabilityBlock' } | { __typename: 'BlankExperience' } | { __typename: 'BlankSection' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Footer' } | { __typename: 'FooterColumn' } | { __typename: 'GenericMedia123' } | { __typename: 'Header' } | { __typename: 'HeroBlock' } | { __typename: 'ImageMedia' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock', title: string | null, description: string | null, imageUrl: string | null, link: string | null } | { __typename: 'ProfileBlock' } | { __typename: 'SEOExperience' } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'SysContentFolder' } | { __typename: 'TestimonialItem' } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock' } | { __typename: 'VideoMedia' } | { __typename: '_Component' } | { __typename: '_Content' } | { __typename: '_Experience' } | { __typename: '_Folder' } | { __typename: '_Image' } | { __typename: '_Media' } | { __typename: '_Page' } | { __typename: '_Section' } | { __typename: '_Video' } | null> | null } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock', imageSrc: string | null, bio: string | null, name: string | null, title: string | null } | { __typename: 'SEOExperience' } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock', services: Array<{ __typename: 'AvailabilityBlock' } | { __typename: 'BlankExperience' } | { __typename: 'BlankSection' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Footer' } | { __typename: 'FooterColumn' } | { __typename: 'GenericMedia123' } | { __typename: 'Header' } | { __typename: 'HeroBlock' } | { __typename: 'ImageMedia' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock' } | { __typename: 'SEOExperience' } | { __typename: 'ServiceItem', title: string | null, description: string | null, icon: string | null } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'SysContentFolder' } | { __typename: 'TestimonialItem' } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock' } | { __typename: 'VideoMedia' } | { __typename: '_Component' } | { __typename: '_Content' } | { __typename: '_Experience' } | { __typename: '_Folder' } | { __typename: '_Image' } | { __typename: '_Media' } | { __typename: '_Page' } | { __typename: '_Section' } | { __typename: '_Video' } | null> | null } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock', story: string | null, highlights: Array<string | null> | null } | { __typename: 'SysContentFolder' } | { __typename: 'TestimonialItem' } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock', title: string | null, testimonials: Array<{ __typename: 'AvailabilityBlock' } | { __typename: 'BlankExperience' } | { __typename: 'BlankSection' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Footer' } | { __typename: 'FooterColumn' } | { __typename: 'GenericMedia123' } | { __typename: 'Header' } | { __typename: 'HeroBlock' } | { __typename: 'ImageMedia' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock' } | { __typename: 'SEOExperience' } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'SysContentFolder' } | { __typename: 'TestimonialItem' } | { __typename: 'TestimonialItemBlock', fullName: string | null, position: string | null, content: string | null, avatarSrc: string | null } | { __typename: 'TestimonialsBlock' } | { __typename: 'VideoMedia' } | { __typename: '_Component' } | { __typename: '_Content' } | { __typename: '_Experience' } | { __typename: '_Folder' } | { __typename: '_Image' } | { __typename: '_Media' } | { __typename: '_Page' } | { __typename: '_Section' } | { __typename: '_Video' } | null> | null } | { __typename: 'VideoMedia' } | { __typename: '_Component' } | { __typename: '_Content' } | { __typename: '_Experience' } | { __typename: '_Folder' } | { __typename: '_Image' } | { __typename: '_Media' } | { __typename: '_Page' } | { __typename: '_Section' } | { __typename: '_Video' } | null> | null } | null> | null } | null };
-
-export type GetPreviewStartPageQueryVariables = Exact<{
-  locales: InputMaybe<Array<InputMaybe<Locales>> | InputMaybe<Locales>>;
-  version: InputMaybe<Scalars['String']['input']>;
-}>;
-
-
-export type GetPreviewStartPageQuery = { __typename?: 'Query', StartPage: { __typename?: 'StartPageOutput', items: Array<{ __typename?: 'StartPage', blocks: Array<{ __typename: 'AvailabilityBlock', availability: string | null, projectTypes: Array<string | null> | null } | { __typename: 'BlankExperience' } | { __typename: 'BlankSection' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock', title: string | null, description: string | null } | { __typename: 'Footer' } | { __typename: 'FooterColumn' } | { __typename: 'GenericMedia123' } | { __typename: 'Header' } | { __typename: 'HeroBlock', title: string | null, subtitle: string | null, decorationColorsPrimary: string | null, decorationColorsSecondary: string | null, showDecoration: boolean | null } | { __typename: 'ImageMedia' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock', logos: Array<{ __typename: 'AvailabilityBlock' } | { __typename: 'BlankExperience' } | { __typename: 'BlankSection' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Footer' } | { __typename: 'FooterColumn' } | { __typename: 'GenericMedia123' } | { __typename: 'Header' } | { __typename: 'HeroBlock' } | { __typename: 'ImageMedia' } | { __typename: 'LogoItemBlock', src: string | null, alt: string | null } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock' } | { __typename: 'SEOExperience' } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'SysContentFolder' } | { __typename: 'TestimonialItem' } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock' } | { __typename: 'VideoMedia' } | { __typename: '_Component' } | { __typename: '_Content' } | { __typename: '_Experience' } | { __typename: '_Folder' } | { __typename: '_Image' } | { __typename: '_Media' } | { __typename: '_Page' } | { __typename: '_Section' } | { __typename: '_Video' } | null> | null } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock', title: string | null, items: Array<{ __typename: 'AvailabilityBlock' } | { __typename: 'BlankExperience' } | { __typename: 'BlankSection' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Footer' } | { __typename: 'FooterColumn' } | { __typename: 'GenericMedia123' } | { __typename: 'Header' } | { __typename: 'HeroBlock' } | { __typename: 'ImageMedia' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock', title: string | null, description: string | null, imageUrl: string | null, link: string | null } | { __typename: 'ProfileBlock' } | { __typename: 'SEOExperience' } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'SysContentFolder' } | { __typename: 'TestimonialItem' } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock' } | { __typename: 'VideoMedia' } | { __typename: '_Component' } | { __typename: '_Content' } | { __typename: '_Experience' } | { __typename: '_Folder' } | { __typename: '_Image' } | { __typename: '_Media' } | { __typename: '_Page' } | { __typename: '_Section' } | { __typename: '_Video' } | null> | null } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock', imageSrc: string | null, bio: string | null, name: string | null, title: string | null } | { __typename: 'SEOExperience' } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock', services: Array<{ __typename: 'AvailabilityBlock' } | { __typename: 'BlankExperience' } | { __typename: 'BlankSection' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Footer' } | { __typename: 'FooterColumn' } | { __typename: 'GenericMedia123' } | { __typename: 'Header' } | { __typename: 'HeroBlock' } | { __typename: 'ImageMedia' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock' } | { __typename: 'SEOExperience' } | { __typename: 'ServiceItem', title: string | null, description: string | null, icon: string | null } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'SysContentFolder' } | { __typename: 'TestimonialItem' } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock' } | { __typename: 'VideoMedia' } | { __typename: '_Component' } | { __typename: '_Content' } | { __typename: '_Experience' } | { __typename: '_Folder' } | { __typename: '_Image' } | { __typename: '_Media' } | { __typename: '_Page' } | { __typename: '_Section' } | { __typename: '_Video' } | null> | null } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock', story: string | null, highlights: Array<string | null> | null } | { __typename: 'SysContentFolder' } | { __typename: 'TestimonialItem' } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock', title: string | null, testimonials: Array<{ __typename: 'AvailabilityBlock' } | { __typename: 'BlankExperience' } | { __typename: 'BlankSection' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Footer' } | { __typename: 'FooterColumn' } | { __typename: 'GenericMedia123' } | { __typename: 'Header' } | { __typename: 'HeroBlock' } | { __typename: 'ImageMedia' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock' } | { __typename: 'SEOExperience' } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'SysContentFolder' } | { __typename: 'TestimonialItem' } | { __typename: 'TestimonialItemBlock', fullName: string | null, position: string | null, content: string | null, avatarSrc: string | null } | { __typename: 'TestimonialsBlock' } | { __typename: 'VideoMedia' } | { __typename: '_Component' } | { __typename: '_Content' } | { __typename: '_Experience' } | { __typename: '_Folder' } | { __typename: '_Image' } | { __typename: '_Media' } | { __typename: '_Page' } | { __typename: '_Section' } | { __typename: '_Video' } | null> | null } | { __typename: 'VideoMedia' } | { __typename: '_Component' } | { __typename: '_Content' } | { __typename: '_Experience' } | { __typename: '_Folder' } | { __typename: '_Image' } | { __typename: '_Media' } | { __typename: '_Page' } | { __typename: '_Section' } | { __typename: '_Video' } | null> | null } | null> | null } | null };
-
-export type VisualBuilderQueryVariables = Exact<{
-  locales: InputMaybe<Array<InputMaybe<Locales>> | InputMaybe<Locales>>;
-  key: InputMaybe<Scalars['String']['input']>;
-  version: InputMaybe<Scalars['String']['input']>;
-}>;
-
-
-export type VisualBuilderQuery = { __typename?: 'Query', SEOExperience: { __typename?: 'SEOExperienceOutput', items: Array<{ __typename?: 'SEOExperience', composition: { __typename?: 'CompositionStructureNode', grids: Array<{ __typename?: 'CompositionComponentNode' } | { __typename?: 'CompositionNode' } | { __typename?: 'CompositionStructureNode', key: string | null, rows: Array<{ __typename?: 'CompositionComponentNode' } | { __typename?: 'CompositionNode' } | { __typename?: 'CompositionStructureNode', key: string | null, columns: Array<{ __typename?: 'CompositionComponentNode' } | { __typename?: 'CompositionNode' } | { __typename?: 'CompositionStructureNode', key: string | null, elements: Array<{ __typename?: 'CompositionComponentNode', key: string | null, component: { __typename: 'AvailabilityBlock', availability: string | null, projectTypes: Array<string | null> | null } | { __typename: 'BlankSection' } | { __typename: 'ContactBlock', title: string | null, description: string | null } | { __typename: 'FooterColumn' } | { __typename: 'HeroBlock', title: string | null, subtitle: string | null, decorationColorsPrimary: string | null, decorationColorsSecondary: string | null, showDecoration: boolean | null } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock', logos: Array<{ __typename: 'AvailabilityBlock' } | { __typename: 'BlankExperience' } | { __typename: 'BlankSection' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Footer' } | { __typename: 'FooterColumn' } | { __typename: 'GenericMedia123' } | { __typename: 'Header' } | { __typename: 'HeroBlock' } | { __typename: 'ImageMedia' } | { __typename: 'LogoItemBlock', src: string | null, alt: string | null } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock' } | { __typename: 'SEOExperience' } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'SysContentFolder' } | { __typename: 'TestimonialItem' } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock' } | { __typename: 'VideoMedia' } | { __typename: '_Component' } | { __typename: '_Content' } | { __typename: '_Experience' } | { __typename: '_Folder' } | { __typename: '_Image' } | { __typename: '_Media' } | { __typename: '_Page' } | { __typename: '_Section' } | { __typename: '_Video' } | null> | null } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock', title: string | null, items: Array<{ __typename: 'AvailabilityBlock' } | { __typename: 'BlankExperience' } | { __typename: 'BlankSection' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Footer' } | { __typename: 'FooterColumn' } | { __typename: 'GenericMedia123' } | { __typename: 'Header' } | { __typename: 'HeroBlock' } | { __typename: 'ImageMedia' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock', title: string | null, description: string | null, imageUrl: string | null, link: string | null } | { __typename: 'ProfileBlock' } | { __typename: 'SEOExperience' } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'SysContentFolder' } | { __typename: 'TestimonialItem' } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock' } | { __typename: 'VideoMedia' } | { __typename: '_Component' } | { __typename: '_Content' } | { __typename: '_Experience' } | { __typename: '_Folder' } | { __typename: '_Image' } | { __typename: '_Media' } | { __typename: '_Page' } | { __typename: '_Section' } | { __typename: '_Video' } | null> | null } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock', imageSrc: string | null, bio: string | null, name: string | null, title: string | null } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock', services: Array<{ __typename: 'AvailabilityBlock' } | { __typename: 'BlankExperience' } | { __typename: 'BlankSection' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Footer' } | { __typename: 'FooterColumn' } | { __typename: 'GenericMedia123' } | { __typename: 'Header' } | { __typename: 'HeroBlock' } | { __typename: 'ImageMedia' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock' } | { __typename: 'SEOExperience' } | { __typename: 'ServiceItem', title: string | null, description: string | null, icon: string | null } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'SysContentFolder' } | { __typename: 'TestimonialItem' } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock' } | { __typename: 'VideoMedia' } | { __typename: '_Component' } | { __typename: '_Content' } | { __typename: '_Experience' } | { __typename: '_Folder' } | { __typename: '_Image' } | { __typename: '_Media' } | { __typename: '_Page' } | { __typename: '_Section' } | { __typename: '_Video' } | null> | null } | { __typename: 'SocialLink' } | { __typename: 'StoryBlock', story: string | null, highlights: Array<string | null> | null } | { __typename: 'TestimonialItem' } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock', title: string | null, testimonials: Array<{ __typename: 'AvailabilityBlock' } | { __typename: 'BlankExperience' } | { __typename: 'BlankSection' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Footer' } | { __typename: 'FooterColumn' } | { __typename: 'GenericMedia123' } | { __typename: 'Header' } | { __typename: 'HeroBlock' } | { __typename: 'ImageMedia' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock' } | { __typename: 'SEOExperience' } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'SysContentFolder' } | { __typename: 'TestimonialItem' } | { __typename: 'TestimonialItemBlock', fullName: string | null, position: string | null, content: string | null, avatarSrc: string | null } | { __typename: 'TestimonialsBlock' } | { __typename: 'VideoMedia' } | { __typename: '_Component' } | { __typename: '_Content' } | { __typename: '_Experience' } | { __typename: '_Folder' } | { __typename: '_Image' } | { __typename: '_Media' } | { __typename: '_Page' } | { __typename: '_Section' } | { __typename: '_Video' } | null> | null } | { __typename: '_Component' } | { __typename: '_Section' } | null, displaySettings: Array<{ __typename?: 'CompositionDisplaySetting', value: string | null, key: string | null } | null> | null } | { __typename?: 'CompositionNode', key: string | null, displaySettings: Array<{ __typename?: 'CompositionDisplaySetting', value: string | null, key: string | null } | null> | null } | { __typename?: 'CompositionStructureNode', key: string | null, displaySettings: Array<{ __typename?: 'CompositionDisplaySetting', value: string | null, key: string | null } | null> | null } | null> | null } | null> | null } | null> | null } | null> | null } | null, _metadata: { __typename?: 'ContentMetadata', key: string | null, version: string | null } | { __typename?: 'InstanceMetadata', key: string | null, version: string | null } | { __typename?: 'ItemMetadata', key: string | null, version: string | null } | { __typename?: 'MediaMetadata', key: string | null, version: string | null } | null } | null> | null } | null };
-
-export type HeroBlockFragmentFragment = { __typename?: 'HeroBlock', title: string | null, subtitle: string | null, decorationColorsPrimary: string | null, decorationColorsSecondary: string | null, showDecoration: boolean | null };
-
-export type ContactBlockFragmentFragment = { __typename?: 'ContactBlock', title: string | null, description: string | null };
-
-export type LogosBlockFragmentFragment = { __typename?: 'LogosBlock', logos: Array<{ __typename: 'AvailabilityBlock' } | { __typename: 'BlankExperience' } | { __typename: 'BlankSection' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Footer' } | { __typename: 'FooterColumn' } | { __typename: 'GenericMedia123' } | { __typename: 'Header' } | { __typename: 'HeroBlock' } | { __typename: 'ImageMedia' } | { __typename: 'LogoItemBlock', src: string | null, alt: string | null } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock' } | { __typename: 'SEOExperience' } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'SysContentFolder' } | { __typename: 'TestimonialItem' } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock' } | { __typename: 'VideoMedia' } | { __typename: '_Component' } | { __typename: '_Content' } | { __typename: '_Experience' } | { __typename: '_Folder' } | { __typename: '_Image' } | { __typename: '_Media' } | { __typename: '_Page' } | { __typename: '_Section' } | { __typename: '_Video' } | null> | null };
-
-export type PortfolioGridBlockFragmentFragment = { __typename?: 'PortfolioGridBlock', title: string | null, items: Array<{ __typename: 'AvailabilityBlock' } | { __typename: 'BlankExperience' } | { __typename: 'BlankSection' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Footer' } | { __typename: 'FooterColumn' } | { __typename: 'GenericMedia123' } | { __typename: 'Header' } | { __typename: 'HeroBlock' } | { __typename: 'ImageMedia' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock', title: string | null, description: string | null, imageUrl: string | null, link: string | null } | { __typename: 'ProfileBlock' } | { __typename: 'SEOExperience' } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'SysContentFolder' } | { __typename: 'TestimonialItem' } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock' } | { __typename: 'VideoMedia' } | { __typename: '_Component' } | { __typename: '_Content' } | { __typename: '_Experience' } | { __typename: '_Folder' } | { __typename: '_Image' } | { __typename: '_Media' } | { __typename: '_Page' } | { __typename: '_Section' } | { __typename: '_Video' } | null> | null };
-
-export type ServicesBlockFragmentFragment = { __typename?: 'ServicesBlock', services: Array<{ __typename: 'AvailabilityBlock' } | { __typename: 'BlankExperience' } | { __typename: 'BlankSection' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Footer' } | { __typename: 'FooterColumn' } | { __typename: 'GenericMedia123' } | { __typename: 'Header' } | { __typename: 'HeroBlock' } | { __typename: 'ImageMedia' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock' } | { __typename: 'SEOExperience' } | { __typename: 'ServiceItem', title: string | null, description: string | null, icon: string | null } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'SysContentFolder' } | { __typename: 'TestimonialItem' } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock' } | { __typename: 'VideoMedia' } | { __typename: '_Component' } | { __typename: '_Content' } | { __typename: '_Experience' } | { __typename: '_Folder' } | { __typename: '_Image' } | { __typename: '_Media' } | { __typename: '_Page' } | { __typename: '_Section' } | { __typename: '_Video' } | null> | null };
-
-export type TestimonialsBlockFragmentFragment = { __typename?: 'TestimonialsBlock', title: string | null, testimonials: Array<{ __typename: 'AvailabilityBlock' } | { __typename: 'BlankExperience' } | { __typename: 'BlankSection' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Footer' } | { __typename: 'FooterColumn' } | { __typename: 'GenericMedia123' } | { __typename: 'Header' } | { __typename: 'HeroBlock' } | { __typename: 'ImageMedia' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock' } | { __typename: 'SEOExperience' } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'SysContentFolder' } | { __typename: 'TestimonialItem' } | { __typename: 'TestimonialItemBlock', fullName: string | null, position: string | null, content: string | null, avatarSrc: string | null } | { __typename: 'TestimonialsBlock' } | { __typename: 'VideoMedia' } | { __typename: '_Component' } | { __typename: '_Content' } | { __typename: '_Experience' } | { __typename: '_Folder' } | { __typename: '_Image' } | { __typename: '_Media' } | { __typename: '_Page' } | { __typename: '_Section' } | { __typename: '_Video' } | null> | null };
-
-export type ProfileBlockFragmentFragment = { __typename?: 'ProfileBlock', imageSrc: string | null, bio: string | null, name: string | null, title: string | null };
-
-export type AvailabilityBlockFragmentFragment = { __typename?: 'AvailabilityBlock', availability: string | null, projectTypes: Array<string | null> | null };
-
-export type StoryBlockFragmentFragment = { __typename?: 'StoryBlock', story: string | null, highlights: Array<string | null> | null };
-
-type ItemsInContentArea_AvailabilityBlock_Fragment = { __typename: 'AvailabilityBlock', availability: string | null, projectTypes: Array<string | null> | null };
-
-type ItemsInContentArea_BlankExperience_Fragment = { __typename: 'BlankExperience' };
-
-type ItemsInContentArea_BlankSection_Fragment = { __typename: 'BlankSection' };
+type ItemsInContentArea_AvailabilityBlock_Fragment = { __typename: 'AvailabilityBlock', Availability: string | null, ProjectTypes: Array<string | null> | null };
 
 type ItemsInContentArea_CmsPage_Fragment = { __typename: 'CMSPage' };
 
-type ItemsInContentArea_ContactBlock_Fragment = { __typename: 'ContactBlock', title: string | null, description: string | null };
+type ItemsInContentArea_ContactBlock_Fragment = { __typename: 'ContactBlock', Title: string | null, Description: string | null };
 
-type ItemsInContentArea_Footer_Fragment = { __typename: 'Footer' };
+type ItemsInContentArea_Content_Fragment = { __typename: 'Content' };
 
 type ItemsInContentArea_FooterColumn_Fragment = { __typename: 'FooterColumn' };
 
-type ItemsInContentArea_GenericMedia123_Fragment = { __typename: 'GenericMedia123' };
+type ItemsInContentArea_FooterPage_Fragment = { __typename: 'FooterPage' };
 
-type ItemsInContentArea_Header_Fragment = { __typename: 'Header' };
+type ItemsInContentArea_GenericMedia_Fragment = { __typename: 'GenericMedia' };
 
-type ItemsInContentArea_HeroBlock_Fragment = { __typename: 'HeroBlock', title: string | null, subtitle: string | null, decorationColorsPrimary: string | null, decorationColorsSecondary: string | null, showDecoration: boolean | null };
+type ItemsInContentArea_HeaderPage_Fragment = { __typename: 'HeaderPage' };
 
-type ItemsInContentArea_ImageMedia_Fragment = { __typename: 'ImageMedia' };
+type ItemsInContentArea_HeroBlock_Fragment = { __typename: 'HeroBlock', Title: string | null, Subtitle: string | null, DecorationColorsPrimary: string | null, DecorationColorsSecondary: string | null, ShowDecoration: any | null };
+
+type ItemsInContentArea_ImageFile_Fragment = { __typename: 'ImageFile' };
 
 type ItemsInContentArea_LogoItemBlock_Fragment = { __typename: 'LogoItemBlock' };
 
-type ItemsInContentArea_LogosBlock_Fragment = { __typename: 'LogosBlock', logos: Array<{ __typename: 'AvailabilityBlock' } | { __typename: 'BlankExperience' } | { __typename: 'BlankSection' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Footer' } | { __typename: 'FooterColumn' } | { __typename: 'GenericMedia123' } | { __typename: 'Header' } | { __typename: 'HeroBlock' } | { __typename: 'ImageMedia' } | { __typename: 'LogoItemBlock', src: string | null, alt: string | null } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock' } | { __typename: 'SEOExperience' } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'SysContentFolder' } | { __typename: 'TestimonialItem' } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock' } | { __typename: 'VideoMedia' } | { __typename: '_Component' } | { __typename: '_Content' } | { __typename: '_Experience' } | { __typename: '_Folder' } | { __typename: '_Image' } | { __typename: '_Media' } | { __typename: '_Page' } | { __typename: '_Section' } | { __typename: '_Video' } | null> | null };
+type ItemsInContentArea_LogosBlock_Fragment = { __typename: 'LogosBlock', Links: Array<{ __typename?: 'ContentAreaItemModelSearch', DisplayOption: string | null, Tag: string | null, ContentLink: { __typename: 'ContentModelReferenceSearch', Expanded: { __typename?: 'AvailabilityBlock' } | { __typename?: 'CMSPage' } | { __typename?: 'ContactBlock' } | { __typename?: 'Content' } | { __typename?: 'FooterColumn' } | { __typename?: 'FooterPage' } | { __typename?: 'GenericMedia' } | { __typename?: 'HeaderPage' } | { __typename?: 'HeroBlock' } | { __typename?: 'ImageFile' } | { __typename?: 'LogoItemBlock', Src: string | null, Alt: string | null } | { __typename?: 'LogosBlock' } | { __typename?: 'NavItem' } | { __typename?: 'PortfolioGridBlock' } | { __typename?: 'PortfolioItemBlock' } | { __typename?: 'ProfileBlock' } | { __typename?: 'ServiceItem' } | { __typename?: 'ServicesBlock' } | { __typename?: 'SocialLink' } | { __typename?: 'StartPage' } | { __typename?: 'StoryBlock' } | { __typename?: 'TestimonialItemBlock' } | { __typename?: 'TestimonialsBlock' } | { __typename?: 'VectorImageFile' } | { __typename?: 'VideoFile' } | null } | null } | null> | null };
 
 type ItemsInContentArea_NavItem_Fragment = { __typename: 'NavItem' };
 
-type ItemsInContentArea_PortfolioGridBlock_Fragment = { __typename: 'PortfolioGridBlock', title: string | null, items: Array<{ __typename: 'AvailabilityBlock' } | { __typename: 'BlankExperience' } | { __typename: 'BlankSection' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Footer' } | { __typename: 'FooterColumn' } | { __typename: 'GenericMedia123' } | { __typename: 'Header' } | { __typename: 'HeroBlock' } | { __typename: 'ImageMedia' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock', title: string | null, description: string | null, imageUrl: string | null, link: string | null } | { __typename: 'ProfileBlock' } | { __typename: 'SEOExperience' } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'SysContentFolder' } | { __typename: 'TestimonialItem' } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock' } | { __typename: 'VideoMedia' } | { __typename: '_Component' } | { __typename: '_Content' } | { __typename: '_Experience' } | { __typename: '_Folder' } | { __typename: '_Image' } | { __typename: '_Media' } | { __typename: '_Page' } | { __typename: '_Section' } | { __typename: '_Video' } | null> | null };
+type ItemsInContentArea_PortfolioGridBlock_Fragment = { __typename: 'PortfolioGridBlock', Title: string | null, Items: Array<{ __typename: 'ContentAreaItemModelSearch', ContentLink: { __typename?: 'ContentModelReferenceSearch', Expanded: { __typename: 'AvailabilityBlock' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Content' } | { __typename: 'FooterColumn' } | { __typename: 'FooterPage' } | { __typename: 'GenericMedia' } | { __typename: 'HeaderPage' } | { __typename: 'HeroBlock' } | { __typename: 'ImageFile' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock', Title: string | null, Description: string | null, ImageUrl: string | null, Link: string | null } | { __typename: 'ProfileBlock' } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock' } | { __typename: 'VectorImageFile' } | { __typename: 'VideoFile' } | null } | null } | null> | null };
 
 type ItemsInContentArea_PortfolioItemBlock_Fragment = { __typename: 'PortfolioItemBlock' };
 
-type ItemsInContentArea_ProfileBlock_Fragment = { __typename: 'ProfileBlock', imageSrc: string | null, bio: string | null, name: string | null, title: string | null };
-
-type ItemsInContentArea_SeoExperience_Fragment = { __typename: 'SEOExperience' };
+type ItemsInContentArea_ProfileBlock_Fragment = { __typename: 'ProfileBlock', ImageSrc: string | null, Bio: string | null, Name: string | null, Title: string | null };
 
 type ItemsInContentArea_ServiceItem_Fragment = { __typename: 'ServiceItem' };
 
-type ItemsInContentArea_ServicesBlock_Fragment = { __typename: 'ServicesBlock', services: Array<{ __typename: 'AvailabilityBlock' } | { __typename: 'BlankExperience' } | { __typename: 'BlankSection' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Footer' } | { __typename: 'FooterColumn' } | { __typename: 'GenericMedia123' } | { __typename: 'Header' } | { __typename: 'HeroBlock' } | { __typename: 'ImageMedia' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock' } | { __typename: 'SEOExperience' } | { __typename: 'ServiceItem', title: string | null, description: string | null, icon: string | null } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'SysContentFolder' } | { __typename: 'TestimonialItem' } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock' } | { __typename: 'VideoMedia' } | { __typename: '_Component' } | { __typename: '_Content' } | { __typename: '_Experience' } | { __typename: '_Folder' } | { __typename: '_Image' } | { __typename: '_Media' } | { __typename: '_Page' } | { __typename: '_Section' } | { __typename: '_Video' } | null> | null };
+type ItemsInContentArea_ServicesBlock_Fragment = { __typename: 'ServicesBlock', Services: Array<{ __typename?: 'ContentAreaItemModelSearch', ContentLink: { __typename?: 'ContentModelReferenceSearch', Expanded: { __typename: 'AvailabilityBlock' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Content' } | { __typename: 'FooterColumn' } | { __typename: 'FooterPage' } | { __typename: 'GenericMedia' } | { __typename: 'HeaderPage' } | { __typename: 'HeroBlock' } | { __typename: 'ImageFile' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock' } | { __typename: 'ServiceItem', Title: string | null, Description: string | null, Icon: string | null } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'TestimonialItemBlock' } | { __typename: 'TestimonialsBlock' } | { __typename: 'VectorImageFile' } | { __typename: 'VideoFile' } | null } | null } | null> | null };
 
 type ItemsInContentArea_SocialLink_Fragment = { __typename: 'SocialLink' };
 
 type ItemsInContentArea_StartPage_Fragment = { __typename: 'StartPage' };
 
-type ItemsInContentArea_StoryBlock_Fragment = { __typename: 'StoryBlock', story: string | null, highlights: Array<string | null> | null };
-
-type ItemsInContentArea_SysContentFolder_Fragment = { __typename: 'SysContentFolder' };
-
-type ItemsInContentArea_TestimonialItem_Fragment = { __typename: 'TestimonialItem' };
+type ItemsInContentArea_StoryBlock_Fragment = { __typename: 'StoryBlock', Story: string | null, Highlights: string | null };
 
 type ItemsInContentArea_TestimonialItemBlock_Fragment = { __typename: 'TestimonialItemBlock' };
 
-type ItemsInContentArea_TestimonialsBlock_Fragment = { __typename: 'TestimonialsBlock', title: string | null, testimonials: Array<{ __typename: 'AvailabilityBlock' } | { __typename: 'BlankExperience' } | { __typename: 'BlankSection' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Footer' } | { __typename: 'FooterColumn' } | { __typename: 'GenericMedia123' } | { __typename: 'Header' } | { __typename: 'HeroBlock' } | { __typename: 'ImageMedia' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock' } | { __typename: 'SEOExperience' } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'SysContentFolder' } | { __typename: 'TestimonialItem' } | { __typename: 'TestimonialItemBlock', fullName: string | null, position: string | null, content: string | null, avatarSrc: string | null } | { __typename: 'TestimonialsBlock' } | { __typename: 'VideoMedia' } | { __typename: '_Component' } | { __typename: '_Content' } | { __typename: '_Experience' } | { __typename: '_Folder' } | { __typename: '_Image' } | { __typename: '_Media' } | { __typename: '_Page' } | { __typename: '_Section' } | { __typename: '_Video' } | null> | null };
+type ItemsInContentArea_TestimonialsBlock_Fragment = { __typename: 'TestimonialsBlock', Title: string | null, Testimonials: Array<{ __typename: 'ContentAreaItemModelSearch', ContentLink: { __typename?: 'ContentModelReferenceSearch', Expanded: { __typename: 'AvailabilityBlock' } | { __typename: 'CMSPage' } | { __typename: 'ContactBlock' } | { __typename: 'Content' } | { __typename: 'FooterColumn' } | { __typename: 'FooterPage' } | { __typename: 'GenericMedia' } | { __typename: 'HeaderPage' } | { __typename: 'HeroBlock' } | { __typename: 'ImageFile' } | { __typename: 'LogoItemBlock' } | { __typename: 'LogosBlock' } | { __typename: 'NavItem' } | { __typename: 'PortfolioGridBlock' } | { __typename: 'PortfolioItemBlock' } | { __typename: 'ProfileBlock' } | { __typename: 'ServiceItem' } | { __typename: 'ServicesBlock' } | { __typename: 'SocialLink' } | { __typename: 'StartPage' } | { __typename: 'StoryBlock' } | { __typename: 'TestimonialItemBlock', FullName: string | null, Position: string | null, Content: string | null, AvatarSrc: string | null } | { __typename: 'TestimonialsBlock' } | { __typename: 'VectorImageFile' } | { __typename: 'VideoFile' } | null } | null } | null> | null };
 
-type ItemsInContentArea_VideoMedia_Fragment = { __typename: 'VideoMedia' };
+type ItemsInContentArea_VectorImageFile_Fragment = { __typename: 'VectorImageFile' };
 
-type ItemsInContentArea__Component_Fragment = { __typename: '_Component' };
+type ItemsInContentArea_VideoFile_Fragment = { __typename: 'VideoFile' };
 
-type ItemsInContentArea__Content_Fragment = { __typename: '_Content' };
-
-type ItemsInContentArea__Experience_Fragment = { __typename: '_Experience' };
-
-type ItemsInContentArea__Folder_Fragment = { __typename: '_Folder' };
-
-type ItemsInContentArea__Image_Fragment = { __typename: '_Image' };
-
-type ItemsInContentArea__Media_Fragment = { __typename: '_Media' };
-
-type ItemsInContentArea__Page_Fragment = { __typename: '_Page' };
-
-type ItemsInContentArea__Section_Fragment = { __typename: '_Section' };
-
-type ItemsInContentArea__Video_Fragment = { __typename: '_Video' };
-
-export type ItemsInContentAreaFragment = ItemsInContentArea_AvailabilityBlock_Fragment | ItemsInContentArea_BlankExperience_Fragment | ItemsInContentArea_BlankSection_Fragment | ItemsInContentArea_CmsPage_Fragment | ItemsInContentArea_ContactBlock_Fragment | ItemsInContentArea_Footer_Fragment | ItemsInContentArea_FooterColumn_Fragment | ItemsInContentArea_GenericMedia123_Fragment | ItemsInContentArea_Header_Fragment | ItemsInContentArea_HeroBlock_Fragment | ItemsInContentArea_ImageMedia_Fragment | ItemsInContentArea_LogoItemBlock_Fragment | ItemsInContentArea_LogosBlock_Fragment | ItemsInContentArea_NavItem_Fragment | ItemsInContentArea_PortfolioGridBlock_Fragment | ItemsInContentArea_PortfolioItemBlock_Fragment | ItemsInContentArea_ProfileBlock_Fragment | ItemsInContentArea_SeoExperience_Fragment | ItemsInContentArea_ServiceItem_Fragment | ItemsInContentArea_ServicesBlock_Fragment | ItemsInContentArea_SocialLink_Fragment | ItemsInContentArea_StartPage_Fragment | ItemsInContentArea_StoryBlock_Fragment | ItemsInContentArea_SysContentFolder_Fragment | ItemsInContentArea_TestimonialItem_Fragment | ItemsInContentArea_TestimonialItemBlock_Fragment | ItemsInContentArea_TestimonialsBlock_Fragment | ItemsInContentArea_VideoMedia_Fragment | ItemsInContentArea__Component_Fragment | ItemsInContentArea__Content_Fragment | ItemsInContentArea__Experience_Fragment | ItemsInContentArea__Folder_Fragment | ItemsInContentArea__Image_Fragment | ItemsInContentArea__Media_Fragment | ItemsInContentArea__Page_Fragment | ItemsInContentArea__Section_Fragment | ItemsInContentArea__Video_Fragment;
+export type ItemsInContentAreaFragment = ItemsInContentArea_AvailabilityBlock_Fragment | ItemsInContentArea_CmsPage_Fragment | ItemsInContentArea_ContactBlock_Fragment | ItemsInContentArea_Content_Fragment | ItemsInContentArea_FooterColumn_Fragment | ItemsInContentArea_FooterPage_Fragment | ItemsInContentArea_GenericMedia_Fragment | ItemsInContentArea_HeaderPage_Fragment | ItemsInContentArea_HeroBlock_Fragment | ItemsInContentArea_ImageFile_Fragment | ItemsInContentArea_LogoItemBlock_Fragment | ItemsInContentArea_LogosBlock_Fragment | ItemsInContentArea_NavItem_Fragment | ItemsInContentArea_PortfolioGridBlock_Fragment | ItemsInContentArea_PortfolioItemBlock_Fragment | ItemsInContentArea_ProfileBlock_Fragment | ItemsInContentArea_ServiceItem_Fragment | ItemsInContentArea_ServicesBlock_Fragment | ItemsInContentArea_SocialLink_Fragment | ItemsInContentArea_StartPage_Fragment | ItemsInContentArea_StoryBlock_Fragment | ItemsInContentArea_TestimonialItemBlock_Fragment | ItemsInContentArea_TestimonialsBlock_Fragment | ItemsInContentArea_VectorImageFile_Fragment | ItemsInContentArea_VideoFile_Fragment;
 
 export const HeroBlockFragmentFragmentDoc = gql`
     fragment HeroBlockFragment on HeroBlock {
-  title
-  subtitle
-  decorationColorsPrimary
-  decorationColorsSecondary
-  showDecoration
+  Title
+  Subtitle
+  DecorationColorsPrimary
+  DecorationColorsSecondary
+  ShowDecoration
 }
     `;
 export const ContactBlockFragmentFragmentDoc = gql`
     fragment ContactBlockFragment on ContactBlock {
-  title
-  description
+  Title
+  Description
 }
     `;
 export const LogosBlockFragmentFragmentDoc = gql`
     fragment LogosBlockFragment on LogosBlock {
-  logos {
-    __typename
-    ... on LogoItemBlock {
-      src
-      alt
+  Links {
+    DisplayOption
+    Tag
+    ContentLink {
+      __typename
+      Expanded {
+        ... on LogoItemBlock {
+          Src
+          Alt
+        }
+      }
     }
   }
 }
     `;
 export const PortfolioGridBlockFragmentFragmentDoc = gql`
     fragment PortfolioGridBlockFragment on PortfolioGridBlock {
-  title
-  items {
+  Title
+  Items {
     __typename
-    ... on PortfolioItemBlock {
-      title
-      description
-      imageUrl
-      link
+    ContentLink {
+      Expanded {
+        __typename
+        ... on PortfolioItemBlock {
+          Title
+          Description
+          ImageUrl
+          Link
+        }
+      }
     }
   }
 }
     `;
 export const ServicesBlockFragmentFragmentDoc = gql`
     fragment ServicesBlockFragment on ServicesBlock {
-  services {
-    __typename
-    ... on ServiceItem {
-      title
-      description
-      icon
+  Services {
+    ContentLink {
+      Expanded {
+        __typename
+        ... on ServiceItem {
+          Title
+          Description
+          Icon
+        }
+      }
     }
   }
 }
     `;
 export const TestimonialsBlockFragmentFragmentDoc = gql`
     fragment TestimonialsBlockFragment on TestimonialsBlock {
-  title
-  testimonials {
+  Title
+  Testimonials {
     __typename
-    ... on TestimonialItemBlock {
-      fullName
-      position
-      content
-      avatarSrc
+    ContentLink {
+      Expanded {
+        __typename
+        ... on TestimonialItemBlock {
+          FullName
+          Position
+          Content
+          AvatarSrc
+        }
+      }
     }
   }
 }
     `;
 export const ProfileBlockFragmentFragmentDoc = gql`
     fragment ProfileBlockFragment on ProfileBlock {
-  imageSrc
-  bio
-  name
-  title
+  ImageSrc
+  Bio
+  Name
+  Title
 }
     `;
 export const AvailabilityBlockFragmentFragmentDoc = gql`
     fragment AvailabilityBlockFragment on AvailabilityBlock {
-  availability
-  projectTypes
+  Availability
+  ProjectTypes
 }
     `;
 export const StoryBlockFragmentFragmentDoc = gql`
     fragment StoryBlockFragment on StoryBlock {
-  story
-  highlights
+  Story
+  Highlights
 }
     `;
 export const ItemsInContentAreaFragmentDoc = gql`
-    fragment ItemsInContentArea on _IContent {
+    fragment ItemsInContentArea on IContent {
   __typename
   ...HeroBlockFragment
   ...ContactBlockFragment
@@ -5118,39 +12129,26 @@ ${AvailabilityBlockFragmentFragmentDoc}
 ${StoryBlockFragmentFragmentDoc}`;
 export const AllPagesDocument = gql`
     query AllPages($pageType: [String]) {
-  _Content(where: {_metadata: {types: {in: $pageType}}}) {
+  Content(where: {ContentType: {in: $pageType}}) {
     items {
-      _metadata {
-        displayName
-        url {
-          base
-          internal
-          hierarchical
-          default
-          type
-        }
-        types
-        status
-      }
+      Name
+      RelativePath
+      RouteSegment
+      ContentType
     }
   }
 }
     `;
 export const GetContentByGuidDocument = gql`
     query GetContentByGuid($guid: String) {
-  _Content(where: {_metadata: {key: {eq: $guid}}}) {
+  Content(where: {ContentLink: {GuidValue: {eq: $guid}}}) {
     items {
-      _metadata {
-        displayName
-        version
-        key
-        url {
-          base
-          internal
-          hierarchical
-          default
-          type
-        }
+      ContentType
+      ContentLink {
+        GuidValue
+        Id
+        WorkId
+        Url
       }
     }
   }
@@ -5158,25 +12156,37 @@ export const GetContentByGuidDocument = gql`
     `;
 export const GetFooterDocument = gql`
     query getFooter($locales: [Locales]) {
-  Footer(locale: $locales) {
+  FooterPage(locale: $locales) {
     items {
-      copyrightText
-      socialLinks {
+      CopyrightText
+      SocialLinks {
         __typename
-        ... on SocialLink {
-          platform
-          href
+        ContentLink {
+          Expanded {
+            ... on SocialLink {
+              Platform
+              Href
+            }
+          }
         }
       }
-      columns {
+      Columns {
         __typename
-        ... on FooterColumn {
-          title
-          links {
-            __typename
-            ... on NavItem {
-              label
-              href
+        ContentLink {
+          Expanded {
+            ... on FooterColumn {
+              Title
+              Links {
+                ContentLink {
+                  Expanded {
+                    __typename
+                    ... on NavItem {
+                      Label
+                      Href
+                    }
+                  }
+                }
+              }
             }
           }
         }
@@ -5187,16 +12197,20 @@ export const GetFooterDocument = gql`
     `;
 export const GetHeaderDocument = gql`
     query getHeader($locale: [Locales]) {
-  Header(locale: $locale) {
+  HeaderPage(locale: $locale) {
     items {
-      logo
-      ctaText
-      ctaHref
-      navItems {
-        __typename
-        ... on NavItem {
-          label
-          href
+      Logo
+      CtaText
+      CtaHref
+      NavItems {
+        ContentLink {
+          Expanded {
+            __typename
+            ... on NavItem {
+              Label
+              Href
+            }
+          }
         }
       }
     }
@@ -5205,14 +12219,18 @@ export const GetHeaderDocument = gql`
     `;
 export const GetPageByUrlDocument = gql`
     query getPageByURL($locales: [Locales], $slug: String) {
-  CMSPage(locale: $locales, where: {_metadata: {url: {default: {eq: $slug}}}}) {
+  CMSPage(locale: $locales, where: {RelativePath: {eq: $slug}}) {
     items {
-      title
-      shortDescription
-      keywords
+      Title
+      ShortDescription
+      Keywords
       _modified
-      blocks {
-        ...ItemsInContentArea
+      Blocks {
+        ContentLink {
+          Expanded {
+            ...ItemsInContentArea
+          }
+        }
       }
     }
   }
@@ -5222,156 +12240,15 @@ export const GetStartPageDocument = gql`
     query GetStartPage($locales: [Locales]) {
   StartPage(locale: $locales) {
     items {
-      title
-      shortDescription
-      keywords
-      blocks {
-        ...ItemsInContentArea
-      }
-    }
-  }
-}
-    ${ItemsInContentAreaFragmentDoc}`;
-export const GetVisualBuilderBySlugDocument = gql`
-    query GetVisualBuilderBySlug($locales: [Locales], $slug: String) {
-  SEOExperience(
-    locale: $locales
-    where: {_metadata: {url: {default: {eq: $slug}}}}
-  ) {
-    items {
-      title
-      shortDescription
-      keywords
-      composition {
-        grids: nodes {
-          ... on CompositionStructureNode {
-            key
-            rows: nodes {
-              ... on CompositionStructureNode {
-                key
-                columns: nodes {
-                  ... on CompositionStructureNode {
-                    key
-                    elements: nodes {
-                      key
-                      displaySettings {
-                        value
-                        key
-                      }
-                      ... on CompositionComponentNode {
-                        component {
-                          ...ItemsInContentArea
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
+      Title
+      ShortDescription
+      Keywords
+      Blocks {
+        ContentLink {
+          Expanded {
+            ...ItemsInContentArea
           }
         }
-      }
-    }
-  }
-}
-    ${ItemsInContentAreaFragmentDoc}`;
-export const GetComponentByKeyDocument = gql`
-    query GetComponentByKey($locales: [Locales], $key: String, $version: String) {
-  _Component(
-    locale: $locales
-    where: {_metadata: {key: {eq: $key}}, _or: {_metadata: {version: {eq: $version}}}}
-  ) {
-    items {
-      ...ItemsInContentArea
-    }
-  }
-}
-    ${ItemsInContentAreaFragmentDoc}`;
-export const GetContentByKeyAndVersionDocument = gql`
-    query GetContentByKeyAndVersion($key: String, $ver: String) {
-  _Content(where: {_metadata: {key: {eq: $key}, version: {eq: $ver}}}) {
-    items {
-      __typename
-      _metadata {
-        displayName
-        version
-        key
-        url {
-          base
-          internal
-          hierarchical
-          default
-          type
-        }
-      }
-    }
-  }
-}
-    `;
-export const GetPreviewPageByUrlDocument = gql`
-    query getPreviewPageByURL($locales: [Locales], $slug: String, $version: String) {
-  CMSPage(
-    locale: $locales
-    where: {_metadata: {version: {eq: $version}}, _and: {_metadata: {url: {default: {eq: $slug}}}}}
-  ) {
-    items {
-      blocks {
-        ...ItemsInContentArea
-      }
-    }
-  }
-}
-    ${ItemsInContentAreaFragmentDoc}`;
-export const GetPreviewStartPageDocument = gql`
-    query GetPreviewStartPage($locales: [Locales], $version: String) {
-  StartPage(locale: $locales, where: {_metadata: {version: {eq: $version}}}) {
-    items {
-      blocks {
-        ...ItemsInContentArea
-      }
-    }
-  }
-}
-    ${ItemsInContentAreaFragmentDoc}`;
-export const VisualBuilderDocument = gql`
-    query VisualBuilder($locales: [Locales], $key: String, $version: String) {
-  SEOExperience(
-    locale: $locales
-    where: {_metadata: {key: {eq: $key}}, _or: {_metadata: {version: {eq: $version}}}}
-  ) {
-    items {
-      composition {
-        grids: nodes {
-          ... on CompositionStructureNode {
-            key
-            rows: nodes {
-              ... on CompositionStructureNode {
-                key
-                columns: nodes {
-                  ... on CompositionStructureNode {
-                    key
-                    elements: nodes {
-                      key
-                      displaySettings {
-                        value
-                        key
-                      }
-                      ... on CompositionComponentNode {
-                        component {
-                          ...ItemsInContentArea
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-      _metadata {
-        key
-        version
       }
     }
   }
@@ -5397,24 +12274,6 @@ export function getSdk<C, E>(requester: Requester<C, E>) {
     },
     GetStartPage(variables?: GetStartPageQueryVariables, options?: C): Promise<ExecutionResult<GetStartPageQuery, E>> {
       return requester<GetStartPageQuery, GetStartPageQueryVariables>(GetStartPageDocument, variables, options) as Promise<ExecutionResult<GetStartPageQuery, E>>;
-    },
-    GetVisualBuilderBySlug(variables?: GetVisualBuilderBySlugQueryVariables, options?: C): Promise<ExecutionResult<GetVisualBuilderBySlugQuery, E>> {
-      return requester<GetVisualBuilderBySlugQuery, GetVisualBuilderBySlugQueryVariables>(GetVisualBuilderBySlugDocument, variables, options) as Promise<ExecutionResult<GetVisualBuilderBySlugQuery, E>>;
-    },
-    GetComponentByKey(variables?: GetComponentByKeyQueryVariables, options?: C): Promise<ExecutionResult<GetComponentByKeyQuery, E>> {
-      return requester<GetComponentByKeyQuery, GetComponentByKeyQueryVariables>(GetComponentByKeyDocument, variables, options) as Promise<ExecutionResult<GetComponentByKeyQuery, E>>;
-    },
-    GetContentByKeyAndVersion(variables?: GetContentByKeyAndVersionQueryVariables, options?: C): Promise<ExecutionResult<GetContentByKeyAndVersionQuery, E>> {
-      return requester<GetContentByKeyAndVersionQuery, GetContentByKeyAndVersionQueryVariables>(GetContentByKeyAndVersionDocument, variables, options) as Promise<ExecutionResult<GetContentByKeyAndVersionQuery, E>>;
-    },
-    getPreviewPageByURL(variables?: GetPreviewPageByUrlQueryVariables, options?: C): Promise<ExecutionResult<GetPreviewPageByUrlQuery, E>> {
-      return requester<GetPreviewPageByUrlQuery, GetPreviewPageByUrlQueryVariables>(GetPreviewPageByUrlDocument, variables, options) as Promise<ExecutionResult<GetPreviewPageByUrlQuery, E>>;
-    },
-    GetPreviewStartPage(variables?: GetPreviewStartPageQueryVariables, options?: C): Promise<ExecutionResult<GetPreviewStartPageQuery, E>> {
-      return requester<GetPreviewStartPageQuery, GetPreviewStartPageQueryVariables>(GetPreviewStartPageDocument, variables, options) as Promise<ExecutionResult<GetPreviewStartPageQuery, E>>;
-    },
-    VisualBuilder(variables?: VisualBuilderQueryVariables, options?: C): Promise<ExecutionResult<VisualBuilderQuery, E>> {
-      return requester<VisualBuilderQuery, VisualBuilderQueryVariables>(VisualBuilderDocument, variables, options) as Promise<ExecutionResult<VisualBuilderQuery, E>>;
     }
   };
 }

@@ -1,0 +1,17 @@
+query getPageByURL($locales: [Locales], $slug: String) {
+  CMSPage(locale: $locales, where: { RelativePath: { eq: $slug } }) {
+    items {
+      Title
+      ShortDescription
+      Keywords
+      _modified
+      Blocks {
+        ContentLink {
+          Expanded {
+            ...ItemsInContentArea
+          }
+        }
+      }
+    }
+  }
+}

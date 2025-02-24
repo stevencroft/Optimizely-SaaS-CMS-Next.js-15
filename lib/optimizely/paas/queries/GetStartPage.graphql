@@ -1,0 +1,16 @@
+query GetStartPage($locales: [Locales]) {
+  StartPage(locale: $locales) {
+    items {
+      Title
+      ShortDescription
+      Keywords
+      Blocks {
+        ContentLink {
+          Expanded {
+            ...ItemsInContentArea
+          }
+        }
+      }
+    }
+  }
+}

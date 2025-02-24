@@ -1,0 +1,13 @@
+query GetContentByGuid($guid: String) {
+  Content(where: { ContentLink: { GuidValue: { eq: $guid } } }) {
+    items {
+      ContentType
+      ContentLink {
+        GuidValue
+        Id
+        WorkId
+        Url
+      }
+    }
+  }
+}

@@ -1,0 +1,109 @@
+fragment HeroBlockFragment on HeroBlock {
+  Title
+  Subtitle
+  DecorationColorsPrimary
+  DecorationColorsSecondary
+  ShowDecoration
+}
+
+fragment ContactBlockFragment on ContactBlock {
+  Title
+  Description
+}
+
+fragment LogosBlockFragment on LogosBlock {
+  Links {
+    DisplayOption
+    Tag
+    ContentLink {
+      __typename
+      Expanded {
+        ... on LogoItemBlock {
+          Src
+          Alt
+        }
+      }
+    }
+  }
+}
+
+fragment PortfolioGridBlockFragment on PortfolioGridBlock {
+  Title
+  Items {
+    __typename
+    ContentLink {
+      Expanded {
+        __typename
+        ... on PortfolioItemBlock {
+          Title
+          Description
+          ImageUrl
+          Link
+        }
+      }
+    }
+  }
+}
+
+fragment ServicesBlockFragment on ServicesBlock {
+  Services {
+    ContentLink {
+      Expanded {
+        __typename
+        ... on ServiceItem {
+          Title
+          Description
+          Icon
+        }
+      }
+    }
+  }
+}
+
+fragment TestimonialsBlockFragment on TestimonialsBlock {
+  Title
+  Testimonials {
+    __typename
+    ContentLink {
+      Expanded {
+        __typename
+        ... on TestimonialItemBlock {
+          FullName
+          Position
+          Content
+          AvatarSrc
+        }
+      }
+    }
+  }
+}
+
+fragment ProfileBlockFragment on ProfileBlock {
+  ImageSrc
+  Bio
+  Name
+  Title
+}
+
+fragment AvailabilityBlockFragment on AvailabilityBlock {
+  Availability
+  ProjectTypes
+}
+
+fragment StoryBlockFragment on StoryBlock {
+  Story
+  Highlights
+}
+
+fragment ItemsInContentArea on IContent {
+  __typename
+  ...HeroBlockFragment
+  ...ContactBlockFragment
+  ...LogosBlockFragment
+  ...PortfolioGridBlockFragment
+  ...ServicesBlockFragment
+  ...TestimonialsBlockFragment
+  ...ProfileBlockFragment
+  ...AvailabilityBlockFragment
+  ...StoryBlockFragment
+}
