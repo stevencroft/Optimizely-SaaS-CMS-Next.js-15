@@ -27,7 +27,9 @@ export function LanguageSwitcher({ currentLocale }: { currentLocale: string }) {
     const newPath = currentPath.includes(`/${currentLocale}`)
       ? currentPath.replace(`/${currentLocale}`, `/${newLocale}`)
       : `/${newLocale}/${currentPath}`
+
     router.push(newPath)
+    router.refresh()
   }
 
   return (

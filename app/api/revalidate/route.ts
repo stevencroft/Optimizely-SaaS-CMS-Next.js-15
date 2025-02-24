@@ -66,12 +66,14 @@ function normalizeUrl(url: string, locale: string): string {
 }
 
 async function handleRevalidation(urlWithLocale: string) {
-  console.log(`Revalidating path: ${urlWithLocale}`)
   if (urlWithLocale.includes('footer')) {
+    console.log(`Revalidating tag: optimizely-footer`)
     await revalidateTag('optimizely-footer')
   } else if (urlWithLocale.includes('header')) {
+    console.log(`Revalidating tag: optimizely-header`)
     await revalidateTag('optimizely-header')
   } else {
+    console.log(`Revalidating path: ${urlWithLocale}`)
     await revalidatePath(urlWithLocale)
   }
 }
