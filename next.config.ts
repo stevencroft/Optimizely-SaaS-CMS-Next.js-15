@@ -6,7 +6,6 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
   images: {
-    minimumCacheTTL: 600,
     domains: ['res.cloudinary.com'],
     remotePatterns: [
       {
@@ -22,14 +21,6 @@ const nextConfig: NextConfig = {
     ],
     loader: 'custom',
     loaderFile: './lib/image/loader.ts',
-  },
-  // Fix for image loader, bug in next.js source code
-  experimental: {
-    turbo: {
-      resolveAlias: {
-        'next/dist/shared/lib/image-loader': './lib/image/loader.ts',
-      },
-    },
   },
   async headers() {
     return [

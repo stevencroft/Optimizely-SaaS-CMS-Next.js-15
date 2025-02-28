@@ -27,10 +27,4 @@ export const blocks = {
   TestimonialsBlock,
 } as const
 
-export type BlockTypeName = keyof typeof blocks
-
-export type ContentAreaBlock = {
-  __typename: BlockTypeName
-} & React.ComponentProps<(typeof blocks)[BlockTypeName]>
-
 export default blocksMapperFactory(blocks)
