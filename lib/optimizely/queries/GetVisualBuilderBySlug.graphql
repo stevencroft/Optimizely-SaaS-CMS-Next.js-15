@@ -8,7 +8,14 @@ query GetVisualBuilderBySlug($locales: [Locales], $slug: String) {
       shortDescription
       keywords
       composition {
-        grids: nodes {
+        nodes {
+          nodeType
+          key
+          ... on CompositionComponentNode {
+            component {
+              ...ItemsInContentArea
+            }
+          }
           ... on CompositionStructureNode {
             key
             rows: nodes {

@@ -8,7 +8,14 @@ query VisualBuilder($locales: [Locales], $key: String, $version: String) {
   ) {
     items {
       composition {
-        grids: nodes {
+        nodes {
+          nodeType
+          key
+          ... on CompositionComponentNode {
+            component {
+              ...ItemsInContentArea
+            }
+          }
           ... on CompositionStructureNode {
             key
             rows: nodes {

@@ -24,8 +24,15 @@ export interface ExperienceElement {
   component?: any
 }
 
+export interface VisualBuilderNode {
+  nodeType: 'section' | 'component'
+  key: string
+  component?: any
+  rows?: Row[]
+}
+
 export type SafeVisualBuilderExperience = {
   composition?: {
-    grids?: Grid[]
+    nodes?: VisualBuilderNode[]
   }
 } & SeoExperience
