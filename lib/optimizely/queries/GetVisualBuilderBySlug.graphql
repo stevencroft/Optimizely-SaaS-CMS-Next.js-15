@@ -11,6 +11,10 @@ query GetVisualBuilderBySlug($locales: [Locales], $slug: String) {
         nodes {
           nodeType
           key
+          displaySettings {
+            value
+            key
+          }
           ... on CompositionComponentNode {
             component {
               ...ItemsInContentArea

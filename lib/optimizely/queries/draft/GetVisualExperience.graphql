@@ -11,6 +11,10 @@ query VisualBuilder($locales: [Locales], $key: String, $version: String) {
         nodes {
           nodeType
           key
+          displaySettings {
+            value
+            key
+          }
           ... on CompositionComponentNode {
             component {
               ...ItemsInContentArea
