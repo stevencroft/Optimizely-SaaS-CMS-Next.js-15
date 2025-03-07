@@ -32,17 +32,17 @@ This repository includes an `ExportedFile.episerverdata` file in the root folder
 ### Setup Instructions
 
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/szymonuryga/Optimizely-Masterclass.git
-   cd Optimizely-Masterclass
-   ```
 
-````
+```bash
+  git clone https://github.com/szymonuryga/Optimizely-Masterclass.git
+  cd Optimizely-Masterclass
+```
+
 2. Install dependencies:
 
 ```shellscript
 npm install
-````
+```
 
 3. Set up environment variables:
    Create a `.env` file in the root directory with the following variables:
