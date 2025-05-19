@@ -1,5 +1,7 @@
 // app/[locale]/[slug]/page.tsx
 import ContentAreaMapper from '@/components/content-area/mapper'
+import DraftModeCmsPage from '@/components/draft/draft-mode-cms-page'
+import { DraftModeLoader } from '@/components/draft/draft-mode-loader'
 import VisualBuilderExperienceWrapper from '@/components/visual-builder/wrapper'
 import { optimizely } from '@/lib/optimizely/fetch'
 import { SafeVisualBuilderExperience } from '@/lib/optimizely/types/experience'
@@ -9,6 +11,7 @@ import {
 } from '@/lib/optimizely/utils/language'
 import { generateAlternates } from '@/lib/utils/metadata'
 import { Metadata } from 'next'
+import { draftMode } from 'next/headers'
 import { notFound } from 'next/navigation'
 import { Suspense } from 'react'
 
@@ -87,6 +90,14 @@ export default async function CmsPage(props: {
   const { locale, slug = '' } = await props.params
   const locales = getValidLocale(locale)
   const formattedSlug = `/${slug}`
+  const { isEnabled: isDraftModeEnabled } = await draftMode()
+  if (isDraftModeEnabled) {
+    return (
+      <Suspense fallback={<DraftModeLoader />}>
+        <DraftModeCmsPage locales={locales} slug={formattedSlug} />
+      </Suspense>
+    )
+  }
 
   const { data, errors } = await optimizely.getPageByURL({
     locales: [locales],
