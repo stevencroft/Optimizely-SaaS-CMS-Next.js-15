@@ -1,13 +1,16 @@
-# Optimizely SaaS CMS + Next.js 15 Masterclass
+# Optimizely SaaS CMS + Next.js 15
 
 A comprehensive starter template for building modern websites with Optimizely SaaS CMS and Next.js 15 App Router. This template serves as an excellent starting point for projects integrating with Optimizely SaaS CMS.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fszymonuryga%2FOptimizely-Masterclass&env=OPTIMIZELY_API_URL,OPTIMIZELY_SINGLE_KEY,OPTIMIZELY_PREVIEW_SECRET,OPTIMIZELY_REVALIDATE_SECRET,NEXT_PUBLIC_CMS_URL)
+This project was built based on a free course on how to get started with Optimizely SaaS CMS. You can find step-by-step information on how this project was built at: https://opti-masterclass.vercel.app
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fszymonuryga%2FOptimizely-SaaS-CMS-Next.js-15&env=OPTIMIZELY_API_URL,OPTIMIZELY_SINGLE_KEY,OPTIMIZELY_PREVIEW_SECRET,OPTIMIZELY_REVALIDATE_SECRET,NEXT_PUBLIC_CMS_URL)
 
 ## Features
 
 - ⚡ **Next.js 15** with App Router
-- 🔄 **On-Demand Revalidation** via webhooks
+- 🏗️ **Static Site Generation (SSG)** for optimal performance
+- 🔄 **On-Demand Cache Revalidation** via webhooks for real-time content updates
 - 👁️ **Draft Mode** for content previews
 - 🌐 **Multi-language Support** with automatic language detection
 - 🧩 **Block Factory Mapper** for dynamic content rendering
@@ -19,7 +22,8 @@ A comprehensive starter template for building modern websites with Optimizely Sa
 
 ## Important Note
 
-This repository includes an `ExportedFile.episerverdata` file in the root folder which contains all content for Optimizely SaaS CMS. You can import this file into your Optimizely instance to get started with pre-configured content.
+- This repository includes an `ExportedFile.episerverdata` file in the root folder, which contains all initial content for Optimizely SaaS CMS. You can import this file into your Optimizely instance to get started with pre-configured content.
+- This template focuses on core functionality that is common to all projects, such as fetching content from Optimizely Graph, preview functionality, routing, Visual Builder and cache revalidation. The design is intentionally simple and serves as an example — each project will have its own design requirements.
 
 ## Getting Started
 
@@ -34,8 +38,8 @@ This repository includes an `ExportedFile.episerverdata` file in the root folder
 1. Clone the repository:
 
 ```bash
-  git clone https://github.com/szymonuryga/Optimizely-Masterclass.git
-  cd Optimizely-Masterclass
+git clone https://github.com/szymonuryga/Optimizely-SaaS-CMS-Next.js-15.git
+cd Optimizely-SaaS-CMS-Next.js-15
 ```
 
 2. Install dependencies:
@@ -45,7 +49,8 @@ npm install
 ```
 
 3. Set up environment variables:
-   Create a `.env` file in the root directory with the following variables:
+
+Create a `.env` file in the root directory with the following variables:
 
 ```plaintext
 OPTIMIZELY_API_URL="https://cg.optimizely.com/content/v2"
@@ -55,7 +60,7 @@ OPTIMIZELY_REVALIDATE_SECRET=""
 NEXT_PUBLIC_CMS_URL="https://app-{your-data}.cms.optimizely.com"
 ```
 
-4. Generate GraphQL types:
+4. Generate GraphQL types and SDK with all methods:
 
 ```shellscript
 npm run gen-types
@@ -73,26 +78,29 @@ npm run dev
 
 This project includes comprehensive documentation on various aspects of integrating Next.js with Optimizely SaaS CMS:
 
-- [Project Setup](docs/project-setup.md) - Basic setup instructions
-- [Block Factory Mapper](docs/block-factory-mapper.md) - Pattern for dynamically rendering content blocks
-- [Fetching Data](docs/fetch-data.md) - How to fetch data from Optimizely Graph
-- [Cache Revalidation](docs/cache-revalidation.md) - Implementing cache revalidation with webhooks
-- [Visual Builder](docs/visual-builder.md) - Integration with Optimizely's Visual Builder
-- [Draft Mode](docs/draft-mode.md) - Setting up preview/draft mode
-- [Multi-language Support](docs/multi-language.md) - Implementing localization
+- [Project Setup](https://github.com/szymonuryga/Optimizely-SaaS-CMS-Next.js-15/blob/main/docs/project-setup.md) - Basic setup instructions
+- [Block Factory Mapper](https://github.com/szymonuryga/Optimizely-SaaS-CMS-Next.js-15/blob/main/docs/block-factory-mapper.md) - Pattern for dynamically rendering content blocks
+- [Fetching Data](https://github.com/szymonuryga/Optimizely-SaaS-CMS-Next.js-15/blob/main/docs/fetch-data.md) - How to fetch data from Optimizely Graph
+- [Cache Revalidation](https://github.com/szymonuryga/Optimizely-SaaS-CMS-Next.js-15/blob/main/docs/cache-revalidation.md) - Implementing cache revalidation with webhooks
+- [Visual Builder](https://github.com/szymonuryga/Optimizely-SaaS-CMS-Next.js-15/blob/main/docs/visual-builder.md) - Integration with Optimizely's Visual Builder
+- [Draft Mode](https://github.com/szymonuryga/Optimizely-SaaS-CMS-Next.js-15/blob/main/docs/draft-mode.md) - Setting up preview/draft mode
+- [Multi-language Support](https://github.com/szymonuryga/Optimizely-SaaS-CMS-Next.js-15/blob/main/docs/multi-language.md) - Implementing localization
+
+👉 A complete step-by-step guide and course on how to build everything from scratch can be found here: https://opti-masterclass.vercel.app
 
 ## Importing Content to Optimizely
 
 1. Log in to your Optimizely SaaS CMS instance
-2. Go to Admin > Tools > Import Data
-3. Upload the `ExportedFile.episerverdata` file from the root of this project
-4. Follow the import wizard to complete the process
+2. **Important**: Make sure to add "Polish" language in your CMS settings before importing content to ensure successful import
+3. Go to Admin > Tools > Import Data
+4. Upload the `ExportedFile.episerverdata` file from the root of this project
+5. Follow the import wizard to complete the process
 
 ## Environment Variables
 
-- `OPTIMIZELY_API_URL`: The base URL for the Optimizely Content Graph API (typically "[https://cg.optimizely.com/content/v2](https://cg.optimizely.com/content/v2)")
+- `OPTIMIZELY_API_URL`: The base URL for the Optimizely Graph (typically "https://cg.optimizely.com/content/v2")
 - `OPTIMIZELY_SINGLE_KEY`: Your Optimizely Content Graph API key
-- `OPTIMIZELY_PREVIEW_SECRET`: Generated base64 string based on your AppKey and AppSecret credentials
+- `OPTIMIZELY_PREVIEW_SECRET`: Generated base64 string based on your AppKey and AppSecret credentials. For more details I recommend you to take a look at Kunal's article: https://kunalshetye.com/posts/optimizely-graph-using-appkey-appsecret/
 - `OPTIMIZELY_REVALIDATE_SECRET`: A secret key used for revalidating cached content
 - `NEXT_PUBLIC_CMS_URL`: The URL of your SaaS CMS instance
 
