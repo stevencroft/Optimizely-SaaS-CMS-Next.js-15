@@ -35,20 +35,20 @@ This project was built based on a free course on how to get started with Optimiz
 
 ### Setup Instructions
 
-1. Clone the repository:
+- Clone the repository:
 
 ```bash
 git clone https://github.com/szymonuryga/Optimizely-SaaS-CMS-Next.js-15.git
 cd Optimizely-SaaS-CMS-Next.js-15
 ```
 
-2. Install dependencies:
+- Install dependencies:
 
 ```shellscript
 npm install
 ```
 
-3. Set up environment variables:
+- Set up environment variables:
 
 Create a `.env` file in the root directory with the following variables:
 
@@ -60,19 +60,19 @@ OPTIMIZELY_REVALIDATE_SECRET=""
 NEXT_PUBLIC_CMS_URL="https://app-{your-data}.cms.optimizely.com"
 ```
 
-4. Generate GraphQL types and SDK with all methods:
+- Generate GraphQL types and SDK with all methods:
 
 ```shellscript
 npm run gen-types
 ```
 
-5. Start the development server:
+- Start the development server:
 
 ```shellscript
 npm run dev
 ```
 
-6. Open [http://localhost:3000](http://localhost:3000) in your browser.
+- Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Documentation
 
