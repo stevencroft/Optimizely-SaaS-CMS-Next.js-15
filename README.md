@@ -6,6 +6,8 @@ This project was built based on a free course on how to get started with Optimiz
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fszymonuryga%2FOptimizely-SaaS-CMS-Next.js-15&env=OPTIMIZELY_API_URL,OPTIMIZELY_SINGLE_KEY,OPTIMIZELY_PREVIEW_SECRET,OPTIMIZELY_REVALIDATE_SECRET,NEXT_PUBLIC_CMS_URL)
 
+> Note: This template requires an Optimizely SaaS CMS instance to retrieve content. Please connect with the [Optimizely] team (https://www.optimizely.com/products/content-management/) to receive CMS access.
+
 ## Features
 
 - ⚡ **Next.js 15** with App Router
